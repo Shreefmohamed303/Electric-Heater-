@@ -1,22 +1,46 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"38 ./DD.h
-[; ;./DD.h: 38: tDD_State Devices_State={OFF,OFF,OFF};
-[c E13 0 1 .. ]
-[n E13 . OFF ON  ]
-"31
-[; ;./DD.h: 31: {
-[s S95 `E13 1 `E13 1 `E13 1 ]
-[n S95 . HEATER_State HEATER_LED_State COOLER_State ]
-"1437 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1437: extern volatile unsigned char TRISC __attribute__((address(0x087)));
-[v _TRISC `Vuc ~T0 @X0 0 e@135 ]
-"1375
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1375: extern volatile unsigned char TRISB __attribute__((address(0x086)));
-[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
-"34 DD.c
-[; ;DD.c: 34: void DD_SetState(tDD device ,tState state)
-[c E865 0 1 2 3 4 5 .. ]
-[n E865 . ON_OFF_BUTTON UP_BUTTON DOWN_BUTTON HEATER COOLER HEATER_LED  ]
+"16 adc.c
+[; ;adc.c: 16: void ADC_Init(tADC_Config* config)
+[c E865 0 1 2 3 4 5 6 7 8 .. ]
+[n E865 . ADC0 ADC1 ADC2 ADC3 ADC4 ADC5 ADC6 ADC7 ADC8  ]
+[c E876 0 1 .. ]
+[n E876 . POLLING_MODE INTERRUPT_MODE  ]
+[c E880 0 1 .. ]
+[n E880 . LEFT RIGHT  ]
+[c E884 0 1 2 3 4 5 6 .. ]
+[n E884 . FOSC_2 FOSC_8 FOSC_32 FRC FOSC_4 FOSC_16 FOSC_64  ]
+"40 ./adc.h
+[; ;./adc.h: 40: {
+[s S95 `E865 1 `E876 1 `E880 1 `E884 1 ]
+[n S95 . channel mode alignment clk ]
+"1159 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1159: extern volatile unsigned char ADCON0 __attribute__((address(0x01F)));
+[v _ADCON0 `Vuc ~T0 @X0 0 e@31 ]
+"2229
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2229: extern volatile unsigned char ADCON1 __attribute__((address(0x09F)));
+[v _ADCON1 `Vuc ~T0 @X0 0 e@159 ]
+"2401
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2401: extern volatile __bit ADIF __attribute__((address(0x66)));
+[v _ADIF `Vb ~T0 @X0 0 e@102 ]
+"2398
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2398: extern volatile __bit ADIE __attribute__((address(0x466)));
+[v _ADIE `Vb ~T0 @X0 0 e@1126 ]
+"2629
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2629: extern volatile __bit PEIE __attribute__((address(0x5E)));
+[v _PEIE `Vb ~T0 @X0 0 e@94 ]
+"2569
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2569: extern volatile __bit GIE __attribute__((address(0x5F)));
+[v _GIE `Vb ~T0 @X0 0 e@95 ]
+[v F857 `(v ~T0 @X0 1 tf1`ul ]
+"92 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
+[v __delay `JF857 ~T0 @X0 0 e ]
+[p i __delay ]
+"1152 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1152: extern volatile unsigned char ADRESH __attribute__((address(0x01E)));
+[v _ADRESH `Vuc ~T0 @X0 0 e@30 ]
+"2222
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2222: extern volatile unsigned char ADRESL __attribute__((address(0x09E)));
+[v _ADRESL `Vuc ~T0 @X0 0 e@158 ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -197,235 +221,209 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"38 ./DD.h
-[; ;./DD.h: 38: tDD_State Devices_State={OFF,OFF,OFF};
-[v _Devices_State `S95 ~T0 @X0 1 e ]
-[i _Devices_State
-:U ..
-:U ..
-. `E13 0
-. `E13 0
-. `E13 0
-..
-..
-]
-"15 DD.c
-[; ;DD.c: 15: void DD_Init(void)
-[v _DD_Init `(v ~T0 @X0 1 ef ]
-"16
-[; ;DD.c: 16: {
-{
-[e :U _DD_Init ]
-[f ]
+"11 ./config.h
+[p x FOSC = XT ]
+"12
+[p x WDTE = OFF ]
+"13
+[p x PWRTE = ON ]
+"14
+[p x BOREN = ON ]
+"15
+[p x LVP = OFF ]
+"17
+[p x CPD = OFF ]
 "18
-[; ;DD.c: 18:     (0u)? (TRISC |= (1<<5)) : (TRISC &= ~(1<<5));
-[e ? != -> 0 `ui -> -> 0 `i `ui : -> =| _TRISC -> << -> 1 `i -> 5 `i `Vuc `i -> =& _TRISC -> ~ << -> 1 `i -> 5 `i `Vuc `i ]
-"19
-[; ;DD.c: 19:     (0u)? (TRISC |= (1<<2)) : (TRISC &= ~(1<<2));
-[e ? != -> 0 `ui -> -> 0 `i `ui : -> =| _TRISC -> << -> 1 `i -> 2 `i `Vuc `i -> =& _TRISC -> ~ << -> 1 `i -> 2 `i `Vuc `i ]
+[p x WRT = OFF ]
 "20
-[; ;DD.c: 20:     (1u)? (TRISB |= (1<<2)) : (TRISB &= ~(1<<2));
-[e ? != -> 1 `ui -> -> 0 `i `ui : -> =| _TRISB -> << -> 1 `i -> 2 `i `Vuc `i -> =& _TRISB -> ~ << -> 1 `i -> 2 `i `Vuc `i ]
+[p x CP = OFF ]
+"16 adc.c
+[; ;adc.c: 16: void ADC_Init(tADC_Config* config)
+[v _ADC_Init `(v ~T0 @X0 1 ef1`*S95 ]
+"17
+[; ;adc.c: 17: {
+{
+[e :U _ADC_Init ]
+"16
+[; ;adc.c: 16: void ADC_Init(tADC_Config* config)
+[v _config `*S95 ~T0 @X0 1 r1 ]
+"17
+[; ;adc.c: 17: {
+[f ]
+"19
+[; ;adc.c: 19:     ADCON0 |= (1<<0);
+[e =| _ADCON0 -> << -> 1 `i -> 0 `i `Vuc ]
 "21
-[; ;DD.c: 21:     (1u)? (TRISB |= (1<<0)) : (TRISB &= ~(1<<0));
-[e ? != -> 1 `ui -> -> 0 `i `ui : -> =| _TRISB -> << -> 1 `i -> 0 `i `Vuc `i -> =& _TRISB -> ~ << -> 1 `i -> 0 `i `Vuc `i ]
+[; ;adc.c: 21:     switch(config->clk)
+[e $U 98  ]
 "22
-[; ;DD.c: 22:     (0u)? (TRISB |= (1<<1)) : (TRISB &= ~(1<<1));
-[e ? != -> 0 `ui -> -> 0 `i `ui : -> =| _TRISB -> << -> 1 `i -> 1 `i `Vuc `i -> =& _TRISB -> ~ << -> 1 `i -> 1 `i `Vuc `i ]
+[; ;adc.c: 22:     {
+{
 "23
-[; ;DD.c: 23:     (0u)? (TRISB |= (1<<7)) : (TRISB &= ~(1<<7));
-[e ? != -> 0 `ui -> -> 0 `i `ui : -> =| _TRISB -> << -> 1 `i -> 7 `i `Vuc `i -> =& _TRISB -> ~ << -> 1 `i -> 7 `i `Vuc `i ]
+[; ;adc.c: 23:         case FOSC_2:
+[e :U 99 ]
+"24
+[; ;adc.c: 24:             ADCON0 &= ~(0xC0);
+[e =& _ADCON0 -> ~ -> 192 `i `Vuc ]
+"25
+[; ;adc.c: 25:             break;
+[e $U 97  ]
 "26
-[; ;DD.c: 26:     (OFF)?(TRISC |= (1<<5)) : (TRISC &= ~(1<<5));
-[e ? != -> . `E13 0 `i -> 0 `i : -> =| _TRISC -> << -> 1 `i -> 5 `i `Vuc `i -> =& _TRISC -> ~ << -> 1 `i -> 5 `i `Vuc `i ]
+[; ;adc.c: 26:         case FOSC_8:
+[e :U 100 ]
 "27
-[; ;DD.c: 27:     (OFF)?(TRISC |= (1<<2)) : (TRISC &= ~(1<<2));
-[e ? != -> . `E13 0 `i -> 0 `i : -> =| _TRISC -> << -> 1 `i -> 2 `i `Vuc `i -> =& _TRISC -> ~ << -> 1 `i -> 2 `i `Vuc `i ]
+[; ;adc.c: 27:             ADCON0 |= (1<<6);
+[e =| _ADCON0 -> << -> 1 `i -> 6 `i `Vuc ]
 "28
-[; ;DD.c: 28:     (OFF)?(TRISB |= (1<<1)) : (TRISB &= ~(1<<1));
-[e ? != -> . `E13 0 `i -> 0 `i : -> =| _TRISB -> << -> 1 `i -> 1 `i `Vuc `i -> =& _TRISB -> ~ << -> 1 `i -> 1 `i `Vuc `i ]
+[; ;adc.c: 28:             break;
+[e $U 97  ]
 "29
-[; ;DD.c: 29:     (OFF)?(TRISB |= (1<<7)) : (TRISB &= ~(1<<7));
-[e ? != -> . `E13 0 `i -> 0 `i : -> =| _TRISB -> << -> 1 `i -> 7 `i `Vuc `i -> =& _TRISB -> ~ << -> 1 `i -> 7 `i `Vuc `i ]
+[; ;adc.c: 29:         case FOSC_32:
+[e :U 101 ]
+"30
+[; ;adc.c: 30:             ADCON0 |= (2<<6);
+[e =| _ADCON0 -> << -> 2 `i -> 6 `i `Vuc ]
 "31
-[; ;DD.c: 31: }
+[; ;adc.c: 31:             break;
+[e $U 97  ]
+"32
+[; ;adc.c: 32:         case FRC:
+[e :U 102 ]
+"33
+[; ;adc.c: 33:             ADCON0 |= (3<<6);
+[e =| _ADCON0 -> << -> 3 `i -> 6 `i `Vuc ]
+"34
+[; ;adc.c: 34:             break;
+[e $U 97  ]
+"35
+[; ;adc.c: 35:         case FOSC_4:
+[e :U 103 ]
+"36
+[; ;adc.c: 36:             ADCON0 &= ~(0xC0);
+[e =& _ADCON0 -> ~ -> 192 `i `Vuc ]
+"37
+[; ;adc.c: 37:             ADCON1 |= (1<<6);
+[e =| _ADCON1 -> << -> 1 `i -> 6 `i `Vuc ]
+"38
+[; ;adc.c: 38:             break;
+[e $U 97  ]
+"39
+[; ;adc.c: 39:         case FOSC_16:
+[e :U 104 ]
+"40
+[; ;adc.c: 40:             ADCON0 |= (1<<6);
+[e =| _ADCON0 -> << -> 1 `i -> 6 `i `Vuc ]
+"41
+[; ;adc.c: 41:             ADCON1 |= (1<<6);
+[e =| _ADCON1 -> << -> 1 `i -> 6 `i `Vuc ]
+"42
+[; ;adc.c: 42:             break;
+[e $U 97  ]
+"43
+[; ;adc.c: 43:         case FOSC_64:
+[e :U 105 ]
+"44
+[; ;adc.c: 44:             ADCON0 |= (2<<6);
+[e =| _ADCON0 -> << -> 2 `i -> 6 `i `Vuc ]
+"45
+[; ;adc.c: 45:             ADCON1 |= (1<<6);
+[e =| _ADCON1 -> << -> 1 `i -> 6 `i `Vuc ]
+"46
+[; ;adc.c: 46:             break;
+[e $U 97  ]
+"48
+[; ;adc.c: 48:         default:
+[e :U 106 ]
+"49
+[; ;adc.c: 49:             ADCON0 |= (1<<6);
+[e =| _ADCON0 -> << -> 1 `i -> 6 `i `Vuc ]
+"50
+[; ;adc.c: 50:     }
+}
+[e $U 97  ]
+[e :U 98 ]
+[e [\ -> . *U _config 3 `ui , $ -> . `E884 0 `ui 99
+ , $ -> . `E884 1 `ui 100
+ , $ -> . `E884 2 `ui 101
+ , $ -> . `E884 3 `ui 102
+ , $ -> . `E884 4 `ui 103
+ , $ -> . `E884 5 `ui 104
+ , $ -> . `E884 6 `ui 105
+ 106 ]
+[e :U 97 ]
+"53
+[; ;adc.c: 53:     ADCON1 |= ((config->alignment)<<7);
+[e =| _ADCON1 -> << -> . *U _config 2 `ui -> 7 `i `Vuc ]
+"56
+[; ;adc.c: 56:     ADCON1 = (0x80);
+[e = _ADCON1 -> -> 128 `i `uc ]
+"60
+[; ;adc.c: 60:     if(config->mode==INTERRUPT_MODE)
+[e $ ! == -> . *U _config 1 `ui -> . `E876 1 `ui 107  ]
+"61
+[; ;adc.c: 61:     {
+{
+"62
+[; ;adc.c: 62:         ADIF = 0;
+[e = _ADIF -> -> 0 `i `b ]
+"63
+[; ;adc.c: 63:         ADIE = 1;
+[e = _ADIE -> -> 1 `i `b ]
+"64
+[; ;adc.c: 64:         PEIE = 1;
+[e = _PEIE -> -> 1 `i `b ]
+"65
+[; ;adc.c: 65:         GIE = 1;
+[e = _GIE -> -> 1 `i `b ]
+"66
+[; ;adc.c: 66:     }
+}
+[e :U 107 ]
+"67
+[; ;adc.c: 67: }
 [e :UE 96 ]
 }
-"34
-[; ;DD.c: 34: void DD_SetState(tDD device ,tState state)
-[v _DD_SetState `(v ~T0 @X0 1 ef2`E865`E13 ]
-"35
-[; ;DD.c: 35: {
-{
-[e :U _DD_SetState ]
-"34
-[; ;DD.c: 34: void DD_SetState(tDD device ,tState state)
-[v _device `E865 ~T0 @X0 1 r1 ]
-[v _state `E13 ~T0 @X0 1 r2 ]
-"35
-[; ;DD.c: 35: {
-[f ]
-"36
-[; ;DD.c: 36:     switch(device)
-[e $U 99  ]
-"37
-[; ;DD.c: 37:     {
-{
-"38
-[; ;DD.c: 38:         case HEATER:
-[e :U 100 ]
-"39
-[; ;DD.c: 39:             (state)?(TRISC |= (1<<5)) : (TRISC &= ~(1<<5));
-[e ? != -> _state `ui -> -> 0 `i `ui : -> =| _TRISC -> << -> 1 `i -> 5 `i `Vuc `i -> =& _TRISC -> ~ << -> 1 `i -> 5 `i `Vuc `i ]
-"40
-[; ;DD.c: 40:             Devices_State.HEATER_State=state;
-[e = . _Devices_State 0 _state ]
-"41
-[; ;DD.c: 41:             break;
-[e $U 98  ]
-"42
-[; ;DD.c: 42:         case COOLER:
-[e :U 101 ]
-"43
-[; ;DD.c: 43:             (state)?(TRISC |= (1<<2)) : (TRISC &= ~(1<<2));
-[e ? != -> _state `ui -> -> 0 `i `ui : -> =| _TRISC -> << -> 1 `i -> 2 `i `Vuc `i -> =& _TRISC -> ~ << -> 1 `i -> 2 `i `Vuc `i ]
-"44
-[; ;DD.c: 44:             Devices_State.COOLER_State=state;
-[e = . _Devices_State 2 _state ]
-"45
-[; ;DD.c: 45:             break;
-[e $U 98  ]
-"46
-[; ;DD.c: 46:         case HEATER_LED:
-[e :U 102 ]
-"47
-[; ;DD.c: 47:             (state)?(TRISB |= (1<<7)) : (TRISB &= ~(1<<7));
-[e ? != -> _state `ui -> -> 0 `i `ui : -> =| _TRISB -> << -> 1 `i -> 7 `i `Vuc `i -> =& _TRISB -> ~ << -> 1 `i -> 7 `i `Vuc `i ]
-"48
-[; ;DD.c: 48:             Devices_State.HEATER_LED_State=state;
-[e = . _Devices_State 1 _state ]
-"49
-[; ;DD.c: 49:             break;
-[e $U 98  ]
-"51
-[; ;DD.c: 51:         default:
-[e :U 103 ]
-"52
-[; ;DD.c: 52:             break ;
-[e $U 98  ]
-"53
-[; ;DD.c: 53:     }
-}
-[e $U 98  ]
-[e :U 99 ]
-[e [\ -> _device `ui , $ -> . `E865 3 `ui 100
- , $ -> . `E865 4 `ui 101
- , $ -> . `E865 5 `ui 102
- 103 ]
-[e :U 98 ]
-"54
-[; ;DD.c: 54: }
-[e :UE 97 ]
-}
-"55
-[; ;DD.c: 55: tState DD_GetState(tDD device)
-[v _DD_GetState `(E13 ~T0 @X0 1 ef1`E865 ]
-"56
-[; ;DD.c: 56: {
-{
-[e :U _DD_GetState ]
-"55
-[; ;DD.c: 55: tState DD_GetState(tDD device)
-[v _device `E865 ~T0 @X0 1 r1 ]
-"56
-[; ;DD.c: 56: {
-[f ]
-"57
-[; ;DD.c: 57:     switch(device)
-[e $U 106  ]
-"58
-[; ;DD.c: 58:     {
-{
-"59
-[; ;DD.c: 59:         case HEATER:
-[e :U 107 ]
-"60
-[; ;DD.c: 60:             return ((TRISC & (1<<5)) >> 5);
-[e ) -> >> & -> _TRISC `i << -> 1 `i -> 5 `i -> 5 `i `E13 ]
-[e $UE 104  ]
-"61
-[; ;DD.c: 61:             break;
-[e $U 105  ]
-"62
-[; ;DD.c: 62:         case COOLER:
-[e :U 108 ]
-"63
-[; ;DD.c: 63:             return ((TRISC & (1<<2)) >> 2);
-[e ) -> >> & -> _TRISC `i << -> 1 `i -> 2 `i -> 2 `i `E13 ]
-[e $UE 104  ]
-"64
-[; ;DD.c: 64:             break;
-[e $U 105  ]
-"65
-[; ;DD.c: 65:         case HEATER_LED:
-[e :U 109 ]
-"66
-[; ;DD.c: 66:             return ((TRISB & (1<<7)) >> 7);
-[e ) -> >> & -> _TRISB `i << -> 1 `i -> 7 `i -> 7 `i `E13 ]
-[e $UE 104  ]
-"67
-[; ;DD.c: 67:             break;
-[e $U 105  ]
-"68
-[; ;DD.c: 68:         case ON_OFF_BUTTON:
-[e :U 110 ]
 "69
-[; ;DD.c: 69:             return ((TRISB & (1<<1)) >> 1);
-[e ) -> >> & -> _TRISB `i << -> 1 `i -> 1 `i -> 1 `i `E13 ]
-[e $UE 104  ]
+[; ;adc.c: 69: uint16_t ADC_ReadChannel(tADC_Channel_Select channel)
+[v _ADC_ReadChannel `(us ~T0 @X0 1 ef1`E865 ]
 "70
-[; ;DD.c: 70:             break;
-[e $U 105  ]
-"71
-[; ;DD.c: 71:         case UP_BUTTON:
-[e :U 111 ]
+[; ;adc.c: 70: {
+{
+[e :U _ADC_ReadChannel ]
+"69
+[; ;adc.c: 69: uint16_t ADC_ReadChannel(tADC_Channel_Select channel)
+[v _channel `E865 ~T0 @X0 1 r1 ]
+"70
+[; ;adc.c: 70: {
+[f ]
 "72
-[; ;DD.c: 72:             return ((TRISB & (1<<2)) >> 2);
-[e ) -> >> & -> _TRISB `i << -> 1 `i -> 2 `i -> 2 `i `E13 ]
-[e $UE 104  ]
-"73
-[; ;DD.c: 73:             break;
-[e $U 105  ]
-"74
-[; ;DD.c: 74:         case DOWN_BUTTON:
-[e :U 112 ]
+[; ;adc.c: 72:     ADCON0 &= ~(7<<3);
+[e =& _ADCON0 -> ~ << -> 7 `i -> 3 `i `Vuc ]
 "75
-[; ;DD.c: 75:             return ((TRISB & (1<<0)) >> 0);
-[e ) -> >> & -> _TRISB `i << -> 1 `i -> 0 `i -> 0 `i `E13 ]
-[e $UE 104  ]
-"76
-[; ;DD.c: 76:             break;
-[e $U 105  ]
+[; ;adc.c: 75:     ADCON0 |= ((channel)<<3);
+[e =| _ADCON0 -> << -> _channel `ui -> 3 `i `Vuc ]
 "78
-[; ;DD.c: 78:         default:
-[e :U 113 ]
-"79
-[; ;DD.c: 79:             break;
-[e $U 105  ]
-"80
-[; ;DD.c: 80:     }
-}
-[e $U 105  ]
-[e :U 106 ]
-[e [\ -> _device `ui , $ -> . `E865 3 `ui 107
- , $ -> . `E865 4 `ui 108
- , $ -> . `E865 5 `ui 109
- , $ -> . `E865 0 `ui 110
- , $ -> . `E865 1 `ui 111
- , $ -> . `E865 2 `ui 112
- 113 ]
-[e :U 105 ]
+[; ;adc.c: 78:     _delay((unsigned long)((30)*(4000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
 "81
-[; ;DD.c: 81: }
-[e :UE 104 ]
+[; ;adc.c: 81:     (ADCON0|=(1<<2));
+[e =| _ADCON0 -> << -> 1 `i -> 2 `i `Vuc ]
+"84
+[; ;adc.c: 84:     while((ADCON0 & (1<<2)));
+[e $U 109  ]
+[e :U 110 ]
+[e :U 109 ]
+[e $ != & -> _ADCON0 `i << -> 1 `i -> 2 `i -> 0 `i 110  ]
+[e :U 111 ]
+"87
+[; ;adc.c: 87:     uint16_t result =((ADRESH<<8) + ADRESL) ;
+[v _result `us ~T0 @X0 1 a ]
+[e = _result -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `us ]
+"89
+[; ;adc.c: 89:     return result;
+[e ) _result ]
+[e $UE 108  ]
+"90
+[; ;adc.c: 90: }
+[e :UE 108 ]
 }

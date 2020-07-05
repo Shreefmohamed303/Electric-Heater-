@@ -27,5 +27,5 @@ typedef uint8_t Display_Number;
 /*-------------------------- FUNCTION DECLARATION ----------------------------*/
 static void Display_config (Display_ID ID ,tState Display_state); 
 Std_ReturnType Display_Write(Display_ID ID ,Display_Number Number); 
-
+void Heater_Display(uint16_t temp);
 #endif  

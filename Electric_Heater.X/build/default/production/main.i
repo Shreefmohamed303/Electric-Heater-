@@ -1790,6 +1790,7 @@ typedef uint8_t Display_Number;
 
 static void Display_config (Display_ID ID ,tState Display_state);
 Std_ReturnType Display_Write(Display_ID ID ,Display_Number Number);
+void Heater_Display(uint16_t temp);
 # 10 "main.c" 2
 
 # 1 "./i2c.h" 1
@@ -1855,64 +1856,101 @@ uint8_t EEPROM_ReadByte(uint16_t address );
 void EEPROM_ReadPage(uint16_t address , uint8_t *data , uint8_t Data_length);
 # 12 "main.c" 2
 
+# 1 "./adc.h" 1
+# 34 "./adc.h"
+typedef enum {ADC0=0,ADC1=1,ADC2=2,ADC3,ADC4,ADC5,ADC6,ADC7,ADC8}tADC_Channel_Select;
+typedef enum {POLLING_MODE ,INTERRUPT_MODE}tADC_Mode_Select;
+typedef enum {LEFT=0,RIGHT=1}tADC_Result_Alignment;
+typedef enum {FOSC_2,FOSC_8,FOSC_32,FRC,FOSC_4,FOSC_16,FOSC_64}tADC_clkSelect;
 
-uint8_t RX_Data,TX_DATA=0x55;
-
-void __attribute__((picinterrupt(("")))) I2C_INT_SlaveRead(void)
+typedef struct
 {
-    if(SSPIF)
-    {
-        CKP=0;
+    tADC_Channel_Select channel ;
+    tADC_Mode_Select mode;
+    tADC_Result_Alignment alignment;
+    tADC_clkSelect clk;
+}tADC_Config;
 
-        if(SSPOV || WCOL)
-        {
-            char Dummy = SSPBUF;
-            SSPOV = 0;
-            WCOL = 0;
-            CKP = 1;
-        }
-        if(!R_nW)
-        {
-           char Dummy = SSPBUF;
-           while(!BF);
-           RX_Data = SSPBUF;
-           CKP = 1;
-        }
-        else if(R_nW)
-        {
-           char Dummy = SSPBUF;
-           BF = 0;
-           SSPBUF = TX_DATA;
-           CKP = 1;
-           while(BF);
-        }
-        SSPIF=0;
-    }
+
+
+void ADC_Init(tADC_Config* config);
+uint16_t ADC_ReadChannel(tADC_Channel_Select channel);
+# 13 "main.c" 2
+
+# 1 "./DD.h" 1
+# 18 "./DD.h"
+# 1 "./Port.h" 1
+# 18 "./DD.h" 2
+
+
+typedef enum
+{
+    ON_OFF_BUTTON,
+    UP_BUTTON,
+    DOWN_BUTTON,
+    HEATER,
+    COOLER,
+    HEATER_LED
+}tDD;
+
+typedef struct
+{
+    tState HEATER_State;
+    tState HEATER_LED_State;
+    tState COOLER_State;
+}tDD_State;
+
+
+tDD_State Devices_State={OFF,OFF,OFF};
+
+void DD_Init(void);
+void DD_SetState(tDD device ,tState state);
+tState DD_GetState(tDD device);
+# 14 "main.c" 2
+
+
+void ADC_init()
+{
+    ADCON0 = 0x41;
+    ADCON1 = 0x80;
+
+}
+uint16_t ADC_Read(uint8_t ANC)
+{
+    if(ANC<0 || ANC>7)
+    { return 0;}
+    ADCON0 &= 0b11000101;
+    ADCON0 |= ANC<<3;
+
+    _delay((unsigned long)((30)*(4000000/4000000.0)));
+    GO_DONE = 1;
+    while(ADCON0bits.GO_DONE);
+
+    return ((ADRESH << 8) + ADRESL);
 }
 void main(void)
 {
-# 60 "main.c"
-    tI2C_Config config;
-    config.BaudRate=100000;
-    config.Mode=Master_Mode;
-    config.operationMode=POLLING;
 
-    I2C_Init(&config);
-    ((TRISD)= (0u)?(~0u):(0u));
-    ((PORTD)=(0x00));
-    uint16_t address=0x0020;
-    uint8_t data=0x04;
-    I2C_Master_Send_Start();
-    I2C_Master_WriteByte(0x40);
-    I2C_Master_WriteByte(0x55);
-    I2C_Master_Send_Stop();
-# 102 "main.c"
-    (0u)? (TRISC |= (1<<2)) : (TRISC &= ~(1<<2));
-    (1)?(PORTC |= (1<<2)) : (PORTC &= ~(1<<2));
-        (0u)? (TRISC |= (1<<5)) : (TRISC &= ~(1<<5));
-    (1)?(PORTC |= (1<<5)) : (PORTC &= ~(1<<5));
+    tADC_Config adc_config;
+    adc_config.alignment=RIGHT;
+    adc_config.channel=ADC2;
+    adc_config.clk=FOSC_8;
+    adc_config.mode= POLLING_MODE;
+
+    ADC_Init(&adc_config);
+
+    DD_Init();
+    DD_SetState(HEATER,ON);
+    uint16_t i=50;
+
     while(1)
     {
+
+       uint16_t Reading = ADC_ReadChannel(ADC2);
+        Heater_Display(Reading*0.488);
+
+        i++;
+        _delay((unsigned long)((200)*(4000000/4000.0)));
     }
     return;
 }

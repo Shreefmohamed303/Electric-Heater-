@@ -5,7 +5,7 @@
  * Created on June 30, 2020, 2:37 AM
  */
 #include "Display.h"
-
+#include "config.h"
 /*-------------------------- FUNCTION DEFINITION ----------------------------*/
 
 static void Display_config (Display_ID ID ,tState Display_state)
@@ -17,10 +17,11 @@ static void Display_config (Display_ID ID ,tState Display_state)
         case DISPLAY_1:
             GPIO_WritePin(DISPLAY_CR_DIRECTION,DISPLAY_1,GPIO_OUT); 
             GPIO_WritePin(DISPLAY_CR_PORT,DISPLAY_1,Display_state); 
-            break ; 
+            break; 
         case DISPLAY_2: 
             GPIO_WritePin(DISPLAY_CR_DIRECTION,DISPLAY_2,GPIO_OUT); 
             GPIO_WritePin(DISPLAY_CR_PORT,DISPLAY_2,Display_state); 
+            break;
         case DISPLAY_3: 
             GPIO_WritePin(DISPLAY_CR_DIRECTION,DISPLAY_3,GPIO_OUT); 
             GPIO_WritePin(DISPLAY_CR_PORT,DISPLAY_3,Display_state); 
@@ -49,4 +50,14 @@ Std_ReturnType Display_Write(Display_ID ID ,Display_Number Number)
         // Wrong Input Number 
         return E_NOT_OK ; 
     }
+}
+
+void Heater_Display(uint16_t temp)
+{
+    Display_config(DISPLAY_2,OFF);
+    Display_Write(DISPLAY_3,temp%10); 
+    __delay_ms(60);
+    Display_config(DISPLAY_3,OFF);
+    Display_Write(DISPLAY_2,(uint8_t)temp/10); 
+    __delay_ms(60);
 }

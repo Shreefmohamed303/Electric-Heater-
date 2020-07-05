@@ -7,7 +7,7 @@
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "DD.c" 2
-# 22 "DD.c"
+# 12 "DD.c"
 # 1 "./DD.h" 1
 # 17 "./DD.h"
 # 1 "./GPIO.h" 1
@@ -1766,13 +1766,23 @@ typedef enum
     DOWN_BUTTON,
     HEATER,
     COOLER,
-    Heating_LED
+    HEATER_LED
 }tDD;
-# 37 "./DD.h"
+
+typedef struct
+{
+    tState HEATER_State;
+    tState HEATER_LED_State;
+    tState COOLER_State;
+}tDD_State;
+
+
+tDD_State Devices_State={OFF,OFF,OFF};
+
 void DD_Init(void);
 void DD_SetState(tDD device ,tState state);
 tState DD_GetState(tDD device);
-# 22 "DD.c" 2
+# 12 "DD.c" 2
 
 
 
@@ -1781,7 +1791,65 @@ void DD_Init(void)
 
     (0u)? (TRISC |= (1<<5)) : (TRISC &= ~(1<<5));
     (0u)? (TRISC |= (1<<2)) : (TRISC &= ~(1<<2));
+    (1u)? (TRISB |= (1<<2)) : (TRISB &= ~(1<<2));
+    (1u)? (TRISB |= (1<<0)) : (TRISB &= ~(1<<0));
+    (0u)? (TRISB |= (1<<1)) : (TRISB &= ~(1<<1));
+    (0u)? (TRISB |= (1<<7)) : (TRISB &= ~(1<<7));
+
+
+    (OFF)?(TRISC |= (1<<5)) : (TRISC &= ~(1<<5));
+    (OFF)?(TRISC |= (1<<2)) : (TRISC &= ~(1<<2));
+    (OFF)?(TRISB |= (1<<1)) : (TRISB &= ~(1<<1));
+    (OFF)?(TRISB |= (1<<7)) : (TRISB &= ~(1<<7));
 
 }
-void DD_SetState(tDD device ,tState state);
-tState DD_GetState(tDD device);
+
+
+void DD_SetState(tDD device ,tState state)
+{
+    switch(device)
+    {
+        case HEATER:
+            (state)?(TRISC |= (1<<5)) : (TRISC &= ~(1<<5));
+            Devices_State.HEATER_State=state;
+            break;
+        case COOLER:
+            (state)?(TRISC |= (1<<2)) : (TRISC &= ~(1<<2));
+            Devices_State.COOLER_State=state;
+            break;
+        case HEATER_LED:
+            (state)?(TRISB |= (1<<7)) : (TRISB &= ~(1<<7));
+            Devices_State.HEATER_LED_State=state;
+            break;
+
+        default:
+            break ;
+    }
+}
+tState DD_GetState(tDD device)
+{
+    switch(device)
+    {
+        case HEATER:
+            return ((TRISC & (1<<5)) >> 5);
+            break;
+        case COOLER:
+            return ((TRISC & (1<<2)) >> 2);
+            break;
+        case HEATER_LED:
+            return ((TRISB & (1<<7)) >> 7);
+            break;
+        case ON_OFF_BUTTON:
+            return ((TRISB & (1<<1)) >> 1);
+            break;
+        case UP_BUTTON:
+            return ((TRISB & (1<<2)) >> 2);
+            break;
+        case DOWN_BUTTON:
+            return ((TRISB & (1<<0)) >> 0);
+            break;
+
+        default:
+            break;
+    }
+}

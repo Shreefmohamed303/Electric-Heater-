@@ -5,4 +5,7 @@ GPIO.h  \
 Std_Types.h  \
 Display.h  \
 i2c.h  \
-EEPROM.h 
+EEPROM.h  \
+adc.h  \
+DD.h  \
+Port.h 

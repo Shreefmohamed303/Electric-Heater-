@@ -15,6 +15,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "340
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 340: extern volatile unsigned char PORTD __attribute__((address(0x008)));
 [v _PORTD `Vuc ~T0 @X0 0 e@8 ]
+[v F857 `(v ~T0 @X0 1 tf1`ul ]
+"92 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
+[v __delay `JF857 ~T0 @X0 0 e ]
+[p i __delay ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -212,6 +216,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 111 `i `uc
 ..
 ]
+"11 ./config.h
+[p x FOSC = XT ]
+"12
+[p x WDTE = OFF ]
+"13
+[p x PWRTE = ON ]
+"14
+[p x BOREN = ON ]
+"15
+[p x LVP = OFF ]
+"17
+[p x CPD = OFF ]
+"18
+[p x WRT = OFF ]
+"20
+[p x CP = OFF ]
 "11 Display.c
 [; ;Display.c: 11: static void Display_config (Display_ID ID ,tState Display_state)
 [v _Display_config `(v ~T0 @X0 1 sf2`uc`E13 ]
@@ -242,7 +262,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Display.c: 19:             (Display_state)?(PORTA |= (1<<2)) : (PORTA &= ~(1<<2));
 [e ? != -> _Display_state `ui -> -> 0 `i `ui : -> =| _PORTA -> << -> 1 `i -> 2 `i `Vuc `i -> =& _PORTA -> ~ << -> 1 `i -> 2 `i `Vuc `i ]
 "20
-[; ;Display.c: 20:             break ;
+[; ;Display.c: 20:             break;
 [e $U 96  ]
 "21
 [; ;Display.c: 21:         case 3:
@@ -254,31 +274,34 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Display.c: 23:             (Display_state)?(PORTA |= (1<<3)) : (PORTA &= ~(1<<3));
 [e ? != -> _Display_state `ui -> -> 0 `i `ui : -> =| _PORTA -> << -> 1 `i -> 3 `i `Vuc `i -> =& _PORTA -> ~ << -> 1 `i -> 3 `i `Vuc `i ]
 "24
-[; ;Display.c: 24:         case 4:
-[e :U 100 ]
+[; ;Display.c: 24:             break;
+[e $U 96  ]
 "25
-[; ;Display.c: 25:             (0u)?(TRISA |= (1<<4)) : (TRISA &= ~(1<<4));
-[e ? != -> 0 `ui -> -> 0 `i `ui : -> =| _TRISA -> << -> 1 `i -> 4 `i `Vuc `i -> =& _TRISA -> ~ << -> 1 `i -> 4 `i `Vuc `i ]
+[; ;Display.c: 25:         case 4:
+[e :U 100 ]
 "26
-[; ;Display.c: 26:             (Display_state)?(PORTA |= (1<<4)) : (PORTA &= ~(1<<4));
-[e ? != -> _Display_state `ui -> -> 0 `i `ui : -> =| _PORTA -> << -> 1 `i -> 4 `i `Vuc `i -> =& _PORTA -> ~ << -> 1 `i -> 4 `i `Vuc `i ]
+[; ;Display.c: 26:             (0u)?(TRISA |= (1<<4)) : (TRISA &= ~(1<<4));
+[e ? != -> 0 `ui -> -> 0 `i `ui : -> =| _TRISA -> << -> 1 `i -> 4 `i `Vuc `i -> =& _TRISA -> ~ << -> 1 `i -> 4 `i `Vuc `i ]
 "27
-[; ;Display.c: 27:             break ;
-[e $U 96  ]
+[; ;Display.c: 27:             (Display_state)?(PORTA |= (1<<4)) : (PORTA &= ~(1<<4));
+[e ? != -> _Display_state `ui -> -> 0 `i `ui : -> =| _PORTA -> << -> 1 `i -> 4 `i `Vuc `i -> =& _PORTA -> ~ << -> 1 `i -> 4 `i `Vuc `i ]
 "28
-[; ;Display.c: 28:         case 5:
-[e :U 101 ]
-"29
-[; ;Display.c: 29:             (0u)?(TRISA |= (1<<5)) : (TRISA &= ~(1<<5));
-[e ? != -> 0 `ui -> -> 0 `i `ui : -> =| _TRISA -> << -> 1 `i -> 5 `i `Vuc `i -> =& _TRISA -> ~ << -> 1 `i -> 5 `i `Vuc `i ]
-"30
-[; ;Display.c: 30:             (Display_state)?(PORTA |= (1<<5)) : (PORTA &= ~(1<<5));
-[e ? != -> _Display_state `ui -> -> 0 `i `ui : -> =| _PORTA -> << -> 1 `i -> 5 `i `Vuc `i -> =& _PORTA -> ~ << -> 1 `i -> 5 `i `Vuc `i ]
-"31
-[; ;Display.c: 31:             break ;
+[; ;Display.c: 28:             break ;
 [e $U 96  ]
+"29
+[; ;Display.c: 29:         case 5:
+[e :U 101 ]
+"30
+[; ;Display.c: 30:             (0u)?(TRISA |= (1<<5)) : (TRISA &= ~(1<<5));
+[e ? != -> 0 `ui -> -> 0 `i `ui : -> =| _TRISA -> << -> 1 `i -> 5 `i `Vuc `i -> =& _TRISA -> ~ << -> 1 `i -> 5 `i `Vuc `i ]
+"31
+[; ;Display.c: 31:             (Display_state)?(PORTA |= (1<<5)) : (PORTA &= ~(1<<5));
+[e ? != -> _Display_state `ui -> -> 0 `i `ui : -> =| _PORTA -> << -> 1 `i -> 5 `i `Vuc `i -> =& _PORTA -> ~ << -> 1 `i -> 5 `i `Vuc `i ]
 "32
-[; ;Display.c: 32:     }
+[; ;Display.c: 32:             break ;
+[e $U 96  ]
+"33
+[; ;Display.c: 33:     }
 }
 [e $U 96  ]
 [e :U 97 ]
@@ -288,62 +311,97 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 5 `i 101
  96 ]
 [e :U 96 ]
-"33
-[; ;Display.c: 33: }
+"34
+[; ;Display.c: 34: }
 [e :UE 95 ]
 }
-"34
-[; ;Display.c: 34: Std_ReturnType Display_Write(Display_ID ID ,Display_Number Number)
-[v _Display_Write `(uc ~T0 @X0 1 ef2`uc`uc ]
 "35
-[; ;Display.c: 35: {
+[; ;Display.c: 35: Std_ReturnType Display_Write(Display_ID ID ,Display_Number Number)
+[v _Display_Write `(uc ~T0 @X0 1 ef2`uc`uc ]
+"36
+[; ;Display.c: 36: {
 {
 [e :U _Display_Write ]
-"34
-[; ;Display.c: 34: Std_ReturnType Display_Write(Display_ID ID ,Display_Number Number)
+"35
+[; ;Display.c: 35: Std_ReturnType Display_Write(Display_ID ID ,Display_Number Number)
 [v _ID `uc ~T0 @X0 1 r1 ]
 [v _Number `uc ~T0 @X0 1 r2 ]
-"35
-[; ;Display.c: 35: {
+"36
+[; ;Display.c: 36: {
 [f ]
-"37
-[; ;Display.c: 37:     Display_config(ID,ON);
+"38
+[; ;Display.c: 38:     Display_config(ID,ON);
 [e ( _Display_config (2 , _ID . `E13 1 ]
-"39
-[; ;Display.c: 39:     ((TRISD)=(0u));
+"40
+[; ;Display.c: 40:     ((TRISD)=(0u));
 [e = _TRISD -> -> 0 `ui `uc ]
-"41
-[; ;Display.c: 41:     if((Number>=0) && (Number<=9))
-[e $ ! && >= -> _Number `i -> 0 `i <= -> _Number `i -> 9 `i 103  ]
 "42
-[; ;Display.c: 42:     {
+[; ;Display.c: 42:     if((Number>=0) && (Number<=9))
+[e $ ! && >= -> _Number `i -> 0 `i <= -> _Number `i -> 9 `i 103  ]
+"43
+[; ;Display.c: 43:     {
 {
-"44
-[; ;Display.c: 44:         ((PORTD)=(Display_code[Number]));
-[e = _PORTD *U + &U _Display_code * -> _Number `ux -> -> # *U &U _Display_code `ui `ux ]
 "45
-[; ;Display.c: 45:         return (Std_ReturnType)(0x00u) ;
+[; ;Display.c: 45:         ((PORTD)=(Display_code[Number]));
+[e = _PORTD *U + &U _Display_code * -> _Number `ux -> -> # *U &U _Display_code `ui `ux ]
+"46
+[; ;Display.c: 46:         return (Std_ReturnType)(0x00u) ;
 [e ) -> -> 0 `ui `uc ]
 [e $UE 102  ]
-"46
-[; ;Display.c: 46:     }
+"47
+[; ;Display.c: 47:     }
 }
 [e $U 104  ]
-"47
-[; ;Display.c: 47:     else
-[e :U 103 ]
 "48
-[; ;Display.c: 48:     {
+[; ;Display.c: 48:     else
+[e :U 103 ]
+"49
+[; ;Display.c: 49:     {
 {
-"50
-[; ;Display.c: 50:         return (Std_ReturnType)(0x01u) ;
+"51
+[; ;Display.c: 51:         return (Std_ReturnType)(0x01u) ;
 [e ) -> -> 1 `ui `uc ]
 [e $UE 102  ]
-"51
-[; ;Display.c: 51:     }
+"52
+[; ;Display.c: 52:     }
 }
 [e :U 104 ]
-"52
-[; ;Display.c: 52: }
+"53
+[; ;Display.c: 53: }
 [e :UE 102 ]
+}
+"55
+[; ;Display.c: 55: void Heater_Display(uint16_t temp)
+[v _Heater_Display `(v ~T0 @X0 1 ef1`us ]
+"56
+[; ;Display.c: 56: {
+{
+[e :U _Heater_Display ]
+"55
+[; ;Display.c: 55: void Heater_Display(uint16_t temp)
+[v _temp `us ~T0 @X0 1 r1 ]
+"56
+[; ;Display.c: 56: {
+[f ]
+"57
+[; ;Display.c: 57:     Display_config(3,OFF);
+[e ( _Display_config (2 , -> -> 3 `i `uc . `E13 0 ]
+"58
+[; ;Display.c: 58:     Display_Write(4,temp%10);
+[e ( _Display_Write (2 , -> -> 4 `i `uc -> % -> _temp `ui -> -> 10 `i `ui `uc ]
+"59
+[; ;Display.c: 59:     _delay((unsigned long)((60)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"60
+[; ;Display.c: 60:     Display_config(4,OFF);
+[e ( _Display_config (2 , -> -> 4 `i `uc . `E13 0 ]
+"61
+[; ;Display.c: 61:     Display_Write(3,(uint8_t)temp/10);
+[e ( _Display_Write (2 , -> -> 3 `i `uc -> / -> -> _temp `uc `i -> 10 `i `uc ]
+"62
+[; ;Display.c: 62:     _delay((unsigned long)((60)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"64
+[; ;Display.c: 64: }
+[e :UE 105 ]
 }

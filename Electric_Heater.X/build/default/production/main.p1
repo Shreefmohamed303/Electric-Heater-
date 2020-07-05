@@ -1,62 +1,88 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[t ~ __interrupt . k ]
-[t T1 __interrupt ]
-"2824 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2824: extern volatile __bit SSPIF __attribute__((address(0x63)));
-[v _SSPIF `Vb ~T0 @X0 0 e@99 ]
-"2497
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2497: extern volatile __bit CKP __attribute__((address(0xA4)));
-[v _CKP `Vb ~T0 @X0 0 e@164 ]
-"2839
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2839: extern volatile __bit SSPOV __attribute__((address(0xA6)));
-[v _SSPOV `Vb ~T0 @X0 0 e@166 ]
-"3043
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 3043: extern volatile __bit WCOL __attribute__((address(0xA7)));
-[v _WCOL `Vb ~T0 @X0 0 e@167 ]
-"808
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 808: extern volatile unsigned char SSPBUF __attribute__((address(0x013)));
-[v _SSPBUF `Vuc ~T0 @X0 0 e@19 ]
-"2803
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2803: extern volatile __bit R_nW __attribute__((address(0x4A2)));
-[v _R_nW `Vb ~T0 @X0 0 e@1186 ]
-"2413
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2413: extern volatile __bit BF __attribute__((address(0x4A0)));
-[v _BF `Vb ~T0 @X0 0 e@1184 ]
+"38 ./DD.h
+[; ;./DD.h: 38: tDD_State Devices_State={OFF,OFF,OFF};
+[c E861 0 1 .. ]
+[n E861 . OFF ON  ]
+"31
+[; ;./DD.h: 31: {
+[s S97 `E861 1 `E861 1 `E861 1 ]
+[n S97 . HEATER_State HEATER_LED_State COOLER_State ]
+"1159 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1159: extern volatile unsigned char ADCON0 __attribute__((address(0x01F)));
+[v _ADCON0 `Vuc ~T0 @X0 0 e@31 ]
+"2229
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2229: extern volatile unsigned char ADCON1 __attribute__((address(0x09F)));
+[v _ADCON1 `Vuc ~T0 @X0 0 e@159 ]
+[v F842 `(v ~T0 @X0 1 tf1`ul ]
+"92 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
+[v __delay `JF842 ~T0 @X0 0 e ]
+[p i __delay ]
+"2575 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2575: extern volatile __bit GO_DONE __attribute__((address(0xFA)));
+[v _GO_DONE `Vb ~T0 @X0 0 e@250 ]
+"1165
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1165:     struct {
+[s S46 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :2 `uc 1 ]
+[n S46 . ADON . GO_nDONE CHS ADCS ]
+"1172
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1172:     struct {
+[s S47 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S47 . . GO CHS0 CHS1 CHS2 ADCS0 ADCS1 ]
+"1181
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1181:     struct {
+[s S48 :2 `uc 1 :1 `uc 1 ]
+[n S48 . . nDONE ]
+"1185
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1185:     struct {
+[s S49 :2 `uc 1 :1 `uc 1 ]
+[n S49 . . GO_DONE ]
+"1164
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1164: typedef union {
+[u S45 `S46 1 `S47 1 `S48 1 `S49 1 ]
+[n S45 . . . . . ]
+"1190
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1190: extern volatile ADCON0bits_t ADCON0bits __attribute__((address(0x01F)));
+[v _ADCON0bits `VS45 ~T0 @X0 0 e@31 ]
+"1152
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1152: extern volatile unsigned char ADRESH __attribute__((address(0x01E)));
+[v _ADRESH `Vuc ~T0 @X0 0 e@30 ]
+"2222
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2222: extern volatile unsigned char ADRESL __attribute__((address(0x09E)));
+[v _ADRESL `Vuc ~T0 @X0 0 e@158 ]
 [p mainexit ]
-"60 main.c
-[; ;main.c: 60:     tI2C_Config config;
-[c E874 6 7 8 11 14 15 .. ]
-[n E874 . Slave_7bit_Mode Slave_10bit_Mode Master_Mode Frimware_Master_Mode Slave_7bit_INT_Mode Slave_10bit_INT_Mode  ]
-[c E890 1 0 .. ]
-[n E890 . INTERRUPT POLLING  ]
-"55 ./i2c.h
-[; ;./i2c.h: 55: {
-[s S95 `E874 1 `uo 1 `E890 1 ]
-[n S95 . Mode BaudRate operationMode ]
-"69
-[; ;./i2c.h: 69: void I2C_Init(tI2C_Config *i2c_config);
-[v _I2C_Init `(v ~T0 @X0 0 ef1`*S95 ]
-"1499 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1499: extern volatile unsigned char TRISD __attribute__((address(0x088)));
-[v _TRISD `Vuc ~T0 @X0 0 e@136 ]
-"340
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 340: extern volatile unsigned char PORTD __attribute__((address(0x008)));
-[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
-"70 ./i2c.h
-[; ;./i2c.h: 70: void I2C_Master_Send_Start();
-[v _I2C_Master_Send_Start `(v ~T0 @X0 0 e? ]
-"75
-[; ;./i2c.h: 75: uint8_t I2C_Master_WriteByte(uint8_t Data);
-[v _I2C_Master_WriteByte `(uc ~T0 @X0 0 ef1`uc ]
-"71
-[; ;./i2c.h: 71: void I2C_Master_Send_Stop();
-[v _I2C_Master_Send_Stop `(v ~T0 @X0 0 e? ]
-"1437 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1437: extern volatile unsigned char TRISC __attribute__((address(0x087)));
-[v _TRISC `Vuc ~T0 @X0 0 e@135 ]
-"278
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 278: extern volatile unsigned char PORTC __attribute__((address(0x007)));
-[v _PORTC `Vuc ~T0 @X0 0 e@7 ]
+"38 main.c
+[; ;main.c: 38:     tADC_Config adc_config;
+[c E926 0 1 2 3 4 5 6 7 8 .. ]
+[n E926 . ADC0 ADC1 ADC2 ADC3 ADC4 ADC5 ADC6 ADC7 ADC8  ]
+[c E937 0 1 .. ]
+[n E937 . POLLING_MODE INTERRUPT_MODE  ]
+[c E941 0 1 .. ]
+[n E941 . LEFT RIGHT  ]
+[c E945 0 1 2 3 4 5 6 .. ]
+[n E945 . FOSC_2 FOSC_8 FOSC_32 FRC FOSC_4 FOSC_16 FOSC_64  ]
+"40 ./adc.h
+[; ;./adc.h: 40: {
+[s S96 `E926 1 `E937 1 `E941 1 `E945 1 ]
+[n S96 . channel mode alignment clk ]
+"49
+[; ;./adc.h: 49: void ADC_Init(tADC_Config* config);
+[v _ADC_Init `(v ~T0 @X0 0 ef1`*S96 ]
+"40 ./DD.h
+[; ;./DD.h: 40: void DD_Init(void);
+[v _DD_Init `(v ~T0 @X0 0 ef ]
+"47 main.c
+[; ;main.c: 47:     DD_SetState(HEATER,ON);
+[c E964 0 1 2 3 4 5 .. ]
+[n E964 . ON_OFF_BUTTON UP_BUTTON DOWN_BUTTON HEATER COOLER HEATER_LED  ]
+"41 ./DD.h
+[; ;./DD.h: 41: void DD_SetState(tDD device ,tState state);
+[v _DD_SetState `(v ~T0 @X0 0 ef2`E964`E861 ]
+"50 ./adc.h
+[; ;./adc.h: 50: uint16_t ADC_ReadChannel(tADC_Channel_Select channel);
+[v _ADC_ReadChannel `(us ~T0 @X0 0 ef1`E926 ]
+"30 ./Display.h
+[; ;./Display.h: 30: void Heater_Display(uint16_t temp);
+[v _Heater_Display `(v ~T0 @X0 0 ef1`us ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -270,202 +296,152 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 111 `i `uc
 ..
 ]
-"14 main.c
-[; ;main.c: 14: uint8_t RX_Data,TX_DATA=0x55;
-[v _RX_Data `uc ~T0 @X0 1 e ]
-[v _TX_DATA `uc ~T0 @X0 1 e ]
-[i _TX_DATA
--> -> 85 `i `uc
+"38 ./DD.h
+[; ;./DD.h: 38: tDD_State Devices_State={OFF,OFF,OFF};
+[v _Devices_State `S97 ~T0 @X0 1 e ]
+[i _Devices_State
+:U ..
+:U ..
+. `E861 0
+. `E861 0
+. `E861 0
+..
+..
 ]
-[v $root$_I2C_INT_SlaveRead `(v ~T0 @X0 0 e ]
-"16
-[; ;main.c: 16: void __attribute__((picinterrupt(("")))) I2C_INT_SlaveRead(void)
-[v _I2C_INT_SlaveRead `(v ~T1 @X0 1 ef ]
+"16 main.c
+[; ;main.c: 16: void ADC_init()
+[v _ADC_init `(v ~T0 @X0 1 ef ]
 "17
 [; ;main.c: 17: {
 {
-[e :U _I2C_INT_SlaveRead ]
+[e :U _ADC_init ]
 [f ]
 "18
-[; ;main.c: 18:     if(SSPIF)
-[e $ ! _SSPIF 97  ]
+[; ;main.c: 18:     ADCON0 = 0x41;
+[e = _ADCON0 -> -> 65 `i `uc ]
 "19
-[; ;main.c: 19:     {
-{
-"20
-[; ;main.c: 20:         CKP=0;
-[e = _CKP -> -> 0 `i `b ]
+[; ;main.c: 19:     ADCON1 = 0x80;
+[e = _ADCON1 -> -> 128 `i `uc ]
+"21
+[; ;main.c: 21: }
+[e :UE 98 ]
+}
 "22
-[; ;main.c: 22:         if(SSPOV || WCOL)
-[e $ ! || _SSPOV _WCOL 98  ]
+[; ;main.c: 22: uint16_t ADC_Read(uint8_t ANC)
+[v _ADC_Read `(us ~T0 @X0 1 ef1`uc ]
 "23
-[; ;main.c: 23:         {
+[; ;main.c: 23: {
 {
+[e :U _ADC_Read ]
+"22
+[; ;main.c: 22: uint16_t ADC_Read(uint8_t ANC)
+[v _ANC `uc ~T0 @X0 1 r1 ]
+"23
+[; ;main.c: 23: {
+[f ]
 "24
-[; ;main.c: 24:             char Dummy = SSPBUF;
-[v _Dummy `uc ~T0 @X0 1 a ]
-[e = _Dummy -> _SSPBUF `uc ]
+[; ;main.c: 24:     if(ANC<0 || ANC>7)
+[e $ ! || < -> _ANC `i -> 0 `i > -> _ANC `i -> 7 `i 100  ]
 "25
-[; ;main.c: 25:             SSPOV = 0;
-[e = _SSPOV -> -> 0 `i `b ]
-"26
-[; ;main.c: 26:             WCOL = 0;
-[e = _WCOL -> -> 0 `i `b ]
-"27
-[; ;main.c: 27:             CKP = 1;
-[e = _CKP -> -> 1 `i `b ]
-"28
-[; ;main.c: 28:         }
-}
-[e :U 98 ]
-"29
-[; ;main.c: 29:         if(!R_nW)
-[e $ ! ! _R_nW 99  ]
-"30
-[; ;main.c: 30:         {
+[; ;main.c: 25:     { return 0;}
 {
-"31
-[; ;main.c: 31:            char Dummy = SSPBUF;
-[v _Dummy `uc ~T0 @X0 1 a ]
-[e = _Dummy -> _SSPBUF `uc ]
-"32
-[; ;main.c: 32:            while(!BF);
-[e $U 100  ]
-[e :U 101 ]
+[e ) -> -> 0 `i `us ]
+[e $UE 99  ]
+}
 [e :U 100 ]
-[e $ ! _BF 101  ]
+"26
+[; ;main.c: 26:     ADCON0 &= 0b11000101;
+[e =& _ADCON0 -> -> 197 `i `Vuc ]
+"27
+[; ;main.c: 27:     ADCON0 |= ANC<<3;
+[e =| _ADCON0 -> << -> _ANC `i -> 3 `i `Vuc ]
+"29
+[; ;main.c: 29:     _delay((unsigned long)((30)*(4000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+"30
+[; ;main.c: 30:     GO_DONE = 1;
+[e = _GO_DONE -> -> 1 `i `b ]
+"31
+[; ;main.c: 31:     while(ADCON0bits.GO_DONE);
+[e $U 101  ]
 [e :U 102 ]
-"33
-[; ;main.c: 33:            RX_Data = SSPBUF;
-[e = _RX_Data _SSPBUF ]
-"34
-[; ;main.c: 34:            CKP = 1;
-[e = _CKP -> -> 1 `i `b ]
-"35
-[; ;main.c: 35:         }
-}
-[e $U 103  ]
-"36
-[; ;main.c: 36:         else if(R_nW)
-[e :U 99 ]
-[e $ ! _R_nW 104  ]
-"37
-[; ;main.c: 37:         {
-{
-"38
-[; ;main.c: 38:            char Dummy = SSPBUF;
-[v _Dummy `uc ~T0 @X0 1 a ]
-[e = _Dummy -> _SSPBUF `uc ]
-"39
-[; ;main.c: 39:            BF = 0;
-[e = _BF -> -> 0 `i `b ]
-"40
-[; ;main.c: 40:            SSPBUF = TX_DATA;
-[e = _SSPBUF _TX_DATA ]
-"41
-[; ;main.c: 41:            CKP = 1;
-[e = _CKP -> -> 1 `i `b ]
-"42
-[; ;main.c: 42:            while(BF);
-[e $U 105  ]
-[e :U 106 ]
-[e :U 105 ]
-[e $ _BF 106  ]
-[e :U 107 ]
-"43
-[; ;main.c: 43:         }
-}
-[e :U 104 ]
+[e :U 101 ]
+[e $ != -> . . _ADCON0bits 3 1 `i -> 0 `i 102  ]
 [e :U 103 ]
-"44
-[; ;main.c: 44:         SSPIF=0;
-[e = _SSPIF -> -> 0 `i `b ]
-"45
-[; ;main.c: 45:     }
-}
-[e :U 97 ]
-"46
-[; ;main.c: 46: }
-[e :UE 96 ]
+"33
+[; ;main.c: 33:     return ((ADRESH << 8) + ADRESL);
+[e ) -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `us ]
+[e $UE 99  ]
+"34
+[; ;main.c: 34: }
+[e :UE 99 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"47
-[; ;main.c: 47: void main(void)
+"35
+[; ;main.c: 35: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"48
-[; ;main.c: 48: {
+"36
+[; ;main.c: 36: {
 {
 [e :U _main ]
 [f ]
-"60
-[; ;main.c: 60:     tI2C_Config config;
-[v _config `S95 ~T0 @X0 1 a ]
-"61
-[; ;main.c: 61:     config.BaudRate=100000;
-[e = . _config 1 -> -> -> 100000 `l `o `uo ]
-"62
-[; ;main.c: 62:     config.Mode=Master_Mode;
-[e = . _config 0 . `E874 2 ]
-"63
-[; ;main.c: 63:     config.operationMode=POLLING;
-[e = . _config 2 . `E890 1 ]
-"65
-[; ;main.c: 65:     I2C_Init(&config);
-[e ( _I2C_Init (1 &U _config ]
-"66
-[; ;main.c: 66:     ((TRISD)= (0u)?(~0u):(0u));
-[e = _TRISD -> ? != -> 0 `ui -> -> 0 `i `ui : ~ -> 0 `ui -> 0 `ui `uc ]
-"67
-[; ;main.c: 67:     ((PORTD)=(0x00));
-[e = _PORTD -> -> 0 `i `uc ]
-"68
-[; ;main.c: 68:     uint16_t address=0x0020;
-[v _address `us ~T0 @X0 1 a ]
-[e = _address -> -> 32 `i `us ]
-"69
-[; ;main.c: 69:     uint8_t data=0x04;
-[v _data `uc ~T0 @X0 1 a ]
-[e = _data -> -> 4 `i `uc ]
-"70
-[; ;main.c: 70:     I2C_Master_Send_Start();
-[e ( _I2C_Master_Send_Start ..  ]
-"71
-[; ;main.c: 71:     I2C_Master_WriteByte(0x40);
-[e ( _I2C_Master_WriteByte (1 -> -> 64 `i `uc ]
-"72
-[; ;main.c: 72:     I2C_Master_WriteByte(0x55);
-[e ( _I2C_Master_WriteByte (1 -> -> 85 `i `uc ]
-"73
-[; ;main.c: 73:     I2C_Master_Send_Stop();
-[e ( _I2C_Master_Send_Stop ..  ]
-"102
-[; ;main.c: 102:     (0u)? (TRISC |= (1<<2)) : (TRISC &= ~(1<<2));
-[e ? != -> 0 `ui -> -> 0 `i `ui : -> =| _TRISC -> << -> 1 `i -> 2 `i `Vuc `i -> =& _TRISC -> ~ << -> 1 `i -> 2 `i `Vuc `i ]
-"103
-[; ;main.c: 103:     (1)?(PORTC |= (1<<2)) : (PORTC &= ~(1<<2));
-[e ? != -> 1 `i -> 0 `i : -> =| _PORTC -> << -> 1 `i -> 2 `i `Vuc `i -> =& _PORTC -> ~ << -> 1 `i -> 2 `i `Vuc `i ]
-"104
-[; ;main.c: 104:         (0u)? (TRISC |= (1<<5)) : (TRISC &= ~(1<<5));
-[e ? != -> 0 `ui -> -> 0 `i `ui : -> =| _TRISC -> << -> 1 `i -> 5 `i `Vuc `i -> =& _TRISC -> ~ << -> 1 `i -> 5 `i `Vuc `i ]
-"105
-[; ;main.c: 105:     (1)?(PORTC |= (1<<5)) : (PORTC &= ~(1<<5));
-[e ? != -> 1 `i -> 0 `i : -> =| _PORTC -> << -> 1 `i -> 5 `i `Vuc `i -> =& _PORTC -> ~ << -> 1 `i -> 5 `i `Vuc `i ]
-"106
-[; ;main.c: 106:     while(1)
-[e :U 110 ]
-"107
-[; ;main.c: 107:     {
+"38
+[; ;main.c: 38:     tADC_Config adc_config;
+[v _adc_config `S96 ~T0 @X0 1 a ]
+"39
+[; ;main.c: 39:     adc_config.alignment=RIGHT;
+[e = . _adc_config 2 . `E941 1 ]
+"40
+[; ;main.c: 40:     adc_config.channel=ADC2;
+[e = . _adc_config 0 . `E926 2 ]
+"41
+[; ;main.c: 41:     adc_config.clk=FOSC_8;
+[e = . _adc_config 3 . `E945 1 ]
+"42
+[; ;main.c: 42:     adc_config.mode= POLLING_MODE;
+[e = . _adc_config 1 . `E937 0 ]
+"44
+[; ;main.c: 44:     ADC_Init(&adc_config);
+[e ( _ADC_Init (1 &U _adc_config ]
+"46
+[; ;main.c: 46:     DD_Init();
+[e ( _DD_Init ..  ]
+"47
+[; ;main.c: 47:     DD_SetState(HEATER,ON);
+[e ( _DD_SetState (2 , . `E964 3 . `E861 1 ]
+"48
+[; ;main.c: 48:     uint16_t i=50;
+[v _i `us ~T0 @X0 1 a ]
+[e = _i -> -> 50 `i `us ]
+"50
+[; ;main.c: 50:     while(1)
+[e :U 106 ]
+"51
+[; ;main.c: 51:     {
 {
-"108
-[; ;main.c: 108:     }
+"53
+[; ;main.c: 53:        uint16_t Reading = ADC_ReadChannel(ADC2);
+[v _Reading `us ~T0 @X0 1 a ]
+[e = _Reading ( _ADC_ReadChannel (1 . `E926 2 ]
+"54
+[; ;main.c: 54:         Heater_Display(Reading*0.488);
+[e ( _Heater_Display (1 -> * -> -> _Reading `ui `d .0.488 `us ]
+"56
+[; ;main.c: 56:         i++;
+[e ++ _i -> -> 1 `i `us ]
+"57
+[; ;main.c: 57:         _delay((unsigned long)((200)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"58
+[; ;main.c: 58:     }
 }
-[e :U 109 ]
-[e $U 110  ]
-[e :U 111 ]
-"109
-[; ;main.c: 109:     return;
-[e $UE 108  ]
-"110
-[; ;main.c: 110: }
-[e :UE 108 ]
+[e :U 105 ]
+[e $U 106  ]
+[e :U 107 ]
+"59
+[; ;main.c: 59:     return;
+[e $UE 104  ]
+"60
+[; ;main.c: 60: }
+[e :UE 104 ]
 }

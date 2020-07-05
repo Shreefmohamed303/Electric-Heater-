@@ -1,4 +1,4 @@
-# 1 "Display.c"
+# 1 "adc.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,17 +6,10 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "Display.c" 2
-
-
-
-
-
-
-# 1 "./Display.h" 1
-
-
-
+# 1 "adc.c" 2
+# 14 "adc.c"
+# 1 "./adc.h" 1
+# 17 "./adc.h"
 # 1 "./GPIO.h" 1
 
 
@@ -1760,17 +1753,7 @@ extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
 # 5 "./GPIO.h" 2
-# 4 "./Display.h" 2
-# 23 "./Display.h"
-uint8_t Display_code[10] = {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F};
-
-typedef uint8_t Display_ID;
-typedef uint8_t Display_Number;
-
-static void Display_config (Display_ID ID ,tState Display_state);
-Std_ReturnType Display_Write(Display_ID ID ,Display_Number Number);
-void Heater_Display(uint16_t temp);
-# 7 "Display.c" 2
+# 17 "./adc.h" 2
 
 # 1 "./config.h" 1
 # 11 "./config.h"
@@ -1784,61 +1767,100 @@ void Heater_Display(uint16_t temp);
 #pragma config WRT = OFF
 
 #pragma config CP = OFF
-# 8 "Display.c" 2
+# 18 "./adc.h" 2
+# 34 "./adc.h"
+typedef enum {ADC0=0,ADC1=1,ADC2=2,ADC3,ADC4,ADC5,ADC6,ADC7,ADC8}tADC_Channel_Select;
+typedef enum {POLLING_MODE ,INTERRUPT_MODE}tADC_Mode_Select;
+typedef enum {LEFT=0,RIGHT=1}tADC_Result_Alignment;
+typedef enum {FOSC_2,FOSC_8,FOSC_32,FRC,FOSC_4,FOSC_16,FOSC_64}tADC_clkSelect;
+
+typedef struct
+{
+    tADC_Channel_Select channel ;
+    tADC_Mode_Select mode;
+    tADC_Result_Alignment alignment;
+    tADC_clkSelect clk;
+}tADC_Config;
 
 
 
-static void Display_config (Display_ID ID ,tState Display_state)
+void ADC_Init(tADC_Config* config);
+uint16_t ADC_ReadChannel(tADC_Channel_Select channel);
+# 14 "adc.c" 2
+
+
+void ADC_Init(tADC_Config* config)
 {
 
+    ADCON0 |= (1<<0);
 
-    switch(ID)
+    switch(config->clk)
     {
-        case 2:
-            (0u)?(TRISA |= (1<<2)) : (TRISA &= ~(1<<2));
-            (Display_state)?(PORTA |= (1<<2)) : (PORTA &= ~(1<<2));
+        case FOSC_2:
+            ADCON0 &= ~(0xC0);
             break;
-        case 3:
-            (0u)?(TRISA |= (1<<3)) : (TRISA &= ~(1<<3));
-            (Display_state)?(PORTA |= (1<<3)) : (PORTA &= ~(1<<3));
+        case FOSC_8:
+            ADCON0 |= (1<<6);
             break;
-        case 4:
-            (0u)?(TRISA |= (1<<4)) : (TRISA &= ~(1<<4));
-            (Display_state)?(PORTA |= (1<<4)) : (PORTA &= ~(1<<4));
-            break ;
-        case 5:
-            (0u)?(TRISA |= (1<<5)) : (TRISA &= ~(1<<5));
-            (Display_state)?(PORTA |= (1<<5)) : (PORTA &= ~(1<<5));
-            break ;
+        case FOSC_32:
+            ADCON0 |= (2<<6);
+            break;
+        case FRC:
+            ADCON0 |= (3<<6);
+            break;
+        case FOSC_4:
+            ADCON0 &= ~(0xC0);
+            ADCON1 |= (1<<6);
+            break;
+        case FOSC_16:
+            ADCON0 |= (1<<6);
+            ADCON1 |= (1<<6);
+            break;
+        case FOSC_64:
+            ADCON0 |= (2<<6);
+            ADCON1 |= (1<<6);
+            break;
+
+        default:
+            ADCON0 |= (1<<6);
+    }
+
+
+    ADCON1 |= ((config->alignment)<<7);
+
+
+    ADCON1 = (0x80);
+
+
+
+    if(config->mode==INTERRUPT_MODE)
+    {
+        ADIF = 0;
+        ADIE = 1;
+        PEIE = 1;
+        GIE = 1;
     }
 }
-Std_ReturnType Display_Write(Display_ID ID ,Display_Number Number)
+
+uint16_t ADC_ReadChannel(tADC_Channel_Select channel)
 {
 
-    Display_config(ID,ON);
+    ADCON0 &= ~(7<<3);
 
-    ((TRISD)=(0u));
 
-    if((Number>=0) && (Number<=9))
-    {
+    ADCON0 |= ((channel)<<3);
 
-        ((PORTD)=(Display_code[Number]));
-        return (Std_ReturnType)(0x00u) ;
-    }
-    else
-    {
 
-        return (Std_ReturnType)(0x01u) ;
-    }
-}
+    _delay((unsigned long)((30)*(4000000/4000000.0)));
 
-void Heater_Display(uint16_t temp)
-{
-    Display_config(3,OFF);
-    Display_Write(4,temp%10);
-    _delay((unsigned long)((60)*(4000000/4000.0)));
-    Display_config(4,OFF);
-    Display_Write(3,(uint8_t)temp/10);
-    _delay((unsigned long)((60)*(4000000/4000.0)));
 
+    (ADCON0|=(1<<2));
+
+
+    while((ADCON0 & (1<<2)));
+
+
+    uint16_t result =((ADRESH<<8) + ADRESL) ;
+
+    return result;
 }

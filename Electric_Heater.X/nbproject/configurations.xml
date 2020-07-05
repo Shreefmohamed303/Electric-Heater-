@@ -12,6 +12,8 @@
       <itemPath>DD.h</itemPath>
       <itemPath>Port.h</itemPath>
       <itemPath>GPIO.h</itemPath>
+      <itemPath>adc.h</itemPath>
+      <itemPath>common_macros.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -25,6 +27,7 @@
       <itemPath>i2c.c</itemPath>
       <itemPath>main.c</itemPath>
       <itemPath>DD.c</itemPath>
+      <itemPath>adc.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
