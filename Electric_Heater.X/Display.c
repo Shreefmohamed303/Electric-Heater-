@@ -59,5 +59,5 @@ void Heater_Display(uint16_t temp)
     __delay_ms(60);
     Display_config(DISPLAY_3,OFF);
     Display_Write(DISPLAY_2,(uint8_t)temp/10); 
-    __delay_ms(60);
+    //__delay_ms(60);
 }

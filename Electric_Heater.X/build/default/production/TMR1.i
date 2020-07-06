@@ -1,4 +1,4 @@
-# 1 "DD.c"
+# 1 "TMR1.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,42 +6,10 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "DD.c" 2
-# 12 "DD.c"
-# 1 "./DD.h" 1
-# 17 "./DD.h"
-# 1 "./GPIO.h" 1
+# 1 "TMR1.c" 2
+# 1 "./TMR1.h" 1
 
 
-
-# 1 "./Std_Types.h" 1
-
-
-
-
-typedef unsigned char uint8_t ;
-typedef signed int8_t ;
-
-typedef unsigned short uint16_t ;
-typedef signed short int16_t;
-
-typedef unsigned long uint32_t ;
-typedef signed long int32_t ;
-
-typedef unsigned long long uint64_t ;
-typedef signed long long int64_t ;
-
-typedef float float32_t ;
-typedef double float64_t ;
-
-typedef uint8_t Std_ReturnType;
-
-typedef enum
-{
-    OFF=0,
-    ON=1
-}tState;
-# 4 "./GPIO.h" 2
 
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
@@ -1752,116 +1720,78 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 5 "./GPIO.h" 2
-# 17 "./DD.h" 2
-
-# 1 "./Port.h" 1
-# 18 "./DD.h" 2
+# 4 "./TMR1.h" 2
+# 42 "./TMR1.h"
+typedef enum
+{
+    TMR1_PRESCALER_1=0,
+    TMR1_PRESCALER_2=1,
+    TMR1_PRESCALER_4=2,
+    TMR1_PRESCALER_8=3
+}tTMR1_PrescalerSelect;
 
 
 typedef enum
 {
-    ON_OFF_BUTTON,
-    UP_BUTTON,
-    DOWN_BUTTON,
-    HEATER,
-    COOLER,
-    HEATER_LED
-}tDD;
+    INTERNAL_CLK_SOURCE=0,
+    EXTERNAL_CLK_SOURCE=1
+}tTMR1_ClkSourceSelect;
 
 typedef struct
 {
-    tState HEATER_State;
-    tState HEATER_LED_State;
-    tState COOLER_State;
-}tDD_State;
+    tTMR1_PrescalerSelect Prescaler;
+    tTMR1_ClkSourceSelect clkSource;
+}tTMR1_Config;
+
+void TMR1_Init(tTMR1_Config *config);
+void TMR1_Start();
+void TMR1_Update();
+void TMR1_Stop();
+# 1 "TMR1.c" 2
 
 
-tDD_State Devices_State={OFF,OFF,OFF};
-
-void DD_Init(void);
-void DD_SetState(tDD device ,tState state);
-tState DD_GetState(tDD device);
-# 12 "DD.c" 2
-
-
-# 1 "./Display.h" 1
-# 23 "./Display.h"
-uint8_t Display_code[10] = {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F};
-
-typedef uint8_t Display_ID;
-typedef uint8_t Display_Number;
-
-static void Display_config (Display_ID ID ,tState Display_state);
-Std_ReturnType Display_Write(Display_ID ID ,Display_Number Number);
-void Heater_Display(uint16_t temp);
-# 14 "DD.c" 2
-
-
-void DD_Init(void)
+void TMR1_Init(tTMR1_Config *config)
 {
-
-    (0u)? (TRISC |= (1<<5)) : (TRISC &= ~(1<<5));
-    (0u)? (TRISC |= (1<<2)) : (TRISC &= ~(1<<2));
-    (1u)? (TRISB |= (1<<2)) : (TRISB &= ~(1<<2));
-    (1u)? (TRISB |= (1<<0)) : (TRISB &= ~(1<<0));
-    (0u)? (TRISB |= (1<<1)) : (TRISB &= ~(1<<1));
-    (0u)? (TRISB |= (1<<7)) : (TRISB &= ~(1<<7));
-
-
-    (OFF)?(TRISC |= (1<<5)) : (TRISC &= ~(1<<5));
-    (OFF)?(TRISC |= (1<<2)) : (TRISC &= ~(1<<2));
-    (OFF)?(TRISB |= (1<<1)) : (TRISB &= ~(1<<1));
-    (OFF)?(TRISB |= (1<<7)) : (TRISB &= ~(1<<7));
-
-}
-
-
-void DD_SetState(tDD device ,tState state)
-{
-    switch(device)
+    switch(config->Prescaler)
     {
-        case HEATER:
-            (state)?(TRISC |= (1<<5)) : (TRISC &= ~(1<<5));
-            Devices_State.HEATER_State=state;
+        case TMR1_PRESCALER_1:
+            T1CKPS0 = 0; T1CKPS1 = 0;
             break;
-        case COOLER:
-            (state)?(TRISC |= (1<<2)) : (TRISC &= ~(1<<2));
-            Devices_State.COOLER_State=state;
+        case TMR1_PRESCALER_2:
+            T1CKPS0 = 1; T1CKPS1 = 0;
             break;
-        case HEATER_LED:
-            (state)?(TRISB |= (1<<7)) : (TRISB &= ~(1<<7));
-            Devices_State.HEATER_LED_State=state;
+        case TMR1_PRESCALER_4:
+            T1CKPS0 = 0; T1CKPS1 = 1;
             break;
+        case TMR1_PRESCALER_8:
+            T1CKPS0 = 1; T1CKPS1 = 1;
+            break;
+    }
 
-        default:
+    switch(config->clkSource)
+    {
+        case INTERNAL_CLK_SOURCE:
+            (T0CS = 0);
+            break ;
+        case EXTERNAL_CLK_SOURCE:
+            (T0CS = 1);
             break ;
     }
 }
-tState DD_GetState(tDD device)
+void TMR1_Start()
 {
-    switch(device)
-    {
-        case HEATER:
-            return ((TRISC & (1<<5)) >> 5);
-            break;
-        case COOLER:
-            return ((TRISC & (1<<2)) >> 2);
-            break;
-        case HEATER_LED:
-            return ((TRISB & (1<<7)) >> 7);
-            break;
-        case ON_OFF_BUTTON:
-            return ((TRISB & (1<<1)) >> 1);
-            break;
-        case UP_BUTTON:
-            return ((TRISB & (1<<2)) >> 2);
-            break;
-        case DOWN_BUTTON:
-            return ((TRISB & (1<<0)) >> 0);
-            break;
+    (TMR1IF = 0);
+    (TMR1IE = 1);
+    (PEIE = 1);
+    (GIE = 1);
+    TMR1=59285;
+    (TMR1ON = 1);
+}
+void TMR1_Update()
+{
 
-        default:
-            break;
-    }
+}
+void TMR1_Stop()
+{
+    (TMR1ON = 0);
 }

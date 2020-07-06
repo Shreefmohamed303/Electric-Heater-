@@ -14,6 +14,8 @@
       <itemPath>GPIO.h</itemPath>
       <itemPath>adc.h</itemPath>
       <itemPath>common_macros.h</itemPath>
+      <itemPath>TMR1.h</itemPath>
+      <itemPath>main.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -28,6 +30,7 @@
       <itemPath>main.c</itemPath>
       <itemPath>DD.c</itemPath>
       <itemPath>adc.c</itemPath>
+      <itemPath>TMR1.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

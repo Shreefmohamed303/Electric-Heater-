@@ -36,7 +36,18 @@ I2C_STOP_READING 1
 OFF 0
 ON 1
 ]
-"38 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
+"7 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
+[e E984 . `uc
+TMR1_PRESCALER_1 0
+TMR1_PRESCALER_2 1
+TMR1_PRESCALER_4 2
+TMR1_PRESCALER_8 3
+]
+[e E990 . `uc
+INTERNAL_CLK_SOURCE 0
+EXTERNAL_CLK_SOURCE 1
+]
+"13
 [e E926 . `uc
 ADC0 0
 ADC1 1
@@ -65,7 +76,7 @@ FOSC_4 4
 FOSC_16 5
 FOSC_64 6
 ]
-"47
+"21
 [e E964 . `uc
 ON_OFF_BUTTON 0
 UP_BUTTON 1
@@ -79,7 +90,7 @@ HEATER_LED 5
 OFF 0
 ON 1
 ]
-"34 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
+"35 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
 [e E865 . `uc
 ON_OFF_BUTTON 0
 UP_BUTTON 1
@@ -117,6 +128,18 @@ FOSC_4 4
 FOSC_16 5
 FOSC_64 6
 ]
+"3 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
+[e E850 . `uc
+TMR1_PRESCALER_1 0
+TMR1_PRESCALER_2 1
+TMR1_PRESCALER_4 2
+TMR1_PRESCALER_8 3
+]
+[e E856 . `uc
+INTERNAL_CLK_SOURCE 0
+EXTERNAL_CLK_SOURCE 1
+]
+"16 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
 [v _ADC_Init ADC_Init `(v  1 e 1 0 ]
 "69
 [v _ADC_ReadChannel ADC_ReadChannel `(us  1 e 2 0 ]
@@ -140,9 +163,9 @@ FOSC_64 6
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"15 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
+"16 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
 [v _DD_Init DD_Init `(v  1 e 1 0 ]
-"34
+"35
 [v _DD_SetState DD_SetState `(v  1 e 1 0 ]
 "11 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\Display.c
 [v _Display_config Display_config `(v  1 s 1 Display_config ]
@@ -166,8 +189,14 @@ FOSC_64 6
 [v _I2C_Master_WriteByte I2C_Master_WriteByte `(uc  1 e 1 0 ]
 "105
 [v _I2C_Master_ReadByte I2C_Master_ReadByte `(uc  1 e 1 0 ]
-"35 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
+"4 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
 [v _main main `(v  1 e 1 0 ]
+"31
+[v _Timer Timer `II(v  1 e 1 0 ]
+"3 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
+[v _TMR1_Init TMR1_Init `(v  1 e 1 0 ]
+"31
+[v _TMR1_Start TMR1_Start `(v  1 e 1 0 ]
 [s S144 . 3 `E861 1 HEATER_State 1 0 `E861 1 HEATER_LED_State 1 1 `E861 1 COOLER_State 1 2 ]
 "38 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X/DD.h
 [v _Devices_State Devices_State `S144  1 e 3 0 ]
@@ -177,6 +206,8 @@ FOSC_64 6
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
 "340
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
+"634
+[v _TMR1 TMR1 `VEus  1 e 2 @14 ]
 "808
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
 "815
@@ -185,29 +216,6 @@ FOSC_64 6
 [v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
 "1159
 [v _ADCON0 ADCON0 `VEuc  1 e 1 @31 ]
-[s S153 . 1 `uc 1 ADON 1 0 :1:0 
-`uc 1 . 1 0 :1:1 
-`uc 1 GO_nDONE 1 0 :1:2 
-`uc 1 CHS 1 0 :3:3 
-`uc 1 ADCS 1 0 :2:6 
-]
-"1190
-[s S159 . 1 `uc 1 . 1 0 :2:0 
-`uc 1 GO 1 0 :1:2 
-`uc 1 CHS0 1 0 :1:3 
-`uc 1 CHS1 1 0 :1:4 
-`uc 1 CHS2 1 0 :1:5 
-`uc 1 ADCS0 1 0 :1:6 
-`uc 1 ADCS1 1 0 :1:7 
-]
-[s S167 . 1 `uc 1 . 1 0 :2:0 
-`uc 1 nDONE 1 0 :1:2 
-]
-[s S170 . 1 `uc 1 . 1 0 :2:0 
-`uc 1 GO_DONE 1 0 :1:2 
-]
-[u S173 . 1 `S153 1 . 1 0 `S159 1 . 1 0 `S167 1 . 1 0 `S170 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES173  1 e 1 @31 ]
 "1325
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
 "1375
@@ -238,8 +246,6 @@ FOSC_64 6
 [v _ADIF ADIF `VEb  1 e 0 @102 ]
 "2569
 [v _GIE GIE `VEb  1 e 0 @95 ]
-"2575
-[v _GO_DONE GO_DONE `VEb  1 e 0 @250 ]
 "2629
 [v _PEIE PEIE `VEb  1 e 0 @94 ]
 "2632
@@ -256,17 +262,76 @@ FOSC_64 6
 [v _SSPIE SSPIE `VEb  1 e 0 @1123 ]
 "2824
 [v _SSPIF SSPIF `VEb  1 e 0 @99 ]
-"35 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
+"2845
+[v _T0CS T0CS `VEb  1 e 0 @1037 ]
+"2857
+[v _T1CKPS0 T1CKPS0 `VEb  1 e 0 @132 ]
+"2860
+[v _T1CKPS1 T1CKPS1 `VEb  1 e 0 @133 ]
+"2887
+[v _TMR1IE TMR1IE `VEb  1 e 0 @1120 ]
+"2890
+[v _TMR1IF TMR1IF `VEb  1 e 0 @96 ]
+"2893
+[v _TMR1ON TMR1ON `VEb  1 e 0 @128 ]
+"4 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"53
-[v main@Reading Reading `us  1 a 2 45 ]
-[s S225 . 4 `E926 1 channel 1 0 `E937 1 mode 1 1 `E941 1 alignment 1 2 `E945 1 clk 1 3 ]
-"38
-[v main@adc_config adc_config `S225  1 a 4 47 ]
+[s S192 . 4 `E926 1 channel 1 0 `E937 1 mode 1 1 `E941 1 alignment 1 2 `E945 1 clk 1 3 ]
+"13
+[v main@adc_config adc_config `S192  1 a 4 6 ]
+[s S156 . 2 `E984 1 Prescaler 1 0 `E990 1 clkSource 1 1 ]
+"7
+[v main@TMR1_cfg TMR1_cfg `S156  1 a 2 4 ]
+"29
+} 0
+"31 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
+[v _TMR1_Start TMR1_Start `(v  1 e 1 0 ]
+{
+"39
+} 0
+"3
+[v _TMR1_Init TMR1_Init `(v  1 e 1 0 ]
+{
+[s S156 . 2 `E984 1 Prescaler 1 0 `E990 1 clkSource 1 1 ]
+[v TMR1_Init@config config `*.4S156  1 a 1 wreg ]
+[v TMR1_Init@config config `*.4S156  1 a 1 wreg ]
+[v TMR1_Init@config config `*.4S156  1 a 1 2 ]
+"30
+} 0
+"35 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
+[v _DD_SetState DD_SetState `(v  1 e 1 0 ]
+{
+[v DD_SetState@device device `E865  1 a 1 wreg ]
+[v DD_SetState@device device `E865  1 a 1 wreg ]
+[v DD_SetState@state state `E13  1 p 1 0 ]
+[v DD_SetState@device device `E865  1 a 1 3 ]
+"55
+} 0
+"16
+[v _DD_Init DD_Init `(v  1 e 1 0 ]
+{
+"32
+} 0
+"16 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
+[v _ADC_Init ADC_Init `(v  1 e 1 0 ]
+{
+[s S192 . 4 `E926 1 channel 1 0 `E937 1 mode 1 1 `E941 1 alignment 1 2 `E945 1 clk 1 3 ]
+[v ADC_Init@config config `*.4S192  1 a 1 wreg ]
+[v ADC_Init@config config `*.4S192  1 a 1 wreg ]
+"19
+"16
+[v ADC_Init@config config `*.4S192  1 a 1 2 ]
+"67
+} 0
+"31 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
+[v _Timer Timer `II(v  1 e 1 0 ]
+{
+"40
+[v Timer@Reading Reading `us  1 a 2 44 ]
+"33
+[v Timer@count count `uc  1 s 1 count ]
 "48
-[v main@i i `us  1 a 2 43 ]
-"60
 } 0
 "10 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
@@ -336,7 +401,7 @@ FOSC_64 6
 [v _Heater_Display Heater_Display `(v  1 e 1 0 ]
 {
 [v Heater_Display@temp temp `us  1 p 2 36 ]
-"64
+"63
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\lwmod.c
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
@@ -380,20 +445,6 @@ FOSC_64 6
 [v Display_config@ID ID `uc  1 a 1 3 ]
 "34
 } 0
-"34 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-[v _DD_SetState DD_SetState `(v  1 e 1 0 ]
-{
-[v DD_SetState@device device `E865  1 a 1 wreg ]
-[v DD_SetState@device device `E865  1 a 1 wreg ]
-[v DD_SetState@state state `E13  1 p 1 0 ]
-[v DD_SetState@device device `E865  1 a 1 3 ]
-"54
-} 0
-"15
-[v _DD_Init DD_Init `(v  1 e 1 0 ]
-{
-"31
-} 0
 "69 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
 [v _ADC_ReadChannel ADC_ReadChannel `(us  1 e 2 0 ]
 {
@@ -405,15 +456,4 @@ FOSC_64 6
 "72
 [v ADC_ReadChannel@channel channel `E865  1 a 1 5 ]
 "90
-} 0
-"16
-[v _ADC_Init ADC_Init `(v  1 e 1 0 ]
-{
-[s S225 . 4 `E926 1 channel 1 0 `E937 1 mode 1 1 `E941 1 alignment 1 2 `E945 1 clk 1 3 ]
-[v ADC_Init@config config `*.4S225  1 a 1 wreg ]
-[v ADC_Init@config config `*.4S225  1 a 1 wreg ]
-"19
-"16
-[v ADC_Init@config config `*.4S225  1 a 1 2 ]
-"67
 } 0

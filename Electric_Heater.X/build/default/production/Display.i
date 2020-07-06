@@ -1839,6 +1839,5 @@ void Heater_Display(uint16_t temp)
     _delay((unsigned long)((60)*(4000000/4000.0)));
     Display_config(4,OFF);
     Display_Write(3,(uint8_t)temp/10);
-    _delay((unsigned long)((60)*(4000000/4000.0)));
 
 }

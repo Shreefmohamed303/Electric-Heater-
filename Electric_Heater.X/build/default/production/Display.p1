@@ -398,10 +398,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "61
 [; ;Display.c: 61:     Display_Write(3,(uint8_t)temp/10);
 [e ( _Display_Write (2 , -> -> 3 `i `uc -> / -> -> _temp `uc `i -> 10 `i `uc ]
-"62
-[; ;Display.c: 62:     _delay((unsigned long)((60)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"64
-[; ;Display.c: 64: }
+"63
+[; ;Display.c: 63: }
 [e :UE 105 ]
 }

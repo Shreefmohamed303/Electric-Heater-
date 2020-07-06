@@ -7,9 +7,7 @@
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-
-
-
+# 1 "./main.h" 1
 
 
 
@@ -1745,7 +1743,7 @@ extern __bank0 __bit __timeout;
 #pragma config WRT = OFF
 
 #pragma config CP = OFF
-# 8 "main.c" 2
+# 5 "./main.h" 2
 
 # 1 "./GPIO.h" 1
 
@@ -1779,7 +1777,7 @@ typedef enum
     ON=1
 }tState;
 # 4 "./GPIO.h" 2
-# 9 "main.c" 2
+# 6 "./main.h" 2
 
 # 1 "./Display.h" 1
 # 23 "./Display.h"
@@ -1791,7 +1789,7 @@ typedef uint8_t Display_Number;
 static void Display_config (Display_ID ID ,tState Display_state);
 Std_ReturnType Display_Write(Display_ID ID ,Display_Number Number);
 void Heater_Display(uint16_t temp);
-# 10 "main.c" 2
+# 7 "./main.h" 2
 
 # 1 "./i2c.h" 1
 # 27 "./i2c.h"
@@ -1846,7 +1844,7 @@ void I2C_Master_Send_NACK();
 uint8_t I2C_Master_WriteByte(uint8_t Data);
 uint8_t I2C_Master_ReadByte(tI2C_ReadingState Read_State);
 void I2C_Wait_IDLE();
-# 11 "main.c" 2
+# 8 "./main.h" 2
 
 # 1 "./EEPROM.h" 1
 # 11 "./EEPROM.h"
@@ -1854,7 +1852,7 @@ void EEPROM_WriteByte(uint16_t address , uint8_t data);
 void EEPROM_WritePage(uint16_t address , uint8_t *data , uint8_t Data_length);
 uint8_t EEPROM_ReadByte(uint16_t address );
 void EEPROM_ReadPage(uint16_t address , uint8_t *data , uint8_t Data_length);
-# 12 "main.c" 2
+# 9 "./main.h" 2
 
 # 1 "./adc.h" 1
 # 34 "./adc.h"
@@ -1875,7 +1873,7 @@ typedef struct
 
 void ADC_Init(tADC_Config* config);
 uint16_t ADC_ReadChannel(tADC_Channel_Select channel);
-# 13 "main.c" 2
+# 10 "./main.h" 2
 
 # 1 "./DD.h" 1
 # 18 "./DD.h"
@@ -1906,31 +1904,49 @@ tDD_State Devices_State={OFF,OFF,OFF};
 void DD_Init(void);
 void DD_SetState(tDD device ,tState state);
 tState DD_GetState(tDD device);
-# 14 "main.c" 2
+# 11 "./main.h" 2
 
-
-void ADC_init()
+# 1 "./TMR1.h" 1
+# 42 "./TMR1.h"
+typedef enum
 {
-    ADCON0 = 0x41;
-    ADCON1 = 0x80;
+    TMR1_PRESCALER_1=0,
+    TMR1_PRESCALER_2=1,
+    TMR1_PRESCALER_4=2,
+    TMR1_PRESCALER_8=3
+}tTMR1_PrescalerSelect;
 
-}
-uint16_t ADC_Read(uint8_t ANC)
+
+typedef enum
 {
-    if(ANC<0 || ANC>7)
-    { return 0;}
-    ADCON0 &= 0b11000101;
-    ADCON0 |= ANC<<3;
+    INTERNAL_CLK_SOURCE=0,
+    EXTERNAL_CLK_SOURCE=1
+}tTMR1_ClkSourceSelect;
 
-    _delay((unsigned long)((30)*(4000000/4000000.0)));
-    GO_DONE = 1;
-    while(ADCON0bits.GO_DONE);
+typedef struct
+{
+    tTMR1_PrescalerSelect Prescaler;
+    tTMR1_ClkSourceSelect clkSource;
+}tTMR1_Config;
 
-    return ((ADRESH << 8) + ADRESL);
-}
+void TMR1_Init(tTMR1_Config *config);
+void TMR1_Start();
+void TMR1_Update();
+void TMR1_Stop();
+# 12 "./main.h" 2
+# 1 "main.c" 2
+
+
+
 void main(void)
 {
 
+    tTMR1_Config TMR1_cfg;
+    TMR1_cfg.Prescaler=TMR1_PRESCALER_8;
+    TMR1_cfg.clkSource=EXTERNAL_CLK_SOURCE;
+
+    TMR1_Init(&TMR1_cfg);
+    TMR1_Start();
     tADC_Config adc_config;
     adc_config.alignment=RIGHT;
     adc_config.channel=ADC2;
@@ -1938,19 +1954,32 @@ void main(void)
     adc_config.mode= POLLING_MODE;
 
     ADC_Init(&adc_config);
-
     DD_Init();
     DD_SetState(HEATER,ON);
-    uint16_t i=50;
 
     while(1)
     {
 
-       uint16_t Reading = ADC_ReadChannel(ADC2);
-        Heater_Display(Reading*0.488);
 
-        i++;
-        _delay((unsigned long)((200)*(4000000/4000.0)));
     }
     return;
+}
+
+void __attribute__((picinterrupt(("")))) Timer()
+{
+    static uint8_t count =0;
+   if (TMR1IF)
+   {
+      count++;
+      if(count==2)
+      {
+
+        uint16_t Reading = ADC_ReadChannel(ADC2);
+        Heater_Display(Reading*0.488);
+
+        count = 0;
+      }
+      TMR1IF = 0;
+      TMR1=59285;
+   }
 }

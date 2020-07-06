@@ -1,22 +1,41 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"38 ./DD.h
-[; ;./DD.h: 38: tDD_State Devices_State={OFF,OFF,OFF};
-[c E13 0 1 .. ]
-[n E13 . OFF ON  ]
-"31
-[; ;./DD.h: 31: {
-[s S95 `E13 1 `E13 1 `E13 1 ]
-[n S95 . HEATER_State HEATER_LED_State COOLER_State ]
-"1437 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1437: extern volatile unsigned char TRISC __attribute__((address(0x087)));
-[v _TRISC `Vuc ~T0 @X0 0 e@135 ]
-"1375
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1375: extern volatile unsigned char TRISB __attribute__((address(0x086)));
-[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
-"35 DD.c
-[; ;DD.c: 35: void DD_SetState(tDD device ,tState state)
-[c E865 0 1 2 3 4 5 .. ]
-[n E865 . ON_OFF_BUTTON UP_BUTTON DOWN_BUTTON HEATER COOLER HEATER_LED  ]
+"3 TMR1.c
+[; ;TMR1.c: 3: void TMR1_Init(tTMR1_Config *config)
+[c E850 0 1 2 3 .. ]
+[n E850 . TMR1_PRESCALER_1 TMR1_PRESCALER_2 TMR1_PRESCALER_4 TMR1_PRESCALER_8  ]
+[c E856 0 1 .. ]
+[n E856 . INTERNAL_CLK_SOURCE EXTERNAL_CLK_SOURCE  ]
+"58 ./TMR1.h
+[; ;./TMR1.h: 58: {
+[s S95 `E850 1 `E856 1 ]
+[n S95 . Prescaler clkSource ]
+"2857 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2857: extern volatile __bit T1CKPS0 __attribute__((address(0x84)));
+[v _T1CKPS0 `Vb ~T0 @X0 0 e@132 ]
+"2860
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2860: extern volatile __bit T1CKPS1 __attribute__((address(0x85)));
+[v _T1CKPS1 `Vb ~T0 @X0 0 e@133 ]
+"2845
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2845: extern volatile __bit T0CS __attribute__((address(0x40D)));
+[v _T0CS `Vb ~T0 @X0 0 e@1037 ]
+"2890
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2890: extern volatile __bit TMR1IF __attribute__((address(0x60)));
+[v _TMR1IF `Vb ~T0 @X0 0 e@96 ]
+"2887
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2887: extern volatile __bit TMR1IE __attribute__((address(0x460)));
+[v _TMR1IE `Vb ~T0 @X0 0 e@1120 ]
+"2629
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2629: extern volatile __bit PEIE __attribute__((address(0x5E)));
+[v _PEIE `Vb ~T0 @X0 0 e@94 ]
+"2569
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2569: extern volatile __bit GIE __attribute__((address(0x5F)));
+[v _GIE `Vb ~T0 @X0 0 e@95 ]
+"634
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 634: extern volatile unsigned short TMR1 __attribute__((address(0x00E)));
+[v _TMR1 `Vus ~T0 @X0 0 e@14 ]
+"2893
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2893: extern volatile __bit TMR1ON __attribute__((address(0x80)));
+[v _TMR1ON `Vb ~T0 @X0 0 e@128 ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -197,252 +216,167 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"38 ./DD.h
-[; ;./DD.h: 38: tDD_State Devices_State={OFF,OFF,OFF};
-[v _Devices_State `S95 ~T0 @X0 1 e ]
-[i _Devices_State
-:U ..
-:U ..
-. `E13 0
-. `E13 0
-. `E13 0
-..
-..
-]
-"23 ./Display.h
-[; ;./Display.h: 23: uint8_t Display_code[10] = {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F};
-[v _Display_code `uc ~T0 @X0 -> 10 `i e ]
-[i _Display_code
-:U ..
--> -> 63 `i `uc
--> -> 6 `i `uc
--> -> 91 `i `uc
--> -> 79 `i `uc
--> -> 102 `i `uc
--> -> 109 `i `uc
--> -> 125 `i `uc
--> -> 7 `i `uc
--> -> 127 `i `uc
--> -> 111 `i `uc
-..
-]
-"16 DD.c
-[; ;DD.c: 16: void DD_Init(void)
-[v _DD_Init `(v ~T0 @X0 1 ef ]
-"17
-[; ;DD.c: 17: {
+"3 TMR1.c
+[; ;TMR1.c: 3: void TMR1_Init(tTMR1_Config *config)
+[v _TMR1_Init `(v ~T0 @X0 1 ef1`*S95 ]
+"4
+[; ;TMR1.c: 4: {
 {
-[e :U _DD_Init ]
+[e :U _TMR1_Init ]
+"3
+[; ;TMR1.c: 3: void TMR1_Init(tTMR1_Config *config)
+[v _config `*S95 ~T0 @X0 1 r1 ]
+"4
+[; ;TMR1.c: 4: {
 [f ]
+"5
+[; ;TMR1.c: 5:     switch(config->Prescaler)
+[e $U 98  ]
+"6
+[; ;TMR1.c: 6:     {
+{
+"7
+[; ;TMR1.c: 7:         case TMR1_PRESCALER_1:
+[e :U 99 ]
+"8
+[; ;TMR1.c: 8:             T1CKPS0 = 0; T1CKPS1 = 0;
+[e = _T1CKPS0 -> -> 0 `i `b ]
+[e = _T1CKPS1 -> -> 0 `i `b ]
+"9
+[; ;TMR1.c: 9:             break;
+[e $U 97  ]
+"10
+[; ;TMR1.c: 10:         case TMR1_PRESCALER_2:
+[e :U 100 ]
+"11
+[; ;TMR1.c: 11:             T1CKPS0 = 1; T1CKPS1 = 0;
+[e = _T1CKPS0 -> -> 1 `i `b ]
+[e = _T1CKPS1 -> -> 0 `i `b ]
+"12
+[; ;TMR1.c: 12:             break;
+[e $U 97  ]
+"13
+[; ;TMR1.c: 13:         case TMR1_PRESCALER_4:
+[e :U 101 ]
+"14
+[; ;TMR1.c: 14:             T1CKPS0 = 0; T1CKPS1 = 1;
+[e = _T1CKPS0 -> -> 0 `i `b ]
+[e = _T1CKPS1 -> -> 1 `i `b ]
+"15
+[; ;TMR1.c: 15:             break;
+[e $U 97  ]
+"16
+[; ;TMR1.c: 16:         case TMR1_PRESCALER_8:
+[e :U 102 ]
+"17
+[; ;TMR1.c: 17:             T1CKPS0 = 1; T1CKPS1 = 1;
+[e = _T1CKPS0 -> -> 1 `i `b ]
+[e = _T1CKPS1 -> -> 1 `i `b ]
+"18
+[; ;TMR1.c: 18:             break;
+[e $U 97  ]
 "19
-[; ;DD.c: 19:     (0u)? (TRISC |= (1<<5)) : (TRISC &= ~(1<<5));
-[e ? != -> 0 `ui -> -> 0 `i `ui : -> =| _TRISC -> << -> 1 `i -> 5 `i `Vuc `i -> =& _TRISC -> ~ << -> 1 `i -> 5 `i `Vuc `i ]
-"20
-[; ;DD.c: 20:     (0u)? (TRISC |= (1<<2)) : (TRISC &= ~(1<<2));
-[e ? != -> 0 `ui -> -> 0 `i `ui : -> =| _TRISC -> << -> 1 `i -> 2 `i `Vuc `i -> =& _TRISC -> ~ << -> 1 `i -> 2 `i `Vuc `i ]
+[; ;TMR1.c: 19:     }
+}
+[e $U 97  ]
+[e :U 98 ]
+[e [\ -> . *U _config 0 `ui , $ -> . `E850 0 `ui 99
+ , $ -> . `E850 1 `ui 100
+ , $ -> . `E850 2 `ui 101
+ , $ -> . `E850 3 `ui 102
+ 97 ]
+[e :U 97 ]
 "21
-[; ;DD.c: 21:     (1u)? (TRISB |= (1<<2)) : (TRISB &= ~(1<<2));
-[e ? != -> 1 `ui -> -> 0 `i `ui : -> =| _TRISB -> << -> 1 `i -> 2 `i `Vuc `i -> =& _TRISB -> ~ << -> 1 `i -> 2 `i `Vuc `i ]
+[; ;TMR1.c: 21:     switch(config->clkSource)
+[e $U 104  ]
 "22
-[; ;DD.c: 22:     (1u)? (TRISB |= (1<<0)) : (TRISB &= ~(1<<0));
-[e ? != -> 1 `ui -> -> 0 `i `ui : -> =| _TRISB -> << -> 1 `i -> 0 `i `Vuc `i -> =& _TRISB -> ~ << -> 1 `i -> 0 `i `Vuc `i ]
+[; ;TMR1.c: 22:     {
+{
 "23
-[; ;DD.c: 23:     (0u)? (TRISB |= (1<<1)) : (TRISB &= ~(1<<1));
-[e ? != -> 0 `ui -> -> 0 `i `ui : -> =| _TRISB -> << -> 1 `i -> 1 `i `Vuc `i -> =& _TRISB -> ~ << -> 1 `i -> 1 `i `Vuc `i ]
+[; ;TMR1.c: 23:         case INTERNAL_CLK_SOURCE:
+[e :U 105 ]
 "24
-[; ;DD.c: 24:     (0u)? (TRISB |= (1<<7)) : (TRISB &= ~(1<<7));
-[e ? != -> 0 `ui -> -> 0 `i `ui : -> =| _TRISB -> << -> 1 `i -> 7 `i `Vuc `i -> =& _TRISB -> ~ << -> 1 `i -> 7 `i `Vuc `i ]
+[; ;TMR1.c: 24:             (T0CS = 0);
+[e = _T0CS -> -> 0 `i `b ]
+"25
+[; ;TMR1.c: 25:             break ;
+[e $U 103  ]
+"26
+[; ;TMR1.c: 26:         case EXTERNAL_CLK_SOURCE:
+[e :U 106 ]
 "27
-[; ;DD.c: 27:     (OFF)?(TRISC |= (1<<5)) : (TRISC &= ~(1<<5));
-[e ? != -> . `E13 0 `i -> 0 `i : -> =| _TRISC -> << -> 1 `i -> 5 `i `Vuc `i -> =& _TRISC -> ~ << -> 1 `i -> 5 `i `Vuc `i ]
+[; ;TMR1.c: 27:             (T0CS = 1);
+[e = _T0CS -> -> 1 `i `b ]
 "28
-[; ;DD.c: 28:     (OFF)?(TRISC |= (1<<2)) : (TRISC &= ~(1<<2));
-[e ? != -> . `E13 0 `i -> 0 `i : -> =| _TRISC -> << -> 1 `i -> 2 `i `Vuc `i -> =& _TRISC -> ~ << -> 1 `i -> 2 `i `Vuc `i ]
+[; ;TMR1.c: 28:             break ;
+[e $U 103  ]
 "29
-[; ;DD.c: 29:     (OFF)?(TRISB |= (1<<1)) : (TRISB &= ~(1<<1));
-[e ? != -> . `E13 0 `i -> 0 `i : -> =| _TRISB -> << -> 1 `i -> 1 `i `Vuc `i -> =& _TRISB -> ~ << -> 1 `i -> 1 `i `Vuc `i ]
+[; ;TMR1.c: 29:     }
+}
+[e $U 103  ]
+[e :U 104 ]
+[e [\ -> . *U _config 1 `ui , $ -> . `E856 0 `ui 105
+ , $ -> . `E856 1 `ui 106
+ 103 ]
+[e :U 103 ]
 "30
-[; ;DD.c: 30:     (OFF)?(TRISB |= (1<<7)) : (TRISB &= ~(1<<7));
-[e ? != -> . `E13 0 `i -> 0 `i : -> =| _TRISB -> << -> 1 `i -> 7 `i `Vuc `i -> =& _TRISB -> ~ << -> 1 `i -> 7 `i `Vuc `i ]
-"32
-[; ;DD.c: 32: }
+[; ;TMR1.c: 30: }
 [e :UE 96 ]
 }
-"35
-[; ;DD.c: 35: void DD_SetState(tDD device ,tState state)
-[v _DD_SetState `(v ~T0 @X0 1 ef2`E865`E13 ]
-"36
-[; ;DD.c: 36: {
+"31
+[; ;TMR1.c: 31: void TMR1_Start()
+[v _TMR1_Start `(v ~T0 @X0 1 ef ]
+"32
+[; ;TMR1.c: 32: {
 {
-[e :U _DD_SetState ]
-"35
-[; ;DD.c: 35: void DD_SetState(tDD device ,tState state)
-[v _device `E865 ~T0 @X0 1 r1 ]
-[v _state `E13 ~T0 @X0 1 r2 ]
-"36
-[; ;DD.c: 36: {
+[e :U _TMR1_Start ]
 [f ]
+"33
+[; ;TMR1.c: 33:     (TMR1IF = 0);
+[e = _TMR1IF -> -> 0 `i `b ]
+"34
+[; ;TMR1.c: 34:     (TMR1IE = 1);
+[e = _TMR1IE -> -> 1 `i `b ]
+"35
+[; ;TMR1.c: 35:     (PEIE = 1);
+[e = _PEIE -> -> 1 `i `b ]
+"36
+[; ;TMR1.c: 36:     (GIE = 1);
+[e = _GIE -> -> 1 `i `b ]
 "37
-[; ;DD.c: 37:     switch(device)
-[e $U 99  ]
+[; ;TMR1.c: 37:     TMR1=59285;
+[e = _TMR1 -> -> 59285 `l `us ]
 "38
-[; ;DD.c: 38:     {
-{
+[; ;TMR1.c: 38:     (TMR1ON = 1);
+[e = _TMR1ON -> -> 1 `i `b ]
 "39
-[; ;DD.c: 39:         case HEATER:
-[e :U 100 ]
+[; ;TMR1.c: 39: }
+[e :UE 107 ]
+}
 "40
-[; ;DD.c: 40:             (state)?(TRISC |= (1<<5)) : (TRISC &= ~(1<<5));
-[e ? != -> _state `ui -> -> 0 `i `ui : -> =| _TRISC -> << -> 1 `i -> 5 `i `Vuc `i -> =& _TRISC -> ~ << -> 1 `i -> 5 `i `Vuc `i ]
+[; ;TMR1.c: 40: void TMR1_Update()
+[v _TMR1_Update `(v ~T0 @X0 1 ef ]
 "41
-[; ;DD.c: 41:             Devices_State.HEATER_State=state;
-[e = . _Devices_State 0 _state ]
-"42
-[; ;DD.c: 42:             break;
-[e $U 98  ]
-"43
-[; ;DD.c: 43:         case COOLER:
-[e :U 101 ]
-"44
-[; ;DD.c: 44:             (state)?(TRISC |= (1<<2)) : (TRISC &= ~(1<<2));
-[e ? != -> _state `ui -> -> 0 `i `ui : -> =| _TRISC -> << -> 1 `i -> 2 `i `Vuc `i -> =& _TRISC -> ~ << -> 1 `i -> 2 `i `Vuc `i ]
-"45
-[; ;DD.c: 45:             Devices_State.COOLER_State=state;
-[e = . _Devices_State 2 _state ]
-"46
-[; ;DD.c: 46:             break;
-[e $U 98  ]
-"47
-[; ;DD.c: 47:         case HEATER_LED:
-[e :U 102 ]
-"48
-[; ;DD.c: 48:             (state)?(TRISB |= (1<<7)) : (TRISB &= ~(1<<7));
-[e ? != -> _state `ui -> -> 0 `i `ui : -> =| _TRISB -> << -> 1 `i -> 7 `i `Vuc `i -> =& _TRISB -> ~ << -> 1 `i -> 7 `i `Vuc `i ]
-"49
-[; ;DD.c: 49:             Devices_State.HEATER_LED_State=state;
-[e = . _Devices_State 1 _state ]
-"50
-[; ;DD.c: 50:             break;
-[e $U 98  ]
-"52
-[; ;DD.c: 52:         default:
-[e :U 103 ]
-"53
-[; ;DD.c: 53:             break ;
-[e $U 98  ]
-"54
-[; ;DD.c: 54:     }
-}
-[e $U 98  ]
-[e :U 99 ]
-[e [\ -> _device `ui , $ -> . `E865 3 `ui 100
- , $ -> . `E865 4 `ui 101
- , $ -> . `E865 5 `ui 102
- 103 ]
-[e :U 98 ]
-"55
-[; ;DD.c: 55: }
-[e :UE 97 ]
-}
-"56
-[; ;DD.c: 56: tState DD_GetState(tDD device)
-[v _DD_GetState `(E13 ~T0 @X0 1 ef1`E865 ]
-"57
-[; ;DD.c: 57: {
+[; ;TMR1.c: 41: {
 {
-[e :U _DD_GetState ]
-"56
-[; ;DD.c: 56: tState DD_GetState(tDD device)
-[v _device `E865 ~T0 @X0 1 r1 ]
-"57
-[; ;DD.c: 57: {
+[e :U _TMR1_Update ]
 [f ]
-"58
-[; ;DD.c: 58:     switch(device)
-[e $U 106  ]
-"59
-[; ;DD.c: 59:     {
-{
-"60
-[; ;DD.c: 60:         case HEATER:
-[e :U 107 ]
-"61
-[; ;DD.c: 61:             return ((TRISC & (1<<5)) >> 5);
-[e ) -> >> & -> _TRISC `i << -> 1 `i -> 5 `i -> 5 `i `E13 ]
-[e $UE 104  ]
-"62
-[; ;DD.c: 62:             break;
-[e $U 105  ]
-"63
-[; ;DD.c: 63:         case COOLER:
-[e :U 108 ]
-"64
-[; ;DD.c: 64:             return ((TRISC & (1<<2)) >> 2);
-[e ) -> >> & -> _TRISC `i << -> 1 `i -> 2 `i -> 2 `i `E13 ]
-[e $UE 104  ]
-"65
-[; ;DD.c: 65:             break;
-[e $U 105  ]
-"66
-[; ;DD.c: 66:         case HEATER_LED:
-[e :U 109 ]
-"67
-[; ;DD.c: 67:             return ((TRISB & (1<<7)) >> 7);
-[e ) -> >> & -> _TRISB `i << -> 1 `i -> 7 `i -> 7 `i `E13 ]
-[e $UE 104  ]
-"68
-[; ;DD.c: 68:             break;
-[e $U 105  ]
-"69
-[; ;DD.c: 69:         case ON_OFF_BUTTON:
-[e :U 110 ]
-"70
-[; ;DD.c: 70:             return ((TRISB & (1<<1)) >> 1);
-[e ) -> >> & -> _TRISB `i << -> 1 `i -> 1 `i -> 1 `i `E13 ]
-[e $UE 104  ]
-"71
-[; ;DD.c: 71:             break;
-[e $U 105  ]
-"72
-[; ;DD.c: 72:         case UP_BUTTON:
-[e :U 111 ]
-"73
-[; ;DD.c: 73:             return ((TRISB & (1<<2)) >> 2);
-[e ) -> >> & -> _TRISB `i << -> 1 `i -> 2 `i -> 2 `i `E13 ]
-[e $UE 104  ]
-"74
-[; ;DD.c: 74:             break;
-[e $U 105  ]
-"75
-[; ;DD.c: 75:         case DOWN_BUTTON:
-[e :U 112 ]
-"76
-[; ;DD.c: 76:             return ((TRISB & (1<<0)) >> 0);
-[e ) -> >> & -> _TRISB `i << -> 1 `i -> 0 `i -> 0 `i `E13 ]
-[e $UE 104  ]
-"77
-[; ;DD.c: 77:             break;
-[e $U 105  ]
-"79
-[; ;DD.c: 79:         default:
-[e :U 113 ]
-"80
-[; ;DD.c: 80:             break;
-[e $U 105  ]
-"81
-[; ;DD.c: 81:     }
+"43
+[; ;TMR1.c: 43: }
+[e :UE 108 ]
 }
-[e $U 105  ]
-[e :U 106 ]
-[e [\ -> _device `ui , $ -> . `E865 3 `ui 107
- , $ -> . `E865 4 `ui 108
- , $ -> . `E865 5 `ui 109
- , $ -> . `E865 0 `ui 110
- , $ -> . `E865 1 `ui 111
- , $ -> . `E865 2 `ui 112
- 113 ]
-[e :U 105 ]
-"82
-[; ;DD.c: 82: }
-[e :UE 104 ]
+"44
+[; ;TMR1.c: 44: void TMR1_Stop()
+[v _TMR1_Stop `(v ~T0 @X0 1 ef ]
+"45
+[; ;TMR1.c: 45: {
+{
+[e :U _TMR1_Stop ]
+[f ]
+"46
+[; ;TMR1.c: 46:     (TMR1ON = 0);
+[e = _TMR1ON -> -> 0 `i `b ]
+"47
+[; ;TMR1.c: 47: }
+[e :UE 109 ]
 }
