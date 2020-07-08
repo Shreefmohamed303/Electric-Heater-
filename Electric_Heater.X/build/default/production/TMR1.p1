@@ -5,8 +5,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n E850 . TMR1_PRESCALER_1 TMR1_PRESCALER_2 TMR1_PRESCALER_4 TMR1_PRESCALER_8  ]
 [c E856 0 1 .. ]
 [n E856 . INTERNAL_CLK_SOURCE EXTERNAL_CLK_SOURCE  ]
-"58 ./TMR1.h
-[; ;./TMR1.h: 58: {
+"59 ./TMR1.h
+[; ;./TMR1.h: 59: {
 [s S95 `E850 1 `E856 1 ]
 [n S95 . Prescaler clkSource ]
 "2857 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
@@ -344,8 +344,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;TMR1.c: 36:     (GIE = 1);
 [e = _GIE -> -> 1 `i `b ]
 "37
-[; ;TMR1.c: 37:     TMR1=59285;
-[e = _TMR1 -> -> 59285 `l `us ]
+[; ;TMR1.c: 37:     TMR1=34285;
+[e = _TMR1 -> -> 34285 `l `us ]
 "38
 [; ;TMR1.c: 38:     (TMR1ON = 1);
 [e = _TMR1ON -> -> 1 `i `b ]

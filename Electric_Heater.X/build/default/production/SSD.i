@@ -1,4 +1,4 @@
-# 1 "TMR0.c"
+# 1 "SSD.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,10 +6,49 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "TMR0.c" 2
-# 1 "./TMR0.h" 1
+# 1 "SSD.c" 2
 
 
+
+
+
+
+# 1 "./SSD.h" 1
+
+
+
+# 1 "./GPIO.h" 1
+
+
+
+# 1 "./Std_Types.h" 1
+
+
+
+
+typedef unsigned char uint8_t ;
+typedef signed int8_t ;
+
+typedef unsigned short uint16_t ;
+typedef signed short int16_t;
+
+typedef unsigned long uint32_t ;
+typedef signed long int32_t ;
+
+typedef unsigned long long uint64_t ;
+typedef signed long long int64_t ;
+
+typedef float float32_t ;
+typedef double float64_t ;
+
+typedef uint8_t Std_ReturnType;
+
+typedef enum
+{
+    OFF=0,
+    ON=1
+}tState;
+# 4 "./GPIO.h" 2
 
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
@@ -1720,91 +1759,97 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 4 "./TMR0.h" 2
-# 72 "./TMR0.h"
-typedef enum
+# 5 "./GPIO.h" 2
+# 4 "./SSD.h" 2
+# 23 "./SSD.h"
+uint8_t SSD_code[10] = {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F};
+
+typedef uint8_t SSD_ID;
+typedef uint8_t SSD_Number;
+
+static void SSD_config (SSD_ID ID ,tState Display_state);
+Std_ReturnType SSD_Write(SSD_ID ID ,SSD_Number Number);
+void Heater_Display(uint16_t temp);
+void SSD_OFF(SSD_ID ID);
+void SSD_ON(SSD_ID ID);
+# 7 "SSD.c" 2
+
+# 1 "./config.h" 1
+# 11 "./config.h"
+#pragma config FOSC = XT
+#pragma config WDTE = OFF
+#pragma config PWRTE = ON
+#pragma config BOREN = ON
+#pragma config LVP = OFF
+
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+
+#pragma config CP = OFF
+# 8 "SSD.c" 2
+
+
+
+static void SSD_config (SSD_ID ID ,tState SSD_state)
 {
-    TMR0_PRESCALE_2=2,
-    TMR0_PRESCALE_4=4,
-    TMR0_PRESCALE_8=8,
-    TMR0_PRESCALE_16=16,
-    TMR0_PRESCALE_32=32,
-    TMR0_PRESCALE_64=64,
-    TMR0_PRESCALE_128=128,
-    TMR0_PRESCALE_256=256,
-}tTMR0_PrescalerSelect;
 
 
-typedef enum
-{
-    INTERNAL_CLK_SOURCE=0,
-    EXTERNAL_CLK_SOURCE=1
-}tTMR_ClkSourceSelect;
-
-typedef struct
-{
-    tTMR0_PrescalerSelect Prescaler;
-    tTMR_ClkSourceSelect clkSource;
-}tTMR0_Config;
-
-void TMR0_Init(tTMR0_Config *config);
-void TMR0_Start();
-void TMR0_Update();
-void TMR0_Stop();
-# 1 "TMR0.c" 2
-
-
-void TMR0_Init(tTMR0_Config *config)
-{
-    switch(config->Prescaler)
+    switch(ID)
     {
-        case TMR0_PRESCALE_2:
-            PS0 = 0; PS1 = 0; PS2 = 0; PSA = 0;
+        case 2:
+            (0u)?(TRISA |= (1<<2)) : (TRISA &= ~(1<<2));
+            (SSD_state)?(PORTA |= (1<<2)) : (PORTA &= ~(1<<2));
             break;
-        case TMR0_PRESCALE_4:
-            PS0 = 1; PS1 = 0; PS2 = 0; PSA = 0;
+        case 3:
+            (0u)?(TRISA |= (1<<3)) : (TRISA &= ~(1<<3));
+            (SSD_state)?(PORTA |= (1<<3)) : (PORTA &= ~(1<<3));
             break;
-        case TMR0_PRESCALE_8:
-            PS0 = 0; PS1 = 1; PS2 = 0; PSA = 0;
-            break;
-        case TMR0_PRESCALE_16:
-            PS0 = 1; PS1 = 1; PS2 = 0; PSA = 0;
-            break;
-        case TMR0_PRESCALE_32:
-            PS0 = 0; PS1 = 0; PS2 = 1; PSA = 0;
-            break;
-        case TMR0_PRESCALE_64:
-            PS0 = 1; PS1 = 0; PS2 = 1; PSA = 0;
-            break;
-        case TMR0_PRESCALE_128:
-            PS0 = 0; PS1 = 1; PS2 = 1; PSA = 0;
-            break;
-        case TMR0_PRESCALE_256:
-            PS0 = 1; PS1 = 1; PS2 = 1; PSA = 0;
-            break;
-    }
-
-    switch(config->clkSource)
-    {
-        case INTERNAL_CLK_SOURCE:
-            (T0CS = 0);
+        case 4:
+            (0u)?(TRISA |= (1<<4)) : (TRISA &= ~(1<<4));
+            (SSD_state)?(PORTA |= (1<<4)) : (PORTA &= ~(1<<4));
             break ;
-        case EXTERNAL_CLK_SOURCE:
-            (T0CS = 1);
+        case 5:
+            (0u)?(TRISA |= (1<<5)) : (TRISA &= ~(1<<5));
+            (SSD_state)?(PORTA |= (1<<5)) : (PORTA &= ~(1<<5));
             break ;
     }
 }
-void TMR0_Start()
+Std_ReturnType SSD_Write(SSD_ID ID ,SSD_Number Number)
 {
-    (TMR0IF = 0);
-    (TMR0IE = 1);
-    (TMR0IE = 1);
-    (GIE = 1);
+
+    SSD_config(ID,ON);
+
+    ((TRISD)=(0u));
+
+    if((Number>=0) && (Number<=9))
+    {
+
+        ((PORTD)=(SSD_code[Number]));
+        return (Std_ReturnType)(0x00u) ;
+    }
+    else
+    {
+
+        return (Std_ReturnType)(0x01u) ;
+    }
 }
-void TMR0_Update()
+
+void Heater_Display(uint16_t temp)
 {
+    SSD_config(3,OFF);
+    SSD_Write(4,temp%10);
+    _delay((unsigned long)((60)*(4000000/4000.0)));
+    SSD_config(4,OFF);
+    SSD_Write(3,(uint8_t)temp/10);
+    _delay((unsigned long)((60)*(4000000/4000.0)));
 }
-void TMR0_Stop()
+
+void SSD_OFF (SSD_ID ID)
 {
-    (T0CS = 1) ;
+    SSD_config(ID,OFF);
+}
+
+void SSD_ON (SSD_ID ID)
+{
+    SSD_config(ID,ON);
 }

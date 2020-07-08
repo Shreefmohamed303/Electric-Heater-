@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "EWH.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-
+# 1 "EWH.c" 2
 # 1 "./EWH.h" 1
 
 
@@ -1971,7 +1970,7 @@ void EWH_Sleep_Mode();
 void EWH_EEPROM_Init();
 void EWH_EEPROM_Update(uint8_t newSetTemp);
 uint8_t EWH_EEPROM_Read();
-# 2 "main.c" 2
+# 1 "EWH.c" 2
 
 # 1 "./SW.h" 1
 # 25 "./SW.h"
@@ -2004,62 +2003,279 @@ void SW_Init(void);
 void SW_Update(void);
 void SW_SetState(tSW SW_Name ,tSW_State state);
 tSW_State SW_GetState(tSW SW_Name);
-# 3 "main.c" 2
+# 2 "EWH.c" 2
 
 
-    uint16_t Reading , temp;
-void main(void)
+
+void EWH_Sleep_Mode()
 {
 
-    tTMR1_Config TMR1_cfg;
-    TMR1_cfg.Prescaler=TMR1_PRESCALER_8;
-    TMR1_cfg.clkSource=EXTERNAL_CLK_SOURCE;
 
-    TMR1_Init(&TMR1_cfg);
+    EWH_SSD_OFF();
 
-    tADC_Config adc_config;
-    adc_config.alignment=RIGHT;
-    adc_config.channel=ADC2;
-    adc_config.clk=FOSC_8;
-    adc_config.mode= POLLING_MODE;
+    DD_SetState(HEATER,OFF);
 
-    tI2C_Config i2c_config;
-    i2c_config.BaudRate=100000;
-    i2c_config.Mode=Master_Mode;
-    i2c_config.operationMode=POLLING;
+    DD_SetState(COOLER,OFF);
 
+    TMR1_Stop();
 
-    ADC_Init(&adc_config);
-    DD_Init();
-    SW_Init();
-    I2C_Init(&i2c_config);
-    EWH_EEPROM_Init();
+    DD_SetState(HEATER_LED,OFF);
 
-    (0u)? (TRISB |= (1<<4)) : (TRISB &= ~(1<<4));
-    (0u)? (TRISB |= (1<<5)) : (TRISB &= ~(1<<5));
-    (0u)? (TRISB |= (1<<6)) : (TRISB &= ~(1<<6));
+    EWH_Events[0]=0;
+    EWH_Events[2]=0;
+    EWH_Events[1]=0;
+    EWH_Events[3]=0;
 
-             (OFF)?(PORTB |= (1<<4)) : (PORTB &= ~(1<<4));
+    (OFF)?(PORTB |= (1<<4)) : (PORTB &= ~(1<<4));
     (OFF)?(PORTB |= (1<<5)) : (PORTB &= ~(1<<5));
     (OFF)?(PORTB |= (1<<6)) : (PORTB &= ~(1<<6));
+}
+void EWH_PowerUP_Mode()
+{
+    (ON)?(PORTB |= (1<<4)) : (PORTB &= ~(1<<4));
+    (OFF)?(PORTB |= (1<<5)) : (PORTB &= ~(1<<5));
+    (OFF)?(PORTB |= (1<<6)) : (PORTB &= ~(1<<6));
+
+    EWH_Events[0]=0;
+    EWH_Events[2]=0;
+    EWH_Events[1]=0;
+    EWH_Events[3]=0;
+
+
+    EWH_Events[0]=0;
+
+
+
+
+    set_Temp = EWH_EEPROM_Read();
+
+
+    Heater_Display (set_Temp);
+
+    if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED))
+    {
+        _delay((unsigned long)((50)*(4000000/4000.0)));
+        if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED))
+        {
+            EWH_Events[1]=1;
+            NoPress_Sec_count=0;
+            EWH_Mode=EWH_SET_TEMP_MODE;
+        }
+    }
+    else if ((!((PORTB & (1<<1)) >> 1)==SW_PRESSED))
+    {
+        _delay((unsigned long)((50)*(4000000/4000.0)));
+        if((!((PORTB & (1<<1)) >> 1)==SW_PRESSED))
+        {
+            EWH_Events[2]=1;
+            NoPress_Sec_count=0;
+            EWH_Mode=EWH_SET_TEMP_MODE;
+        }
+    }
+}
+void EWH_SetTemp_Mode()
+{
+    (OFF)?(PORTB |= (1<<4)) : (PORTB &= ~(1<<4));
+    (ON)?(PORTB |= (1<<5)) : (PORTB &= ~(1<<5));
+    (OFF)?(PORTB |= (1<<6)) : (PORTB &= ~(1<<6));
+
+    EWH_Events[0]=0;
+    EWH_Events[2]=0;
+    EWH_Events[1]=0;
+    EWH_Events[3]=0;
+
+
+
+    set_Temp = EWH_EEPROM_Read();
+
+    DD_SetState(HEATER,OFF);
+    DD_SetState(COOLER,OFF);
+
+    Heater_Display(set_Temp);
+
+    TMR1_Start();
+
     while(1)
     {
-        switch(EWH_Mode)
+        if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED) && set_Temp<75)
         {
-            case EWH_SLEEP_MODE:
-                EWH_Sleep_Mode();
-                break;
-            case EWH_POWER_UP_MODE:
-                EWH_PowerUP_Mode();
-                break;
-            case EWH_OPERATING_MODE:
-                EWH_Operating_Mode();
-                break;
-            case EWH_SET_TEMP_MODE:
-                EWH_SetTemp_Mode();
-                break;
+            _delay((unsigned long)((30)*(4000000/4000.0)));
+            if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED))
+            {
+                set_Temp+=5;
+                NoPress_Sec_count=0;
+            }
         }
-# 90 "main.c"
+        else if ((!((PORTB & (1<<1)) >> 1)==SW_PRESSED) && set_Temp>35)
+        {
+            _delay((unsigned long)((30)*(4000000/4000.0)));
+            if((!((PORTB & (1<<1)) >> 1)==SW_PRESSED))
+            {
+                set_Temp-=5;
+                NoPress_Sec_count=0;
+            }
+        }
+        if(EWH_Events[3] || EWH_Events[0])
+        {
+
+            EWH_EEPROM_Update(set_Temp);
+
+            break ;
+        }
+
+        Heater_Display(set_Temp);
+
     }
-    return;
+
+    if(EWH_Events[0])
+    {
+        EWH_Events[0]=0;
+
+
+        EWH_Mode=EWH_POWER_UP_MODE;
+    }
+    else if(EWH_Events[3])
+    {
+        EWH_Events[3]=0;
+
+
+        EWH_Mode=EWH_OPERATING_MODE;
+    }
+
+}
+void EWH_Operating_Mode()
+{
+    (OFF)?(PORTB |= (1<<4)) : (PORTB &= ~(1<<4));
+    (OFF)?(PORTB |= (1<<5)) : (PORTB &= ~(1<<5));
+    (ON)?(PORTB |= (1<<6)) : (PORTB &= ~(1<<6));
+
+    EWH_Events[0]=0;
+    EWH_Events[2]=0;
+    EWH_Events[1]=0;
+    EWH_Events[3]=0;
+
+    EWH_Mode=EWH_OPERATING_MODE;
+
+    TMR1_Start();
+
+
+    while(1)
+    {
+        Heater_Display(current_Temp);
+        if(current_Temp>(set_Temp+5))
+        {
+            DD_SetState(HEATER,OFF);
+            DD_SetState(COOLER,ON);
+            DD_SetState(HEATER_LED,ON);
+        }
+        else if(current_Temp<(set_Temp-5))
+        {
+            DD_SetState(HEATER,ON);
+            DD_SetState(COOLER,OFF);
+            DD_SetState(HEATER_LED,ON);
+        }
+         if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED) || (!((PORTB & (1<<1)) >> 1)==SW_PRESSED) )
+         {
+             _delay((unsigned long)((50)*(4000000/4000.0)));
+            if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED) || (!((PORTB & (1<<1)) >> 1)==SW_PRESSED) )
+            {
+             EWH_Events[2]=1;
+             EWH_Events[1]=1;
+             break;
+            }
+         }
+        if(EWH_Events[0]==1)
+            break;
+
+         Heater_Display(current_Temp);
+    }
+
+    if(EWH_Events[1] )
+        {
+            EWH_Events[1]=0;
+            TMR1_Stop();
+
+            EWH_Mode=EWH_SET_TEMP_MODE;
+        }
+    if( EWH_Events[2])
+        {
+             EWH_Events[2]=0;
+             TMR1_Stop();
+
+             EWH_Mode=EWH_SET_TEMP_MODE;
+        }
+}
+
+
+void EWH_EEPROM_Init()
+{
+    EEPROM_WriteByte(0x0020,60);
+}
+void EWH_EEPROM_Update(uint8_t newSetTemp)
+{
+    EEPROM_WriteByte(0x0020,newSetTemp);
+}
+uint8_t EWH_EEPROM_Read()
+{
+    return EEPROM_ReadByte(0x0020);
+}
+
+
+void __attribute__((picinterrupt(("")))) ISR()
+{
+    static uint8_t count =0;
+    if(INTF==1)
+    {
+        EWH_Events[0]=1;
+
+        if(EWH_State==ON)
+        {
+            EWH_State=OFF;
+            EWH_Mode=EWH_SLEEP_MODE;
+        }
+        else if(EWH_State==OFF)
+        {
+            EWH_State=ON;
+            EWH_Mode=EWH_POWER_UP_MODE;
+        }
+        INTF=0;
+    }
+
+   if (TMR1IF)
+   {
+      count++;
+      if(EWH_Mode==EWH_OPERATING_MODE)
+      {
+        uint16_t Reading = ADC_ReadChannel(ADC2);
+        current_Temp=Reading*0.488;
+        Heater_Display(current_Temp);
+      }
+
+      if(count==4)
+      {
+
+          if(EWH_Mode==EWH_SET_TEMP_MODE)
+          {
+              NoPress_Sec_count++;
+              if(NoPress_Sec_count==5)
+              {
+                  EWH_Events[3]=1;
+              }
+          }
+
+        if(EWH_Mode==EWH_OPERATING_MODE && DD_GetState(HEATER)==ON)
+        {
+            (PORTB^=(1<<7));
+        }
+        else if(EWH_Mode==EWH_OPERATING_MODE && DD_GetState(COOLER)==ON)
+        {
+            (ON)?(PORTB |= (1<<7)) : (PORTB &= ~(1<<7));
+        }
+
+
+        count = 0;
+      }
+      TMR1IF = 0;
+      TMR1=34285;
+   }
 }

@@ -1721,7 +1721,7 @@ extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
 # 4 "./TMR1.h" 2
-# 42 "./TMR1.h"
+# 43 "./TMR1.h"
 typedef enum
 {
     TMR1_PRESCALER_1=0,
@@ -1784,7 +1784,7 @@ void TMR1_Start()
     (TMR1IE = 1);
     (PEIE = 1);
     (GIE = 1);
-    TMR1=59285;
+    TMR1=34285;
     (TMR1ON = 1);
 }
 void TMR1_Update()

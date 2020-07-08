@@ -1768,7 +1768,7 @@ extern __bank0 __bit __timeout;
 
 #pragma config CP = OFF
 # 18 "./adc.h" 2
-# 34 "./adc.h"
+# 37 "./adc.h"
 typedef enum {ADC0=0,ADC1=1,ADC2=2,ADC3,ADC4,ADC5,ADC6,ADC7,ADC8}tADC_Channel_Select;
 typedef enum {POLLING_MODE ,INTERRUPT_MODE}tADC_Mode_Select;
 typedef enum {LEFT=0,RIGHT=1}tADC_Result_Alignment;
@@ -1786,13 +1786,15 @@ typedef struct
 
 void ADC_Init(tADC_Config* config);
 uint16_t ADC_ReadChannel(tADC_Channel_Select channel);
+void ADC_INT_ReadChannel(tADC_Channel_Select channel);
+void ADC_Disable();
 # 14 "adc.c" 2
 
 
 void ADC_Init(tADC_Config* config)
 {
 
-    ADCON0 |= (1<<0);
+    ADON=1;
 
     switch(config->clk)
     {
@@ -1863,4 +1865,24 @@ uint16_t ADC_ReadChannel(tADC_Channel_Select channel)
     uint16_t result =((ADRESH<<8) + ADRESL) ;
 
     return result;
+}
+
+
+void ADC_INT_ReadChannel(tADC_Channel_Select channel)
+{
+
+    ADCON0 &= ~(7<<3);
+
+
+    ADCON0 |= ((channel)<<3);
+
+
+    _delay((unsigned long)((30)*(4000000/4000000.0)));
+
+
+    (ADCON0|=(1<<2));
+}
+void ADC_Disable()
+{
+    ADON=0;
 }

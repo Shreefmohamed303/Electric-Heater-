@@ -1,4 +1,4 @@
-# 1 "Display.c"
+# 1 "SW.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,17 +6,10 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "Display.c" 2
-
-
-
-
-
-
-# 1 "./Display.h" 1
-
-
-
+# 1 "SW.c" 2
+# 12 "SW.c"
+# 1 "./SW.h" 1
+# 17 "./SW.h"
 # 1 "./GPIO.h" 1
 
 
@@ -1760,84 +1753,112 @@ extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
 # 5 "./GPIO.h" 2
-# 4 "./Display.h" 2
-# 23 "./Display.h"
-uint8_t Display_code[10] = {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F};
+# 17 "./SW.h" 2
 
-typedef uint8_t Display_ID;
-typedef uint8_t Display_Number;
+# 1 "./Port.h" 1
+# 17 "./Port.h"
+# 1 "./SSD.h" 1
+# 23 "./SSD.h"
+uint8_t SSD_code[10] = {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F};
 
-static void Display_config (Display_ID ID ,tState Display_state);
-Std_ReturnType Display_Write(Display_ID ID ,Display_Number Number);
+typedef uint8_t SSD_ID;
+typedef uint8_t SSD_Number;
+
+static void SSD_config (SSD_ID ID ,tState Display_state);
+Std_ReturnType SSD_Write(SSD_ID ID ,SSD_Number Number);
 void Heater_Display(uint16_t temp);
-# 7 "Display.c" 2
-
-# 1 "./config.h" 1
-# 11 "./config.h"
-#pragma config FOSC = XT
-#pragma config WDTE = OFF
-#pragma config PWRTE = ON
-#pragma config BOREN = ON
-#pragma config LVP = OFF
-
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-
-#pragma config CP = OFF
-# 8 "Display.c" 2
+void SSD_OFF(SSD_ID ID);
+void SSD_ON(SSD_ID ID);
+# 17 "./Port.h" 2
+# 18 "./SW.h" 2
 
 
 
-static void Display_config (Display_ID ID ,tState Display_state)
+
+
+
+
+typedef enum
+{
+    ON_OFF_BUTTON,
+    UP_BUTTON,
+    DOWN_BUTTON,
+}tSW;
+
+typedef enum
+{
+    SW_REALESED=0,
+    SW_PRESSED=1
+}tSW_State;
+
+typedef struct
+{
+    tSW_State ON_OFF_Button_State;
+    tSW_State UP_Button_State;
+    tSW_State DOWN_Button_State;
+}tSW_StateControl;
+
+
+
+tSW_StateControl SW_StateControl={SW_REALESED,SW_REALESED,SW_REALESED};
+tSW_State SW_State[3]={SW_REALESED,SW_REALESED,SW_REALESED};
+
+void SW_Init(void);
+void SW_Update(void);
+void SW_SetState(tSW SW_Name ,tSW_State state);
+tSW_State SW_GetState(tSW SW_Name);
+# 12 "SW.c" 2
+
+
+
+
+void SW_Init(void)
 {
 
+    (1u)? (TRISB |= (1<<2)) : (TRISB &= ~(1<<2));
+    (1u)? (TRISB |= (1<<1)) : (TRISB &= ~(1<<1));
+    (1u)? (TRISB |= (1<<0)) : (TRISB &= ~(1<<0));
 
-    switch(ID)
+
+    INTEDG=0;
+    INTE=1;
+    GIE=1;
+}
+void SW_SetState(tSW SW_Name ,tSW_State state)
+{
+    switch(SW_Name)
     {
-        case 2:
-            (0u)?(TRISA |= (1<<2)) : (TRISA &= ~(1<<2));
-            (Display_state)?(PORTA |= (1<<2)) : (PORTA &= ~(1<<2));
+        case ON_OFF_BUTTON:
+            SW_State[ON_OFF_BUTTON]=state;
+            SW_StateControl.ON_OFF_Button_State= state;
             break;
-        case 3:
-            (0u)?(TRISA |= (1<<3)) : (TRISA &= ~(1<<3));
-            (Display_state)?(PORTA |= (1<<3)) : (PORTA &= ~(1<<3));
+        case UP_BUTTON:
+            SW_State[UP_BUTTON]=state;
             break;
-        case 4:
-            (0u)?(TRISA |= (1<<4)) : (TRISA &= ~(1<<4));
-            (Display_state)?(PORTA |= (1<<4)) : (PORTA &= ~(1<<4));
-            break ;
-        case 5:
-            (0u)?(TRISA |= (1<<5)) : (TRISA &= ~(1<<5));
-            (Display_state)?(PORTA |= (1<<5)) : (PORTA &= ~(1<<5));
-            break ;
+        case DOWN_BUTTON:
+            SW_State[DOWN_BUTTON]=state;
+            break;
     }
 }
-Std_ReturnType Display_Write(Display_ID ID ,Display_Number Number)
+tSW_State SW_GetState(tSW SW_Name)
 {
-
-    Display_config(ID,ON);
-
-    ((TRISD)=(0u));
-
-    if((Number>=0) && (Number<=9))
+    switch(SW_Name)
     {
-
-        ((PORTD)=(Display_code[Number]));
-        return (Std_ReturnType)(0x00u) ;
-    }
-    else
-    {
-
-        return (Std_ReturnType)(0x01u) ;
+        case ON_OFF_BUTTON:
+            return SW_State[ON_OFF_BUTTON];
+            break;
+        case UP_BUTTON:
+            return SW_State[UP_BUTTON];
+            break;
+        case DOWN_BUTTON:
+            return SW_State[DOWN_BUTTON];
+            break;
     }
 }
 
-void Heater_Display(uint16_t temp)
+void SW_Update(void)
 {
-    Display_config(3,OFF);
-    Display_Write(4,temp%10);
-    _delay((unsigned long)((60)*(4000000/4000.0)));
-    Display_config(4,OFF);
-    Display_Write(3,(uint8_t)temp/10);
-
+    SW_State[DOWN_BUTTON] =((PORTB & (1<<1)) >> 1);
+    SW_State[UP_BUTTON] =((PORTB & (1<<2)) >> 2);
+    SW_State[ON_OFF_BUTTON]=((PORTB & (1<<0)) >> 0);
 }

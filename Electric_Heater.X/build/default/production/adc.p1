@@ -9,11 +9,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n E880 . LEFT RIGHT  ]
 [c E884 0 1 2 3 4 5 6 .. ]
 [n E884 . FOSC_2 FOSC_8 FOSC_32 FRC FOSC_4 FOSC_16 FOSC_64  ]
-"40 ./adc.h
-[; ;./adc.h: 40: {
+"43 ./adc.h
+[; ;./adc.h: 43: {
 [s S95 `E865 1 `E876 1 `E880 1 `E884 1 ]
 [n S95 . channel mode alignment clk ]
-"1159 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
+"2404 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2404: extern volatile __bit ADON __attribute__((address(0xF8)));
+[v _ADON `Vb ~T0 @X0 0 e@248 ]
+"1159
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1159: extern volatile unsigned char ADCON0 __attribute__((address(0x01F)));
 [v _ADCON0 `Vuc ~T0 @X0 0 e@31 ]
 "2229
@@ -251,8 +254,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;adc.c: 17: {
 [f ]
 "19
-[; ;adc.c: 19:     ADCON0 |= (1<<0);
-[e =| _ADCON0 -> << -> 1 `i -> 0 `i `Vuc ]
+[; ;adc.c: 19:     ADON=1;
+[e = _ADON -> -> 1 `i `b ]
 "21
 [; ;adc.c: 21:     switch(config->clk)
 [e $U 98  ]
@@ -426,4 +429,48 @@ Version 4.0 HI-TECH Software Intermediate Code
 "90
 [; ;adc.c: 90: }
 [e :UE 108 ]
+}
+"93
+[; ;adc.c: 93: void ADC_INT_ReadChannel(tADC_Channel_Select channel)
+[v _ADC_INT_ReadChannel `(v ~T0 @X0 1 ef1`E865 ]
+"94
+[; ;adc.c: 94: {
+{
+[e :U _ADC_INT_ReadChannel ]
+"93
+[; ;adc.c: 93: void ADC_INT_ReadChannel(tADC_Channel_Select channel)
+[v _channel `E865 ~T0 @X0 1 r1 ]
+"94
+[; ;adc.c: 94: {
+[f ]
+"96
+[; ;adc.c: 96:     ADCON0 &= ~(7<<3);
+[e =& _ADCON0 -> ~ << -> 7 `i -> 3 `i `Vuc ]
+"99
+[; ;adc.c: 99:     ADCON0 |= ((channel)<<3);
+[e =| _ADCON0 -> << -> _channel `ui -> 3 `i `Vuc ]
+"102
+[; ;adc.c: 102:     _delay((unsigned long)((30)*(4000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+"105
+[; ;adc.c: 105:     (ADCON0|=(1<<2));
+[e =| _ADCON0 -> << -> 1 `i -> 2 `i `Vuc ]
+"106
+[; ;adc.c: 106: }
+[e :UE 112 ]
+}
+"107
+[; ;adc.c: 107: void ADC_Disable()
+[v _ADC_Disable `(v ~T0 @X0 1 ef ]
+"108
+[; ;adc.c: 108: {
+{
+[e :U _ADC_Disable ]
+[f ]
+"109
+[; ;adc.c: 109:     ADON=0;
+[e = _ADON -> -> 0 `i `b ]
+"110
+[; ;adc.c: 110: }
+[e :UE 113 ]
 }

@@ -1,10 +1,10 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"38 ./DD.h
-[; ;./DD.h: 38: tDD_State Devices_State={OFF,OFF,OFF};
+"36 ./DD.h
+[; ;./DD.h: 36: tDD_State Devices_State={OFF,OFF,OFF};
 [c E13 0 1 .. ]
 [n E13 . OFF ON  ]
-"31
-[; ;./DD.h: 31: {
+"29
+[; ;./DD.h: 29: {
 [s S95 `E13 1 `E13 1 `E13 1 ]
 [n S95 . HEATER_State HEATER_LED_State COOLER_State ]
 "1437 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
@@ -13,10 +13,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1375
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1375: extern volatile unsigned char TRISB __attribute__((address(0x086)));
 [v _TRISB `Vuc ~T0 @X0 0 e@134 ]
-"35 DD.c
-[; ;DD.c: 35: void DD_SetState(tDD device ,tState state)
-[c E865 0 1 2 3 4 5 .. ]
-[n E865 . ON_OFF_BUTTON UP_BUTTON DOWN_BUTTON HEATER COOLER HEATER_LED  ]
+"278
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 278: extern volatile unsigned char PORTC __attribute__((address(0x007)));
+[v _PORTC `Vuc ~T0 @X0 0 e@7 ]
+"216
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 216: extern volatile unsigned char PORTB __attribute__((address(0x006)));
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
+"29 DD.c
+[; ;DD.c: 29: void DD_SetState(tDD device ,tState state)
+[c E880 0 1 2 .. ]
+[n E880 . HEATER COOLER HEATER_LED  ]
+"32 ./SSD.h
+[; ;./SSD.h: 32: void SSD_ON(SSD_ID ID);
+[v _SSD_ON `(v ~T0 @X0 0 ef1`uc ]
+"31
+[; ;./SSD.h: 31: void SSD_OFF(SSD_ID ID);
+[v _SSD_OFF `(v ~T0 @X0 0 ef1`uc ]
+"29
+[; ;./SSD.h: 29: Std_ReturnType SSD_Write(SSD_ID ID ,SSD_Number Number);
+[v _SSD_Write `(uc ~T0 @X0 0 ef2`uc`uc ]
+[v F857 `(v ~T0 @X0 1 tf1`ul ]
+"92 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
+[v __delay `JF857 ~T0 @X0 0 e ]
+[p i __delay ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -197,22 +216,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"38 ./DD.h
-[; ;./DD.h: 38: tDD_State Devices_State={OFF,OFF,OFF};
-[v _Devices_State `S95 ~T0 @X0 1 e ]
-[i _Devices_State
-:U ..
-:U ..
-. `E13 0
-. `E13 0
-. `E13 0
-..
-..
-]
-"23 ./Display.h
-[; ;./Display.h: 23: uint8_t Display_code[10] = {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F};
-[v _Display_code `uc ~T0 @X0 -> 10 `i e ]
-[i _Display_code
+"23 ./SSD.h
+[; ;./SSD.h: 23: uint8_t SSD_code[10] = {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F};
+[v _SSD_code `uc ~T0 @X0 -> 10 `i e ]
+[i _SSD_code
 :U ..
 -> -> 63 `i `uc
 -> -> 6 `i `uc
@@ -226,223 +233,274 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 111 `i `uc
 ..
 ]
-"16 DD.c
-[; ;DD.c: 16: void DD_Init(void)
-[v _DD_Init `(v ~T0 @X0 1 ef ]
+"11 ./config.h
+[p x FOSC = XT ]
+"12
+[p x WDTE = OFF ]
+"13
+[p x PWRTE = ON ]
+"14
+[p x BOREN = ON ]
+"15
+[p x LVP = OFF ]
 "17
-[; ;DD.c: 17: {
+[p x CPD = OFF ]
+"18
+[p x WRT = OFF ]
+"20
+[p x CP = OFF ]
+"36 ./DD.h
+[; ;./DD.h: 36: tDD_State Devices_State={OFF,OFF,OFF};
+[v _Devices_State `S95 ~T0 @X0 1 e ]
+[i _Devices_State
+:U ..
+:U ..
+. `E13 0
+. `E13 0
+. `E13 0
+..
+..
+]
+"14 DD.c
+[; ;DD.c: 14: void DD_Init(void)
+[v _DD_Init `(v ~T0 @X0 1 ef ]
+"15
+[; ;DD.c: 15: {
 {
 [e :U _DD_Init ]
 [f ]
-"19
-[; ;DD.c: 19:     (0u)? (TRISC |= (1<<5)) : (TRISC &= ~(1<<5));
+"17
+[; ;DD.c: 17:     (0u)? (TRISC |= (1<<5)) : (TRISC &= ~(1<<5));
 [e ? != -> 0 `ui -> -> 0 `i `ui : -> =| _TRISC -> << -> 1 `i -> 5 `i `Vuc `i -> =& _TRISC -> ~ << -> 1 `i -> 5 `i `Vuc `i ]
-"20
-[; ;DD.c: 20:     (0u)? (TRISC |= (1<<2)) : (TRISC &= ~(1<<2));
+"18
+[; ;DD.c: 18:     (0u)? (TRISC |= (1<<2)) : (TRISC &= ~(1<<2));
 [e ? != -> 0 `ui -> -> 0 `i `ui : -> =| _TRISC -> << -> 1 `i -> 2 `i `Vuc `i -> =& _TRISC -> ~ << -> 1 `i -> 2 `i `Vuc `i ]
-"21
-[; ;DD.c: 21:     (1u)? (TRISB |= (1<<2)) : (TRISB &= ~(1<<2));
-[e ? != -> 1 `ui -> -> 0 `i `ui : -> =| _TRISB -> << -> 1 `i -> 2 `i `Vuc `i -> =& _TRISB -> ~ << -> 1 `i -> 2 `i `Vuc `i ]
-"22
-[; ;DD.c: 22:     (1u)? (TRISB |= (1<<0)) : (TRISB &= ~(1<<0));
-[e ? != -> 1 `ui -> -> 0 `i `ui : -> =| _TRISB -> << -> 1 `i -> 0 `i `Vuc `i -> =& _TRISB -> ~ << -> 1 `i -> 0 `i `Vuc `i ]
-"23
-[; ;DD.c: 23:     (0u)? (TRISB |= (1<<1)) : (TRISB &= ~(1<<1));
-[e ? != -> 0 `ui -> -> 0 `i `ui : -> =| _TRISB -> << -> 1 `i -> 1 `i `Vuc `i -> =& _TRISB -> ~ << -> 1 `i -> 1 `i `Vuc `i ]
-"24
-[; ;DD.c: 24:     (0u)? (TRISB |= (1<<7)) : (TRISB &= ~(1<<7));
+"19
+[; ;DD.c: 19:     (0u)? (TRISB |= (1<<7)) : (TRISB &= ~(1<<7));
 [e ? != -> 0 `ui -> -> 0 `i `ui : -> =| _TRISB -> << -> 1 `i -> 7 `i `Vuc `i -> =& _TRISB -> ~ << -> 1 `i -> 7 `i `Vuc `i ]
-"27
-[; ;DD.c: 27:     (OFF)?(TRISC |= (1<<5)) : (TRISC &= ~(1<<5));
-[e ? != -> . `E13 0 `i -> 0 `i : -> =| _TRISC -> << -> 1 `i -> 5 `i `Vuc `i -> =& _TRISC -> ~ << -> 1 `i -> 5 `i `Vuc `i ]
-"28
-[; ;DD.c: 28:     (OFF)?(TRISC |= (1<<2)) : (TRISC &= ~(1<<2));
-[e ? != -> . `E13 0 `i -> 0 `i : -> =| _TRISC -> << -> 1 `i -> 2 `i `Vuc `i -> =& _TRISC -> ~ << -> 1 `i -> 2 `i `Vuc `i ]
-"29
-[; ;DD.c: 29:     (OFF)?(TRISB |= (1<<1)) : (TRISB &= ~(1<<1));
-[e ? != -> . `E13 0 `i -> 0 `i : -> =| _TRISB -> << -> 1 `i -> 1 `i `Vuc `i -> =& _TRISB -> ~ << -> 1 `i -> 1 `i `Vuc `i ]
-"30
-[; ;DD.c: 30:     (OFF)?(TRISB |= (1<<7)) : (TRISB &= ~(1<<7));
-[e ? != -> . `E13 0 `i -> 0 `i : -> =| _TRISB -> << -> 1 `i -> 7 `i `Vuc `i -> =& _TRISB -> ~ << -> 1 `i -> 7 `i `Vuc `i ]
-"32
-[; ;DD.c: 32: }
+"22
+[; ;DD.c: 22:     (OFF)?(PORTC |= (1<<5)) : (PORTC &= ~(1<<5));
+[e ? != -> . `E13 0 `i -> 0 `i : -> =| _PORTC -> << -> 1 `i -> 5 `i `Vuc `i -> =& _PORTC -> ~ << -> 1 `i -> 5 `i `Vuc `i ]
+"23
+[; ;DD.c: 23:     (OFF)?(PORTC |= (1<<2)) : (PORTC &= ~(1<<2));
+[e ? != -> . `E13 0 `i -> 0 `i : -> =| _PORTC -> << -> 1 `i -> 2 `i `Vuc `i -> =& _PORTC -> ~ << -> 1 `i -> 2 `i `Vuc `i ]
+"24
+[; ;DD.c: 24:     (OFF)?(PORTB |= (1<<7)) : (PORTB &= ~(1<<7));
+[e ? != -> . `E13 0 `i -> 0 `i : -> =| _PORTB -> << -> 1 `i -> 7 `i `Vuc `i -> =& _PORTB -> ~ << -> 1 `i -> 7 `i `Vuc `i ]
+"26
+[; ;DD.c: 26: }
 [e :UE 96 ]
 }
-"35
-[; ;DD.c: 35: void DD_SetState(tDD device ,tState state)
-[v _DD_SetState `(v ~T0 @X0 1 ef2`E865`E13 ]
-"36
-[; ;DD.c: 36: {
+"29
+[; ;DD.c: 29: void DD_SetState(tDD device ,tState state)
+[v _DD_SetState `(v ~T0 @X0 1 ef2`E880`E13 ]
+"30
+[; ;DD.c: 30: {
 {
 [e :U _DD_SetState ]
-"35
-[; ;DD.c: 35: void DD_SetState(tDD device ,tState state)
-[v _device `E865 ~T0 @X0 1 r1 ]
+"29
+[; ;DD.c: 29: void DD_SetState(tDD device ,tState state)
+[v _device `E880 ~T0 @X0 1 r1 ]
 [v _state `E13 ~T0 @X0 1 r2 ]
-"36
-[; ;DD.c: 36: {
+"30
+[; ;DD.c: 30: {
 [f ]
-"37
-[; ;DD.c: 37:     switch(device)
+"31
+[; ;DD.c: 31:     switch(device)
 [e $U 99  ]
-"38
-[; ;DD.c: 38:     {
+"32
+[; ;DD.c: 32:     {
 {
-"39
-[; ;DD.c: 39:         case HEATER:
+"33
+[; ;DD.c: 33:         case HEATER:
 [e :U 100 ]
-"40
-[; ;DD.c: 40:             (state)?(TRISC |= (1<<5)) : (TRISC &= ~(1<<5));
-[e ? != -> _state `ui -> -> 0 `i `ui : -> =| _TRISC -> << -> 1 `i -> 5 `i `Vuc `i -> =& _TRISC -> ~ << -> 1 `i -> 5 `i `Vuc `i ]
-"41
-[; ;DD.c: 41:             Devices_State.HEATER_State=state;
+"34
+[; ;DD.c: 34:             (state)?(PORTC |= (1<<5)) : (PORTC &= ~(1<<5));
+[e ? != -> _state `ui -> -> 0 `i `ui : -> =| _PORTC -> << -> 1 `i -> 5 `i `Vuc `i -> =& _PORTC -> ~ << -> 1 `i -> 5 `i `Vuc `i ]
+"35
+[; ;DD.c: 35:             Devices_State.HEATER_State=state;
 [e = . _Devices_State 0 _state ]
-"42
-[; ;DD.c: 42:             break;
+"36
+[; ;DD.c: 36:             break;
 [e $U 98  ]
-"43
-[; ;DD.c: 43:         case COOLER:
+"37
+[; ;DD.c: 37:         case COOLER:
 [e :U 101 ]
-"44
-[; ;DD.c: 44:             (state)?(TRISC |= (1<<2)) : (TRISC &= ~(1<<2));
-[e ? != -> _state `ui -> -> 0 `i `ui : -> =| _TRISC -> << -> 1 `i -> 2 `i `Vuc `i -> =& _TRISC -> ~ << -> 1 `i -> 2 `i `Vuc `i ]
-"45
-[; ;DD.c: 45:             Devices_State.COOLER_State=state;
+"38
+[; ;DD.c: 38:             (state)?(PORTC |= (1<<2)) : (PORTC &= ~(1<<2));
+[e ? != -> _state `ui -> -> 0 `i `ui : -> =| _PORTC -> << -> 1 `i -> 2 `i `Vuc `i -> =& _PORTC -> ~ << -> 1 `i -> 2 `i `Vuc `i ]
+"39
+[; ;DD.c: 39:             Devices_State.COOLER_State=state;
 [e = . _Devices_State 2 _state ]
-"46
-[; ;DD.c: 46:             break;
+"40
+[; ;DD.c: 40:             break;
 [e $U 98  ]
-"47
-[; ;DD.c: 47:         case HEATER_LED:
+"41
+[; ;DD.c: 41:         case HEATER_LED:
 [e :U 102 ]
-"48
-[; ;DD.c: 48:             (state)?(TRISB |= (1<<7)) : (TRISB &= ~(1<<7));
-[e ? != -> _state `ui -> -> 0 `i `ui : -> =| _TRISB -> << -> 1 `i -> 7 `i `Vuc `i -> =& _TRISB -> ~ << -> 1 `i -> 7 `i `Vuc `i ]
-"49
-[; ;DD.c: 49:             Devices_State.HEATER_LED_State=state;
+"42
+[; ;DD.c: 42:             (state)?(PORTB |= (1<<7)) : (PORTB &= ~(1<<7));
+[e ? != -> _state `ui -> -> 0 `i `ui : -> =| _PORTB -> << -> 1 `i -> 7 `i `Vuc `i -> =& _PORTB -> ~ << -> 1 `i -> 7 `i `Vuc `i ]
+"43
+[; ;DD.c: 43:             Devices_State.HEATER_LED_State=state;
 [e = . _Devices_State 1 _state ]
-"50
-[; ;DD.c: 50:             break;
+"44
+[; ;DD.c: 44:             break;
 [e $U 98  ]
-"52
-[; ;DD.c: 52:         default:
+"46
+[; ;DD.c: 46:         default:
 [e :U 103 ]
-"53
-[; ;DD.c: 53:             break ;
+"47
+[; ;DD.c: 47:             break ;
 [e $U 98  ]
-"54
-[; ;DD.c: 54:     }
+"48
+[; ;DD.c: 48:     }
 }
 [e $U 98  ]
 [e :U 99 ]
-[e [\ -> _device `ui , $ -> . `E865 3 `ui 100
- , $ -> . `E865 4 `ui 101
- , $ -> . `E865 5 `ui 102
+[e [\ -> _device `ui , $ -> . `E880 0 `ui 100
+ , $ -> . `E880 1 `ui 101
+ , $ -> . `E880 2 `ui 102
  103 ]
 [e :U 98 ]
-"55
-[; ;DD.c: 55: }
+"49
+[; ;DD.c: 49: }
 [e :UE 97 ]
 }
-"56
-[; ;DD.c: 56: tState DD_GetState(tDD device)
-[v _DD_GetState `(E13 ~T0 @X0 1 ef1`E865 ]
-"57
-[; ;DD.c: 57: {
+"50
+[; ;DD.c: 50: tState DD_GetState(tDD device)
+[v _DD_GetState `(E13 ~T0 @X0 1 ef1`E880 ]
+"51
+[; ;DD.c: 51: {
 {
 [e :U _DD_GetState ]
-"56
-[; ;DD.c: 56: tState DD_GetState(tDD device)
-[v _device `E865 ~T0 @X0 1 r1 ]
-"57
-[; ;DD.c: 57: {
+"50
+[; ;DD.c: 50: tState DD_GetState(tDD device)
+[v _device `E880 ~T0 @X0 1 r1 ]
+"51
+[; ;DD.c: 51: {
 [f ]
-"58
-[; ;DD.c: 58:     switch(device)
+"52
+[; ;DD.c: 52:     switch(device)
 [e $U 106  ]
-"59
-[; ;DD.c: 59:     {
+"53
+[; ;DD.c: 53:     {
 {
-"60
-[; ;DD.c: 60:         case HEATER:
+"54
+[; ;DD.c: 54:         case HEATER:
 [e :U 107 ]
+"55
+[; ;DD.c: 55:             return ((PORTC & (1<<5)) >> 5);
+[e ) -> >> & -> _PORTC `i << -> 1 `i -> 5 `i -> 5 `i `E13 ]
+[e $UE 104  ]
+"56
+[; ;DD.c: 56:             break;
+[e $U 105  ]
+"57
+[; ;DD.c: 57:         case COOLER:
+[e :U 108 ]
+"58
+[; ;DD.c: 58:             return ((PORTC & (1<<2)) >> 2);
+[e ) -> >> & -> _PORTC `i << -> 1 `i -> 2 `i -> 2 `i `E13 ]
+[e $UE 104  ]
+"59
+[; ;DD.c: 59:             break;
+[e $U 105  ]
+"60
+[; ;DD.c: 60:         case HEATER_LED:
+[e :U 109 ]
 "61
-[; ;DD.c: 61:             return ((TRISC & (1<<5)) >> 5);
-[e ) -> >> & -> _TRISC `i << -> 1 `i -> 5 `i -> 5 `i `E13 ]
+[; ;DD.c: 61:             return ((PORTB & (1<<7)) >> 7);
+[e ) -> >> & -> _PORTB `i << -> 1 `i -> 7 `i -> 7 `i `E13 ]
 [e $UE 104  ]
 "62
 [; ;DD.c: 62:             break;
 [e $U 105  ]
-"63
-[; ;DD.c: 63:         case COOLER:
-[e :U 108 ]
 "64
-[; ;DD.c: 64:             return ((TRISC & (1<<2)) >> 2);
-[e ) -> >> & -> _TRISC `i << -> 1 `i -> 2 `i -> 2 `i `E13 ]
-[e $UE 104  ]
+[; ;DD.c: 64:         default:
+[e :U 110 ]
 "65
 [; ;DD.c: 65:             break;
 [e $U 105  ]
 "66
-[; ;DD.c: 66:         case HEATER_LED:
-[e :U 109 ]
-"67
-[; ;DD.c: 67:             return ((TRISB & (1<<7)) >> 7);
-[e ) -> >> & -> _TRISB `i << -> 1 `i -> 7 `i -> 7 `i `E13 ]
-[e $UE 104  ]
-"68
-[; ;DD.c: 68:             break;
-[e $U 105  ]
-"69
-[; ;DD.c: 69:         case ON_OFF_BUTTON:
-[e :U 110 ]
-"70
-[; ;DD.c: 70:             return ((TRISB & (1<<1)) >> 1);
-[e ) -> >> & -> _TRISB `i << -> 1 `i -> 1 `i -> 1 `i `E13 ]
-[e $UE 104  ]
-"71
-[; ;DD.c: 71:             break;
-[e $U 105  ]
-"72
-[; ;DD.c: 72:         case UP_BUTTON:
-[e :U 111 ]
-"73
-[; ;DD.c: 73:             return ((TRISB & (1<<2)) >> 2);
-[e ) -> >> & -> _TRISB `i << -> 1 `i -> 2 `i -> 2 `i `E13 ]
-[e $UE 104  ]
-"74
-[; ;DD.c: 74:             break;
-[e $U 105  ]
-"75
-[; ;DD.c: 75:         case DOWN_BUTTON:
-[e :U 112 ]
-"76
-[; ;DD.c: 76:             return ((TRISB & (1<<0)) >> 0);
-[e ) -> >> & -> _TRISB `i << -> 1 `i -> 0 `i -> 0 `i `E13 ]
-[e $UE 104  ]
-"77
-[; ;DD.c: 77:             break;
-[e $U 105  ]
-"79
-[; ;DD.c: 79:         default:
-[e :U 113 ]
-"80
-[; ;DD.c: 80:             break;
-[e $U 105  ]
-"81
-[; ;DD.c: 81:     }
+[; ;DD.c: 66:     }
 }
 [e $U 105  ]
 [e :U 106 ]
-[e [\ -> _device `ui , $ -> . `E865 3 `ui 107
- , $ -> . `E865 4 `ui 108
- , $ -> . `E865 5 `ui 109
- , $ -> . `E865 0 `ui 110
- , $ -> . `E865 1 `ui 111
- , $ -> . `E865 2 `ui 112
- 113 ]
+[e [\ -> _device `ui , $ -> . `E880 0 `ui 107
+ , $ -> . `E880 1 `ui 108
+ , $ -> . `E880 2 `ui 109
+ 110 ]
 [e :U 105 ]
-"82
-[; ;DD.c: 82: }
+"67
+[; ;DD.c: 67: }
 [e :UE 104 ]
+}
+"69
+[; ;DD.c: 69: void EWH_SSD_ON()
+[v _EWH_SSD_ON `(v ~T0 @X0 1 ef ]
+"70
+[; ;DD.c: 70: {
+{
+[e :U _EWH_SSD_ON ]
+[f ]
+"71
+[; ;DD.c: 71:     SSD_ON(3);
+[e ( _SSD_ON (1 -> -> 3 `i `uc ]
+"72
+[; ;DD.c: 72:     SSD_ON(4);
+[e ( _SSD_ON (1 -> -> 4 `i `uc ]
+"73
+[; ;DD.c: 73: }
+[e :UE 111 ]
+}
+"75
+[; ;DD.c: 75: void EWH_SSD_OFF()
+[v _EWH_SSD_OFF `(v ~T0 @X0 1 ef ]
+"76
+[; ;DD.c: 76: {
+{
+[e :U _EWH_SSD_OFF ]
+[f ]
+"77
+[; ;DD.c: 77:     SSD_OFF(3);
+[e ( _SSD_OFF (1 -> -> 3 `i `uc ]
+"78
+[; ;DD.c: 78:     SSD_OFF(4);
+[e ( _SSD_OFF (1 -> -> 4 `i `uc ]
+"79
+[; ;DD.c: 79: }
+[e :UE 112 ]
+}
+"81
+[; ;DD.c: 81: void EWH_SSD_Update(uint16_t temp)
+[v _EWH_SSD_Update `(v ~T0 @X0 1 ef1`us ]
+"82
+[; ;DD.c: 82: {
+{
+[e :U _EWH_SSD_Update ]
+"81
+[; ;DD.c: 81: void EWH_SSD_Update(uint16_t temp)
+[v _temp `us ~T0 @X0 1 r1 ]
+"82
+[; ;DD.c: 82: {
+[f ]
+"83
+[; ;DD.c: 83:     SSD_OFF(3);
+[e ( _SSD_OFF (1 -> -> 3 `i `uc ]
+"84
+[; ;DD.c: 84:     SSD_Write(4,temp%10);
+[e ( _SSD_Write (2 , -> -> 4 `i `uc -> % -> _temp `ui -> -> 10 `i `ui `uc ]
+"85
+[; ;DD.c: 85:     _delay((unsigned long)((60)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"86
+[; ;DD.c: 86:     SSD_OFF(4);
+[e ( _SSD_OFF (1 -> -> 4 `i `uc ]
+"87
+[; ;DD.c: 87:     SSD_Write(3,(uint8_t)temp/10);
+[e ( _SSD_Write (2 , -> -> 3 `i `uc -> / -> -> _temp `uc `i -> 10 `i `uc ]
+"88
+[; ;DD.c: 88: }
+[e :UE 113 ]
 }

@@ -1756,14 +1756,39 @@ extern __bank0 __bit __timeout;
 # 17 "./DD.h" 2
 
 # 1 "./Port.h" 1
+# 17 "./Port.h"
+# 1 "./SSD.h" 1
+# 23 "./SSD.h"
+uint8_t SSD_code[10] = {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F};
+
+typedef uint8_t SSD_ID;
+typedef uint8_t SSD_Number;
+
+static void SSD_config (SSD_ID ID ,tState Display_state);
+Std_ReturnType SSD_Write(SSD_ID ID ,SSD_Number Number);
+void Heater_Display(uint16_t temp);
+void SSD_OFF(SSD_ID ID);
+void SSD_ON(SSD_ID ID);
+# 17 "./Port.h" 2
 # 18 "./DD.h" 2
+
+# 1 "./config.h" 1
+# 11 "./config.h"
+#pragma config FOSC = XT
+#pragma config WDTE = OFF
+#pragma config PWRTE = ON
+#pragma config BOREN = ON
+#pragma config LVP = OFF
+
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+
+#pragma config CP = OFF
+# 19 "./DD.h" 2
 
 
 typedef enum
 {
-    ON_OFF_BUTTON,
-    UP_BUTTON,
-    DOWN_BUTTON,
     HEATER,
     COOLER,
     HEATER_LED
@@ -1782,20 +1807,11 @@ tDD_State Devices_State={OFF,OFF,OFF};
 void DD_Init(void);
 void DD_SetState(tDD device ,tState state);
 tState DD_GetState(tDD device);
+
+void EWH_SSD_ON();
+void EWH_SSD_OFF();
+void EWH_SSD_Update(uint16_t temp);
 # 12 "DD.c" 2
-
-
-# 1 "./Display.h" 1
-# 23 "./Display.h"
-uint8_t Display_code[10] = {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F};
-
-typedef uint8_t Display_ID;
-typedef uint8_t Display_Number;
-
-static void Display_config (Display_ID ID ,tState Display_state);
-Std_ReturnType Display_Write(Display_ID ID ,Display_Number Number);
-void Heater_Display(uint16_t temp);
-# 14 "DD.c" 2
 
 
 void DD_Init(void)
@@ -1803,16 +1819,12 @@ void DD_Init(void)
 
     (0u)? (TRISC |= (1<<5)) : (TRISC &= ~(1<<5));
     (0u)? (TRISC |= (1<<2)) : (TRISC &= ~(1<<2));
-    (1u)? (TRISB |= (1<<2)) : (TRISB &= ~(1<<2));
-    (1u)? (TRISB |= (1<<0)) : (TRISB &= ~(1<<0));
-    (0u)? (TRISB |= (1<<1)) : (TRISB &= ~(1<<1));
     (0u)? (TRISB |= (1<<7)) : (TRISB &= ~(1<<7));
 
 
-    (OFF)?(TRISC |= (1<<5)) : (TRISC &= ~(1<<5));
-    (OFF)?(TRISC |= (1<<2)) : (TRISC &= ~(1<<2));
-    (OFF)?(TRISB |= (1<<1)) : (TRISB &= ~(1<<1));
-    (OFF)?(TRISB |= (1<<7)) : (TRISB &= ~(1<<7));
+    (OFF)?(PORTC |= (1<<5)) : (PORTC &= ~(1<<5));
+    (OFF)?(PORTC |= (1<<2)) : (PORTC &= ~(1<<2));
+    (OFF)?(PORTB |= (1<<7)) : (PORTB &= ~(1<<7));
 
 }
 
@@ -1822,15 +1834,15 @@ void DD_SetState(tDD device ,tState state)
     switch(device)
     {
         case HEATER:
-            (state)?(TRISC |= (1<<5)) : (TRISC &= ~(1<<5));
+            (state)?(PORTC |= (1<<5)) : (PORTC &= ~(1<<5));
             Devices_State.HEATER_State=state;
             break;
         case COOLER:
-            (state)?(TRISC |= (1<<2)) : (TRISC &= ~(1<<2));
+            (state)?(PORTC |= (1<<2)) : (PORTC &= ~(1<<2));
             Devices_State.COOLER_State=state;
             break;
         case HEATER_LED:
-            (state)?(TRISB |= (1<<7)) : (TRISB &= ~(1<<7));
+            (state)?(PORTB |= (1<<7)) : (PORTB &= ~(1<<7));
             Devices_State.HEATER_LED_State=state;
             break;
 
@@ -1843,25 +1855,37 @@ tState DD_GetState(tDD device)
     switch(device)
     {
         case HEATER:
-            return ((TRISC & (1<<5)) >> 5);
+            return ((PORTC & (1<<5)) >> 5);
             break;
         case COOLER:
-            return ((TRISC & (1<<2)) >> 2);
+            return ((PORTC & (1<<2)) >> 2);
             break;
         case HEATER_LED:
-            return ((TRISB & (1<<7)) >> 7);
-            break;
-        case ON_OFF_BUTTON:
-            return ((TRISB & (1<<1)) >> 1);
-            break;
-        case UP_BUTTON:
-            return ((TRISB & (1<<2)) >> 2);
-            break;
-        case DOWN_BUTTON:
-            return ((TRISB & (1<<0)) >> 0);
+            return ((PORTB & (1<<7)) >> 7);
             break;
 
         default:
             break;
     }
+}
+
+void EWH_SSD_ON()
+{
+    SSD_ON(3);
+    SSD_ON(4);
+}
+
+void EWH_SSD_OFF()
+{
+    SSD_OFF(3);
+    SSD_OFF(4);
+}
+
+void EWH_SSD_Update(uint16_t temp)
+{
+    SSD_OFF(3);
+    SSD_Write(4,temp%10);
+    _delay((unsigned long)((60)*(4000000/4000.0)));
+    SSD_OFF(4);
+    SSD_Write(3,(uint8_t)temp/10);
 }

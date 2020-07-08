@@ -5,7 +5,8 @@
 
 #define TMR1_MAX_COUNT                  (65535)
 #define TMR1_CONTROL_REG                T1CON:
-#define TMR1_PRE_LOAD_VALUE             59285
+#define TMR1_PRE_LOAD_VALUE             34285
+
 /*-------------------------------- MACROS ------------------------------------*/  
 #define TMR1_SET_PRESCALER_1            T1CKPS0 = 0;\
                                         T1CKPS1 = 0

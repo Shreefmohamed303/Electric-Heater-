@@ -50,6 +50,8 @@ uint8_t EEPROM_ReadByte(uint16_t address )
     
     data=I2C_Master_ReadByte(I2C_STOP_READING); 
     I2C_Master_Send_Stop(); 
+    
+    return data;
 }
 void EEPROM_ReadPage(uint16_t address , uint8_t *data , uint8_t Data_length)
 {

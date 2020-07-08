@@ -26,6 +26,9 @@
 #define ADC_CHANNEL_POS             3
 #define ADC_GO_DONE_POS             2
 #define ADC_MINIMUM_DELAY_us        30
+
+#define ADC_ON                      ADON=1
+#define ADC_OFF                     ADON=0
 /*-------------------------------- MACROS ------------------------------------*/
 
 #define ADC_START_CONVERSION       (ADC_CONTROL0_REG|=(1<<ADC_GO_DONE_POS)) 
@@ -48,5 +51,6 @@ typedef struct
 /*-------------------------- FUNCTION DECLARATION ----------------------------*/
 void ADC_Init(tADC_Config* config); 
 uint16_t ADC_ReadChannel(tADC_Channel_Select channel); 
-
+void ADC_INT_ReadChannel(tADC_Channel_Select channel); 
+void ADC_Disable();
 #endif

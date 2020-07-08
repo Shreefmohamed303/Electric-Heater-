@@ -1,7 +1,7 @@
  /********************************************************************************
  * File Name : DD.c
  *
- * Description : Source File for DD Module that contain all Digital Devices interface
+ * Description : Source File for DD Module that contain all Digital output Devices interface
  *
  * Author : Shreef Mohamed
  *
@@ -10,23 +10,17 @@
  ********************************************************************************/
 
 #include "DD.h"
-#include "GPIO.h"
-#include "Display.h"
 /*-------------------------- FUNCTION DECLARATION ----------------------------*/
 void DD_Init(void)
 {
     // 1. Initialize Direction of The Digital Devices
     GPIO_InitPin(HEATER_PORT_DIRECTION,HEATER_PIN,GPIO_OUT); 
     GPIO_InitPin(COOLER_PORT_DIRECTION,COOLER_PIN,GPIO_OUT);
-    GPIO_InitPin(UP_BUTTON_PORT_DIRECTION,UP_BUTTON_PIN,GPIO_IN);
-    GPIO_InitPin(DOWN_BUTTON_PORT_DIRECTION,DOWN_BUTTON_PIN,GPIO_IN);
-    GPIO_InitPin(ON_OFF_BUTTON_PORT_DIRECTION,ON_OFF_BUTTON_PIN,GPIO_OUT);
     GPIO_InitPin(HEATER_LED_PORT_DIRECTION,HEATER_LED_PIN,GPIO_OUT);
     
     // 2. Initialize Output State of The Digital Devices
     GPIO_WritePin(HEATER_PORT_DATA,HEATER_PIN,OFF); 
     GPIO_WritePin(COOLER_PORT_DATA,COOLER_PIN,OFF);
-    GPIO_WritePin(ON_OFF_BUTTON_PORT_DATA,ON_OFF_BUTTON_PIN,OFF);
     GPIO_WritePin(HEATER_LED_PORT_DATA,HEATER_LED_PIN,OFF);
 
 }
@@ -66,17 +60,29 @@ tState DD_GetState(tDD device)
         case HEATER_LED: 
             return GPIO_ReadPin(HEATER_LED_PORT_DATA,HEATER_LED_PIN); 
             break;
-        case ON_OFF_BUTTON: 
-            return GPIO_ReadPin(ON_OFF_BUTTON_PORT_DATA,ON_OFF_BUTTON_PIN); 
-            break;
-        case UP_BUTTON: 
-            return GPIO_ReadPin(UP_BUTTON_PORT_DATA,UP_BUTTON_PIN); 
-            break;
-        case DOWN_BUTTON: 
-            return GPIO_ReadPin(DOWN_BUTTON_PORT_DATA,DOWN_BUTTON_PIN); 
-            break;
             
         default: 
             break; 
     }
+}
+
+void EWH_SSD_ON()
+{
+    SSD_ON(EWH_SSD_1); 
+    SSD_ON(EWH_SSD_2);
+}
+
+void EWH_SSD_OFF()
+{
+    SSD_OFF(EWH_SSD_1); 
+    SSD_OFF(EWH_SSD_2);
+}
+
+void EWH_SSD_Update(uint16_t temp)
+{
+    SSD_OFF(EWH_SSD_1); 
+    SSD_Write(EWH_SSD_2,temp%10); 
+    __delay_ms(60);
+    SSD_OFF(EWH_SSD_2); 
+    SSD_Write(EWH_SSD_1,(uint8_t)temp/10); 
 }

@@ -3,11 +3,6 @@
 [d edition pro ]
 [d chip 16F877A ]
 [d frameptr 0 ]
-"11 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\Display.c
-[e E13 . `uc
-OFF 0
-ON 1
-]
 "51 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EEPROM.c
 [e E877 . `uc
 I2C_CONTINUE_READING 0
@@ -31,24 +26,36 @@ POLLING 0
 I2C_CONTINUE_READING 0
 I2C_STOP_READING 1
 ]
-"38 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X/DD.h
+"36 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X/DD.h
 [e E861 . `uc
 OFF 0
 ON 1
 ]
-"7 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
-[e E984 . `uc
+"27 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X/EWH.h
+[e E1012 . `uc
+EWH_SLEEP_MODE 0
+EWH_POWER_UP_MODE 1
+EWH_SET_TEMP_MODE 2
+EWH_OPERATING_MODE 3
+]
+"47 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X/SW.h
+[e E1037 . `uc
+SW_REALESED 0
+SW_PRESSED 1
+]
+"9 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
+[e E992 . `uc
 TMR1_PRESCALER_1 0
 TMR1_PRESCALER_2 1
 TMR1_PRESCALER_4 2
 TMR1_PRESCALER_8 3
 ]
-[e E990 . `uc
+[e E998 . `uc
 INTERNAL_CLK_SOURCE 0
 EXTERNAL_CLK_SOURCE 1
 ]
-"13
-[e E926 . `uc
+"15
+[e E930 . `uc
 ADC0 0
 ADC1 1
 ADC2 2
@@ -59,15 +66,15 @@ ADC6 6
 ADC7 7
 ADC8 8
 ]
-[e E937 . `uc
+[e E941 . `uc
 POLLING_MODE 0
 INTERRUPT_MODE 1
 ]
-[e E941 . `uc
+[e E945 . `uc
 LEFT 0
 RIGHT 1
 ]
-[e E945 . `uc
+[e E949 . `uc
 FOSC_2 0
 FOSC_8 1
 FOSC_32 2
@@ -77,27 +84,28 @@ FOSC_16 5
 FOSC_64 6
 ]
 "21
-[e E964 . `uc
-ON_OFF_BUTTON 0
-UP_BUTTON 1
-DOWN_BUTTON 2
-HEATER 3
-COOLER 4
-HEATER_LED 5
+[e E880 . `uc
+Slave_7bit_Mode 6
+Slave_10bit_Mode 7
+Master_Mode 8
+Frimware_Master_Mode 11
+Slave_7bit_INT_Mode 14
+Slave_10bit_INT_Mode 15
 ]
-"38 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X/DD.h
+[e E896 . `uc
+INTERRUPT 1
+POLLING 0
+]
+"36 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X/DD.h
 [e E13 . `uc
 OFF 0
 ON 1
 ]
-"35 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-[e E865 . `uc
-ON_OFF_BUTTON 0
-UP_BUTTON 1
-DOWN_BUTTON 2
-HEATER 3
-COOLER 4
-HEATER_LED 5
+"29 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
+[e E880 . `uc
+HEATER 0
+COOLER 1
+HEATER_LED 2
 ]
 "16 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
 [e E865 . `uc
@@ -139,6 +147,57 @@ TMR1_PRESCALER_8 3
 INTERNAL_CLK_SOURCE 0
 EXTERNAL_CLK_SOURCE 1
 ]
+"47 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X/SW.h
+[e E885 . `uc
+SW_REALESED 0
+SW_PRESSED 1
+]
+"28 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SW.c
+[e E880 . `uc
+ON_OFF_BUTTON 0
+UP_BUTTON 1
+DOWN_BUTTON 2
+]
+"36 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X/DD.h
+[e E861 . `uc
+OFF 0
+ON 1
+]
+"27 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X/EWH.h
+[e E1012 . `uc
+EWH_SLEEP_MODE 0
+EWH_POWER_UP_MODE 1
+EWH_SET_TEMP_MODE 2
+EWH_OPERATING_MODE 3
+]
+"47 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X/SW.h
+[e E1037 . `uc
+SW_REALESED 0
+SW_PRESSED 1
+]
+"11 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
+[e E971 . `uc
+HEATER 0
+COOLER 1
+HEATER_LED 2
+]
+"244
+[e E930 . `uc
+ADC0 0
+ADC1 1
+ADC2 2
+ADC3 3
+ADC4 4
+ADC5 5
+ADC6 6
+ADC7 7
+ADC8 8
+]
+"11 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SSD.c
+[e E13 . `uc
+OFF 0
+ON 1
+]
 "16 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
 [v _ADC_Init ADC_Init `(v  1 e 1 0 ]
 "69
@@ -147,10 +206,12 @@ EXTERNAL_CLK_SOURCE 1
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
 "5 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
+[v i1___awdiv __awdiv `(i  1 e 2 0 ]
 "43 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
 [v ___fltol __fltol `(l  1 e 4 0 ]
 "5 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\lwmod.c
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
+[v i1___lwmod __lwmod `(ui  1 e 2 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "8 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcmul.c
@@ -163,17 +224,37 @@ EXTERNAL_CLK_SOURCE 1
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"16 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
+"14 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
 [v _DD_Init DD_Init `(v  1 e 1 0 ]
-"35
+"29
 [v _DD_SetState DD_SetState `(v  1 e 1 0 ]
-"11 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\Display.c
-[v _Display_config Display_config `(v  1 s 1 Display_config ]
-"35
-[v _Display_Write Display_Write `(uc  1 e 1 0 ]
-"55
-[v _Heater_Display Heater_Display `(v  1 e 1 0 ]
-"53 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
+"50
+[v _DD_GetState DD_GetState `(E13  1 e 1 0 ]
+"75
+[v _EWH_SSD_OFF EWH_SSD_OFF `(v  1 e 1 0 ]
+"4 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EEPROM.c
+[v _EEPROM_WriteByte EEPROM_WriteByte `(v  1 e 1 0 ]
+"36
+[v _EEPROM_ReadByte EEPROM_ReadByte `(uc  1 e 1 0 ]
+"5 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
+[v _EWH_Sleep_Mode EWH_Sleep_Mode `(v  1 e 1 0 ]
+"28
+[v _EWH_PowerUP_Mode EWH_PowerUP_Mode `(v  1 e 1 0 ]
+"71
+[v _EWH_SetTemp_Mode EWH_SetTemp_Mode `(v  1 e 1 0 ]
+"141
+[v _EWH_Operating_Mode EWH_Operating_Mode `(v  1 e 1 0 ]
+"205
+[v _EWH_EEPROM_Init EWH_EEPROM_Init `(v  1 e 1 0 ]
+"209
+[v _EWH_EEPROM_Update EWH_EEPROM_Update `(v  1 e 1 0 ]
+"213
+[v _EWH_EEPROM_Read EWH_EEPROM_Read `(uc  1 e 1 0 ]
+"219
+[v _ISR ISR `II(v  1 e 1 0 ]
+"12 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
+[v _I2C_Init I2C_Init `(v  1 e 1 0 ]
+"53
 [v _I2C_Wait_IDLE I2C_Wait_IDLE `(v  1 e 1 0 ]
 "61
 [v _I2C_Master_Send_Start I2C_Master_Send_Start `(v  1 e 1 0 ]
@@ -189,21 +270,57 @@ EXTERNAL_CLK_SOURCE 1
 [v _I2C_Master_WriteByte I2C_Master_WriteByte `(uc  1 e 1 0 ]
 "105
 [v _I2C_Master_ReadByte I2C_Master_ReadByte `(uc  1 e 1 0 ]
-"4 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
+"6 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"31
-[v _Timer Timer `II(v  1 e 1 0 ]
+"11 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SSD.c
+[v _SSD_config SSD_config `(v  1 s 1 SSD_config ]
+[v i1_SSD_config SSD_config `(v  1 s 1 i1_SSD_config ]
+"35
+[v _SSD_Write SSD_Write `(uc  1 e 1 0 ]
+[v i1_SSD_Write SSD_Write `(uc  1 e 1 0 ]
+"55
+[v _Heater_Display Heater_Display `(v  1 e 1 0 ]
+[v i1_Heater_Display Heater_Display `(v  1 e 1 0 ]
+"65
+[v _SSD_OFF SSD_OFF `(v  1 e 1 0 ]
+"70
+[v _SSD_ON SSD_ON `(v  1 e 1 0 ]
+"16 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SW.c
+[v _SW_Init SW_Init `(v  1 e 1 0 ]
 "3 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
 [v _TMR1_Init TMR1_Init `(v  1 e 1 0 ]
 "31
 [v _TMR1_Start TMR1_Start `(v  1 e 1 0 ]
-[s S144 . 3 `E861 1 HEATER_State 1 0 `E861 1 HEATER_LED_State 1 1 `E861 1 COOLER_State 1 2 ]
-"38 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X/DD.h
-[v _Devices_State Devices_State `S144  1 e 3 0 ]
-"23 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X/Display.h
-[v _Display_code Display_code `[10]uc  1 e 10 0 ]
+"44
+[v _TMR1_Stop TMR1_Stop `(v  1 e 1 0 ]
+[s S120 . 3 `E861 1 HEATER_State 1 0 `E861 1 HEATER_LED_State 1 1 `E861 1 COOLER_State 1 2 ]
+"36 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X/DD.h
+[v _Devices_State Devices_State `S120  1 e 3 0 ]
+"26 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X/EWH.h
+[v _EWH_State EWH_State `E861  1 e 1 0 ]
+"27
+[v _EWH_Mode EWH_Mode `E1012  1 e 1 0 ]
+"28
+[v _set_Temp set_Temp `uc  1 e 1 0 ]
+"29
+[v _current_Temp current_Temp `uc  1 e 1 0 ]
+"30
+[v _EWH_Events EWH_Events `[4]E861  1 e 4 0 ]
+"31
+[v _NoPress_Sec_count NoPress_Sec_count `uc  1 e 1 0 ]
+"23 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X/SSD.h
+[v _SSD_code SSD_code `[10]uc  1 e 10 0 ]
+[s S132 . 3 `E1037 1 ON_OFF_Button_State 1 0 `E1037 1 UP_Button_State 1 1 `E1037 1 DOWN_Button_State 1 2 ]
+"47 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X/SW.h
+[v _SW_StateControl SW_StateControl `S132  1 e 3 0 ]
+"48
+[v _SW_State SW_State `[3]E1037  1 e 3 0 ]
 "166 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
+"216
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"278
+[v _PORTC PORTC `VEuc  1 e 1 @7 ]
 "340
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
 "634
@@ -244,8 +361,16 @@ EXTERNAL_CLK_SOURCE 1
 [v _ADIE ADIE `VEb  1 e 0 @1126 ]
 "2401
 [v _ADIF ADIF `VEb  1 e 0 @102 ]
+"2404
+[v _ADON ADON `VEb  1 e 0 @248 ]
 "2569
 [v _GIE GIE `VEb  1 e 0 @95 ]
+"2599
+[v _INTE INTE `VEb  1 e 0 @92 ]
+"2602
+[v _INTEDG INTEDG `VEb  1 e 0 @1038 ]
+"2605
+[v _INTF INTF `VEb  1 e 0 @89 ]
 "2629
 [v _PEIE PEIE `VEb  1 e 0 @94 ]
 "2632
@@ -274,64 +399,313 @@ EXTERNAL_CLK_SOURCE 1
 [v _TMR1IF TMR1IF `VEb  1 e 0 @96 ]
 "2893
 [v _TMR1ON TMR1ON `VEb  1 e 0 @128 ]
-"4 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
+"6 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-[s S192 . 4 `E926 1 channel 1 0 `E937 1 mode 1 1 `E941 1 alignment 1 2 `E945 1 clk 1 3 ]
-"13
-[v main@adc_config adc_config `S192  1 a 4 6 ]
-[s S156 . 2 `E984 1 Prescaler 1 0 `E990 1 clkSource 1 1 ]
-"7
-[v main@TMR1_cfg TMR1_cfg `S156  1 a 2 4 ]
-"29
+[s S73 . 6 `E865 1 Mode 1 0 `ul 1 BaudRate 4 1 `E881 1 operationMode 1 5 ]
+"21
+[v main@i2c_config i2c_config `S73  1 a 6 21 ]
+[s S176 . 4 `E930 1 channel 1 0 `E941 1 mode 1 1 `E945 1 alignment 1 2 `E949 1 clk 1 3 ]
+"15
+[v main@adc_config adc_config `S176  1 a 4 27 ]
+[s S144 . 2 `E992 1 Prescaler 1 0 `E998 1 clkSource 1 1 ]
+"9
+[v main@TMR1_cfg TMR1_cfg `S144  1 a 2 19 ]
+"92
 } 0
-"31 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
+"3 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
+[v _TMR1_Init TMR1_Init `(v  1 e 1 0 ]
+{
+[s S144 . 2 `E992 1 Prescaler 1 0 `E998 1 clkSource 1 1 ]
+[v TMR1_Init@config config `*.4S144  1 a 1 wreg ]
+[v TMR1_Init@config config `*.4S144  1 a 1 wreg ]
+[v TMR1_Init@config config `*.4S144  1 a 1 2 ]
+"30
+} 0
+"16 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SW.c
+[v _SW_Init SW_Init `(v  1 e 1 0 ]
+{
+"27
+} 0
+"12 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
+[v _I2C_Init I2C_Init `(v  1 e 1 0 ]
+{
+[s S73 . 6 `E865 1 Mode 1 0 `ul 1 BaudRate 4 1 `E881 1 operationMode 1 5 ]
+[v I2C_Init@i2c_config i2c_config `*.4S73  1 a 1 wreg ]
+[v I2C_Init@i2c_config i2c_config `*.4S73  1 a 1 wreg ]
+"15
+"12
+[v I2C_Init@i2c_config i2c_config `*.4S73  1 a 1 14 ]
+"51
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+{
+"10
+[v ___lldiv@quotient quotient `ul  1 a 4 9 ]
+"11
+[v ___lldiv@counter counter `uc  1 a 1 13 ]
+"5
+[v ___lldiv@divisor divisor `ul  1 p 4 0 ]
+[v ___lldiv@dividend dividend `ul  1 p 4 4 ]
+"30
+} 0
+"5 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
+[v _EWH_Sleep_Mode EWH_Sleep_Mode `(v  1 e 1 0 ]
+{
+"27
+} 0
+"75 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
+[v _EWH_SSD_OFF EWH_SSD_OFF `(v  1 e 1 0 ]
+{
+"79
+} 0
+"65 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SSD.c
+[v _SSD_OFF SSD_OFF `(v  1 e 1 0 ]
+{
+[v SSD_OFF@ID ID `uc  1 a 1 wreg ]
+[v SSD_OFF@ID ID `uc  1 a 1 wreg ]
+"67
+[v SSD_OFF@ID ID `uc  1 a 1 4 ]
+"68
+} 0
+"71 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
+[v _EWH_SetTemp_Mode EWH_SetTemp_Mode `(v  1 e 1 0 ]
+{
+"140
+} 0
+"209
+[v _EWH_EEPROM_Update EWH_EEPROM_Update `(v  1 e 1 0 ]
+{
+[v EWH_EEPROM_Update@newSetTemp newSetTemp `uc  1 a 1 wreg ]
+[v EWH_EEPROM_Update@newSetTemp newSetTemp `uc  1 a 1 wreg ]
+"211
+[v EWH_EEPROM_Update@newSetTemp newSetTemp `uc  1 a 1 6 ]
+"212
+} 0
+"28
+[v _EWH_PowerUP_Mode EWH_PowerUP_Mode `(v  1 e 1 0 ]
+{
+"70
+} 0
+"213
+[v _EWH_EEPROM_Read EWH_EEPROM_Read `(uc  1 e 1 0 ]
+{
+"216
+} 0
+"36 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EEPROM.c
+[v _EEPROM_ReadByte EEPROM_ReadByte `(uc  1 e 1 0 ]
+{
+"38
+[v EEPROM_ReadByte@data data `uc  1 a 1 6 ]
+"36
+[v EEPROM_ReadByte@address address `us  1 p 2 2 ]
+"55
+} 0
+"105 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
+[v _I2C_Master_ReadByte I2C_Master_ReadByte `(uc  1 e 1 0 ]
+{
+[v I2C_Master_ReadByte@Read_State Read_State `E877  1 a 1 wreg ]
+[v I2C_Master_ReadByte@Read_State Read_State `E877  1 a 1 wreg ]
+"110
+[v I2C_Master_ReadByte@Read_State Read_State `E877  1 a 1 1 ]
+"121
+} 0
+"87
+[v _I2C_Master_Send_NACK I2C_Master_Send_NACK `(v  1 e 1 0 ]
+{
+"94
+} 0
+"79
+[v _I2C_Master_Send_ACK I2C_Master_Send_ACK `(v  1 e 1 0 ]
+{
+"86
+} 0
+"141 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
+[v _EWH_Operating_Mode EWH_Operating_Mode `(v  1 e 1 0 ]
+{
+"202
+} 0
+"44 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
+[v _TMR1_Stop TMR1_Stop `(v  1 e 1 0 ]
+{
+"47
+} 0
+"31
 [v _TMR1_Start TMR1_Start `(v  1 e 1 0 ]
 {
 "39
 } 0
-"3
-[v _TMR1_Init TMR1_Init `(v  1 e 1 0 ]
+"55 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SSD.c
+[v _Heater_Display Heater_Display `(v  1 e 1 0 ]
 {
-[s S156 . 2 `E984 1 Prescaler 1 0 `E990 1 clkSource 1 1 ]
-[v TMR1_Init@config config `*.4S156  1 a 1 wreg ]
-[v TMR1_Init@config config `*.4S156  1 a 1 wreg ]
-[v TMR1_Init@config config `*.4S156  1 a 1 2 ]
-"30
+[v Heater_Display@temp temp `us  1 p 2 10 ]
+"63
 } 0
-"35 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
+"5 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwmod@counter counter `uc  1 a 1 4 ]
+"5
+[v ___lwmod@divisor divisor `ui  1 p 2 0 ]
+[v ___lwmod@dividend dividend `ui  1 p 2 2 ]
+"25
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"10
+[v ___awdiv@quotient quotient `i  1 a 2 6 ]
+"11
+[v ___awdiv@sign sign `uc  1 a 1 5 ]
+[v ___awdiv@counter counter `uc  1 a 1 4 ]
+"5
+[v ___awdiv@divisor divisor `i  1 p 2 0 ]
+[v ___awdiv@dividend dividend `i  1 p 2 2 ]
+"41
+} 0
+"35 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SSD.c
+[v _SSD_Write SSD_Write `(uc  1 e 1 0 ]
+{
+[v SSD_Write@ID ID `uc  1 a 1 wreg ]
+[v SSD_Write@ID ID `uc  1 a 1 wreg ]
+[v SSD_Write@Number Number `uc  1 p 1 8 ]
+"38
+[v SSD_Write@ID ID `uc  1 a 1 9 ]
+"53
+} 0
+"11
+[v _SSD_config SSD_config `(v  1 s 1 SSD_config ]
+{
+[v SSD_config@ID ID `uc  1 a 1 wreg ]
+[v SSD_config@ID ID `uc  1 a 1 wreg ]
+[v SSD_config@SSD_state SSD_state `E13  1 p 1 0 ]
+[v SSD_config@ID ID `uc  1 a 1 3 ]
+"34
+} 0
+"29 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
 [v _DD_SetState DD_SetState `(v  1 e 1 0 ]
 {
-[v DD_SetState@device device `E865  1 a 1 wreg ]
-[v DD_SetState@device device `E865  1 a 1 wreg ]
+[v DD_SetState@device device `E880  1 a 1 wreg ]
+[v DD_SetState@device device `E880  1 a 1 wreg ]
 [v DD_SetState@state state `E13  1 p 1 0 ]
-[v DD_SetState@device device `E865  1 a 1 3 ]
-"55
+[v DD_SetState@device device `E880  1 a 1 3 ]
+"49
 } 0
+"205 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
+[v _EWH_EEPROM_Init EWH_EEPROM_Init `(v  1 e 1 0 ]
+{
+"208
+} 0
+"4 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EEPROM.c
+[v _EEPROM_WriteByte EEPROM_WriteByte `(v  1 e 1 0 ]
+{
+[v EEPROM_WriteByte@address address `us  1 p 2 1 ]
+[v EEPROM_WriteByte@data data `uc  1 p 1 3 ]
 "16
+} 0
+"95 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
+[v _I2C_Master_WriteByte I2C_Master_WriteByte `(uc  1 e 1 0 ]
+{
+[v I2C_Master_WriteByte@Data Data `uc  1 a 1 wreg ]
+[v I2C_Master_WriteByte@Data Data `uc  1 a 1 wreg ]
+"98
+[v I2C_Master_WriteByte@Data Data `uc  1 a 1 0 ]
+"104
+} 0
+"67
+[v _I2C_Master_Send_Stop I2C_Master_Send_Stop `(v  1 e 1 0 ]
+{
+"72
+} 0
+"61
+[v _I2C_Master_Send_Start I2C_Master_Send_Start `(v  1 e 1 0 ]
+{
+"66
+} 0
+"73
+[v _I2C_Master_Send_RepeatedStart I2C_Master_Send_RepeatedStart `(v  1 e 1 0 ]
+{
+"78
+} 0
+"53
+[v _I2C_Wait_IDLE I2C_Wait_IDLE `(v  1 e 1 0 ]
+{
+"60
+} 0
+"14 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
 [v _DD_Init DD_Init `(v  1 e 1 0 ]
 {
-"32
+"26
 } 0
 "16 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
 [v _ADC_Init ADC_Init `(v  1 e 1 0 ]
 {
-[s S192 . 4 `E926 1 channel 1 0 `E937 1 mode 1 1 `E941 1 alignment 1 2 `E945 1 clk 1 3 ]
-[v ADC_Init@config config `*.4S192  1 a 1 wreg ]
-[v ADC_Init@config config `*.4S192  1 a 1 wreg ]
+[s S176 . 4 `E930 1 channel 1 0 `E941 1 mode 1 1 `E945 1 alignment 1 2 `E949 1 clk 1 3 ]
+[v ADC_Init@config config `*.4S176  1 a 1 wreg ]
+[v ADC_Init@config config `*.4S176  1 a 1 wreg ]
 "19
 "16
-[v ADC_Init@config config `*.4S192  1 a 1 2 ]
+[v ADC_Init@config config `*.4S176  1 a 1 2 ]
 "67
 } 0
-"31 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
-[v _Timer Timer `II(v  1 e 1 0 ]
+"219 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
+[v _ISR ISR `II(v  1 e 1 0 ]
 {
-"40
-[v Timer@Reading Reading `us  1 a 2 44 ]
-"33
-[v Timer@count count `uc  1 s 1 count ]
-"48
+"244
+[v ISR@Reading Reading `us  1 a 2 42 ]
+"221
+[v ISR@count count `uc  1 s 1 count ]
+"276
+} 0
+"55 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SSD.c
+[v i1_Heater_Display Heater_Display `(v  1 e 1 0 ]
+{
+[v i1Heater_Display@temp temp `us  1 p 2 10 ]
+"63
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\lwmod.c
+[v i1___lwmod __lwmod `(ui  1 e 2 0 ]
+{
+"10
+[v i1___lwmod@counter counter `uc  1 a 1 4 ]
+"5
+[v i1___lwmod@divisor divisor `ui  1 p 2 0 ]
+[v i1___lwmod@dividend dividend `ui  1 p 2 2 ]
+"25
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
+[v i1___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"10
+[v i1___awdiv@quotient quotient `i  1 a 2 6 ]
+"11
+[v i1___awdiv@sign sign `uc  1 a 1 5 ]
+[v i1___awdiv@counter counter `uc  1 a 1 4 ]
+"5
+[v i1___awdiv@divisor divisor `i  1 p 2 0 ]
+[v i1___awdiv@dividend dividend `i  1 p 2 2 ]
+"41
+} 0
+"35 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SSD.c
+[v i1_SSD_Write SSD_Write `(uc  1 e 1 0 ]
+{
+[v i1SSD_Write@ID ID `uc  1 a 1 wreg ]
+[v i1SSD_Write@ID ID `uc  1 a 1 wreg ]
+[v i1SSD_Write@Number Number `uc  1 p 1 8 ]
+"38
+[v i1SSD_Write@ID ID `uc  1 a 1 9 ]
+"53
+} 0
+"11
+[v i1_SSD_config SSD_config `(v  1 s 1 i1_SSD_config ]
+{
+[v i1SSD_config@ID ID `uc  1 a 1 wreg ]
+[v i1SSD_config@ID ID `uc  1 a 1 wreg ]
+[v i1SSD_config@SSD_state SSD_state `E13  1 p 1 0 ]
+[v i1SSD_config@ID ID `uc  1 a 1 3 ]
+"34
 } 0
 "10 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
@@ -361,17 +735,17 @@ EXTERNAL_CLK_SOURCE 1
 "8 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S646 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S832 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S651 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S654 . 4 `l 1 i 4 0 `d 1 f 4 0 `S646 1 fAsBytes 4 0 `S651 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S654  1 a 4 20 ]
+[s S837 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S840 . 4 `l 1 i 4 0 `d 1 f 4 0 `S832 1 fAsBytes 4 0 `S837 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S840  1 a 4 20 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 14 ]
-[s S723 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S909 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S726 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S723 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S726  1 a 2 24 ]
+[u S912 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S909 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S912  1 a 2 24 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 19 ]
 "11
@@ -397,53 +771,13 @@ EXTERNAL_CLK_SOURCE 1
 [v __Umul8_16@multiplier multiplier `uc  1 a 1 8 ]
 "60
 } 0
-"55 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\Display.c
-[v _Heater_Display Heater_Display `(v  1 e 1 0 ]
+"50 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
+[v _DD_GetState DD_GetState `(E13  1 e 1 0 ]
 {
-[v Heater_Display@temp temp `us  1 p 2 36 ]
-"63
-} 0
-"5 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\lwmod.c
-[v ___lwmod __lwmod `(ui  1 e 2 0 ]
-{
-"10
-[v ___lwmod@counter counter `uc  1 a 1 4 ]
-"5
-[v ___lwmod@divisor divisor `ui  1 p 2 0 ]
-[v ___lwmod@dividend dividend `ui  1 p 2 2 ]
-"25
-} 0
-"5 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
-[v ___awdiv __awdiv `(i  1 e 2 0 ]
-{
-"10
-[v ___awdiv@quotient quotient `i  1 a 2 6 ]
-"11
-[v ___awdiv@sign sign `uc  1 a 1 5 ]
-[v ___awdiv@counter counter `uc  1 a 1 4 ]
-"5
-[v ___awdiv@divisor divisor `i  1 p 2 0 ]
-[v ___awdiv@dividend dividend `i  1 p 2 2 ]
-"41
-} 0
-"35 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\Display.c
-[v _Display_Write Display_Write `(uc  1 e 1 0 ]
-{
-[v Display_Write@ID ID `uc  1 a 1 wreg ]
-[v Display_Write@ID ID `uc  1 a 1 wreg ]
-[v Display_Write@Number Number `uc  1 p 1 8 ]
-"38
-[v Display_Write@ID ID `uc  1 a 1 9 ]
-"53
-} 0
-"11
-[v _Display_config Display_config `(v  1 s 1 Display_config ]
-{
-[v Display_config@ID ID `uc  1 a 1 wreg ]
-[v Display_config@ID ID `uc  1 a 1 wreg ]
-[v Display_config@Display_state Display_state `E13  1 p 1 0 ]
-[v Display_config@ID ID `uc  1 a 1 3 ]
-"34
+[v DD_GetState@device device `E880  1 a 1 wreg ]
+[v DD_GetState@device device `E880  1 a 1 wreg ]
+[v DD_GetState@device device `E880  1 a 1 2 ]
+"67
 } 0
 "69 D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
 [v _ADC_ReadChannel ADC_ReadChannel `(us  1 e 2 0 ]

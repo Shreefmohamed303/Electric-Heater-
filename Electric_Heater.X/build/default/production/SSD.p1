@@ -1,6 +1,6 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"11 Display.c
-[; ;Display.c: 11: static void Display_config (Display_ID ID ,tState Display_state)
+"11 SSD.c
+[; ;SSD.c: 11: static void SSD_config (SSD_ID ID ,tState SSD_state)
 [c E13 0 1 .. ]
 [n E13 . OFF ON  ]
 "1325 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
@@ -199,10 +199,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"23 ./Display.h
-[; ;./Display.h: 23: uint8_t Display_code[10] = {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F};
-[v _Display_code `uc ~T0 @X0 -> 10 `i e ]
-[i _Display_code
+"23 ./SSD.h
+[; ;./SSD.h: 23: uint8_t SSD_code[10] = {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F};
+[v _SSD_code `uc ~T0 @X0 -> 10 `i e ]
+[i _SSD_code
 :U ..
 -> -> 63 `i `uc
 -> -> 6 `i `uc
@@ -232,76 +232,76 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x WRT = OFF ]
 "20
 [p x CP = OFF ]
-"11 Display.c
-[; ;Display.c: 11: static void Display_config (Display_ID ID ,tState Display_state)
-[v _Display_config `(v ~T0 @X0 1 sf2`uc`E13 ]
+"11 SSD.c
+[; ;SSD.c: 11: static void SSD_config (SSD_ID ID ,tState SSD_state)
+[v _SSD_config `(v ~T0 @X0 1 sf2`uc`E13 ]
 "12
-[; ;Display.c: 12: {
+[; ;SSD.c: 12: {
 {
-[e :U _Display_config ]
+[e :U _SSD_config ]
 "11
-[; ;Display.c: 11: static void Display_config (Display_ID ID ,tState Display_state)
+[; ;SSD.c: 11: static void SSD_config (SSD_ID ID ,tState SSD_state)
 [v _ID `uc ~T0 @X0 1 r1 ]
-[v _Display_state `E13 ~T0 @X0 1 r2 ]
+[v _SSD_state `E13 ~T0 @X0 1 r2 ]
 "12
-[; ;Display.c: 12: {
+[; ;SSD.c: 12: {
 [f ]
 "15
-[; ;Display.c: 15:     switch(ID)
+[; ;SSD.c: 15:     switch(ID)
 [e $U 97  ]
 "16
-[; ;Display.c: 16:     {
+[; ;SSD.c: 16:     {
 {
 "17
-[; ;Display.c: 17:         case 2:
+[; ;SSD.c: 17:         case 2:
 [e :U 98 ]
 "18
-[; ;Display.c: 18:             (0u)?(TRISA |= (1<<2)) : (TRISA &= ~(1<<2));
+[; ;SSD.c: 18:             (0u)?(TRISA |= (1<<2)) : (TRISA &= ~(1<<2));
 [e ? != -> 0 `ui -> -> 0 `i `ui : -> =| _TRISA -> << -> 1 `i -> 2 `i `Vuc `i -> =& _TRISA -> ~ << -> 1 `i -> 2 `i `Vuc `i ]
 "19
-[; ;Display.c: 19:             (Display_state)?(PORTA |= (1<<2)) : (PORTA &= ~(1<<2));
-[e ? != -> _Display_state `ui -> -> 0 `i `ui : -> =| _PORTA -> << -> 1 `i -> 2 `i `Vuc `i -> =& _PORTA -> ~ << -> 1 `i -> 2 `i `Vuc `i ]
+[; ;SSD.c: 19:             (SSD_state)?(PORTA |= (1<<2)) : (PORTA &= ~(1<<2));
+[e ? != -> _SSD_state `ui -> -> 0 `i `ui : -> =| _PORTA -> << -> 1 `i -> 2 `i `Vuc `i -> =& _PORTA -> ~ << -> 1 `i -> 2 `i `Vuc `i ]
 "20
-[; ;Display.c: 20:             break;
+[; ;SSD.c: 20:             break;
 [e $U 96  ]
 "21
-[; ;Display.c: 21:         case 3:
+[; ;SSD.c: 21:         case 3:
 [e :U 99 ]
 "22
-[; ;Display.c: 22:             (0u)?(TRISA |= (1<<3)) : (TRISA &= ~(1<<3));
+[; ;SSD.c: 22:             (0u)?(TRISA |= (1<<3)) : (TRISA &= ~(1<<3));
 [e ? != -> 0 `ui -> -> 0 `i `ui : -> =| _TRISA -> << -> 1 `i -> 3 `i `Vuc `i -> =& _TRISA -> ~ << -> 1 `i -> 3 `i `Vuc `i ]
 "23
-[; ;Display.c: 23:             (Display_state)?(PORTA |= (1<<3)) : (PORTA &= ~(1<<3));
-[e ? != -> _Display_state `ui -> -> 0 `i `ui : -> =| _PORTA -> << -> 1 `i -> 3 `i `Vuc `i -> =& _PORTA -> ~ << -> 1 `i -> 3 `i `Vuc `i ]
+[; ;SSD.c: 23:             (SSD_state)?(PORTA |= (1<<3)) : (PORTA &= ~(1<<3));
+[e ? != -> _SSD_state `ui -> -> 0 `i `ui : -> =| _PORTA -> << -> 1 `i -> 3 `i `Vuc `i -> =& _PORTA -> ~ << -> 1 `i -> 3 `i `Vuc `i ]
 "24
-[; ;Display.c: 24:             break;
+[; ;SSD.c: 24:             break;
 [e $U 96  ]
 "25
-[; ;Display.c: 25:         case 4:
+[; ;SSD.c: 25:         case 4:
 [e :U 100 ]
 "26
-[; ;Display.c: 26:             (0u)?(TRISA |= (1<<4)) : (TRISA &= ~(1<<4));
+[; ;SSD.c: 26:             (0u)?(TRISA |= (1<<4)) : (TRISA &= ~(1<<4));
 [e ? != -> 0 `ui -> -> 0 `i `ui : -> =| _TRISA -> << -> 1 `i -> 4 `i `Vuc `i -> =& _TRISA -> ~ << -> 1 `i -> 4 `i `Vuc `i ]
 "27
-[; ;Display.c: 27:             (Display_state)?(PORTA |= (1<<4)) : (PORTA &= ~(1<<4));
-[e ? != -> _Display_state `ui -> -> 0 `i `ui : -> =| _PORTA -> << -> 1 `i -> 4 `i `Vuc `i -> =& _PORTA -> ~ << -> 1 `i -> 4 `i `Vuc `i ]
+[; ;SSD.c: 27:             (SSD_state)?(PORTA |= (1<<4)) : (PORTA &= ~(1<<4));
+[e ? != -> _SSD_state `ui -> -> 0 `i `ui : -> =| _PORTA -> << -> 1 `i -> 4 `i `Vuc `i -> =& _PORTA -> ~ << -> 1 `i -> 4 `i `Vuc `i ]
 "28
-[; ;Display.c: 28:             break ;
+[; ;SSD.c: 28:             break ;
 [e $U 96  ]
 "29
-[; ;Display.c: 29:         case 5:
+[; ;SSD.c: 29:         case 5:
 [e :U 101 ]
 "30
-[; ;Display.c: 30:             (0u)?(TRISA |= (1<<5)) : (TRISA &= ~(1<<5));
+[; ;SSD.c: 30:             (0u)?(TRISA |= (1<<5)) : (TRISA &= ~(1<<5));
 [e ? != -> 0 `ui -> -> 0 `i `ui : -> =| _TRISA -> << -> 1 `i -> 5 `i `Vuc `i -> =& _TRISA -> ~ << -> 1 `i -> 5 `i `Vuc `i ]
 "31
-[; ;Display.c: 31:             (Display_state)?(PORTA |= (1<<5)) : (PORTA &= ~(1<<5));
-[e ? != -> _Display_state `ui -> -> 0 `i `ui : -> =| _PORTA -> << -> 1 `i -> 5 `i `Vuc `i -> =& _PORTA -> ~ << -> 1 `i -> 5 `i `Vuc `i ]
+[; ;SSD.c: 31:             (SSD_state)?(PORTA |= (1<<5)) : (PORTA &= ~(1<<5));
+[e ? != -> _SSD_state `ui -> -> 0 `i `ui : -> =| _PORTA -> << -> 1 `i -> 5 `i `Vuc `i -> =& _PORTA -> ~ << -> 1 `i -> 5 `i `Vuc `i ]
 "32
-[; ;Display.c: 32:             break ;
+[; ;SSD.c: 32:             break ;
 [e $U 96  ]
 "33
-[; ;Display.c: 33:     }
+[; ;SSD.c: 33:     }
 }
 [e $U 96  ]
 [e :U 97 ]
@@ -312,93 +312,136 @@ Version 4.0 HI-TECH Software Intermediate Code
  96 ]
 [e :U 96 ]
 "34
-[; ;Display.c: 34: }
+[; ;SSD.c: 34: }
 [e :UE 95 ]
 }
 "35
-[; ;Display.c: 35: Std_ReturnType Display_Write(Display_ID ID ,Display_Number Number)
-[v _Display_Write `(uc ~T0 @X0 1 ef2`uc`uc ]
+[; ;SSD.c: 35: Std_ReturnType SSD_Write(SSD_ID ID ,SSD_Number Number)
+[v _SSD_Write `(uc ~T0 @X0 1 ef2`uc`uc ]
 "36
-[; ;Display.c: 36: {
+[; ;SSD.c: 36: {
 {
-[e :U _Display_Write ]
+[e :U _SSD_Write ]
 "35
-[; ;Display.c: 35: Std_ReturnType Display_Write(Display_ID ID ,Display_Number Number)
+[; ;SSD.c: 35: Std_ReturnType SSD_Write(SSD_ID ID ,SSD_Number Number)
 [v _ID `uc ~T0 @X0 1 r1 ]
 [v _Number `uc ~T0 @X0 1 r2 ]
 "36
-[; ;Display.c: 36: {
+[; ;SSD.c: 36: {
 [f ]
 "38
-[; ;Display.c: 38:     Display_config(ID,ON);
-[e ( _Display_config (2 , _ID . `E13 1 ]
+[; ;SSD.c: 38:     SSD_config(ID,ON);
+[e ( _SSD_config (2 , _ID . `E13 1 ]
 "40
-[; ;Display.c: 40:     ((TRISD)=(0u));
+[; ;SSD.c: 40:     ((TRISD)=(0u));
 [e = _TRISD -> -> 0 `ui `uc ]
 "42
-[; ;Display.c: 42:     if((Number>=0) && (Number<=9))
+[; ;SSD.c: 42:     if((Number>=0) && (Number<=9))
 [e $ ! && >= -> _Number `i -> 0 `i <= -> _Number `i -> 9 `i 103  ]
 "43
-[; ;Display.c: 43:     {
+[; ;SSD.c: 43:     {
 {
 "45
-[; ;Display.c: 45:         ((PORTD)=(Display_code[Number]));
-[e = _PORTD *U + &U _Display_code * -> _Number `ux -> -> # *U &U _Display_code `ui `ux ]
+[; ;SSD.c: 45:         ((PORTD)=(SSD_code[Number]));
+[e = _PORTD *U + &U _SSD_code * -> _Number `ux -> -> # *U &U _SSD_code `ui `ux ]
 "46
-[; ;Display.c: 46:         return (Std_ReturnType)(0x00u) ;
+[; ;SSD.c: 46:         return (Std_ReturnType)(0x00u) ;
 [e ) -> -> 0 `ui `uc ]
 [e $UE 102  ]
 "47
-[; ;Display.c: 47:     }
+[; ;SSD.c: 47:     }
 }
 [e $U 104  ]
 "48
-[; ;Display.c: 48:     else
+[; ;SSD.c: 48:     else
 [e :U 103 ]
 "49
-[; ;Display.c: 49:     {
+[; ;SSD.c: 49:     {
 {
 "51
-[; ;Display.c: 51:         return (Std_ReturnType)(0x01u) ;
+[; ;SSD.c: 51:         return (Std_ReturnType)(0x01u) ;
 [e ) -> -> 1 `ui `uc ]
 [e $UE 102  ]
 "52
-[; ;Display.c: 52:     }
+[; ;SSD.c: 52:     }
 }
 [e :U 104 ]
 "53
-[; ;Display.c: 53: }
+[; ;SSD.c: 53: }
 [e :UE 102 ]
 }
 "55
-[; ;Display.c: 55: void Heater_Display(uint16_t temp)
+[; ;SSD.c: 55: void Heater_Display(uint16_t temp)
 [v _Heater_Display `(v ~T0 @X0 1 ef1`us ]
 "56
-[; ;Display.c: 56: {
+[; ;SSD.c: 56: {
 {
 [e :U _Heater_Display ]
 "55
-[; ;Display.c: 55: void Heater_Display(uint16_t temp)
+[; ;SSD.c: 55: void Heater_Display(uint16_t temp)
 [v _temp `us ~T0 @X0 1 r1 ]
 "56
-[; ;Display.c: 56: {
+[; ;SSD.c: 56: {
 [f ]
 "57
-[; ;Display.c: 57:     Display_config(3,OFF);
-[e ( _Display_config (2 , -> -> 3 `i `uc . `E13 0 ]
+[; ;SSD.c: 57:     SSD_config(3,OFF);
+[e ( _SSD_config (2 , -> -> 3 `i `uc . `E13 0 ]
 "58
-[; ;Display.c: 58:     Display_Write(4,temp%10);
-[e ( _Display_Write (2 , -> -> 4 `i `uc -> % -> _temp `ui -> -> 10 `i `ui `uc ]
+[; ;SSD.c: 58:     SSD_Write(4,temp%10);
+[e ( _SSD_Write (2 , -> -> 4 `i `uc -> % -> _temp `ui -> -> 10 `i `ui `uc ]
 "59
-[; ;Display.c: 59:     _delay((unsigned long)((60)*(4000000/4000.0)));
+[; ;SSD.c: 59:     _delay((unsigned long)((60)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 60 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "60
-[; ;Display.c: 60:     Display_config(4,OFF);
-[e ( _Display_config (2 , -> -> 4 `i `uc . `E13 0 ]
+[; ;SSD.c: 60:     SSD_config(4,OFF);
+[e ( _SSD_config (2 , -> -> 4 `i `uc . `E13 0 ]
 "61
-[; ;Display.c: 61:     Display_Write(3,(uint8_t)temp/10);
-[e ( _Display_Write (2 , -> -> 3 `i `uc -> / -> -> _temp `uc `i -> 10 `i `uc ]
+[; ;SSD.c: 61:     SSD_Write(3,(uint8_t)temp/10);
+[e ( _SSD_Write (2 , -> -> 3 `i `uc -> / -> -> _temp `uc `i -> 10 `i `uc ]
+"62
+[; ;SSD.c: 62:     _delay((unsigned long)((60)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "63
-[; ;Display.c: 63: }
+[; ;SSD.c: 63: }
 [e :UE 105 ]
+}
+"65
+[; ;SSD.c: 65: void SSD_OFF (SSD_ID ID)
+[v _SSD_OFF `(v ~T0 @X0 1 ef1`uc ]
+"66
+[; ;SSD.c: 66: {
+{
+[e :U _SSD_OFF ]
+"65
+[; ;SSD.c: 65: void SSD_OFF (SSD_ID ID)
+[v _ID `uc ~T0 @X0 1 r1 ]
+"66
+[; ;SSD.c: 66: {
+[f ]
+"67
+[; ;SSD.c: 67:     SSD_config(ID,OFF);
+[e ( _SSD_config (2 , _ID . `E13 0 ]
+"68
+[; ;SSD.c: 68: }
+[e :UE 106 ]
+}
+"70
+[; ;SSD.c: 70: void SSD_ON (SSD_ID ID)
+[v _SSD_ON `(v ~T0 @X0 1 ef1`uc ]
+"71
+[; ;SSD.c: 71: {
+{
+[e :U _SSD_ON ]
+"70
+[; ;SSD.c: 70: void SSD_ON (SSD_ID ID)
+[v _ID `uc ~T0 @X0 1 r1 ]
+"71
+[; ;SSD.c: 71: {
+[f ]
+"72
+[; ;SSD.c: 72:     SSD_config(ID,ON);
+[e ( _SSD_config (2 , _ID . `E13 1 ]
+"73
+[; ;SSD.c: 73: }
+[e :UE 107 ]
 }

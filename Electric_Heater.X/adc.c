@@ -16,7 +16,7 @@
 void ADC_Init(tADC_Config* config)
 {
         // Enable ADC (ADON=1))
-    ADC_CONTROL0_REG |= (1<<0);
+    ADC_ON;
     // Select the configured clk pre_scaler
     switch(config->clk)
     {
@@ -87,4 +87,24 @@ uint16_t ADC_ReadChannel(tADC_Channel_Select channel)
     uint16_t result =((ADC_RESULT_H_REG<<8) + ADC_RESULT_L_REG) ; 
     
     return result;
+}
+
+
+void ADC_INT_ReadChannel(tADC_Channel_Select channel)
+{
+    // Clear The Channel Selection Bits 
+    ADC_CONTROL0_REG &= ~(7<<ADC_CHANNEL_POS); 
+    
+    // Select the Configured channel 
+    ADC_CONTROL0_REG |= ((channel)<<ADC_CHANNEL_POS); 
+    
+    // Wait for minimum Tacq time according to Data sheet 
+    __delay_us(ADC_MINIMUM_DELAY_us); 
+    
+    // ADC Start Conversion by set GO_DONE Bit in ADC_CONTROL0_REG
+    ADC_START_CONVERSION; 
+}
+void ADC_Disable()
+{
+    ADC_OFF;
 }

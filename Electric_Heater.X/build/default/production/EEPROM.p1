@@ -363,77 +363,81 @@ Version 4.0 HI-TECH Software Intermediate Code
 "52
 [; ;EEPROM.c: 52:     I2C_Master_Send_Stop();
 [e ( _I2C_Master_Send_Stop ..  ]
-"53
-[; ;EEPROM.c: 53: }
+"54
+[; ;EEPROM.c: 54:     return data;
+[e ) _data ]
+[e $UE 108  ]
+"55
+[; ;EEPROM.c: 55: }
 [e :UE 108 ]
 }
-"54
-[; ;EEPROM.c: 54: void EEPROM_ReadPage(uint16_t address , uint8_t *data , uint8_t Data_length)
+"56
+[; ;EEPROM.c: 56: void EEPROM_ReadPage(uint16_t address , uint8_t *data , uint8_t Data_length)
 [v _EEPROM_ReadPage `(v ~T0 @X0 1 ef3`us`*uc`uc ]
-"55
-[; ;EEPROM.c: 55: {
+"57
+[; ;EEPROM.c: 57: {
 {
 [e :U _EEPROM_ReadPage ]
-"54
-[; ;EEPROM.c: 54: void EEPROM_ReadPage(uint16_t address , uint8_t *data , uint8_t Data_length)
+"56
+[; ;EEPROM.c: 56: void EEPROM_ReadPage(uint16_t address , uint8_t *data , uint8_t Data_length)
 [v _address `us ~T0 @X0 1 r1 ]
 [v _data `*uc ~T0 @X0 1 r2 ]
 [v _Data_length `uc ~T0 @X0 1 r3 ]
-"55
-[; ;EEPROM.c: 55: {
+"57
+[; ;EEPROM.c: 57: {
 [f ]
-"56
-[; ;EEPROM.c: 56:     I2C_Master_Send_Start();
-[e ( _I2C_Master_Send_Start ..  ]
 "58
-[; ;EEPROM.c: 58:     while(I2C_Master_WriteByte(0xA0 | ((address & 0x0700)>>7)) )
+[; ;EEPROM.c: 58:     I2C_Master_Send_Start();
+[e ( _I2C_Master_Send_Start ..  ]
+"60
+[; ;EEPROM.c: 60:     while(I2C_Master_WriteByte(0xA0 | ((address & 0x0700)>>7)) )
 [e $U 113  ]
 [e :U 114 ]
-"59
-[; ;EEPROM.c: 59:         I2C_Master_Send_RepeatedStart();
+"61
+[; ;EEPROM.c: 61:         I2C_Master_Send_RepeatedStart();
 [e ( _I2C_Master_Send_RepeatedStart ..  ]
 [e :U 113 ]
-"58
-[; ;EEPROM.c: 58:     while(I2C_Master_WriteByte(0xA0 | ((address & 0x0700)>>7)) )
+"60
+[; ;EEPROM.c: 60:     while(I2C_Master_WriteByte(0xA0 | ((address & 0x0700)>>7)) )
 [e $ != -> ( _I2C_Master_WriteByte (1 -> | -> -> 160 `i `ui >> & -> _address `ui -> -> 1792 `i `ui -> 7 `i `uc `i -> 0 `i 114  ]
 [e :U 115 ]
-"62
-[; ;EEPROM.c: 62:     I2C_Master_WriteByte((uint8_t)address);
-[e ( _I2C_Master_WriteByte (1 -> _address `uc ]
 "64
-[; ;EEPROM.c: 64:     I2C_Master_Send_RepeatedStart();
+[; ;EEPROM.c: 64:     I2C_Master_WriteByte((uint8_t)address);
+[e ( _I2C_Master_WriteByte (1 -> _address `uc ]
+"66
+[; ;EEPROM.c: 66:     I2C_Master_Send_RepeatedStart();
 [e ( _I2C_Master_Send_RepeatedStart ..  ]
-"65
-[; ;EEPROM.c: 65:     I2C_Master_WriteByte(0xA1 | ((address & 0x0700)>>7) );
-[e ( _I2C_Master_WriteByte (1 -> | -> -> 161 `i `ui >> & -> _address `ui -> -> 1792 `i `ui -> 7 `i `uc ]
 "67
-[; ;EEPROM.c: 67:     for(uint8_t i=0 ; i<Data_length-1 ;i++)
+[; ;EEPROM.c: 67:     I2C_Master_WriteByte(0xA1 | ((address & 0x0700)>>7) );
+[e ( _I2C_Master_WriteByte (1 -> | -> -> 161 `i `ui >> & -> _address `ui -> -> 1792 `i `ui -> 7 `i `uc ]
+"69
+[; ;EEPROM.c: 69:     for(uint8_t i=0 ; i<Data_length-1 ;i++)
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
 [e $U 119  ]
 [e :U 116 ]
-"68
-[; ;EEPROM.c: 68:     {
-{
-"69
-[; ;EEPROM.c: 69:         data[i]=I2C_Master_ReadByte(I2C_CONTINUE_READING);
-[e = *U + _data * -> _i `ux -> -> # *U _data `ui `ux ( _I2C_Master_ReadByte (1 . `E877 0 ]
 "70
-[; ;EEPROM.c: 70:     }
+[; ;EEPROM.c: 70:     {
+{
+"71
+[; ;EEPROM.c: 71:         data[i]=I2C_Master_ReadByte(I2C_CONTINUE_READING);
+[e = *U + _data * -> _i `ux -> -> # *U _data `ui `ux ( _I2C_Master_ReadByte (1 . `E877 0 ]
+"72
+[; ;EEPROM.c: 72:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 119 ]
 [e $ < -> _i `i - -> _Data_length `i -> 1 `i 116  ]
 [e :U 117 ]
 }
-"71
-[; ;EEPROM.c: 71:     data[Data_length-1]=I2C_Master_ReadByte(I2C_STOP_READING);
-[e = *U + _data * -> - -> _Data_length `i -> 1 `i `x -> -> # *U _data `i `x ( _I2C_Master_ReadByte (1 . `E877 1 ]
-"72
-[; ;EEPROM.c: 72:     I2C_Master_Send_Stop();
-[e ( _I2C_Master_Send_Stop ..  ]
 "73
-[; ;EEPROM.c: 73: }
+[; ;EEPROM.c: 73:     data[Data_length-1]=I2C_Master_ReadByte(I2C_STOP_READING);
+[e = *U + _data * -> - -> _Data_length `i -> 1 `i `x -> -> # *U _data `i `x ( _I2C_Master_ReadByte (1 . `E877 1 ]
+"74
+[; ;EEPROM.c: 74:     I2C_Master_Send_Stop();
+[e ( _I2C_Master_Send_Stop ..  ]
+"75
+[; ;EEPROM.c: 75: }
 [e :UE 112 ]
 }

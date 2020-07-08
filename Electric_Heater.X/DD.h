@@ -1,9 +1,9 @@
  /********************************************************************************
- * Module : DD (Digital Devices)
+ * Module : DD (Digital Output Devices)
  *
  * File Name : DD.h
  *
- * Description : Header File for DD Module that contain all Digital Devices interface
+ * Description : Header File for DD Module that contain all Digital Output Devices interface
  *
  * Author : Shreef Mohamed
  *
@@ -16,12 +16,10 @@
 
 #include "GPIO.h"
 #include "Port.h"
+#include "config.h"
 /*-------------------------------- TypeDefs ----------------------------------*/
 typedef enum 
 {
-    ON_OFF_BUTTON,
-    UP_BUTTON, 
-    DOWN_BUTTON,
     HEATER,
     COOLER,
     HEATER_LED
@@ -41,4 +39,7 @@ void DD_Init(void);
 void DD_SetState(tDD device ,tState state);
 tState DD_GetState(tDD device);
 
+void EWH_SSD_ON();
+void EWH_SSD_OFF();
+void EWH_SSD_Update(uint16_t temp);
 #endif
