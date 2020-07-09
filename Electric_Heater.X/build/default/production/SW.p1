@@ -1,11 +1,11 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "47 ./SW.h
 [; ;./SW.h: 47: tSW_StateControl SW_StateControl={SW_REALESED,SW_REALESED,SW_REALESED};
-[c E885 0 1 .. ]
-[n E885 . SW_REALESED SW_PRESSED  ]
+[c E889 0 1 .. ]
+[n E889 . SW_REALESED SW_PRESSED  ]
 "39
 [; ;./SW.h: 39: {
-[s S95 `E885 1 `E885 1 `E885 1 ]
+[s S95 `E889 1 `E889 1 `E889 1 ]
 [n S95 . ON_OFF_Button_State UP_Button_State DOWN_Button_State ]
 "1375 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1375: extern volatile unsigned char TRISB __attribute__((address(0x086)));
@@ -21,8 +21,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _GIE `Vb ~T0 @X0 0 e@95 ]
 "28 SW.c
 [; ;SW.c: 28: void SW_SetState(tSW SW_Name ,tSW_State state)
-[c E880 0 1 2 .. ]
-[n E880 . ON_OFF_BUTTON UP_BUTTON DOWN_BUTTON  ]
+[c E884 0 1 2 .. ]
+[n E884 . ON_OFF_BUTTON UP_BUTTON DOWN_BUTTON  ]
 "216 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 216: extern volatile unsigned char PORTB __attribute__((address(0x006)));
 [v _PORTB `Vuc ~T0 @X0 0 e@6 ]
@@ -229,20 +229,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _SW_StateControl
 :U ..
 :U ..
-. `E885 0
-. `E885 0
-. `E885 0
+. `E889 0
+. `E889 0
+. `E889 0
 ..
 ..
 ]
 "48
 [; ;./SW.h: 48: tSW_State SW_State[3]={SW_REALESED,SW_REALESED,SW_REALESED};
-[v _SW_State `E885 ~T0 @X0 -> 3 `i e ]
+[v _SW_State `E889 ~T0 @X0 -> 3 `i e ]
 [i _SW_State
 :U ..
-. `E885 0
-. `E885 0
-. `E885 0
+. `E889 0
+. `E889 0
+. `E889 0
 ..
 ]
 "16 SW.c
@@ -277,15 +277,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "28
 [; ;SW.c: 28: void SW_SetState(tSW SW_Name ,tSW_State state)
-[v _SW_SetState `(v ~T0 @X0 1 ef2`E880`E885 ]
+[v _SW_SetState `(v ~T0 @X0 1 ef2`E884`E889 ]
 "29
 [; ;SW.c: 29: {
 {
 [e :U _SW_SetState ]
 "28
 [; ;SW.c: 28: void SW_SetState(tSW SW_Name ,tSW_State state)
-[v _SW_Name `E880 ~T0 @X0 1 r1 ]
-[v _state `E885 ~T0 @X0 1 r2 ]
+[v _SW_Name `E884 ~T0 @X0 1 r1 ]
+[v _state `E889 ~T0 @X0 1 r2 ]
 "29
 [; ;SW.c: 29: {
 [f ]
@@ -300,7 +300,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 100 ]
 "33
 [; ;SW.c: 33:             SW_State[ON_OFF_BUTTON]=state;
-[e = *U + &U _SW_State * -> . `E880 0 `ux -> -> # *U &U _SW_State `ui `ux _state ]
+[e = *U + &U _SW_State * -> . `E884 0 `ux -> -> # *U &U _SW_State `ui `ux _state ]
 "34
 [; ;SW.c: 34:             SW_StateControl.ON_OFF_Button_State= state;
 [e = . _SW_StateControl 0 _state ]
@@ -312,7 +312,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 101 ]
 "37
 [; ;SW.c: 37:             SW_State[UP_BUTTON]=state;
-[e = *U + &U _SW_State * -> . `E880 1 `ux -> -> # *U &U _SW_State `ui `ux _state ]
+[e = *U + &U _SW_State * -> . `E884 1 `ux -> -> # *U &U _SW_State `ui `ux _state ]
 "38
 [; ;SW.c: 38:             break;
 [e $U 98  ]
@@ -321,7 +321,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 102 ]
 "40
 [; ;SW.c: 40:             SW_State[DOWN_BUTTON]=state;
-[e = *U + &U _SW_State * -> . `E880 2 `ux -> -> # *U &U _SW_State `ui `ux _state ]
+[e = *U + &U _SW_State * -> . `E884 2 `ux -> -> # *U &U _SW_State `ui `ux _state ]
 "41
 [; ;SW.c: 41:             break;
 [e $U 98  ]
@@ -330,9 +330,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 98  ]
 [e :U 99 ]
-[e [\ -> _SW_Name `ui , $ -> . `E880 0 `ui 100
- , $ -> . `E880 1 `ui 101
- , $ -> . `E880 2 `ui 102
+[e [\ -> _SW_Name `ui , $ -> . `E884 0 `ui 100
+ , $ -> . `E884 1 `ui 101
+ , $ -> . `E884 2 `ui 102
  98 ]
 [e :U 98 ]
 "43
@@ -341,14 +341,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "44
 [; ;SW.c: 44: tSW_State SW_GetState(tSW SW_Name)
-[v _SW_GetState `(E885 ~T0 @X0 1 ef1`E880 ]
+[v _SW_GetState `(E889 ~T0 @X0 1 ef1`E884 ]
 "45
 [; ;SW.c: 45: {
 {
 [e :U _SW_GetState ]
 "44
 [; ;SW.c: 44: tSW_State SW_GetState(tSW SW_Name)
-[v _SW_Name `E880 ~T0 @X0 1 r1 ]
+[v _SW_Name `E884 ~T0 @X0 1 r1 ]
 "45
 [; ;SW.c: 45: {
 [f ]
@@ -363,7 +363,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 106 ]
 "49
 [; ;SW.c: 49:             return SW_State[ON_OFF_BUTTON];
-[e ) *U + &U _SW_State * -> . `E880 0 `ux -> -> # *U &U _SW_State `ui `ux ]
+[e ) *U + &U _SW_State * -> . `E884 0 `ux -> -> # *U &U _SW_State `ui `ux ]
 [e $UE 103  ]
 "50
 [; ;SW.c: 50:             break;
@@ -373,7 +373,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 107 ]
 "52
 [; ;SW.c: 52:             return SW_State[UP_BUTTON];
-[e ) *U + &U _SW_State * -> . `E880 1 `ux -> -> # *U &U _SW_State `ui `ux ]
+[e ) *U + &U _SW_State * -> . `E884 1 `ux -> -> # *U &U _SW_State `ui `ux ]
 [e $UE 103  ]
 "53
 [; ;SW.c: 53:             break;
@@ -383,7 +383,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 108 ]
 "55
 [; ;SW.c: 55:             return SW_State[DOWN_BUTTON];
-[e ) *U + &U _SW_State * -> . `E880 2 `ux -> -> # *U &U _SW_State `ui `ux ]
+[e ) *U + &U _SW_State * -> . `E884 2 `ux -> -> # *U &U _SW_State `ui `ux ]
 [e $UE 103  ]
 "56
 [; ;SW.c: 56:             break;
@@ -393,9 +393,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 104  ]
 [e :U 105 ]
-[e [\ -> _SW_Name `ui , $ -> . `E880 0 `ui 106
- , $ -> . `E880 1 `ui 107
- , $ -> . `E880 2 `ui 108
+[e [\ -> _SW_Name `ui , $ -> . `E884 0 `ui 106
+ , $ -> . `E884 1 `ui 107
+ , $ -> . `E884 2 `ui 108
  104 ]
 [e :U 104 ]
 "58
@@ -412,13 +412,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "62
 [; ;SW.c: 62:     SW_State[DOWN_BUTTON] =((PORTB & (1<<1)) >> 1);
-[e = *U + &U _SW_State * -> . `E880 2 `ux -> -> # *U &U _SW_State `ui `ux -> >> & -> _PORTB `i << -> 1 `i -> 1 `i -> 1 `i `E885 ]
+[e = *U + &U _SW_State * -> . `E884 2 `ux -> -> # *U &U _SW_State `ui `ux -> >> & -> _PORTB `i << -> 1 `i -> 1 `i -> 1 `i `E889 ]
 "63
 [; ;SW.c: 63:     SW_State[UP_BUTTON] =((PORTB & (1<<2)) >> 2);
-[e = *U + &U _SW_State * -> . `E880 1 `ux -> -> # *U &U _SW_State `ui `ux -> >> & -> _PORTB `i << -> 1 `i -> 2 `i -> 2 `i `E885 ]
+[e = *U + &U _SW_State * -> . `E884 1 `ux -> -> # *U &U _SW_State `ui `ux -> >> & -> _PORTB `i << -> 1 `i -> 2 `i -> 2 `i `E889 ]
 "64
 [; ;SW.c: 64:     SW_State[ON_OFF_BUTTON]=((PORTB & (1<<0)) >> 0);
-[e = *U + &U _SW_State * -> . `E880 0 `ux -> -> # *U &U _SW_State `ui `ux -> >> & -> _PORTB `i << -> 1 `i -> 0 `i -> 0 `i `E885 ]
+[e = *U + &U _SW_State * -> . `E884 0 `ux -> -> # *U &U _SW_State `ui `ux -> >> & -> _PORTB `i << -> 1 `i -> 0 `i -> 0 `i `E889 ]
 "65
 [; ;SW.c: 65: }
 [e :UE 109 ]

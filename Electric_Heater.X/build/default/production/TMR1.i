@@ -1784,7 +1784,7 @@ void TMR1_Start()
     (TMR1IE = 1);
     (PEIE = 1);
     (GIE = 1);
-    TMR1=34285;
+    TMR1=40536;
     (TMR1ON = 1);
 }
 void TMR1_Update()

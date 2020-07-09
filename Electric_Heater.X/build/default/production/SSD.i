@@ -48,6 +48,12 @@ typedef enum
     OFF=0,
     ON=1
 }tState;
+
+typedef enum
+{
+    FALSE=0,
+    TRUE=1
+}tbool;
 # 4 "./GPIO.h" 2
 
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3

@@ -82,7 +82,8 @@ void EWH_SSD_Update(uint16_t temp)
 {
     SSD_OFF(EWH_SSD_1); 
     SSD_Write(EWH_SSD_2,temp%10); 
-    __delay_ms(60);
+    __delay_ms(30);
     SSD_OFF(EWH_SSD_2); 
-    SSD_Write(EWH_SSD_1,(uint8_t)temp/10); 
+    SSD_Write(EWH_SSD_1,(uint8_t)temp/10);
+    __delay_ms(30);
 }

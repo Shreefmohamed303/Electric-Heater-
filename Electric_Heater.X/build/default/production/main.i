@@ -1781,6 +1781,12 @@ typedef enum
     OFF=0,
     ON=1
 }tState;
+
+typedef enum
+{
+    FALSE=0,
+    TRUE=1
+}tbool;
 # 4 "./GPIO.h" 2
 # 6 "./main.h" 2
 
@@ -1946,12 +1952,12 @@ void TMR1_Update();
 void TMR1_Stop();
 # 12 "./main.h" 2
 # 4 "./EWH.h" 2
-# 17 "./EWH.h"
+# 19 "./EWH.h"
 typedef tState tEWH_State;
 typedef enum
 {
     EWH_SLEEP_MODE,
-    EWH_POWER_UP_MODE,
+    EWH_WAKE_UP_MODE,
     EWH_SET_TEMP_MODE,
     EWH_OPERATING_MODE
 }sEWH_Mode;
@@ -1962,15 +1968,22 @@ uint8_t set_Temp;
 uint8_t current_Temp;
 tState EWH_Events[4]={OFF,OFF,OFF,OFF};
 uint8_t NoPress_Sec_count=0;
+uint8_t TempReading_count=0;
+tbool SSD_Blink_flag=FALSE;
+tbool ReadingBufferFull=FALSE;
+uint8_t ReadingBuffer[10];
+uint8_t TempavgReading;
 
-void EWH_PowerUP_Mode();
+void EWH_Sleep_Mode();
+void EWH_WakeUP_Mode();
 void EWH_SetTemp_Mode();
 void EWH_Operating_Mode();
-void EWH_Sleep_Mode();
+
 
 void EWH_EEPROM_Init();
 void EWH_EEPROM_Update(uint8_t newSetTemp);
 uint8_t EWH_EEPROM_Read();
+uint8_t EWH_getAvrgTempReading(uint8_t *buffer, uint8_t length);
 # 2 "main.c" 2
 
 # 1 "./SW.h" 1
@@ -2007,12 +2020,11 @@ tSW_State SW_GetState(tSW SW_Name);
 # 3 "main.c" 2
 
 
-    uint16_t Reading , temp;
 void main(void)
 {
 
     tTMR1_Config TMR1_cfg;
-    TMR1_cfg.Prescaler=TMR1_PRESCALER_8;
+    TMR1_cfg.Prescaler=TMR1_PRESCALER_4;
     TMR1_cfg.clkSource=EXTERNAL_CLK_SOURCE;
 
     TMR1_Init(&TMR1_cfg);
@@ -2039,7 +2051,7 @@ void main(void)
     (0u)? (TRISB |= (1<<5)) : (TRISB &= ~(1<<5));
     (0u)? (TRISB |= (1<<6)) : (TRISB &= ~(1<<6));
 
-             (OFF)?(PORTB |= (1<<4)) : (PORTB &= ~(1<<4));
+    (OFF)?(PORTB |= (1<<4)) : (PORTB &= ~(1<<4));
     (OFF)?(PORTB |= (1<<5)) : (PORTB &= ~(1<<5));
     (OFF)?(PORTB |= (1<<6)) : (PORTB &= ~(1<<6));
     while(1)
@@ -2049,8 +2061,8 @@ void main(void)
             case EWH_SLEEP_MODE:
                 EWH_Sleep_Mode();
                 break;
-            case EWH_POWER_UP_MODE:
-                EWH_PowerUP_Mode();
+            case EWH_WAKE_UP_MODE:
+                EWH_WakeUP_Mode();
                 break;
             case EWH_OPERATING_MODE:
                 EWH_Operating_Mode();
@@ -2059,7 +2071,6 @@ void main(void)
                 EWH_SetTemp_Mode();
                 break;
         }
-# 90 "main.c"
     }
     return;
 }

@@ -13,12 +13,14 @@
 
 #define MAX_SET_TEMP                75
 #define MIN_SET_TEMP                35
+
+#define TEMP_READING_BUFFER_LENGTH  10
 /*-------------------------------- TypeDefs ----------------------------------*/
 typedef tState tEWH_State; 
 typedef enum
 {
     EWH_SLEEP_MODE,
-    EWH_POWER_UP_MODE,
+    EWH_WAKE_UP_MODE,
     EWH_SET_TEMP_MODE,
     EWH_OPERATING_MODE
 }sEWH_Mode;
@@ -29,15 +31,20 @@ uint8_t set_Temp;//=EWH_INITIAL_SET_TEMP;
 uint8_t current_Temp;//=EWH_INITIAL_SET_TEMP;
 tState EWH_Events[NUM_OF_EVENTS]={OFF,OFF,OFF,OFF};
 uint8_t NoPress_Sec_count=0;
+uint8_t TempReading_count=0;
+tbool SSD_Blink_flag=FALSE;
+tbool ReadingBufferFull=FALSE;
+uint8_t ReadingBuffer[TEMP_READING_BUFFER_LENGTH];
+uint8_t TempavgReading;
 /*-------------------------- FUNCTION DECLARATION ----------------------------*/
-void EWH_PowerUP_Mode();
+void EWH_Sleep_Mode();
+void EWH_WakeUP_Mode();
 void EWH_SetTemp_Mode();
 void EWH_Operating_Mode(); 
-void EWH_Sleep_Mode();
+
 
 void EWH_EEPROM_Init();
 void EWH_EEPROM_Update(uint8_t newSetTemp);
 uint8_t EWH_EEPROM_Read();
-
-
+uint8_t EWH_getAvrgTempReading(uint8_t *buffer, uint8_t length);
 #endif

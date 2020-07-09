@@ -41,6 +41,12 @@ typedef enum
     OFF=0,
     ON=1
 }tState;
+
+typedef enum
+{
+    FALSE=0,
+    TRUE=1
+}tbool;
 # 4 "./GPIO.h" 2
 
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
@@ -1885,7 +1891,8 @@ void EWH_SSD_Update(uint16_t temp)
 {
     SSD_OFF(3);
     SSD_Write(4,temp%10);
-    _delay((unsigned long)((60)*(4000000/4000.0)));
+    _delay((unsigned long)((30)*(4000000/4000.0)));
     SSD_OFF(4);
     SSD_Write(3,(uint8_t)temp/10);
+    _delay((unsigned long)((30)*(4000000/4000.0)));
 }

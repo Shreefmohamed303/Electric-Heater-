@@ -1,7 +1,7 @@
 #include "EWH.h"
 #include "SW.h"
 
-
+/*------------------------- States Function Definition -----------------------*/
 void EWH_Sleep_Mode()
 {
         /*  EWH is all OFF  */
@@ -25,12 +25,12 @@ void EWH_Sleep_Mode()
     GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_5,OFF);
     GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_6,OFF);
 }
-void EWH_PowerUP_Mode()
+void EWH_WakeUP_Mode()
 {
-    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_4,ON);
-    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_5,OFF);
-    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_6,OFF);
-    
+//    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_4,ON);
+//    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_5,OFF);
+//    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_6,OFF);
+   
     EWH_Events[EWH_ON_OFF_EVENT]=0;
     EWH_Events[EWH_PRESS_DOWN_EVENT]=0;
     EWH_Events[EWH_PRESS_UP_EVENT]=0;
@@ -39,13 +39,13 @@ void EWH_PowerUP_Mode()
     /* ON/OFF Button is Released */
     EWH_Events[EWH_ON_OFF_EVENT]=0;
     
-    //EWH_Mode=EWH_POWER_UP_MODE;
+    //EWH_Mode=EWH_WAKE_UP_MODE;
 
     // The Set Temp should be retrieved form external EEPROM
     set_Temp = EWH_EEPROM_Read();
 
     // Turn On The Heater_Display and Display the temp from EEPROM
-    Heater_Display (set_Temp);
+    EWH_SSD_Update(set_Temp);
     
     if(UP_BUTTON_IS_PRESSED)
     {
@@ -70,9 +70,9 @@ void EWH_PowerUP_Mode()
 }
 void EWH_SetTemp_Mode()
 {
-    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_4,OFF);
-    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_5,ON);
-    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_6,OFF);
+//    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_4,OFF);
+//    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_5,ON);
+//    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_6,OFF);
     
     EWH_Events[EWH_ON_OFF_EVENT]=0;
     EWH_Events[EWH_PRESS_DOWN_EVENT]=0;
@@ -86,15 +86,15 @@ void EWH_SetTemp_Mode()
     DD_SetState(HEATER,OFF);
     DD_SetState(COOLER,OFF);
     // 2. SSD show the set Temp 
-    Heater_Display(set_Temp);
+    EWH_SSD_Update(set_Temp);
     // 3. Enable Timer 
     TMR1_Start();
-    
+    NoPress_Sec_count=0;
     while(1)
     {
         if(UP_BUTTON_IS_PRESSED && set_Temp<MAX_SET_TEMP)
         {
-            __delay_ms(30); 
+            __delay_ms(50); 
             if(UP_BUTTON_IS_PRESSED)
             {
                 set_Temp+=5; 
@@ -103,7 +103,7 @@ void EWH_SetTemp_Mode()
         }
         else if (DOWN_BUTTON_IS_PRESSED && set_Temp>MIN_SET_TEMP)
         {
-            __delay_ms(30); 
+            __delay_ms(50); 
             if(DOWN_BUTTON_IS_PRESSED)
             {
                 set_Temp-=5; 
@@ -117,19 +117,19 @@ void EWH_SetTemp_Mode()
             // Leave Set temp Mode and Go to Operating Mode 
             break ;
         }
-        //  SSD show the current set Temp 
-        Heater_Display(set_Temp);
-        
+        //  SSD show the current set Temp
+        if(SSD_Blink_flag)
+        {
+            EWH_SSD_Update(set_Temp);
+        }
+        else
+        {
+            EWH_SSD_OFF();
+        }
+
     }
-    
-    if(EWH_Events[EWH_ON_OFF_EVENT])
-    {
-        EWH_Events[EWH_ON_OFF_EVENT]=0;
-        // Go to PowerUp Mode
-        //EWH_PowerUP_Mode();
-        EWH_Mode=EWH_POWER_UP_MODE;
-    }
-    else if(EWH_Events[EWH_NO_PRESS_5_SEC_EVENT])
+
+    if(EWH_Events[EWH_NO_PRESS_5_SEC_EVENT])
     {
         EWH_Events[EWH_NO_PRESS_5_SEC_EVENT]=0;
         // Go to Operating Mode
@@ -140,9 +140,9 @@ void EWH_SetTemp_Mode()
 }
 void EWH_Operating_Mode()
 {
-    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_4,OFF);
-    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_5,OFF);
-    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_6,ON);
+//    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_4,OFF);
+//    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_5,OFF);
+//    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_6,ON);
     
     EWH_Events[EWH_ON_OFF_EVENT]=0;
     EWH_Events[EWH_PRESS_DOWN_EVENT]=0;
@@ -153,21 +153,29 @@ void EWH_Operating_Mode()
     // 1. Enable Temp Sensing Timer 
     TMR1_Start();
     // 2. Enable ADC 
-     
     while(1)
     {
-        Heater_Display(current_Temp);
-        if(current_Temp>(set_Temp+5))
+        EWH_SSD_Update(current_Temp);
+        ReadingBuffer[TempReading_count]=current_Temp;
+        TempReading_count++;
+        TempReading_count= TempReading_count%TEMP_READING_BUFFER_LENGTH;
+        if(TempReading_count==9)
         {
-            DD_SetState(HEATER,OFF); 
-            DD_SetState(COOLER,ON); 
-            DD_SetState(HEATER_LED,ON);
+            TempavgReading= EWH_getAvrgTempReading(ReadingBuffer,TEMP_READING_BUFFER_LENGTH);
+            ReadingBufferFull=TRUE;
         }
-        else if(current_Temp<(set_Temp-5))
+        if(ReadingBufferFull)
         {
-            DD_SetState(HEATER,ON); 
-            DD_SetState(COOLER,OFF); 
-            DD_SetState(HEATER_LED,ON);// Blinking Every 1 sec         
+            if(TempavgReading>(set_Temp+5))
+            {
+                DD_SetState(HEATER,OFF); 
+                DD_SetState(COOLER,ON); 
+            }
+            else if(TempavgReading<(set_Temp-5))
+            {
+                DD_SetState(HEATER,ON); 
+                DD_SetState(COOLER,OFF);       
+            }
         }
          if(UP_BUTTON_IS_PRESSED || DOWN_BUTTON_IS_PRESSED )
          {
@@ -182,7 +190,7 @@ void EWH_Operating_Mode()
         if(EWH_Events[EWH_ON_OFF_EVENT]==1)
             break;
     
-         Heater_Display(current_Temp);    
+         EWH_SSD_Update(current_Temp);    
     }
     
     if(EWH_Events[EWH_PRESS_UP_EVENT] )
@@ -196,12 +204,12 @@ void EWH_Operating_Mode()
         {
              EWH_Events[EWH_PRESS_DOWN_EVENT]=0;
              TMR1_Stop();
-             //EWH_SetTemp_Mode();
              EWH_Mode=EWH_SET_TEMP_MODE;
         }
 }
 
 
+/*------------------------- Helper Function Definition -----------------------*/
 void EWH_EEPROM_Init()
 {
     EEPROM_WriteByte(EWH_TEMP_ADDRESS,EWH_INITIAL_SET_TEMP); 
@@ -215,7 +223,18 @@ uint8_t EWH_EEPROM_Read()
     return EEPROM_ReadByte(EWH_TEMP_ADDRESS);
 }
 
+uint8_t EWH_getAvrgTempReading(uint8_t *buffer, uint8_t length)
+{
+    uint16_t sumOfReadings=0;
+    for(uint8_t i=0 ; i<length ; i++)
+    {
+        sumOfReadings += buffer[i];
+    }
+    uint8_t averageReading= sumOfReadings/length;
+    return averageReading;
+}
 
+/*---------------------- INTERRUPT SERVICE ROUTINE ---------------------------*/
 void __interrupt() ISR()
 {
     static uint8_t count =0; 
@@ -231,7 +250,7 @@ void __interrupt() ISR()
         else if(EWH_State==OFF)
         {
             EWH_State=ON;
-            EWH_Mode=EWH_POWER_UP_MODE;
+            EWH_Mode=EWH_WAKE_UP_MODE;
         }        
         INTF=0;
     }
@@ -242,15 +261,15 @@ void __interrupt() ISR()
       if(EWH_Mode==EWH_OPERATING_MODE)
       {
         uint16_t Reading = ADC_ReadChannel(ADC2);
-        current_Temp=Reading*0.488;
-        Heater_Display(current_Temp);        
+        current_Temp=Reading*0.488;       
       }
 
-      if(count==4)
+      if(count==10)
       {
         // Put Your Second Event Here
           if(EWH_Mode==EWH_SET_TEMP_MODE)
           {
+              SSD_Blink_flag = ~SSD_Blink_flag;
               NoPress_Sec_count++;
               if(NoPress_Sec_count==5)
               {
@@ -266,7 +285,6 @@ void __interrupt() ISR()
         {
             GPIO_WritePin(HEATER_LED_PORT_DATA,HEATER_LED_PIN,ON);
         }
-        //Heater_Display(temp);
         // Clear The Global Counter
         count = 0;
       }

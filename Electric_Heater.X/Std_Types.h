@@ -25,6 +25,12 @@ typedef enum
     ON=1
 }tState;
 
+typedef enum
+{
+    FALSE=0, 
+    TRUE=1
+}tbool;
+
 #define E_OK        (Std_ReturnType)(0x00u)
 #define E_NOT_OK    (Std_ReturnType)(0x01u)
 

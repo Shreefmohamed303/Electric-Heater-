@@ -1775,6 +1775,12 @@ typedef enum
     OFF=0,
     ON=1
 }tState;
+
+typedef enum
+{
+    FALSE=0,
+    TRUE=1
+}tbool;
 # 5 "./i2c.h" 2
 # 27 "./i2c.h"
 typedef enum

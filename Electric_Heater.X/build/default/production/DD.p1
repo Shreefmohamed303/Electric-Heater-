@@ -21,8 +21,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _PORTB `Vuc ~T0 @X0 0 e@6 ]
 "29 DD.c
 [; ;DD.c: 29: void DD_SetState(tDD device ,tState state)
-[c E880 0 1 2 .. ]
-[n E880 . HEATER COOLER HEATER_LED  ]
+[c E884 0 1 2 .. ]
+[n E884 . HEATER COOLER HEATER_LED  ]
 "32 ./SSD.h
 [; ;./SSD.h: 32: void SSD_ON(SSD_ID ID);
 [v _SSD_ON `(v ~T0 @X0 0 ef1`uc ]
@@ -32,9 +32,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29
 [; ;./SSD.h: 29: Std_ReturnType SSD_Write(SSD_ID ID ,SSD_Number Number);
 [v _SSD_Write `(uc ~T0 @X0 0 ef2`uc`uc ]
-[v F857 `(v ~T0 @X0 1 tf1`ul ]
+[v F861 `(v ~T0 @X0 1 tf1`ul ]
 "92 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
-[v __delay `JF857 ~T0 @X0 0 e ]
+[v __delay `JF861 ~T0 @X0 0 e ]
 [p i __delay ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
@@ -293,14 +293,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "29
 [; ;DD.c: 29: void DD_SetState(tDD device ,tState state)
-[v _DD_SetState `(v ~T0 @X0 1 ef2`E880`E13 ]
+[v _DD_SetState `(v ~T0 @X0 1 ef2`E884`E13 ]
 "30
 [; ;DD.c: 30: {
 {
 [e :U _DD_SetState ]
 "29
 [; ;DD.c: 29: void DD_SetState(tDD device ,tState state)
-[v _device `E880 ~T0 @X0 1 r1 ]
+[v _device `E884 ~T0 @X0 1 r1 ]
 [v _state `E13 ~T0 @X0 1 r2 ]
 "30
 [; ;DD.c: 30: {
@@ -358,9 +358,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 98  ]
 [e :U 99 ]
-[e [\ -> _device `ui , $ -> . `E880 0 `ui 100
- , $ -> . `E880 1 `ui 101
- , $ -> . `E880 2 `ui 102
+[e [\ -> _device `ui , $ -> . `E884 0 `ui 100
+ , $ -> . `E884 1 `ui 101
+ , $ -> . `E884 2 `ui 102
  103 ]
 [e :U 98 ]
 "49
@@ -369,14 +369,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "50
 [; ;DD.c: 50: tState DD_GetState(tDD device)
-[v _DD_GetState `(E13 ~T0 @X0 1 ef1`E880 ]
+[v _DD_GetState `(E13 ~T0 @X0 1 ef1`E884 ]
 "51
 [; ;DD.c: 51: {
 {
 [e :U _DD_GetState ]
 "50
 [; ;DD.c: 50: tState DD_GetState(tDD device)
-[v _device `E880 ~T0 @X0 1 r1 ]
+[v _device `E884 ~T0 @X0 1 r1 ]
 "51
 [; ;DD.c: 51: {
 [f ]
@@ -427,9 +427,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 105  ]
 [e :U 106 ]
-[e [\ -> _device `ui , $ -> . `E880 0 `ui 107
- , $ -> . `E880 1 `ui 108
- , $ -> . `E880 2 `ui 109
+[e [\ -> _device `ui , $ -> . `E884 0 `ui 107
+ , $ -> . `E884 1 `ui 108
+ , $ -> . `E884 2 `ui 109
  110 ]
 [e :U 105 ]
 "67
@@ -492,8 +492,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;DD.c: 84:     SSD_Write(4,temp%10);
 [e ( _SSD_Write (2 , -> -> 4 `i `uc -> % -> _temp `ui -> -> 10 `i `ui `uc ]
 "85
-[; ;DD.c: 85:     _delay((unsigned long)((60)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;DD.c: 85:     _delay((unsigned long)((30)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "86
 [; ;DD.c: 86:     SSD_OFF(4);
 [e ( _SSD_OFF (1 -> -> 4 `i `uc ]
@@ -501,6 +501,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;DD.c: 87:     SSD_Write(3,(uint8_t)temp/10);
 [e ( _SSD_Write (2 , -> -> 3 `i `uc -> / -> -> _temp `uc `i -> 10 `i `uc ]
 "88
-[; ;DD.c: 88: }
+[; ;DD.c: 88:     _delay((unsigned long)((30)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"89
+[; ;DD.c: 89: }
 [e :UE 113 ]
 }

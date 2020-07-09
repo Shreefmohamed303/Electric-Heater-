@@ -344,8 +344,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;TMR1.c: 36:     (GIE = 1);
 [e = _GIE -> -> 1 `i `b ]
 "37
-[; ;TMR1.c: 37:     TMR1=34285;
-[e = _TMR1 -> -> 34285 `l `us ]
+[; ;TMR1.c: 37:     TMR1=40536;
+[e = _TMR1 -> -> 40536 `l `us ]
 "38
 [; ;TMR1.c: 38:     (TMR1ON = 1);
 [e = _TMR1ON -> -> 1 `i `b ]

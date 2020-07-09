@@ -1,17 +1,17 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "16 adc.c
 [; ;adc.c: 16: void ADC_Init(tADC_Config* config)
-[c E865 0 1 2 3 4 5 6 7 8 .. ]
-[n E865 . ADC0 ADC1 ADC2 ADC3 ADC4 ADC5 ADC6 ADC7 ADC8  ]
-[c E876 0 1 .. ]
-[n E876 . POLLING_MODE INTERRUPT_MODE  ]
+[c E869 0 1 2 3 4 5 6 7 8 .. ]
+[n E869 . ADC0 ADC1 ADC2 ADC3 ADC4 ADC5 ADC6 ADC7 ADC8  ]
 [c E880 0 1 .. ]
-[n E880 . LEFT RIGHT  ]
-[c E884 0 1 2 3 4 5 6 .. ]
-[n E884 . FOSC_2 FOSC_8 FOSC_32 FRC FOSC_4 FOSC_16 FOSC_64  ]
+[n E880 . POLLING_MODE INTERRUPT_MODE  ]
+[c E884 0 1 .. ]
+[n E884 . LEFT RIGHT  ]
+[c E888 0 1 2 3 4 5 6 .. ]
+[n E888 . FOSC_2 FOSC_8 FOSC_32 FRC FOSC_4 FOSC_16 FOSC_64  ]
 "43 ./adc.h
 [; ;./adc.h: 43: {
-[s S95 `E865 1 `E876 1 `E880 1 `E884 1 ]
+[s S95 `E869 1 `E880 1 `E884 1 `E888 1 ]
 [n S95 . channel mode alignment clk ]
 "2404 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2404: extern volatile __bit ADON __attribute__((address(0xF8)));
@@ -34,9 +34,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2569
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2569: extern volatile __bit GIE __attribute__((address(0x5F)));
 [v _GIE `Vb ~T0 @X0 0 e@95 ]
-[v F857 `(v ~T0 @X0 1 tf1`ul ]
+[v F861 `(v ~T0 @X0 1 tf1`ul ]
 "92 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
-[v __delay `JF857 ~T0 @X0 0 e ]
+[v __delay `JF861 ~T0 @X0 0 e ]
 [p i __delay ]
 "1152 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1152: extern volatile unsigned char ADRESH __attribute__((address(0x01E)));
@@ -345,13 +345,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 97  ]
 [e :U 98 ]
-[e [\ -> . *U _config 3 `ui , $ -> . `E884 0 `ui 99
- , $ -> . `E884 1 `ui 100
- , $ -> . `E884 2 `ui 101
- , $ -> . `E884 3 `ui 102
- , $ -> . `E884 4 `ui 103
- , $ -> . `E884 5 `ui 104
- , $ -> . `E884 6 `ui 105
+[e [\ -> . *U _config 3 `ui , $ -> . `E888 0 `ui 99
+ , $ -> . `E888 1 `ui 100
+ , $ -> . `E888 2 `ui 101
+ , $ -> . `E888 3 `ui 102
+ , $ -> . `E888 4 `ui 103
+ , $ -> . `E888 5 `ui 104
+ , $ -> . `E888 6 `ui 105
  106 ]
 [e :U 97 ]
 "53
@@ -362,7 +362,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _ADCON1 -> -> 128 `i `uc ]
 "60
 [; ;adc.c: 60:     if(config->mode==INTERRUPT_MODE)
-[e $ ! == -> . *U _config 1 `ui -> . `E876 1 `ui 107  ]
+[e $ ! == -> . *U _config 1 `ui -> . `E880 1 `ui 107  ]
 "61
 [; ;adc.c: 61:     {
 {
@@ -388,14 +388,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "69
 [; ;adc.c: 69: uint16_t ADC_ReadChannel(tADC_Channel_Select channel)
-[v _ADC_ReadChannel `(us ~T0 @X0 1 ef1`E865 ]
+[v _ADC_ReadChannel `(us ~T0 @X0 1 ef1`E869 ]
 "70
 [; ;adc.c: 70: {
 {
 [e :U _ADC_ReadChannel ]
 "69
 [; ;adc.c: 69: uint16_t ADC_ReadChannel(tADC_Channel_Select channel)
-[v _channel `E865 ~T0 @X0 1 r1 ]
+[v _channel `E869 ~T0 @X0 1 r1 ]
 "70
 [; ;adc.c: 70: {
 [f ]
@@ -432,14 +432,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "93
 [; ;adc.c: 93: void ADC_INT_ReadChannel(tADC_Channel_Select channel)
-[v _ADC_INT_ReadChannel `(v ~T0 @X0 1 ef1`E865 ]
+[v _ADC_INT_ReadChannel `(v ~T0 @X0 1 ef1`E869 ]
 "94
 [; ;adc.c: 94: {
 {
 [e :U _ADC_INT_ReadChannel ]
 "93
 [; ;adc.c: 93: void ADC_INT_ReadChannel(tADC_Channel_Select channel)
-[v _channel `E865 ~T0 @X0 1 r1 ]
+[v _channel `E869 ~T0 @X0 1 r1 ]
 "94
 [; ;adc.c: 94: {
 [f ]
