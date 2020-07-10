@@ -17,11 +17,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n E865 . FALSE TRUE  ]
 "47 ./SW.h
 [; ;./SW.h: 47: tSW_StateControl SW_StateControl={SW_REALESED,SW_REALESED,SW_REALESED};
-[c E1049 0 1 .. ]
-[n E1049 . SW_REALESED SW_PRESSED  ]
+[c E1050 0 1 .. ]
+[n E1050 . SW_REALESED SW_PRESSED  ]
 "39
 [; ;./SW.h: 39: {
-[s S99 `E1049 1 `E1049 1 `E1049 1 ]
+[s S99 `E1050 1 `E1050 1 `E1050 1 ]
 [n S99 . ON_OFF_Button_State UP_Button_State DOWN_Button_State ]
 "43 ./DD.h
 [; ;./DD.h: 43: void EWH_SSD_OFF();
@@ -58,6 +58,58 @@ Version 4.0 HI-TECH Software Intermediate Code
 "49
 [; ;./EWH.h: 49: uint8_t EWH_getAvrgTempReading(uint8_t *buffer, uint8_t length);
 [v _EWH_getAvrgTempReading `(uc ~T0 @X0 0 ef2`*uc`uc ]
+"218 EWH.c
+[; ;EWH.c: 218:     tTMR1_Config TMR1_cfg;
+[c E996 0 1 2 3 .. ]
+[n E996 . TMR1_PRESCALER_1 TMR1_PRESCALER_2 TMR1_PRESCALER_4 TMR1_PRESCALER_8  ]
+[c E1002 0 1 .. ]
+[n E1002 . INTERNAL_CLK_SOURCE EXTERNAL_CLK_SOURCE  ]
+"59 ./TMR1.h
+[; ;./TMR1.h: 59: {
+[s S98 `E996 1 `E1002 1 ]
+[n S98 . Prescaler clkSource ]
+"64
+[; ;./TMR1.h: 64: void TMR1_Init(tTMR1_Config *config);
+[v _TMR1_Init `(v ~T0 @X0 0 ef1`*S98 ]
+"226 EWH.c
+[; ;EWH.c: 226:     tADC_Config adc_config;
+[c E934 0 1 2 3 4 5 6 7 8 .. ]
+[n E934 . ADC0 ADC1 ADC2 ADC3 ADC4 ADC5 ADC6 ADC7 ADC8  ]
+[c E945 0 1 .. ]
+[n E945 . POLLING_MODE INTERRUPT_MODE  ]
+[c E949 0 1 .. ]
+[n E949 . LEFT RIGHT  ]
+[c E953 0 1 2 3 4 5 6 .. ]
+[n E953 . FOSC_2 FOSC_8 FOSC_32 FRC FOSC_4 FOSC_16 FOSC_64  ]
+"43 ./adc.h
+[; ;./adc.h: 43: {
+[s S96 `E934 1 `E945 1 `E949 1 `E953 1 ]
+[n S96 . channel mode alignment clk ]
+"52
+[; ;./adc.h: 52: void ADC_Init(tADC_Config* config);
+[v _ADC_Init `(v ~T0 @X0 0 ef1`*S96 ]
+"236 EWH.c
+[; ;EWH.c: 236:     tI2C_Config i2c_config;
+[c E884 6 7 8 11 14 15 .. ]
+[n E884 . Slave_7bit_Mode Slave_10bit_Mode Master_Mode Frimware_Master_Mode Slave_7bit_INT_Mode Slave_10bit_INT_Mode  ]
+[c E900 1 0 .. ]
+[n E900 . INTERRUPT POLLING  ]
+"55 ./i2c.h
+[; ;./i2c.h: 55: {
+[s S95 `E884 1 `uo 1 `E900 1 ]
+[n S95 . Mode BaudRate operationMode ]
+"69
+[; ;./i2c.h: 69: void I2C_Init(tI2C_Config *i2c_config);
+[v _I2C_Init `(v ~T0 @X0 0 ef1`*S95 ]
+"38 ./DD.h
+[; ;./DD.h: 38: void DD_Init(void);
+[v _DD_Init `(v ~T0 @X0 0 ef ]
+"50 ./SW.h
+[; ;./SW.h: 50: void SW_Init(void);
+[v _SW_Init `(v ~T0 @X0 0 ef ]
+"46 ./EWH.h
+[; ;./EWH.h: 46: void EWH_EEPROM_Init();
+[v _EWH_EEPROM_Init `(v ~T0 @X0 0 e? ]
 "11 ./EEPROM.h
 [; ;./EEPROM.h: 11: void EEPROM_WriteByte(uint16_t address , uint8_t data);
 [v _EEPROM_WriteByte `(v ~T0 @X0 0 ef2`us`uc ]
@@ -72,10 +124,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2890
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2890: extern volatile __bit TMR1IF __attribute__((address(0x60)));
 [v _TMR1IF `Vb ~T0 @X0 0 e@96 ]
-"263 EWH.c
-[; ;EWH.c: 263:         uint16_t Reading = ADC_ReadChannel(ADC2);
-[c E934 0 1 2 3 4 5 6 7 8 .. ]
-[n E934 . ADC0 ADC1 ADC2 ADC3 ADC4 ADC5 ADC6 ADC7 ADC8  ]
 "53 ./adc.h
 [; ;./adc.h: 53: uint16_t ADC_ReadChannel(tADC_Channel_Select channel);
 [v _ADC_ReadChannel `(us ~T0 @X0 0 ef1`E934 ]
@@ -375,20 +423,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _SW_StateControl
 :U ..
 :U ..
-. `E1049 0
-. `E1049 0
-. `E1049 0
+. `E1050 0
+. `E1050 0
+. `E1050 0
 ..
 ..
 ]
 "48
 [; ;./SW.h: 48: tSW_State SW_State[3]={SW_REALESED,SW_REALESED,SW_REALESED};
-[v _SW_State `E1049 ~T0 @X0 -> 3 `i e ]
+[v _SW_State `E1050 ~T0 @X0 -> 3 `i e ]
 [i _SW_State
 :U ..
-. `E1049 0
-. `E1049 0
-. `E1049 0
+. `E1050 0
+. `E1050 0
+. `E1050 0
 ..
 ]
 "5 EWH.c
@@ -409,11 +457,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;EWH.c: 13:     DD_SetState(COOLER,OFF);
 [e ( _DD_SetState (2 , . `E975 1 . `E861 0 ]
 "15
-[; ;EWH.c: 15:     TMR1_Stop();
-[e ( _TMR1_Stop ..  ]
-"17
-[; ;EWH.c: 17:     DD_SetState(HEATER_LED,OFF);
+[; ;EWH.c: 15:     DD_SetState(HEATER_LED,OFF);
 [e ( _DD_SetState (2 , . `E975 2 . `E861 0 ]
+"17
+[; ;EWH.c: 17:     TMR1_Stop();
+[e ( _TMR1_Stop ..  ]
 "19
 [; ;EWH.c: 19:     EWH_Events[0]=0;
 [e = *U + &U _EWH_Events * -> -> -> 0 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
@@ -435,749 +483,818 @@ Version 4.0 HI-TECH Software Intermediate Code
 "26
 [; ;EWH.c: 26:     (OFF)?(PORTB |= (1<<6)) : (PORTB &= ~(1<<6));
 [e ? != -> . `E861 0 `i -> 0 `i : -> =| _PORTB -> << -> 1 `i -> 6 `i `Vuc `i -> =& _PORTB -> ~ << -> 1 `i -> 6 `i `Vuc `i ]
-"27
-[; ;EWH.c: 27: }
+"28
+[; ;EWH.c: 28:     __asm("sleep");
+[; <" sleep ;# ">
+"29
+[; ;EWH.c: 29: }
 [e :UE 100 ]
 }
-"28
-[; ;EWH.c: 28: void EWH_WakeUP_Mode()
+"30
+[; ;EWH.c: 30: void EWH_WakeUP_Mode()
 [v _EWH_WakeUP_Mode `(v ~T0 @X0 1 ef ]
-"29
-[; ;EWH.c: 29: {
+"31
+[; ;EWH.c: 31: {
 {
 [e :U _EWH_WakeUP_Mode ]
 [f ]
-"34
-[; ;EWH.c: 34:     EWH_Events[0]=0;
-[e = *U + &U _EWH_Events * -> -> -> 0 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
-"35
-[; ;EWH.c: 35:     EWH_Events[2]=0;
-[e = *U + &U _EWH_Events * -> -> -> 2 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
 "36
-[; ;EWH.c: 36:     EWH_Events[1]=0;
-[e = *U + &U _EWH_Events * -> -> -> 1 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
-"37
-[; ;EWH.c: 37:     EWH_Events[3]=0;
-[e = *U + &U _EWH_Events * -> -> -> 3 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
-"40
-[; ;EWH.c: 40:     EWH_Events[0]=0;
+[; ;EWH.c: 36:     EWH_Events[0]=0;
 [e = *U + &U _EWH_Events * -> -> -> 0 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
-"45
-[; ;EWH.c: 45:     set_Temp = EWH_EEPROM_Read();
+"37
+[; ;EWH.c: 37:     EWH_Events[2]=0;
+[e = *U + &U _EWH_Events * -> -> -> 2 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
+"38
+[; ;EWH.c: 38:     EWH_Events[1]=0;
+[e = *U + &U _EWH_Events * -> -> -> 1 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
+"39
+[; ;EWH.c: 39:     EWH_Events[3]=0;
+[e = *U + &U _EWH_Events * -> -> -> 3 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
+"42
+[; ;EWH.c: 42:     EWH_Events[0]=0;
+[e = *U + &U _EWH_Events * -> -> -> 0 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
+"47
+[; ;EWH.c: 47:     set_Temp = EWH_EEPROM_Read();
 [e = _set_Temp ( _EWH_EEPROM_Read ..  ]
-"48
-[; ;EWH.c: 48:     EWH_SSD_Update(set_Temp);
-[e ( _EWH_SSD_Update (1 -> _set_Temp `us ]
 "50
-[; ;EWH.c: 50:     if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED))
-[e $ ! == -> ! != >> & -> _PORTB `i << -> 1 `i -> 2 `i -> 2 `i -> 0 `i `i -> . `E1049 1 `i 102  ]
-"51
-[; ;EWH.c: 51:     {
-{
+[; ;EWH.c: 50:     EWH_SSD_Update(set_Temp);
+[e ( _EWH_SSD_Update (1 -> _set_Temp `us ]
 "52
-[; ;EWH.c: 52:         _delay((unsigned long)((50)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;EWH.c: 52:     if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED))
+[e $ ! == -> ! != >> & -> _PORTB `i << -> 1 `i -> 2 `i -> 2 `i -> 0 `i `i -> . `E1050 1 `i 102  ]
 "53
-[; ;EWH.c: 53:         if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED))
-[e $ ! == -> ! != >> & -> _PORTB `i << -> 1 `i -> 2 `i -> 2 `i -> 0 `i `i -> . `E1049 1 `i 103  ]
-"54
-[; ;EWH.c: 54:         {
+[; ;EWH.c: 53:     {
 {
+"54
+[; ;EWH.c: 54:         _delay((unsigned long)((50)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "55
-[; ;EWH.c: 55:             EWH_Events[1]=1;
-[e = *U + &U _EWH_Events * -> -> -> 1 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 1 `i `E861 ]
+[; ;EWH.c: 55:         if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED))
+[e $ ! == -> ! != >> & -> _PORTB `i << -> 1 `i -> 2 `i -> 2 `i -> 0 `i `i -> . `E1050 1 `i 103  ]
 "56
-[; ;EWH.c: 56:             NoPress_Sec_count=0;
-[e = _NoPress_Sec_count -> -> 0 `i `uc ]
+[; ;EWH.c: 56:         {
+{
 "57
-[; ;EWH.c: 57:             EWH_Mode=EWH_SET_TEMP_MODE;
-[e = _EWH_Mode . `E1016 2 ]
+[; ;EWH.c: 57:             EWH_Events[1]=1;
+[e = *U + &U _EWH_Events * -> -> -> 1 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 1 `i `E861 ]
 "58
-[; ;EWH.c: 58:         }
+[; ;EWH.c: 58:             NoPress_Sec_count=0;
+[e = _NoPress_Sec_count -> -> 0 `i `uc ]
+"59
+[; ;EWH.c: 59:             EWH_Mode=EWH_SET_TEMP_MODE;
+[e = _EWH_Mode . `E1016 2 ]
+"60
+[; ;EWH.c: 60:         }
 }
 [e :U 103 ]
-"59
-[; ;EWH.c: 59:     }
+"61
+[; ;EWH.c: 61:     }
 }
 [e $U 104  ]
-"60
-[; ;EWH.c: 60:     else if ((!((PORTB & (1<<1)) >> 1)==SW_PRESSED))
-[e :U 102 ]
-[e $ ! == -> ! != >> & -> _PORTB `i << -> 1 `i -> 1 `i -> 1 `i -> 0 `i `i -> . `E1049 1 `i 105  ]
-"61
-[; ;EWH.c: 61:     {
-{
 "62
-[; ;EWH.c: 62:         _delay((unsigned long)((50)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;EWH.c: 62:     else if ((!((PORTB & (1<<1)) >> 1)==SW_PRESSED))
+[e :U 102 ]
+[e $ ! == -> ! != >> & -> _PORTB `i << -> 1 `i -> 1 `i -> 1 `i -> 0 `i `i -> . `E1050 1 `i 105  ]
 "63
-[; ;EWH.c: 63:         if((!((PORTB & (1<<1)) >> 1)==SW_PRESSED))
-[e $ ! == -> ! != >> & -> _PORTB `i << -> 1 `i -> 1 `i -> 1 `i -> 0 `i `i -> . `E1049 1 `i 106  ]
-"64
-[; ;EWH.c: 64:         {
+[; ;EWH.c: 63:     {
 {
+"64
+[; ;EWH.c: 64:         _delay((unsigned long)((50)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "65
-[; ;EWH.c: 65:             EWH_Events[2]=1;
-[e = *U + &U _EWH_Events * -> -> -> 2 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 1 `i `E861 ]
+[; ;EWH.c: 65:         if((!((PORTB & (1<<1)) >> 1)==SW_PRESSED))
+[e $ ! == -> ! != >> & -> _PORTB `i << -> 1 `i -> 1 `i -> 1 `i -> 0 `i `i -> . `E1050 1 `i 106  ]
 "66
-[; ;EWH.c: 66:             NoPress_Sec_count=0;
-[e = _NoPress_Sec_count -> -> 0 `i `uc ]
+[; ;EWH.c: 66:         {
+{
 "67
-[; ;EWH.c: 67:             EWH_Mode=EWH_SET_TEMP_MODE;
-[e = _EWH_Mode . `E1016 2 ]
+[; ;EWH.c: 67:             EWH_Events[2]=1;
+[e = *U + &U _EWH_Events * -> -> -> 2 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 1 `i `E861 ]
 "68
-[; ;EWH.c: 68:         }
+[; ;EWH.c: 68:             NoPress_Sec_count=0;
+[e = _NoPress_Sec_count -> -> 0 `i `uc ]
+"69
+[; ;EWH.c: 69:             EWH_Mode=EWH_SET_TEMP_MODE;
+[e = _EWH_Mode . `E1016 2 ]
+"70
+[; ;EWH.c: 70:         }
 }
 [e :U 106 ]
-"69
-[; ;EWH.c: 69:     }
+"71
+[; ;EWH.c: 71:     }
 }
 [e :U 105 ]
 [e :U 104 ]
-"70
-[; ;EWH.c: 70: }
+"72
+[; ;EWH.c: 72: }
 [e :UE 101 ]
 }
-"71
-[; ;EWH.c: 71: void EWH_SetTemp_Mode()
+"73
+[; ;EWH.c: 73: void EWH_SetTemp_Mode()
 [v _EWH_SetTemp_Mode `(v ~T0 @X0 1 ef ]
-"72
-[; ;EWH.c: 72: {
+"74
+[; ;EWH.c: 74: {
 {
 [e :U _EWH_SetTemp_Mode ]
 [f ]
-"77
-[; ;EWH.c: 77:     EWH_Events[0]=0;
-[e = *U + &U _EWH_Events * -> -> -> 0 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
-"78
-[; ;EWH.c: 78:     EWH_Events[2]=0;
-[e = *U + &U _EWH_Events * -> -> -> 2 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
 "79
-[; ;EWH.c: 79:     EWH_Events[1]=0;
-[e = *U + &U _EWH_Events * -> -> -> 1 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
+[; ;EWH.c: 79:     EWH_Events[0]=0;
+[e = *U + &U _EWH_Events * -> -> -> 0 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
 "80
-[; ;EWH.c: 80:     EWH_Events[3]=0;
+[; ;EWH.c: 80:     EWH_Events[2]=0;
+[e = *U + &U _EWH_Events * -> -> -> 2 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
+"81
+[; ;EWH.c: 81:     EWH_Events[1]=0;
+[e = *U + &U _EWH_Events * -> -> -> 1 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
+"82
+[; ;EWH.c: 82:     EWH_Events[3]=0;
 [e = *U + &U _EWH_Events * -> -> -> 3 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
-"84
-[; ;EWH.c: 84:     set_Temp = EWH_EEPROM_Read();
-[e = _set_Temp ( _EWH_EEPROM_Read ..  ]
 "86
-[; ;EWH.c: 86:     DD_SetState(HEATER,OFF);
+[; ;EWH.c: 86:     set_Temp = EWH_EEPROM_Read();
+[e = _set_Temp ( _EWH_EEPROM_Read ..  ]
+"88
+[; ;EWH.c: 88:     DD_SetState(HEATER,OFF);
 [e ( _DD_SetState (2 , . `E975 0 . `E861 0 ]
-"87
-[; ;EWH.c: 87:     DD_SetState(COOLER,OFF);
-[e ( _DD_SetState (2 , . `E975 1 . `E861 0 ]
 "89
-[; ;EWH.c: 89:     EWH_SSD_Update(set_Temp);
-[e ( _EWH_SSD_Update (1 -> _set_Temp `us ]
+[; ;EWH.c: 89:     DD_SetState(COOLER,OFF);
+[e ( _DD_SetState (2 , . `E975 1 . `E861 0 ]
 "91
-[; ;EWH.c: 91:     TMR1_Start();
-[e ( _TMR1_Start ..  ]
-"92
-[; ;EWH.c: 92:     NoPress_Sec_count=0;
-[e = _NoPress_Sec_count -> -> 0 `i `uc ]
+[; ;EWH.c: 91:     EWH_SSD_Update(set_Temp);
+[e ( _EWH_SSD_Update (1 -> _set_Temp `us ]
 "93
-[; ;EWH.c: 93:     while(1)
-[e :U 109 ]
+[; ;EWH.c: 93:     TMR1_Start();
+[e ( _TMR1_Start ..  ]
 "94
-[; ;EWH.c: 94:     {
-{
+[; ;EWH.c: 94:     NoPress_Sec_count=0;
+[e = _NoPress_Sec_count -> -> 0 `i `uc ]
 "95
-[; ;EWH.c: 95:         if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED) && set_Temp<75)
-[e $ ! && == -> ! != >> & -> _PORTB `i << -> 1 `i -> 2 `i -> 2 `i -> 0 `i `i -> . `E1049 1 `i < -> _set_Temp `i -> 75 `i 111  ]
+[; ;EWH.c: 95:     while(1)
+[e :U 109 ]
 "96
-[; ;EWH.c: 96:         {
+[; ;EWH.c: 96:     {
 {
 "97
-[; ;EWH.c: 97:             _delay((unsigned long)((50)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;EWH.c: 97:         if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED) && set_Temp<75)
+[e $ ! && == -> ! != >> & -> _PORTB `i << -> 1 `i -> 2 `i -> 2 `i -> 0 `i `i -> . `E1050 1 `i < -> _set_Temp `i -> 75 `i 111  ]
 "98
-[; ;EWH.c: 98:             if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED))
-[e $ ! == -> ! != >> & -> _PORTB `i << -> 1 `i -> 2 `i -> 2 `i -> 0 `i `i -> . `E1049 1 `i 112  ]
-"99
-[; ;EWH.c: 99:             {
+[; ;EWH.c: 98:         {
 {
+"99
+[; ;EWH.c: 99:             _delay((unsigned long)((50)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "100
-[; ;EWH.c: 100:                 set_Temp+=5;
-[e =+ _set_Temp -> -> 5 `i `uc ]
+[; ;EWH.c: 100:             if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED))
+[e $ ! == -> ! != >> & -> _PORTB `i << -> 1 `i -> 2 `i -> 2 `i -> 0 `i `i -> . `E1050 1 `i 112  ]
 "101
-[; ;EWH.c: 101:                 NoPress_Sec_count=0;
-[e = _NoPress_Sec_count -> -> 0 `i `uc ]
+[; ;EWH.c: 101:             {
+{
 "102
-[; ;EWH.c: 102:             }
+[; ;EWH.c: 102:                 set_Temp+=5;
+[e =+ _set_Temp -> -> 5 `i `uc ]
+"103
+[; ;EWH.c: 103:                 NoPress_Sec_count=0;
+[e = _NoPress_Sec_count -> -> 0 `i `uc ]
+"104
+[; ;EWH.c: 104:             }
 }
 [e :U 112 ]
-"103
-[; ;EWH.c: 103:         }
+"105
+[; ;EWH.c: 105:         }
 }
 [e $U 113  ]
-"104
-[; ;EWH.c: 104:         else if ((!((PORTB & (1<<1)) >> 1)==SW_PRESSED) && set_Temp>35)
-[e :U 111 ]
-[e $ ! && == -> ! != >> & -> _PORTB `i << -> 1 `i -> 1 `i -> 1 `i -> 0 `i `i -> . `E1049 1 `i > -> _set_Temp `i -> 35 `i 114  ]
-"105
-[; ;EWH.c: 105:         {
-{
 "106
-[; ;EWH.c: 106:             _delay((unsigned long)((50)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;EWH.c: 106:         else if ((!((PORTB & (1<<1)) >> 1)==SW_PRESSED) && set_Temp>35)
+[e :U 111 ]
+[e $ ! && == -> ! != >> & -> _PORTB `i << -> 1 `i -> 1 `i -> 1 `i -> 0 `i `i -> . `E1050 1 `i > -> _set_Temp `i -> 35 `i 114  ]
 "107
-[; ;EWH.c: 107:             if((!((PORTB & (1<<1)) >> 1)==SW_PRESSED))
-[e $ ! == -> ! != >> & -> _PORTB `i << -> 1 `i -> 1 `i -> 1 `i -> 0 `i `i -> . `E1049 1 `i 115  ]
-"108
-[; ;EWH.c: 108:             {
+[; ;EWH.c: 107:         {
 {
+"108
+[; ;EWH.c: 108:             _delay((unsigned long)((50)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "109
-[; ;EWH.c: 109:                 set_Temp-=5;
-[e =- _set_Temp -> -> 5 `i `uc ]
+[; ;EWH.c: 109:             if((!((PORTB & (1<<1)) >> 1)==SW_PRESSED))
+[e $ ! == -> ! != >> & -> _PORTB `i << -> 1 `i -> 1 `i -> 1 `i -> 0 `i `i -> . `E1050 1 `i 115  ]
 "110
-[; ;EWH.c: 110:                 NoPress_Sec_count=0;
-[e = _NoPress_Sec_count -> -> 0 `i `uc ]
+[; ;EWH.c: 110:             {
+{
 "111
-[; ;EWH.c: 111:             }
+[; ;EWH.c: 111:                 set_Temp-=5;
+[e =- _set_Temp -> -> 5 `i `uc ]
+"112
+[; ;EWH.c: 112:                 NoPress_Sec_count=0;
+[e = _NoPress_Sec_count -> -> 0 `i `uc ]
+"113
+[; ;EWH.c: 113:             }
 }
 [e :U 115 ]
-"112
-[; ;EWH.c: 112:         }
+"114
+[; ;EWH.c: 114:         }
 }
 [e :U 114 ]
 [e :U 113 ]
-"113
-[; ;EWH.c: 113:         if(EWH_Events[3] || EWH_Events[0])
+"115
+[; ;EWH.c: 115:         if(EWH_Events[3] || EWH_Events[0])
 [e $ ! || != -> *U + &U _EWH_Events * -> -> -> 3 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux `ui -> -> 0 `i `ui != -> *U + &U _EWH_Events * -> -> -> 0 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux `ui -> -> 0 `i `ui 116  ]
-"114
-[; ;EWH.c: 114:         {
-{
 "116
-[; ;EWH.c: 116:             EWH_EEPROM_Update(set_Temp);
-[e ( _EWH_EEPROM_Update (1 _set_Temp ]
+[; ;EWH.c: 116:         {
+{
 "118
-[; ;EWH.c: 118:             break ;
+[; ;EWH.c: 118:             EWH_EEPROM_Update(set_Temp);
+[e ( _EWH_EEPROM_Update (1 _set_Temp ]
+"120
+[; ;EWH.c: 120:             break ;
 [e $U 110  ]
-"119
-[; ;EWH.c: 119:         }
+"121
+[; ;EWH.c: 121:         }
 }
 [e :U 116 ]
-"121
-[; ;EWH.c: 121:         if(SSD_Blink_flag)
-[e $ ! != -> _SSD_Blink_flag `ui -> -> 0 `i `ui 117  ]
-"122
-[; ;EWH.c: 122:         {
-{
 "123
-[; ;EWH.c: 123:             EWH_SSD_Update(set_Temp);
-[e ( _EWH_SSD_Update (1 -> _set_Temp `us ]
+[; ;EWH.c: 123:         if(SSD_Blink_flag)
+[e $ ! != -> _SSD_Blink_flag `ui -> -> 0 `i `ui 117  ]
 "124
-[; ;EWH.c: 124:         }
+[; ;EWH.c: 124:         {
+{
+"125
+[; ;EWH.c: 125:             EWH_SSD_Update(set_Temp);
+[e ( _EWH_SSD_Update (1 -> _set_Temp `us ]
+"126
+[; ;EWH.c: 126:         }
 }
 [e $U 118  ]
-"125
-[; ;EWH.c: 125:         else
-[e :U 117 ]
-"126
-[; ;EWH.c: 126:         {
-{
 "127
-[; ;EWH.c: 127:             EWH_SSD_OFF();
-[e ( _EWH_SSD_OFF ..  ]
+[; ;EWH.c: 127:         else
+[e :U 117 ]
 "128
-[; ;EWH.c: 128:         }
+[; ;EWH.c: 128:         {
+{
+"129
+[; ;EWH.c: 129:             EWH_SSD_OFF();
+[e ( _EWH_SSD_OFF ..  ]
+"130
+[; ;EWH.c: 130:         }
 }
 [e :U 118 ]
-"130
-[; ;EWH.c: 130:     }
+"132
+[; ;EWH.c: 132:     }
 }
 [e :U 108 ]
 [e $U 109  ]
 [e :U 110 ]
-"132
-[; ;EWH.c: 132:     if(EWH_Events[3])
-[e $ ! != -> *U + &U _EWH_Events * -> -> -> 3 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux `ui -> -> 0 `i `ui 119  ]
-"133
-[; ;EWH.c: 133:     {
-{
 "134
-[; ;EWH.c: 134:         EWH_Events[3]=0;
+[; ;EWH.c: 134:     if(EWH_Events[3])
+[e $ ! != -> *U + &U _EWH_Events * -> -> -> 3 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux `ui -> -> 0 `i `ui 119  ]
+"135
+[; ;EWH.c: 135:     {
+{
+"136
+[; ;EWH.c: 136:         EWH_Events[3]=0;
 [e = *U + &U _EWH_Events * -> -> -> 3 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
-"137
-[; ;EWH.c: 137:         EWH_Mode=EWH_OPERATING_MODE;
+"139
+[; ;EWH.c: 139:         EWH_Mode=EWH_OPERATING_MODE;
 [e = _EWH_Mode . `E1016 3 ]
-"138
-[; ;EWH.c: 138:     }
+"140
+[; ;EWH.c: 140:     }
 }
 [e :U 119 ]
-"140
-[; ;EWH.c: 140: }
+"142
+[; ;EWH.c: 142: }
 [e :UE 107 ]
 }
-"141
-[; ;EWH.c: 141: void EWH_Operating_Mode()
+"143
+[; ;EWH.c: 143: void EWH_Operating_Mode()
 [v _EWH_Operating_Mode `(v ~T0 @X0 1 ef ]
-"142
-[; ;EWH.c: 142: {
+"144
+[; ;EWH.c: 144: {
 {
 [e :U _EWH_Operating_Mode ]
 [f ]
-"147
-[; ;EWH.c: 147:     EWH_Events[0]=0;
-[e = *U + &U _EWH_Events * -> -> -> 0 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
-"148
-[; ;EWH.c: 148:     EWH_Events[2]=0;
-[e = *U + &U _EWH_Events * -> -> -> 2 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
 "149
-[; ;EWH.c: 149:     EWH_Events[1]=0;
-[e = *U + &U _EWH_Events * -> -> -> 1 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
+[; ;EWH.c: 149:     EWH_Events[0]=0;
+[e = *U + &U _EWH_Events * -> -> -> 0 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
 "150
-[; ;EWH.c: 150:     EWH_Events[3]=0;
-[e = *U + &U _EWH_Events * -> -> -> 3 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
+[; ;EWH.c: 150:     EWH_Events[2]=0;
+[e = *U + &U _EWH_Events * -> -> -> 2 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
+"151
+[; ;EWH.c: 151:     EWH_Events[1]=0;
+[e = *U + &U _EWH_Events * -> -> -> 1 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
 "152
-[; ;EWH.c: 152:     EWH_Mode=EWH_OPERATING_MODE;
-[e = _EWH_Mode . `E1016 3 ]
+[; ;EWH.c: 152:     EWH_Events[3]=0;
+[e = *U + &U _EWH_Events * -> -> -> 3 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
 "154
-[; ;EWH.c: 154:     TMR1_Start();
-[e ( _TMR1_Start ..  ]
+[; ;EWH.c: 154:     EWH_Mode=EWH_OPERATING_MODE;
+[e = _EWH_Mode . `E1016 3 ]
 "156
-[; ;EWH.c: 156:     while(1)
-[e :U 122 ]
-"157
-[; ;EWH.c: 157:     {
-{
+[; ;EWH.c: 156:     TMR1_Start();
+[e ( _TMR1_Start ..  ]
 "158
-[; ;EWH.c: 158:         EWH_SSD_Update(current_Temp);
-[e ( _EWH_SSD_Update (1 -> _current_Temp `us ]
+[; ;EWH.c: 158:     while(1)
+[e :U 122 ]
 "159
-[; ;EWH.c: 159:         ReadingBuffer[TempReading_count]=current_Temp;
-[e = *U + &U _ReadingBuffer * -> _TempReading_count `ux -> -> # *U &U _ReadingBuffer `ui `ux _current_Temp ]
-"160
-[; ;EWH.c: 160:         TempReading_count++;
-[e ++ _TempReading_count -> -> 1 `i `uc ]
-"161
-[; ;EWH.c: 161:         TempReading_count= TempReading_count%10;
-[e = _TempReading_count -> % -> _TempReading_count `i -> 10 `i `uc ]
-"162
-[; ;EWH.c: 162:         if(TempReading_count==9)
-[e $ ! == -> _TempReading_count `i -> 9 `i 124  ]
-"163
-[; ;EWH.c: 163:         {
+[; ;EWH.c: 159:     {
 {
+"160
+[; ;EWH.c: 160:         EWH_SSD_Update(current_Temp);
+[e ( _EWH_SSD_Update (1 -> _current_Temp `us ]
+"161
+[; ;EWH.c: 161:         ReadingBuffer[TempReading_count]=current_Temp;
+[e = *U + &U _ReadingBuffer * -> _TempReading_count `ux -> -> # *U &U _ReadingBuffer `ui `ux _current_Temp ]
+"162
+[; ;EWH.c: 162:         TempReading_count++;
+[e ++ _TempReading_count -> -> 1 `i `uc ]
+"163
+[; ;EWH.c: 163:         TempReading_count= TempReading_count%10;
+[e = _TempReading_count -> % -> _TempReading_count `i -> 10 `i `uc ]
 "164
-[; ;EWH.c: 164:             TempavgReading= EWH_getAvrgTempReading(ReadingBuffer,10);
-[e = _TempavgReading ( _EWH_getAvrgTempReading (2 , &U _ReadingBuffer -> -> 10 `i `uc ]
+[; ;EWH.c: 164:         if(TempReading_count==9)
+[e $ ! == -> _TempReading_count `i -> 9 `i 124  ]
 "165
-[; ;EWH.c: 165:             ReadingBufferFull=TRUE;
-[e = _ReadingBufferFull . `E865 1 ]
+[; ;EWH.c: 165:         {
+{
 "166
-[; ;EWH.c: 166:         }
+[; ;EWH.c: 166:             TempavgReading= EWH_getAvrgTempReading(ReadingBuffer,10);
+[e = _TempavgReading ( _EWH_getAvrgTempReading (2 , &U _ReadingBuffer -> -> 10 `i `uc ]
+"167
+[; ;EWH.c: 167:             ReadingBufferFull=TRUE;
+[e = _ReadingBufferFull . `E865 1 ]
+"168
+[; ;EWH.c: 168:         }
 }
 [e :U 124 ]
-"167
-[; ;EWH.c: 167:         if(ReadingBufferFull)
-[e $ ! != -> _ReadingBufferFull `ui -> -> 0 `i `ui 125  ]
-"168
-[; ;EWH.c: 168:         {
-{
 "169
-[; ;EWH.c: 169:             if(TempavgReading>(set_Temp+5))
-[e $ ! > -> _TempavgReading `i + -> _set_Temp `i -> 5 `i 126  ]
+[; ;EWH.c: 169:         if(ReadingBufferFull)
+[e $ ! != -> _ReadingBufferFull `ui -> -> 0 `i `ui 125  ]
 "170
-[; ;EWH.c: 170:             {
+[; ;EWH.c: 170:         {
 {
 "171
-[; ;EWH.c: 171:                 DD_SetState(HEATER,OFF);
-[e ( _DD_SetState (2 , . `E975 0 . `E861 0 ]
+[; ;EWH.c: 171:             if(TempavgReading>(set_Temp+5))
+[e $ ! > -> _TempavgReading `i + -> _set_Temp `i -> 5 `i 126  ]
 "172
-[; ;EWH.c: 172:                 DD_SetState(COOLER,ON);
-[e ( _DD_SetState (2 , . `E975 1 . `E861 1 ]
+[; ;EWH.c: 172:             {
+{
 "173
-[; ;EWH.c: 173:             }
+[; ;EWH.c: 173:                 DD_SetState(HEATER,OFF);
+[e ( _DD_SetState (2 , . `E975 0 . `E861 0 ]
+"174
+[; ;EWH.c: 174:                 DD_SetState(COOLER,ON);
+[e ( _DD_SetState (2 , . `E975 1 . `E861 1 ]
+"175
+[; ;EWH.c: 175:             }
 }
 [e $U 127  ]
-"174
-[; ;EWH.c: 174:             else if(TempavgReading<(set_Temp-5))
+"176
+[; ;EWH.c: 176:             else if(TempavgReading<(set_Temp-5))
 [e :U 126 ]
 [e $ ! < -> _TempavgReading `i - -> _set_Temp `i -> 5 `i 128  ]
-"175
-[; ;EWH.c: 175:             {
-{
-"176
-[; ;EWH.c: 176:                 DD_SetState(HEATER,ON);
-[e ( _DD_SetState (2 , . `E975 0 . `E861 1 ]
 "177
-[; ;EWH.c: 177:                 DD_SetState(COOLER,OFF);
-[e ( _DD_SetState (2 , . `E975 1 . `E861 0 ]
+[; ;EWH.c: 177:             {
+{
 "178
-[; ;EWH.c: 178:             }
+[; ;EWH.c: 178:                 DD_SetState(HEATER,ON);
+[e ( _DD_SetState (2 , . `E975 0 . `E861 1 ]
+"179
+[; ;EWH.c: 179:                 DD_SetState(COOLER,OFF);
+[e ( _DD_SetState (2 , . `E975 1 . `E861 0 ]
+"180
+[; ;EWH.c: 180:             }
 }
 [e :U 128 ]
 [e :U 127 ]
-"179
-[; ;EWH.c: 179:         }
+"181
+[; ;EWH.c: 181:         }
 }
 [e :U 125 ]
-"180
-[; ;EWH.c: 180:          if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED) || (!((PORTB & (1<<1)) >> 1)==SW_PRESSED) )
-[e $ ! || == -> ! != >> & -> _PORTB `i << -> 1 `i -> 2 `i -> 2 `i -> 0 `i `i -> . `E1049 1 `i == -> ! != >> & -> _PORTB `i << -> 1 `i -> 1 `i -> 1 `i -> 0 `i `i -> . `E1049 1 `i 129  ]
-"181
-[; ;EWH.c: 181:          {
-{
 "182
-[; ;EWH.c: 182:              _delay((unsigned long)((50)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;EWH.c: 182:          if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED) || (!((PORTB & (1<<1)) >> 1)==SW_PRESSED) )
+[e $ ! || == -> ! != >> & -> _PORTB `i << -> 1 `i -> 2 `i -> 2 `i -> 0 `i `i -> . `E1050 1 `i == -> ! != >> & -> _PORTB `i << -> 1 `i -> 1 `i -> 1 `i -> 0 `i `i -> . `E1050 1 `i 129  ]
 "183
-[; ;EWH.c: 183:             if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED) || (!((PORTB & (1<<1)) >> 1)==SW_PRESSED) )
-[e $ ! || == -> ! != >> & -> _PORTB `i << -> 1 `i -> 2 `i -> 2 `i -> 0 `i `i -> . `E1049 1 `i == -> ! != >> & -> _PORTB `i << -> 1 `i -> 1 `i -> 1 `i -> 0 `i `i -> . `E1049 1 `i 130  ]
-"184
-[; ;EWH.c: 184:             {
+[; ;EWH.c: 183:          {
 {
+"184
+[; ;EWH.c: 184:              _delay((unsigned long)((50)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "185
-[; ;EWH.c: 185:              EWH_Events[2]=1;
-[e = *U + &U _EWH_Events * -> -> -> 2 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 1 `i `E861 ]
+[; ;EWH.c: 185:             if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED) || (!((PORTB & (1<<1)) >> 1)==SW_PRESSED) )
+[e $ ! || == -> ! != >> & -> _PORTB `i << -> 1 `i -> 2 `i -> 2 `i -> 0 `i `i -> . `E1050 1 `i == -> ! != >> & -> _PORTB `i << -> 1 `i -> 1 `i -> 1 `i -> 0 `i `i -> . `E1050 1 `i 130  ]
 "186
-[; ;EWH.c: 186:              EWH_Events[1]=1;
-[e = *U + &U _EWH_Events * -> -> -> 1 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 1 `i `E861 ]
+[; ;EWH.c: 186:             {
+{
 "187
-[; ;EWH.c: 187:              break;
-[e $U 123  ]
+[; ;EWH.c: 187:              EWH_Events[2]=1;
+[e = *U + &U _EWH_Events * -> -> -> 2 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 1 `i `E861 ]
 "188
-[; ;EWH.c: 188:             }
+[; ;EWH.c: 188:              EWH_Events[1]=1;
+[e = *U + &U _EWH_Events * -> -> -> 1 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 1 `i `E861 ]
+"189
+[; ;EWH.c: 189:              break;
+[e $U 123  ]
+"190
+[; ;EWH.c: 190:             }
 }
 [e :U 130 ]
-"189
-[; ;EWH.c: 189:          }
+"191
+[; ;EWH.c: 191:          }
 }
 [e :U 129 ]
-"190
-[; ;EWH.c: 190:         if(EWH_Events[0]==1)
+"192
+[; ;EWH.c: 192:         if(EWH_Events[0]==1)
 [e $ ! == -> *U + &U _EWH_Events * -> -> -> 0 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux `ui -> -> 1 `i `ui 131  ]
-"191
-[; ;EWH.c: 191:             break;
+"193
+[; ;EWH.c: 193:             break;
 [e $U 123  ]
 [e :U 131 ]
-"193
-[; ;EWH.c: 193:          EWH_SSD_Update(current_Temp);
+"195
+[; ;EWH.c: 195:          EWH_SSD_Update(current_Temp);
 [e ( _EWH_SSD_Update (1 -> _current_Temp `us ]
-"194
-[; ;EWH.c: 194:     }
+"196
+[; ;EWH.c: 196:     }
 }
 [e :U 121 ]
 [e $U 122  ]
 [e :U 123 ]
-"196
-[; ;EWH.c: 196:     if(EWH_Events[1] )
-[e $ ! != -> *U + &U _EWH_Events * -> -> -> 1 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux `ui -> -> 0 `i `ui 132  ]
-"197
-[; ;EWH.c: 197:         {
-{
 "198
-[; ;EWH.c: 198:             EWH_Events[1]=0;
-[e = *U + &U _EWH_Events * -> -> -> 1 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
+[; ;EWH.c: 198:     if(EWH_Events[1] )
+[e $ ! != -> *U + &U _EWH_Events * -> -> -> 1 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux `ui -> -> 0 `i `ui 132  ]
 "199
-[; ;EWH.c: 199:             TMR1_Stop();
-[e ( _TMR1_Stop ..  ]
+[; ;EWH.c: 199:         {
+{
+"200
+[; ;EWH.c: 200:             EWH_Events[1]=0;
+[e = *U + &U _EWH_Events * -> -> -> 1 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
 "201
-[; ;EWH.c: 201:             EWH_Mode=EWH_SET_TEMP_MODE;
+[; ;EWH.c: 201:             TMR1_Stop();
+[e ( _TMR1_Stop ..  ]
+"203
+[; ;EWH.c: 203:             EWH_Mode=EWH_SET_TEMP_MODE;
 [e = _EWH_Mode . `E1016 2 ]
-"202
-[; ;EWH.c: 202:         }
+"204
+[; ;EWH.c: 204:         }
 }
 [e :U 132 ]
-"203
-[; ;EWH.c: 203:     if( EWH_Events[2])
-[e $ ! != -> *U + &U _EWH_Events * -> -> -> 2 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux `ui -> -> 0 `i `ui 133  ]
-"204
-[; ;EWH.c: 204:         {
-{
 "205
-[; ;EWH.c: 205:              EWH_Events[2]=0;
-[e = *U + &U _EWH_Events * -> -> -> 2 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
+[; ;EWH.c: 205:     if( EWH_Events[2])
+[e $ ! != -> *U + &U _EWH_Events * -> -> -> 2 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux `ui -> -> 0 `i `ui 133  ]
 "206
-[; ;EWH.c: 206:              TMR1_Stop();
-[e ( _TMR1_Stop ..  ]
+[; ;EWH.c: 206:         {
+{
 "207
-[; ;EWH.c: 207:              EWH_Mode=EWH_SET_TEMP_MODE;
-[e = _EWH_Mode . `E1016 2 ]
+[; ;EWH.c: 207:              EWH_Events[2]=0;
+[e = *U + &U _EWH_Events * -> -> -> 2 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 0 `i `E861 ]
 "208
-[; ;EWH.c: 208:         }
+[; ;EWH.c: 208:              TMR1_Stop();
+[e ( _TMR1_Stop ..  ]
+"209
+[; ;EWH.c: 209:              EWH_Mode=EWH_SET_TEMP_MODE;
+[e = _EWH_Mode . `E1016 2 ]
+"210
+[; ;EWH.c: 210:         }
 }
 [e :U 133 ]
-"209
-[; ;EWH.c: 209: }
+"211
+[; ;EWH.c: 211: }
 [e :UE 120 ]
 }
-"213
-[; ;EWH.c: 213: void EWH_EEPROM_Init()
+"215
+[; ;EWH.c: 215: void EWH_Init()
+[v _EWH_Init `(v ~T0 @X0 1 ef ]
+"216
+[; ;EWH.c: 216: {
+{
+[e :U _EWH_Init ]
+[f ]
+"218
+[; ;EWH.c: 218:     tTMR1_Config TMR1_cfg;
+[v _TMR1_cfg `S98 ~T0 @X0 1 a ]
+"219
+[; ;EWH.c: 219:     TMR1_cfg.Prescaler=TMR1_PRESCALER_4;
+[e = . _TMR1_cfg 0 . `E996 2 ]
+"220
+[; ;EWH.c: 220:     TMR1_cfg.clkSource=EXTERNAL_CLK_SOURCE;
+[e = . _TMR1_cfg 1 . `E1002 1 ]
+"223
+[; ;EWH.c: 223:     TMR1_Init(&TMR1_cfg);
+[e ( _TMR1_Init (1 &U _TMR1_cfg ]
+"226
+[; ;EWH.c: 226:     tADC_Config adc_config;
+[v _adc_config `S96 ~T0 @X0 1 a ]
+"227
+[; ;EWH.c: 227:     adc_config.alignment=RIGHT;
+[e = . _adc_config 2 . `E949 1 ]
+"228
+[; ;EWH.c: 228:     adc_config.channel=ADC2;
+[e = . _adc_config 0 . `E934 2 ]
+"229
+[; ;EWH.c: 229:     adc_config.clk=FOSC_8;
+[e = . _adc_config 3 . `E953 1 ]
+"230
+[; ;EWH.c: 230:     adc_config.mode= POLLING_MODE;
+[e = . _adc_config 1 . `E945 0 ]
+"233
+[; ;EWH.c: 233:     ADC_Init(&adc_config);
+[e ( _ADC_Init (1 &U _adc_config ]
+"236
+[; ;EWH.c: 236:     tI2C_Config i2c_config;
+[v _i2c_config `S95 ~T0 @X0 1 a ]
+"237
+[; ;EWH.c: 237:     i2c_config.BaudRate=100000;
+[e = . _i2c_config 1 -> -> -> 100000 `l `o `uo ]
+"238
+[; ;EWH.c: 238:     i2c_config.Mode=Master_Mode;
+[e = . _i2c_config 0 . `E884 2 ]
+"239
+[; ;EWH.c: 239:     i2c_config.operationMode=POLLING;
+[e = . _i2c_config 2 . `E900 1 ]
+"242
+[; ;EWH.c: 242:     I2C_Init(&i2c_config);
+[e ( _I2C_Init (1 &U _i2c_config ]
+"245
+[; ;EWH.c: 245:     DD_Init();
+[e ( _DD_Init ..  ]
+"248
+[; ;EWH.c: 248:     SW_Init();
+[e ( _SW_Init ..  ]
+"251
+[; ;EWH.c: 251:     EWH_EEPROM_Init();
+[e ( _EWH_EEPROM_Init ..  ]
+"253
+[; ;EWH.c: 253: }
+[e :UE 134 ]
+}
+"254
+[; ;EWH.c: 254: void EWH_EEPROM_Init()
 [v _EWH_EEPROM_Init `(v ~T0 @X0 1 ef ]
-"214
-[; ;EWH.c: 214: {
+"255
+[; ;EWH.c: 255: {
 {
 [e :U _EWH_EEPROM_Init ]
 [f ]
-"215
-[; ;EWH.c: 215:     EEPROM_WriteByte(0x0020,60);
+"256
+[; ;EWH.c: 256:     EEPROM_WriteByte(0x0020,60);
 [e ( _EEPROM_WriteByte (2 , -> -> 32 `i `us -> -> 60 `i `uc ]
-"216
-[; ;EWH.c: 216: }
-[e :UE 134 ]
-}
-"217
-[; ;EWH.c: 217: void EWH_EEPROM_Update(uint8_t newSetTemp)
-[v _EWH_EEPROM_Update `(v ~T0 @X0 1 ef1`uc ]
-"218
-[; ;EWH.c: 218: {
-{
-[e :U _EWH_EEPROM_Update ]
-"217
-[; ;EWH.c: 217: void EWH_EEPROM_Update(uint8_t newSetTemp)
-[v _newSetTemp `uc ~T0 @X0 1 r1 ]
-"218
-[; ;EWH.c: 218: {
-[f ]
-"219
-[; ;EWH.c: 219:     EEPROM_WriteByte(0x0020,newSetTemp);
-[e ( _EEPROM_WriteByte (2 , -> -> 32 `i `us _newSetTemp ]
-"220
-[; ;EWH.c: 220: }
+"257
+[; ;EWH.c: 257: }
 [e :UE 135 ]
 }
-"221
-[; ;EWH.c: 221: uint8_t EWH_EEPROM_Read()
+"258
+[; ;EWH.c: 258: void EWH_EEPROM_Update(uint8_t newSetTemp)
+[v _EWH_EEPROM_Update `(v ~T0 @X0 1 ef1`uc ]
+"259
+[; ;EWH.c: 259: {
+{
+[e :U _EWH_EEPROM_Update ]
+"258
+[; ;EWH.c: 258: void EWH_EEPROM_Update(uint8_t newSetTemp)
+[v _newSetTemp `uc ~T0 @X0 1 r1 ]
+"259
+[; ;EWH.c: 259: {
+[f ]
+"260
+[; ;EWH.c: 260:     EEPROM_WriteByte(0x0020,newSetTemp);
+[e ( _EEPROM_WriteByte (2 , -> -> 32 `i `us _newSetTemp ]
+"261
+[; ;EWH.c: 261: }
+[e :UE 136 ]
+}
+"262
+[; ;EWH.c: 262: uint8_t EWH_EEPROM_Read()
 [v _EWH_EEPROM_Read `(uc ~T0 @X0 1 ef ]
-"222
-[; ;EWH.c: 222: {
+"263
+[; ;EWH.c: 263: {
 {
 [e :U _EWH_EEPROM_Read ]
 [f ]
-"223
-[; ;EWH.c: 223:     return EEPROM_ReadByte(0x0020);
+"264
+[; ;EWH.c: 264:     return EEPROM_ReadByte(0x0020);
 [e ) ( _EEPROM_ReadByte (1 -> -> 32 `i `us ]
-[e $UE 136  ]
-"224
-[; ;EWH.c: 224: }
-[e :UE 136 ]
+[e $UE 137  ]
+"265
+[; ;EWH.c: 265: }
+[e :UE 137 ]
 }
-"226
-[; ;EWH.c: 226: uint8_t EWH_getAvrgTempReading(uint8_t *buffer, uint8_t length)
+"267
+[; ;EWH.c: 267: uint8_t EWH_getAvrgTempReading(uint8_t *buffer, uint8_t length)
 [v _EWH_getAvrgTempReading `(uc ~T0 @X0 1 ef2`*uc`uc ]
-"227
-[; ;EWH.c: 227: {
+"268
+[; ;EWH.c: 268: {
 {
 [e :U _EWH_getAvrgTempReading ]
-"226
-[; ;EWH.c: 226: uint8_t EWH_getAvrgTempReading(uint8_t *buffer, uint8_t length)
+"267
+[; ;EWH.c: 267: uint8_t EWH_getAvrgTempReading(uint8_t *buffer, uint8_t length)
 [v _buffer `*uc ~T0 @X0 1 r1 ]
 [v _length `uc ~T0 @X0 1 r2 ]
-"227
-[; ;EWH.c: 227: {
+"268
+[; ;EWH.c: 268: {
 [f ]
-"228
-[; ;EWH.c: 228:     uint16_t sumOfReadings=0;
+"269
+[; ;EWH.c: 269:     uint16_t sumOfReadings=0;
 [v _sumOfReadings `us ~T0 @X0 1 a ]
 [e = _sumOfReadings -> -> 0 `i `us ]
-"229
-[; ;EWH.c: 229:     for(uint8_t i=0 ; i<length ; i++)
+"270
+[; ;EWH.c: 270:     for(uint8_t i=0 ; i<length ; i++)
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $U 141  ]
-[e :U 138 ]
-"230
-[; ;EWH.c: 230:     {
+[e $U 142  ]
+[e :U 139 ]
+"271
+[; ;EWH.c: 271:     {
 {
-"231
-[; ;EWH.c: 231:         sumOfReadings += buffer[i];
+"272
+[; ;EWH.c: 272:         sumOfReadings += buffer[i];
 [e =+ _sumOfReadings -> *U + _buffer * -> _i `ux -> -> # *U _buffer `ui `ux `us ]
-"232
-[; ;EWH.c: 232:     }
+"273
+[; ;EWH.c: 273:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e :U 141 ]
-[e $ < -> _i `i -> _length `i 138  ]
-[e :U 139 ]
+[e :U 142 ]
+[e $ < -> _i `i -> _length `i 139  ]
+[e :U 140 ]
 }
-"233
-[; ;EWH.c: 233:     uint8_t averageReading= sumOfReadings/length;
+"274
+[; ;EWH.c: 274:     uint8_t averageReading= sumOfReadings/length;
 [v _averageReading `uc ~T0 @X0 1 a ]
 [e = _averageReading -> / -> _sumOfReadings `ui -> _length `ui `uc ]
-"234
-[; ;EWH.c: 234:     return averageReading;
+"275
+[; ;EWH.c: 275:     return averageReading;
 [e ) _averageReading ]
-[e $UE 137  ]
-"235
-[; ;EWH.c: 235: }
-[e :UE 137 ]
+[e $UE 138  ]
+"276
+[; ;EWH.c: 276: }
+[e :UE 138 ]
 }
 [v $root$_ISR `(v ~T0 @X0 0 e ]
-"238
-[; ;EWH.c: 238: void __attribute__((picinterrupt(("")))) ISR()
+"279
+[; ;EWH.c: 279: void __attribute__((picinterrupt(("")))) ISR()
 [v _ISR `(v ~T1 @X0 1 ef ]
-"239
-[; ;EWH.c: 239: {
+"280
+[; ;EWH.c: 280: {
 {
 [e :U _ISR ]
 [f ]
-"240
-[; ;EWH.c: 240:     static uint8_t count =0;
-[v F1082 `uc ~T0 @X0 1 s count ]
-[i F1082
+"281
+[; ;EWH.c: 281:     static uint8_t count =0;
+[v F1087 `uc ~T0 @X0 1 s count ]
+[i F1087
 -> -> 0 `i `uc
 ]
-"241
-[; ;EWH.c: 241:     if(INTF==1)
-[e $ ! == -> _INTF `i -> 1 `i 143  ]
-"242
-[; ;EWH.c: 242:     {
-{
-"243
-[; ;EWH.c: 243:         EWH_Events[0]=1;
-[e = *U + &U _EWH_Events * -> -> -> 0 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 1 `i `E861 ]
-"245
-[; ;EWH.c: 245:         if(EWH_State==ON)
-[e $ ! == -> _EWH_State `ui -> . `E861 1 `ui 144  ]
-"246
-[; ;EWH.c: 246:         {
-{
-"247
-[; ;EWH.c: 247:             EWH_State=OFF;
-[e = _EWH_State . `E861 0 ]
-"248
-[; ;EWH.c: 248:             EWH_Mode=EWH_SLEEP_MODE;
-[e = _EWH_Mode . `E1016 0 ]
-"249
-[; ;EWH.c: 249:         }
-}
-[e $U 145  ]
-"250
-[; ;EWH.c: 250:         else if(EWH_State==OFF)
-[e :U 144 ]
-[e $ ! == -> _EWH_State `ui -> . `E861 0 `ui 146  ]
-"251
-[; ;EWH.c: 251:         {
-{
-"252
-[; ;EWH.c: 252:             EWH_State=ON;
-[e = _EWH_State . `E861 1 ]
-"253
-[; ;EWH.c: 253:             EWH_Mode=EWH_WAKE_UP_MODE;
-[e = _EWH_Mode . `E1016 1 ]
-"254
-[; ;EWH.c: 254:         }
-}
-[e :U 146 ]
-[e :U 145 ]
-"255
-[; ;EWH.c: 255:         INTF=0;
-[e = _INTF -> -> 0 `i `b ]
-"256
-[; ;EWH.c: 256:     }
-}
-[e :U 143 ]
-"258
-[; ;EWH.c: 258:    if (TMR1IF)
-[e $ ! _TMR1IF 147  ]
-"259
-[; ;EWH.c: 259:    {
-{
-"260
-[; ;EWH.c: 260:       count++;
-[e ++ F1082 -> -> 1 `i `uc ]
-"261
-[; ;EWH.c: 261:       if(EWH_Mode==EWH_OPERATING_MODE)
-[e $ ! == -> _EWH_Mode `ui -> . `E1016 3 `ui 148  ]
-"262
-[; ;EWH.c: 262:       {
-{
-"263
-[; ;EWH.c: 263:         uint16_t Reading = ADC_ReadChannel(ADC2);
-[v _Reading `us ~T0 @X0 1 a ]
-[e = _Reading ( _ADC_ReadChannel (1 . `E934 2 ]
-"264
-[; ;EWH.c: 264:         current_Temp=Reading*0.488;
-[e = _current_Temp -> * -> -> _Reading `ui `d .0.488 `uc ]
-"265
-[; ;EWH.c: 265:       }
-}
-[e :U 148 ]
-"267
-[; ;EWH.c: 267:       if(count==10)
-[e $ ! == -> F1082 `i -> 10 `i 149  ]
-"268
-[; ;EWH.c: 268:       {
-{
-"270
-[; ;EWH.c: 270:           if(EWH_Mode==EWH_SET_TEMP_MODE)
-[e $ ! == -> _EWH_Mode `ui -> . `E1016 2 `ui 150  ]
-"271
-[; ;EWH.c: 271:           {
-{
-"272
-[; ;EWH.c: 272:               SSD_Blink_flag = ~SSD_Blink_flag;
-[e = _SSD_Blink_flag -> ~ -> _SSD_Blink_flag `ui `E865 ]
-"273
-[; ;EWH.c: 273:               NoPress_Sec_count++;
-[e ++ _NoPress_Sec_count -> -> 1 `i `uc ]
-"274
-[; ;EWH.c: 274:               if(NoPress_Sec_count==5)
-[e $ ! == -> _NoPress_Sec_count `i -> 5 `i 151  ]
-"275
-[; ;EWH.c: 275:               {
-{
-"276
-[; ;EWH.c: 276:                   EWH_Events[3]=1;
-[e = *U + &U _EWH_Events * -> -> -> 3 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 1 `i `E861 ]
-"277
-[; ;EWH.c: 277:               }
-}
-[e :U 151 ]
-"278
-[; ;EWH.c: 278:           }
-}
-[e :U 150 ]
-"280
-[; ;EWH.c: 280:         if(EWH_Mode==EWH_OPERATING_MODE && DD_GetState(HEATER)==ON)
-[e $ ! && == -> _EWH_Mode `ui -> . `E1016 3 `ui == -> ( _DD_GetState (1 . `E975 0 `ui -> . `E861 1 `ui 152  ]
-"281
-[; ;EWH.c: 281:         {
-{
 "282
-[; ;EWH.c: 282:             (PORTB^=(1<<7));
-[e =^ _PORTB -> << -> 1 `i -> 7 `i `Vuc ]
+[; ;EWH.c: 282:     if(INTF==1)
+[e $ ! == -> _INTF `i -> 1 `i 144  ]
 "283
-[; ;EWH.c: 283:         }
-}
-[e $U 153  ]
-"284
-[; ;EWH.c: 284:         else if(EWH_Mode==EWH_OPERATING_MODE && DD_GetState(COOLER)==ON)
-[e :U 152 ]
-[e $ ! && == -> _EWH_Mode `ui -> . `E1016 3 `ui == -> ( _DD_GetState (1 . `E975 1 `ui -> . `E861 1 `ui 154  ]
-"285
-[; ;EWH.c: 285:         {
+[; ;EWH.c: 283:     {
 {
+"284
+[; ;EWH.c: 284:         EWH_Events[0]=1;
+[e = *U + &U _EWH_Events * -> -> -> 0 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 1 `i `E861 ]
 "286
-[; ;EWH.c: 286:             (ON)?(PORTB |= (1<<7)) : (PORTB &= ~(1<<7));
-[e ? != -> . `E861 1 `i -> 0 `i : -> =| _PORTB -> << -> 1 `i -> 7 `i `Vuc `i -> =& _PORTB -> ~ << -> 1 `i -> 7 `i `Vuc `i ]
+[; ;EWH.c: 286:         if(EWH_State==ON)
+[e $ ! == -> _EWH_State `ui -> . `E861 1 `ui 145  ]
 "287
-[; ;EWH.c: 287:         }
-}
-[e :U 154 ]
-[e :U 153 ]
+[; ;EWH.c: 287:         {
+{
+"288
+[; ;EWH.c: 288:             EWH_State=OFF;
+[e = _EWH_State . `E861 0 ]
 "289
-[; ;EWH.c: 289:         count = 0;
-[e = F1082 -> -> 0 `i `uc ]
+[; ;EWH.c: 289:             EWH_Mode=EWH_SLEEP_MODE;
+[e = _EWH_Mode . `E1016 0 ]
 "290
-[; ;EWH.c: 290:       }
+[; ;EWH.c: 290:         }
 }
-[e :U 149 ]
+[e $U 146  ]
 "291
-[; ;EWH.c: 291:       TMR1IF = 0;
-[e = _TMR1IF -> -> 0 `i `b ]
+[; ;EWH.c: 291:         else if(EWH_State==OFF)
+[e :U 145 ]
+[e $ ! == -> _EWH_State `ui -> . `E861 0 `ui 147  ]
 "292
-[; ;EWH.c: 292:       TMR1=40536;
-[e = _TMR1 -> -> 40536 `l `us ]
+[; ;EWH.c: 292:         {
+{
 "293
-[; ;EWH.c: 293:    }
+[; ;EWH.c: 293:             EWH_State=ON;
+[e = _EWH_State . `E861 1 ]
+"294
+[; ;EWH.c: 294:             EWH_Mode=EWH_WAKE_UP_MODE;
+[e = _EWH_Mode . `E1016 1 ]
+"295
+[; ;EWH.c: 295:         }
 }
 [e :U 147 ]
-"294
-[; ;EWH.c: 294: }
-[e :UE 142 ]
+[e :U 146 ]
+"296
+[; ;EWH.c: 296:         INTF=0;
+[e = _INTF -> -> 0 `i `b ]
+"297
+[; ;EWH.c: 297:     }
+}
+[e :U 144 ]
+"299
+[; ;EWH.c: 299:    if (TMR1IF)
+[e $ ! _TMR1IF 148  ]
+"300
+[; ;EWH.c: 300:    {
+{
+"301
+[; ;EWH.c: 301:       count++;
+[e ++ F1087 -> -> 1 `i `uc ]
+"302
+[; ;EWH.c: 302:       if(EWH_Mode==EWH_OPERATING_MODE)
+[e $ ! == -> _EWH_Mode `ui -> . `E1016 3 `ui 149  ]
+"303
+[; ;EWH.c: 303:       {
+{
+"304
+[; ;EWH.c: 304:         uint16_t Reading = ADC_ReadChannel(ADC2);
+[v _Reading `us ~T0 @X0 1 a ]
+[e = _Reading ( _ADC_ReadChannel (1 . `E934 2 ]
+"305
+[; ;EWH.c: 305:         current_Temp=Reading*0.488;
+[e = _current_Temp -> * -> -> _Reading `ui `d .0.488 `uc ]
+"306
+[; ;EWH.c: 306:       }
+}
+[e :U 149 ]
+"308
+[; ;EWH.c: 308:       if(count==10)
+[e $ ! == -> F1087 `i -> 10 `i 150  ]
+"309
+[; ;EWH.c: 309:       {
+{
+"311
+[; ;EWH.c: 311:           if(EWH_Mode==EWH_SET_TEMP_MODE)
+[e $ ! == -> _EWH_Mode `ui -> . `E1016 2 `ui 151  ]
+"312
+[; ;EWH.c: 312:           {
+{
+"313
+[; ;EWH.c: 313:               SSD_Blink_flag = ~SSD_Blink_flag;
+[e = _SSD_Blink_flag -> ~ -> _SSD_Blink_flag `ui `E865 ]
+"314
+[; ;EWH.c: 314:               NoPress_Sec_count++;
+[e ++ _NoPress_Sec_count -> -> 1 `i `uc ]
+"315
+[; ;EWH.c: 315:               if(NoPress_Sec_count==5)
+[e $ ! == -> _NoPress_Sec_count `i -> 5 `i 152  ]
+"316
+[; ;EWH.c: 316:               {
+{
+"317
+[; ;EWH.c: 317:                   EWH_Events[3]=1;
+[e = *U + &U _EWH_Events * -> -> -> 3 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux -> -> 1 `i `E861 ]
+"318
+[; ;EWH.c: 318:               }
+}
+[e :U 152 ]
+"319
+[; ;EWH.c: 319:           }
+}
+[e :U 151 ]
+"321
+[; ;EWH.c: 321:         if(EWH_Mode==EWH_OPERATING_MODE && DD_GetState(HEATER)==ON)
+[e $ ! && == -> _EWH_Mode `ui -> . `E1016 3 `ui == -> ( _DD_GetState (1 . `E975 0 `ui -> . `E861 1 `ui 153  ]
+"322
+[; ;EWH.c: 322:         {
+{
+"323
+[; ;EWH.c: 323:             (PORTB^=(1<<7));
+[e =^ _PORTB -> << -> 1 `i -> 7 `i `Vuc ]
+"324
+[; ;EWH.c: 324:         }
+}
+[e $U 154  ]
+"325
+[; ;EWH.c: 325:         else if(EWH_Mode==EWH_OPERATING_MODE && DD_GetState(COOLER)==ON)
+[e :U 153 ]
+[e $ ! && == -> _EWH_Mode `ui -> . `E1016 3 `ui == -> ( _DD_GetState (1 . `E975 1 `ui -> . `E861 1 `ui 155  ]
+"326
+[; ;EWH.c: 326:         {
+{
+"327
+[; ;EWH.c: 327:             (ON)?(PORTB |= (1<<7)) : (PORTB &= ~(1<<7));
+[e ? != -> . `E861 1 `i -> 0 `i : -> =| _PORTB -> << -> 1 `i -> 7 `i `Vuc `i -> =& _PORTB -> ~ << -> 1 `i -> 7 `i `Vuc `i ]
+"328
+[; ;EWH.c: 328:         }
+}
+[e :U 155 ]
+[e :U 154 ]
+"330
+[; ;EWH.c: 330:         count = 0;
+[e = F1087 -> -> 0 `i `uc ]
+"331
+[; ;EWH.c: 331:       }
+}
+[e :U 150 ]
+"332
+[; ;EWH.c: 332:       TMR1IF = 0;
+[e = _TMR1IF -> -> 0 `i `b ]
+"333
+[; ;EWH.c: 333:       TMR1=40536;
+[e = _TMR1 -> -> 40536 `l `us ]
+"334
+[; ;EWH.c: 334:    }
+}
+[e :U 148 ]
+"335
+[; ;EWH.c: 335: }
+[e :UE 143 ]
 }

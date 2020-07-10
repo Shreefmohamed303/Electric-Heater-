@@ -11,11 +11,11 @@ void EWH_Sleep_Mode()
     DD_SetState(HEATER,OFF); 
     // Cooler Element OFF
     DD_SetState(COOLER,OFF); 
-    // Stop timer 
-    TMR1_Stop();
     // Heater_Led OFF
     DD_SetState(HEATER_LED,OFF);
-    
+    // Stop timer 
+    TMR1_Stop();
+
     EWH_Events[EWH_ON_OFF_EVENT]=0;
     EWH_Events[EWH_PRESS_DOWN_EVENT]=0;
     EWH_Events[EWH_PRESS_UP_EVENT]=0;
@@ -24,6 +24,8 @@ void EWH_Sleep_Mode()
     GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_4,OFF);
     GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_5,OFF);
     GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_6,OFF);
+    
+    SLEEP();
 }
 void EWH_WakeUP_Mode()
 {
@@ -210,6 +212,45 @@ void EWH_Operating_Mode()
 
 
 /*------------------------- Helper Function Definition -----------------------*/
+void EWH_Init()
+{
+    // 1. Make Configuration for Timer
+    tTMR1_Config TMR1_cfg; 
+    TMR1_cfg.Prescaler=TMR1_PRESCALER_4; 
+    TMR1_cfg.clkSource=EXTERNAL_CLK_SOURCE; 
+    
+    // 2. Call TMR1_Init() to Initialize the Timer with the required configuration
+    TMR1_Init(&TMR1_cfg); 
+    
+    // 3. Make Configuration for ADC
+    tADC_Config adc_config; 
+    adc_config.alignment=RIGHT; 
+    adc_config.channel=ADC2; 
+    adc_config.clk=FOSC_8; 
+    adc_config.mode= POLLING_MODE; 
+    
+    // 4. Call ADC_Init() to Initialize the ADC with the required configuration
+    ADC_Init(&adc_config);
+    
+    // 5. Make Configuration for I2C
+    tI2C_Config i2c_config; 
+    i2c_config.BaudRate=100000; 
+    i2c_config.Mode=Master_Mode; 
+    i2c_config.operationMode=POLLING;
+    
+    // 6. Call I2C_Init() to Initialize the I2C with the required configuration
+    I2C_Init(&i2c_config);
+    
+    // 7. Call DD_Init() to Initialize All Digital Output Devices
+    DD_Init();
+    
+    // 8. Call SW_Init() to Initialize All  Buttons with required configurations
+    SW_Init();
+    
+    // 9. Initialize our EEPROM with the initial Temperature Value 
+    EWH_EEPROM_Init();
+   
+}
 void EWH_EEPROM_Init()
 {
     EEPROM_WriteByte(EWH_TEMP_ADDRESS,EWH_INITIAL_SET_TEMP); 

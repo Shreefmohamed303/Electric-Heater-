@@ -1973,11 +1973,11 @@ tbool ReadingBufferFull=FALSE;
 uint8_t ReadingBuffer[10];
 uint8_t TempavgReading;
 
+void EWH_Init();
 void EWH_Sleep_Mode();
 void EWH_WakeUP_Mode();
 void EWH_SetTemp_Mode();
 void EWH_Operating_Mode();
-
 
 void EWH_EEPROM_Init();
 void EWH_EEPROM_Update(uint8_t newSetTemp);
@@ -2030,9 +2030,9 @@ void EWH_Sleep_Mode()
 
     DD_SetState(COOLER,OFF);
 
-    TMR1_Stop();
-
     DD_SetState(HEATER_LED,OFF);
+
+    TMR1_Stop();
 
     EWH_Events[0]=0;
     EWH_Events[2]=0;
@@ -2042,6 +2042,8 @@ void EWH_Sleep_Mode()
     (OFF)?(PORTB |= (1<<4)) : (PORTB &= ~(1<<4));
     (OFF)?(PORTB |= (1<<5)) : (PORTB &= ~(1<<5));
     (OFF)?(PORTB |= (1<<6)) : (PORTB &= ~(1<<6));
+
+    __asm("sleep");
 }
 void EWH_WakeUP_Mode()
 {
@@ -2228,6 +2230,45 @@ void EWH_Operating_Mode()
 
 
 
+void EWH_Init()
+{
+
+    tTMR1_Config TMR1_cfg;
+    TMR1_cfg.Prescaler=TMR1_PRESCALER_4;
+    TMR1_cfg.clkSource=EXTERNAL_CLK_SOURCE;
+
+
+    TMR1_Init(&TMR1_cfg);
+
+
+    tADC_Config adc_config;
+    adc_config.alignment=RIGHT;
+    adc_config.channel=ADC2;
+    adc_config.clk=FOSC_8;
+    adc_config.mode= POLLING_MODE;
+
+
+    ADC_Init(&adc_config);
+
+
+    tI2C_Config i2c_config;
+    i2c_config.BaudRate=100000;
+    i2c_config.Mode=Master_Mode;
+    i2c_config.operationMode=POLLING;
+
+
+    I2C_Init(&i2c_config);
+
+
+    DD_Init();
+
+
+    SW_Init();
+
+
+    EWH_EEPROM_Init();
+
+}
 void EWH_EEPROM_Init()
 {
     EEPROM_WriteByte(0x0020,60);
