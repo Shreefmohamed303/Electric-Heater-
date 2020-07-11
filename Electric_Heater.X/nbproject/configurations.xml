@@ -12,7 +12,6 @@
       <itemPath>Port.h</itemPath>
       <itemPath>GPIO.h</itemPath>
       <itemPath>adc.h</itemPath>
-      <itemPath>common_macros.h</itemPath>
       <itemPath>TMR1.h</itemPath>
       <itemPath>main.h</itemPath>
       <itemPath>SW.h</itemPath>
@@ -53,7 +52,7 @@
         <targetDevice>PIC16F877A</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>noID</platformTool>
+        <platformTool></platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>2.20</languageToolchainVersion>
         <platform>3</platform>

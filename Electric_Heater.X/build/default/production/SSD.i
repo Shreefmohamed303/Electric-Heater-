@@ -7,16 +7,9 @@
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "SSD.c" 2
-
-
-
-
-
-
+# 13 "SSD.c"
 # 1 "./SSD.h" 1
-
-
-
+# 16 "./SSD.h"
 # 1 "./GPIO.h" 1
 
 
@@ -1766,8 +1759,8 @@ extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
 # 5 "./GPIO.h" 2
-# 4 "./SSD.h" 2
-# 23 "./SSD.h"
+# 16 "./SSD.h" 2
+# 35 "./SSD.h"
 uint8_t SSD_code[10] = {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F};
 
 typedef uint8_t SSD_ID;
@@ -1778,7 +1771,7 @@ Std_ReturnType SSD_Write(SSD_ID ID ,SSD_Number Number);
 void Heater_Display(uint16_t temp);
 void SSD_OFF(SSD_ID ID);
 void SSD_ON(SSD_ID ID);
-# 7 "SSD.c" 2
+# 13 "SSD.c" 2
 
 # 1 "./config.h" 1
 # 11 "./config.h"
@@ -1792,7 +1785,7 @@ void SSD_ON(SSD_ID ID);
 #pragma config WRT = OFF
 
 #pragma config CP = OFF
-# 8 "SSD.c" 2
+# 14 "SSD.c" 2
 
 
 

@@ -7,25 +7,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./DD.h: 29: {
 [s S97 `E861 1 `E861 1 `E861 1 ]
 [n S97 . HEATER_State HEATER_LED_State COOLER_State ]
-"29 ./EWH.h
-[; ;./EWH.h: 29: sEWH_Mode EWH_Mode=EWH_SLEEP_MODE;
+"42 ./EWH.h
+[; ;./EWH.h: 42: sEWH_Mode EWH_Mode=EWH_SLEEP_MODE;
 [c E1012 0 1 2 3 .. ]
 [n E1012 . EWH_SLEEP_MODE EWH_WAKE_UP_MODE EWH_SET_TEMP_MODE EWH_OPERATING_MODE  ]
-"35
-[; ;./EWH.h: 35: tbool SSD_Blink_flag=FALSE;
+"48
+[; ;./EWH.h: 48: tbool SSD_Blink_flag=FALSE;
 [c E865 0 1 .. ]
 [n E865 . FALSE TRUE  ]
 "47 ./SW.h
 [; ;./SW.h: 47: tSW_StateControl SW_StateControl={SW_REALESED,SW_REALESED,SW_REALESED};
-[c E1050 0 1 .. ]
-[n E1050 . SW_REALESED SW_PRESSED  ]
+[c E1056 0 1 .. ]
+[n E1056 . SW_REALESED SW_PRESSED  ]
 "39
 [; ;./SW.h: 39: {
-[s S99 `E1050 1 `E1050 1 `E1050 1 ]
+[s S99 `E1056 1 `E1056 1 `E1056 1 ]
 [n S99 . ON_OFF_Button_State UP_Button_State DOWN_Button_State ]
 [p mainexit ]
-"40 ./EWH.h
-[; ;./EWH.h: 40: void EWH_Init();
+"53 ./EWH.h
+[; ;./EWH.h: 53: void EWH_Init();
 [v _EWH_Init `(v ~T0 @X0 0 e? ]
 "1375 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1375: extern volatile unsigned char TRISB __attribute__((address(0x086)));
@@ -33,17 +33,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "216
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 216: extern volatile unsigned char PORTB __attribute__((address(0x006)));
 [v _PORTB `Vuc ~T0 @X0 0 e@6 ]
-"42 ./EWH.h
-[; ;./EWH.h: 42: void EWH_Sleep_Mode();
+"58 ./EWH.h
+[; ;./EWH.h: 58: void EWH_Sleep_Mode();
 [v _EWH_Sleep_Mode `(v ~T0 @X0 0 e? ]
-"43
-[; ;./EWH.h: 43: void EWH_WakeUP_Mode();
+"59
+[; ;./EWH.h: 59: void EWH_WakeUP_Mode();
 [v _EWH_WakeUP_Mode `(v ~T0 @X0 0 e? ]
-"45
-[; ;./EWH.h: 45: void EWH_Operating_Mode();
+"61
+[; ;./EWH.h: 61: void EWH_Operating_Mode();
 [v _EWH_Operating_Mode `(v ~T0 @X0 0 e? ]
-"44
-[; ;./EWH.h: 44: void EWH_SetTemp_Mode();
+"60
+[; ;./EWH.h: 60: void EWH_SetTemp_Mode();
 [v _EWH_SetTemp_Mode `(v ~T0 @X0 0 e? ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
@@ -241,8 +241,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x WRT = OFF ]
 "20
 [p x CP = OFF ]
-"23 ./SSD.h
-[; ;./SSD.h: 23: uint8_t SSD_code[10] = {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F};
+"35 ./SSD.h
+[; ;./SSD.h: 35: uint8_t SSD_code[10] = {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F};
 [v _SSD_code `uc ~T0 @X0 -> 10 `i e ]
 [i _SSD_code
 :U ..
@@ -270,26 +270,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"28 ./EWH.h
-[; ;./EWH.h: 28: tEWH_State EWH_State=OFF;
+"41 ./EWH.h
+[; ;./EWH.h: 41: tEWH_State EWH_State=OFF;
 [v _EWH_State `E861 ~T0 @X0 1 e ]
 [i _EWH_State
 . `E861 0
 ]
-"29
-[; ;./EWH.h: 29: sEWH_Mode EWH_Mode=EWH_SLEEP_MODE;
+"42
+[; ;./EWH.h: 42: sEWH_Mode EWH_Mode=EWH_SLEEP_MODE;
 [v _EWH_Mode `E1012 ~T0 @X0 1 e ]
 [i _EWH_Mode
 . `E1012 0
 ]
-"30
-[; ;./EWH.h: 30: uint8_t set_Temp;
+"43
+[; ;./EWH.h: 43: uint8_t set_Temp;
 [v _set_Temp `uc ~T0 @X0 1 e ]
-"31
-[; ;./EWH.h: 31: uint8_t current_Temp;
+"44
+[; ;./EWH.h: 44: uint8_t current_Temp;
 [v _current_Temp `uc ~T0 @X0 1 e ]
-"32
-[; ;./EWH.h: 32: tState EWH_Events[4]={OFF,OFF,OFF,OFF};
+"45
+[; ;./EWH.h: 45: tState EWH_Events[4]={OFF,OFF,OFF,OFF};
 [v _EWH_Events `E861 ~T0 @X0 -> 4 `i e ]
 [i _EWH_Events
 :U ..
@@ -299,35 +299,35 @@ Version 4.0 HI-TECH Software Intermediate Code
 . `E861 0
 ..
 ]
-"33
-[; ;./EWH.h: 33: uint8_t NoPress_Sec_count=0;
+"46
+[; ;./EWH.h: 46: uint8_t NoPress_Sec_count=0;
 [v _NoPress_Sec_count `uc ~T0 @X0 1 e ]
 [i _NoPress_Sec_count
 -> -> 0 `i `uc
 ]
-"34
-[; ;./EWH.h: 34: uint8_t TempReading_count=0;
+"47
+[; ;./EWH.h: 47: uint8_t TempReading_count=0;
 [v _TempReading_count `uc ~T0 @X0 1 e ]
 [i _TempReading_count
 -> -> 0 `i `uc
 ]
-"35
-[; ;./EWH.h: 35: tbool SSD_Blink_flag=FALSE;
+"48
+[; ;./EWH.h: 48: tbool SSD_Blink_flag=FALSE;
 [v _SSD_Blink_flag `E865 ~T0 @X0 1 e ]
 [i _SSD_Blink_flag
 . `E865 0
 ]
-"36
-[; ;./EWH.h: 36: tbool ReadingBufferFull=FALSE;
+"49
+[; ;./EWH.h: 49: tbool ReadingBufferFull=FALSE;
 [v _ReadingBufferFull `E865 ~T0 @X0 1 e ]
 [i _ReadingBufferFull
 . `E865 0
 ]
-"37
-[; ;./EWH.h: 37: uint8_t ReadingBuffer[10];
+"50
+[; ;./EWH.h: 50: uint8_t ReadingBuffer[10];
 [v _ReadingBuffer `uc ~T0 @X0 -> 10 `i e ]
-"38
-[; ;./EWH.h: 38: uint8_t TempavgReading;
+"51
+[; ;./EWH.h: 51: uint8_t TempavgReading;
 [v _TempavgReading `uc ~T0 @X0 1 e ]
 "47 ./SW.h
 [; ;./SW.h: 47: tSW_StateControl SW_StateControl={SW_REALESED,SW_REALESED,SW_REALESED};
@@ -335,20 +335,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _SW_StateControl
 :U ..
 :U ..
-. `E1050 0
-. `E1050 0
-. `E1050 0
+. `E1056 0
+. `E1056 0
+. `E1056 0
 ..
 ..
 ]
 "48
 [; ;./SW.h: 48: tSW_State SW_State[3]={SW_REALESED,SW_REALESED,SW_REALESED};
-[v _SW_State `E1050 ~T0 @X0 -> 3 `i e ]
+[v _SW_State `E1056 ~T0 @X0 -> 3 `i e ]
 [i _SW_State
 :U ..
-. `E1050 0
-. `E1050 0
-. `E1050 0
+. `E1056 0
+. `E1056 0
+. `E1056 0
 ..
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]

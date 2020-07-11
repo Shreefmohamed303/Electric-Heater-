@@ -1,3 +1,15 @@
+ /********************************************************************************
+ * Module : EEPORM
+ *
+ * File Name : EEPROM.h
+ *
+ * Description : Header File for EEPROM Module that contains all EEPROM APIs
+ *
+ * Author : Shreef Mohamed
+ *
+ * Created on: July 5, 2020
+ *
+ ********************************************************************************/
 #ifndef EEPROM_H
 #define EEPROM_H
 

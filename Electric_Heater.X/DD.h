@@ -38,6 +38,5 @@ tDD_State Devices_State={OFF,OFF,OFF};
 void DD_Init(void);
 void DD_SetState(tDD device ,tState state);
 tState DD_GetState(tDD device);
-//void EWH_SSD_ON();
-//void EWH_SSD_OFF();
+
 #endif

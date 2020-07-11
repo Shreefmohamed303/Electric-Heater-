@@ -1,3 +1,15 @@
+ /********************************************************************************
+ * Module : SSD (Seven Segment Display)
+ *
+ * File Name : SSD.h
+ *
+ * Description : Header File for SSD Module that contains all SSD Interfaces
+ *
+ * Author : Shreef Mohamed
+ *
+ * Created on: July 3, 2020
+ *
+ ********************************************************************************/
 #ifndef SSD_H_
 #define SSD_H_
 

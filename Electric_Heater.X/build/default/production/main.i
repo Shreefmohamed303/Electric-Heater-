@@ -9,9 +9,7 @@
 # 1 "main.c" 2
 
 # 1 "./EWH.h" 1
-
-
-
+# 17 "./EWH.h"
 # 1 "./main.h" 1
 
 
@@ -1791,7 +1789,7 @@ typedef enum
 # 6 "./main.h" 2
 
 # 1 "./SSD.h" 1
-# 23 "./SSD.h"
+# 35 "./SSD.h"
 uint8_t SSD_code[10] = {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F};
 
 typedef uint8_t SSD_ID;
@@ -1805,7 +1803,7 @@ void SSD_ON(SSD_ID ID);
 # 7 "./main.h" 2
 
 # 1 "./i2c.h" 1
-# 27 "./i2c.h"
+# 39 "./i2c.h"
 typedef enum
 {
     Slave_7bit_Mode=0b0110,
@@ -1860,7 +1858,7 @@ void I2C_Wait_IDLE();
 # 8 "./main.h" 2
 
 # 1 "./EEPROM.h" 1
-# 11 "./EEPROM.h"
+# 23 "./EEPROM.h"
 void EEPROM_WriteByte(uint16_t address , uint8_t data);
 void EEPROM_WritePage(uint16_t address , uint8_t *data , uint8_t Data_length);
 uint8_t EEPROM_ReadByte(uint16_t address );
@@ -1920,7 +1918,7 @@ tState DD_GetState(tDD device);
 # 11 "./main.h" 2
 
 # 1 "./TMR1.h" 1
-# 43 "./TMR1.h"
+# 55 "./TMR1.h"
 typedef enum
 {
     TMR1_PRESCALER_1=0,
@@ -1947,8 +1945,8 @@ void TMR1_Start();
 void TMR1_Update();
 void TMR1_Stop();
 # 12 "./main.h" 2
-# 4 "./EWH.h" 2
-# 19 "./EWH.h"
+# 17 "./EWH.h" 2
+# 32 "./EWH.h"
 typedef tState tEWH_State;
 typedef enum
 {
@@ -1971,6 +1969,9 @@ uint8_t ReadingBuffer[10];
 uint8_t TempavgReading;
 
 void EWH_Init();
+void EWH_SetMode(sEWH_Mode mode);
+void EWH_SetEvent(uint8_t Event_index);
+void EWH_ClearEvent(uint8_t Event_index);
 
 void EWH_Sleep_Mode();
 void EWH_WakeUP_Mode();

@@ -1,3 +1,15 @@
+ /********************************************************************************
+ * Module : EEPORM
+ *
+ * File Name : EEPROM.c
+ *
+ * Description : Source File for EEPROM Module that contains all EEPROM APIs Implementation
+ *
+ * Author : Shreef Mohamed
+ *
+ * Created on: July 5, 2020
+ *
+ ********************************************************************************/
 #include "EEPROM.h"
 
 /*-------------------------- FUNCTION DEFINITION ----------------------------*/

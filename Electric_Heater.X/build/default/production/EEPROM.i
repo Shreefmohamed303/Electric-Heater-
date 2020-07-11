@@ -7,14 +7,11 @@
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "EEPROM.c" 2
+# 13 "EEPROM.c"
 # 1 "./EEPROM.h" 1
-
-
-
+# 16 "./EEPROM.h"
 # 1 "./i2c.h" 1
-
-
-
+# 16 "./i2c.h"
 # 1 "./config.h" 1
 
 
@@ -1746,7 +1743,7 @@ extern __bank0 __bit __timeout;
 #pragma config WRT = OFF
 
 #pragma config CP = OFF
-# 4 "./i2c.h" 2
+# 16 "./i2c.h" 2
 
 # 1 "./Std_Types.h" 1
 
@@ -1781,8 +1778,8 @@ typedef enum
     FALSE=0,
     TRUE=1
 }tbool;
-# 5 "./i2c.h" 2
-# 27 "./i2c.h"
+# 17 "./i2c.h" 2
+# 39 "./i2c.h"
 typedef enum
 {
     Slave_7bit_Mode=0b0110,
@@ -1834,7 +1831,7 @@ void I2C_Master_Send_NACK();
 uint8_t I2C_Master_WriteByte(uint8_t Data);
 uint8_t I2C_Master_ReadByte(tI2C_ReadingState Read_State);
 void I2C_Wait_IDLE();
-# 4 "./EEPROM.h" 2
+# 16 "./EEPROM.h" 2
 
 
 
@@ -1846,7 +1843,7 @@ void EEPROM_WriteByte(uint16_t address , uint8_t data);
 void EEPROM_WritePage(uint16_t address , uint8_t *data , uint8_t Data_length);
 uint8_t EEPROM_ReadByte(uint16_t address );
 void EEPROM_ReadPage(uint16_t address , uint8_t *data , uint8_t Data_length);
-# 1 "EEPROM.c" 2
+# 13 "EEPROM.c" 2
 
 
 

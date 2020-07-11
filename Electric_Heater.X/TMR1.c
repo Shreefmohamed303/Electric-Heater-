@@ -1,3 +1,15 @@
+ /********************************************************************************
+ * Module : TMR1 
+ *
+ * File Name : TMR1.c
+ *
+ * Description : Source File for Timer Module that contains all Timer Interfaces Implementation
+ *
+ * Author : Shreef Mohamed
+ *
+ * Created on: July 5, 2020
+ *
+ ********************************************************************************/
 #include "TMR1.h"
 
 void TMR1_Init(tTMR1_Config *config)

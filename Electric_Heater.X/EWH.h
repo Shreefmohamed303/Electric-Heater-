@@ -1,3 +1,16 @@
+ /********************************************************************************
+ * Module : EWH (Electric Water Heater)
+ *
+ * File Name : EWH.h
+ *
+ * Description : Header File for EWH Application contains all specific App Functions and Types
+ *
+ * Author : Shreef Mohamed
+ *
+ * Created on: July 6, 2020
+ *
+ ********************************************************************************/
+
 #ifndef EWH_H_ 
 #define EWH_H_
 
@@ -38,6 +51,9 @@ uint8_t ReadingBuffer[TEMP_READING_BUFFER_LENGTH];
 uint8_t TempavgReading;
 /*-------------------------- FUNCTION DECLARATION ----------------------------*/
 void EWH_Init();
+void EWH_SetMode(sEWH_Mode mode);
+void EWH_SetEvent(uint8_t Event_index);
+void EWH_ClearEvent(uint8_t Event_index);
 
 void EWH_Sleep_Mode();
 void EWH_WakeUP_Mode();

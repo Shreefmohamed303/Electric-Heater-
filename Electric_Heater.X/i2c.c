@@ -1,10 +1,15 @@
-/*
- * File:   i2c.c
- * Author: LENOVO
+ /********************************************************************************
+ * Module : I2C 
  *
- * Created on July 3, 2020, 6:40 PM
- */
-
+ * File Name : i2c.c
+ *
+ * Description : Source File for i2c Module that contains all i2c Interfaces Implementation
+ *
+ * Author : Shreef Mohamed
+ *
+ * Created on: July 3, 2020
+ *
+ ********************************************************************************/
 
 #include "i2c.h"
 #include "GPIO.h"

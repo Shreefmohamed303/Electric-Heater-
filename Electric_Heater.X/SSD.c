@@ -1,9 +1,15 @@
-/*
- * File:   Display.c
- * Author: Shreef Mohamed
+ /********************************************************************************
+ * Module : SSD (Seven Segment Display)
  *
- * Created on June 30, 2020, 2:37 AM
- */
+ * File Name : SSD.c
+ *
+ * Description : Source File for SSD Module that contains all SSD Interfaces Implementation
+ *
+ * Author : Shreef Mohamed
+ *
+ * Created on: July 3, 2020
+ *
+ ********************************************************************************/
 #include "SSD.h"
 #include "config.h"
 /*-------------------------- FUNCTION DEFINITION ----------------------------*/

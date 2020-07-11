@@ -1,3 +1,15 @@
+ /********************************************************************************
+ * Module : I2C 
+ *
+ * File Name : i2c.h
+ *
+ * Description : Header File for i2c Module that contains all i2c Interfaces
+ *
+ * Author : Shreef Mohamed
+ *
+ * Created on: July 3, 2020
+ *
+ ********************************************************************************/
 #ifndef I2C_H 
 #define I2C_H
 

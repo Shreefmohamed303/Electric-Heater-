@@ -1,3 +1,15 @@
+ /********************************************************************************
+ * Module : EWH (Electric Water Heater)
+ *
+ * File Name : EWH.c
+ *
+ * Description : Source File for EWH Application contains all specific App Functions and Types
+ *
+ * Author : Shreef Mohamed
+ *
+ * Created on: July 6, 2020
+ *
+ ********************************************************************************/
 #include "EWH.h"
 #include "SW.h"
 
@@ -5,6 +17,8 @@
 void EWH_Sleep_Mode()
 {
         /*  EWH is all OFF  */
+    // Clear Event Flag 
+    //EWH_ClearEvent(EWH_ON_OFF_EVENT);
     // Display OFF 
     EWH_SSD_OFF();
     // Heater Element OFF
@@ -16,15 +30,6 @@ void EWH_Sleep_Mode()
     // Stop timer 
     TMR1_Stop();
 
-    EWH_Events[EWH_ON_OFF_EVENT]=0;
-    EWH_Events[EWH_PRESS_DOWN_EVENT]=0;
-    EWH_Events[EWH_PRESS_UP_EVENT]=0;
-    EWH_Events[EWH_NO_PRESS_5_SEC_EVENT]=0;
-    
-    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_4,OFF);
-    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_5,OFF);
-    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_6,OFF);
-    
     //SLEEP();
 }
 void EWH_WakeUP_Mode()
@@ -33,68 +38,81 @@ void EWH_WakeUP_Mode()
 //    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_5,OFF);
 //    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_6,OFF);
    
-    EWH_Events[EWH_ON_OFF_EVENT]=0;
-    EWH_Events[EWH_PRESS_DOWN_EVENT]=0;
-    EWH_Events[EWH_PRESS_UP_EVENT]=0;
-    EWH_Events[EWH_NO_PRESS_5_SEC_EVENT]=0;
+    // Clear The ON_OFF Event 
+    EWH_ClearEvent(EWH_ON_OFF_EVENT);
     
-    /* ON/OFF Button is Released */
-    EWH_Events[EWH_ON_OFF_EVENT]=0;
-    
-    //EWH_Mode=EWH_WAKE_UP_MODE;
-
     // The Set Temp should be retrieved form external EEPROM
     set_Temp = EWH_EEPROM_Read();
 
-    // Turn On The Heater_Display and Display the temp from EEPROM
-    EWH_SSD_Update(set_Temp);
-    
-    if(UP_BUTTON_IS_PRESSED)
+    while(1)
     {
-        __delay_ms(50); 
+        // Turn On The Heater_Display and Display the temp from EEPROM
+        EWH_SSD_Update(set_Temp);
+        
+        // Check for Events
         if(UP_BUTTON_IS_PRESSED)
         {
-            EWH_Events[EWH_PRESS_UP_EVENT]=1;
-            NoPress_Sec_count=0;
-            EWH_Mode=EWH_SET_TEMP_MODE; 
+            __delay_ms(50);
+            if(UP_BUTTON_IS_PRESSED)
+            {
+//                // Set The Event Flag
+//                EWH_SetEvent(EWH_PRESS_UP_EVENT);
+//                // Clear The Event Flag 
+//                EWH_ClearEvent(EWH_PRESS_UP_EVENT);
+                // Clear No Press Second Count
+                NoPress_Sec_count=0;
+                // Switch EWH_Mode to SET_TEMP_MODE
+                EWH_SetMode(EWH_SET_TEMP_MODE);
+                // Leave The Wakeup Mode
+                break;
+            }
         }
-    }
-    else if (DOWN_BUTTON_IS_PRESSED)
-    {
-        __delay_ms(50); 
         if(DOWN_BUTTON_IS_PRESSED)
         {
-            EWH_Events[EWH_PRESS_DOWN_EVENT]=1;
-            NoPress_Sec_count=0;
-            EWH_Mode=EWH_SET_TEMP_MODE;
+            __delay_ms(50);
+            if(DOWN_BUTTON_IS_PRESSED)
+            {
+//                // Set The Event Flag
+//                EWH_SetEvent(EWH_PRESS_DOWN_EVENT);
+//                // Clear The Event Flag 
+//                EWH_ClearEvent(EWH_PRESS_DOWN_EVENT);
+                // Clear No Press Second Count
+                NoPress_Sec_count=0;
+                // Switch EWH_Mode to SET_TEMP_MODE
+                EWH_SetMode(EWH_SET_TEMP_MODE);
+                // Leave The Wakeup Mode
+                break;
+            }
         }
-    }
+        if(EWH_Events[EWH_ON_OFF_EVENT]==1)
+        {
+            // Clear The Event Flag
+            EWH_ClearEvent(EWH_ON_OFF_EVENT);
+            // Switch Mode to SLEEP Mode
+            EWH_SetMode(EWH_SLEEP_MODE);
+            // Leave Set temp Mode 
+            break ;
+        }
+        
+    }    
 }
 void EWH_SetTemp_Mode()
 {
 //    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_4,OFF);
 //    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_5,ON);
 //    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_6,OFF);
-    
-    EWH_Events[EWH_ON_OFF_EVENT]=0;
-    EWH_Events[EWH_PRESS_DOWN_EVENT]=0;
-    EWH_Events[EWH_PRESS_UP_EVENT]=0;
-    EWH_Events[EWH_NO_PRESS_5_SEC_EVENT]=0;
-    
-
-//    // 1. get The set Temp From EEPROM
-//    set_Temp = EWH_EEPROM_Read();
-    
-    // 2. Enable Timer 
+        
+    // 1. Enable Timer 
     TMR1_Start();
-    // 3. clear "No Press Second Count"
+    // 2. clear "No Press Second Count"
     NoPress_Sec_count=0;
-    // 4. Turn oFF Heater cooler and Heating Element Led while setting Temperature
+    // 3. Turn oFF Heater cooler and Heating Element Led while setting Temperature
     DD_SetState(HEATER,OFF);
     DD_SetState(COOLER,OFF);
     DD_SetState(HEATER_LED,OFF);
-    // 5. SSD show the set Temp 
+    // 4. SSD show the set Temp 
     EWH_SSD_Update(set_Temp);
+    
     while(1)
     {
         if(UP_BUTTON_IS_PRESSED && set_Temp<MAX_SET_TEMP)
@@ -124,22 +142,33 @@ void EWH_SetTemp_Mode()
         {
             EWH_SSD_OFF();
         }
-        if(EWH_Events[EWH_NO_PRESS_5_SEC_EVENT] || EWH_Events[EWH_ON_OFF_EVENT])
+        
+             /* Check for Events */
+        if(EWH_Events[EWH_ON_OFF_EVENT]==1)
         {
             // Save The Last Set Temp in EEPROM
             EWH_EEPROM_Update(set_Temp);
-            // Leave Set temp Mode and Go to Operating Mode 
+            // Clear The Event Flag 
+            EWH_ClearEvent(EWH_ON_OFF_EVENT);
+            // Switch Mode to SLEEP Mode
+            EWH_SetMode(EWH_SLEEP_MODE);
+            // Leave Set temp Mode 
             break ;
         }
-
-    }
-
-    if(EWH_Events[EWH_NO_PRESS_5_SEC_EVENT])
-    {
-        EWH_Events[EWH_NO_PRESS_5_SEC_EVENT]=0;
-        // Go to Operating Mode
-        //EWH_Operating_Mode();
-        EWH_Mode=EWH_OPERATING_MODE;
+        if(EWH_Events[EWH_NO_PRESS_5_SEC_EVENT]==1 && (EWH_Mode!=EWH_SLEEP_MODE))
+        {
+            // Save The Last Set Temp in EEPROM
+            EWH_EEPROM_Update(set_Temp);
+            // Clear The Event Flag 
+            EWH_ClearEvent(EWH_NO_PRESS_5_SEC_EVENT);
+            // Clear The No Press Second Count
+            NoPress_Sec_count=0;
+            // Switch Mode to Operating Mode
+            EWH_SetMode(EWH_OPERATING_MODE);
+            // Leave Set temp Mode 
+            break ;
+        }
+        
     }
 
 }
@@ -148,22 +177,14 @@ void EWH_Operating_Mode()
 //    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_4,OFF);
 //    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_5,OFF);
 //    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_6,ON);
-    
-    EWH_Events[EWH_ON_OFF_EVENT]=0;
-    EWH_Events[EWH_PRESS_DOWN_EVENT]=0;
-    EWH_Events[EWH_PRESS_UP_EVENT]=0;
-    EWH_Events[EWH_NO_PRESS_5_SEC_EVENT]=0;
-    
-    EWH_Mode=EWH_OPERATING_MODE;
-    // 1. Enable Temp Sensing Timer 
+        
+    // Enable Temp Sensing Timer 
     TMR1_Start();
-    // 2. Enable ADC 
+
     while(1)
     {
         EWH_SSD_Update(current_Temp);
-        ReadingBuffer[TempReading_count]=current_Temp;
-        TempReading_count++;
-        TempReading_count= TempReading_count%TEMP_READING_BUFFER_LENGTH;
+        
         if(TempReading_count==9)
         {
             TempavgReading= EWH_getAvrgTempReading(ReadingBuffer,TEMP_READING_BUFFER_LENGTH);
@@ -182,37 +203,60 @@ void EWH_Operating_Mode()
                 DD_SetState(COOLER,OFF);       
             }
         }
-        if(UP_BUTTON_IS_PRESSED || DOWN_BUTTON_IS_PRESSED )
+        
+            // Check for Events
+        if(UP_BUTTON_IS_PRESSED && (EWH_Mode!=EWH_SLEEP_MODE))
         {
             __delay_ms(50);
-           if(UP_BUTTON_IS_PRESSED || DOWN_BUTTON_IS_PRESSED )
-           {
-            EWH_Events[EWH_PRESS_DOWN_EVENT]=1;
-            EWH_Events[EWH_PRESS_UP_EVENT]=1;
-            break;
-           }
+            if(UP_BUTTON_IS_PRESSED)
+            {
+                // Set The Event Flag
+                EWH_SetEvent(EWH_PRESS_UP_EVENT);
+                // Disable Timer
+                TMR1_Stop(); 
+                // Clear The Event Flag 
+                EWH_ClearEvent(EWH_PRESS_UP_EVENT);
+                // Clear No Press Second Count
+                NoPress_Sec_count=0;
+                // Switch EWH_Mode to SET_TEMP_MODE
+                EWH_SetMode(EWH_SET_TEMP_MODE);
+                // Leave The Operating Mode
+                break;
+            }
+        }
+        if(DOWN_BUTTON_IS_PRESSED && (EWH_Mode!=EWH_SLEEP_MODE))
+        {
+            __delay_ms(50);
+            if(DOWN_BUTTON_IS_PRESSED)
+            {
+                // Set The Event Flag
+                EWH_SetEvent(EWH_PRESS_DOWN_EVENT);
+                // Disable Timer
+                TMR1_Stop(); 
+                // Clear The Event Flag 
+                EWH_ClearEvent(EWH_PRESS_DOWN_EVENT);
+                // Clear No Press Second Count
+                NoPress_Sec_count=0;
+                // Switch EWH_Mode to SET_TEMP_MODE
+                EWH_SetMode(EWH_SET_TEMP_MODE);
+                // Leave The Operating Mode
+                break;
+            }
         }
         if(EWH_Events[EWH_ON_OFF_EVENT]==1)
-            break;
-    
-         EWH_SSD_Update(current_Temp);    
+        {
+            // Clear The Event Flag
+            EWH_ClearEvent(EWH_ON_OFF_EVENT);
+            // Switch Mode to SLEEP Mode
+            EWH_SetMode(EWH_SLEEP_MODE);
+            // Leave Set temp Mode 
+            break ;
+        }
+        
+        EWH_SSD_Update(current_Temp);    
     }
     
-    if(EWH_Events[EWH_PRESS_UP_EVENT] )
-        {
-            EWH_Events[EWH_PRESS_UP_EVENT]=0;
-            TMR1_Stop();
-            //EWH_SetTemp_Mode();
-            EWH_Mode=EWH_SET_TEMP_MODE;
-        }
-    if( EWH_Events[EWH_PRESS_DOWN_EVENT])
-        {
-             EWH_Events[EWH_PRESS_DOWN_EVENT]=0;
-             TMR1_Stop();
-             EWH_Mode=EWH_SET_TEMP_MODE;
-        }
 }
-
 
 /*------------------------- Helper Function Definition -----------------------*/
 void EWH_Init()
@@ -254,6 +298,19 @@ void EWH_Init()
     EWH_EEPROM_Init();
    
 }
+void EWH_SetMode(sEWH_Mode new_mode)
+{
+    EWH_Mode=new_mode;
+}
+void EWH_SetEvent(uint8_t Event_index)
+{
+    EWH_Events[Event_index]=1;
+}
+void EWH_ClearEvent(uint8_t Event_index)
+{
+    EWH_Events[Event_index]=0;
+}
+
 void EWH_EEPROM_Init()
 {
     EEPROM_WriteByte(EWH_TEMP_ADDRESS,EWH_INITIAL_SET_TEMP); 
@@ -302,30 +359,36 @@ uint8_t EWH_getAvrgTempReading(uint8_t *buffer, uint8_t length)
 void __interrupt() ISR()
 {
     static uint8_t count =0; 
+    /* External Interrupt from RB0 Pin */
     if(INTF==1)
     {
-        EWH_Events[EWH_ON_OFF_EVENT]=1;
-            //1. Toggle The EWH State ON-->OFF or OFF--> ON 
+        // 1. Set The ON_OFF_EVENT
+        EWH_SetEvent(EWH_ON_OFF_EVENT);
+        
+        // 2. Toggle The EWH State ON-->OFF or OFF--> ON 
         if(EWH_State==ON)
         {
             EWH_State=OFF;
-            EWH_Mode=EWH_SLEEP_MODE;
+            EWH_SetMode(EWH_SLEEP_MODE);
         }
         else if(EWH_State==OFF)
         {
             EWH_State=ON;
-            EWH_Mode=EWH_WAKE_UP_MODE;
+            EWH_SetMode(EWH_WAKE_UP_MODE);
         }        
         INTF=0;
     }
-    
+    /* Timer Over flow interrupt */
     if (TMR1IF)
     {
         count++;
         if(EWH_Mode==EWH_OPERATING_MODE)
         {
-          uint16_t Reading = ADC_ReadChannel(ADC2);
-          current_Temp=Reading*0.488;       
+            uint16_t Reading = ADC_ReadChannel(ADC2);
+            current_Temp=Reading*0.488;
+            ReadingBuffer[TempReading_count]=current_Temp;
+            TempReading_count++;
+            TempReading_count= TempReading_count%TEMP_READING_BUFFER_LENGTH;
         }
 
         if(count==10)
@@ -337,7 +400,7 @@ void __interrupt() ISR()
                 NoPress_Sec_count++;
                 if(NoPress_Sec_count==5)
                 {
-                    EWH_Events[EWH_NO_PRESS_5_SEC_EVENT]=1;
+                    EWH_SetEvent(EWH_NO_PRESS_5_SEC_EVENT);
                 }
             }
 

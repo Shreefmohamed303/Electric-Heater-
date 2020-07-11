@@ -65,14 +65,3 @@ tState DD_GetState(tDD device)
             break; 
     }
 }
-
-//void EWH_SSD_ON()
-//{
-//    SSD_ON(EWH_SSD_1); 
-//    SSD_ON(EWH_SSD_2);
-//}
-//void EWH_SSD_OFF()
-//{
-//    SSD_OFF(EWH_SSD_1); 
-//    SSD_OFF(EWH_SSD_2);
-//}

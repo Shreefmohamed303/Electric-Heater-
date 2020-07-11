@@ -1,12 +1,12 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"3 TMR1.c
-[; ;TMR1.c: 3: void TMR1_Init(tTMR1_Config *config)
+"15 TMR1.c
+[; ;TMR1.c: 15: void TMR1_Init(tTMR1_Config *config)
 [c E850 0 1 2 3 .. ]
 [n E850 . TMR1_PRESCALER_1 TMR1_PRESCALER_2 TMR1_PRESCALER_4 TMR1_PRESCALER_8  ]
 [c E856 0 1 .. ]
 [n E856 . INTERNAL_CLK_SOURCE EXTERNAL_CLK_SOURCE  ]
-"59 ./TMR1.h
-[; ;./TMR1.h: 59: {
+"71 ./TMR1.h
+[; ;./TMR1.h: 71: {
 [s S95 `E850 1 `E856 1 ]
 [n S95 . Prescaler clkSource ]
 "2857 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
@@ -216,67 +216,67 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"3 TMR1.c
-[; ;TMR1.c: 3: void TMR1_Init(tTMR1_Config *config)
+"15 TMR1.c
+[; ;TMR1.c: 15: void TMR1_Init(tTMR1_Config *config)
 [v _TMR1_Init `(v ~T0 @X0 1 ef1`*S95 ]
-"4
-[; ;TMR1.c: 4: {
+"16
+[; ;TMR1.c: 16: {
 {
 [e :U _TMR1_Init ]
-"3
-[; ;TMR1.c: 3: void TMR1_Init(tTMR1_Config *config)
-[v _config `*S95 ~T0 @X0 1 r1 ]
-"4
-[; ;TMR1.c: 4: {
-[f ]
-"5
-[; ;TMR1.c: 5:     switch(config->Prescaler)
-[e $U 98  ]
-"6
-[; ;TMR1.c: 6:     {
-{
-"7
-[; ;TMR1.c: 7:         case TMR1_PRESCALER_1:
-[e :U 99 ]
-"8
-[; ;TMR1.c: 8:             T1CKPS0 = 0; T1CKPS1 = 0;
-[e = _T1CKPS0 -> -> 0 `i `b ]
-[e = _T1CKPS1 -> -> 0 `i `b ]
-"9
-[; ;TMR1.c: 9:             break;
-[e $U 97  ]
-"10
-[; ;TMR1.c: 10:         case TMR1_PRESCALER_2:
-[e :U 100 ]
-"11
-[; ;TMR1.c: 11:             T1CKPS0 = 1; T1CKPS1 = 0;
-[e = _T1CKPS0 -> -> 1 `i `b ]
-[e = _T1CKPS1 -> -> 0 `i `b ]
-"12
-[; ;TMR1.c: 12:             break;
-[e $U 97  ]
-"13
-[; ;TMR1.c: 13:         case TMR1_PRESCALER_4:
-[e :U 101 ]
-"14
-[; ;TMR1.c: 14:             T1CKPS0 = 0; T1CKPS1 = 1;
-[e = _T1CKPS0 -> -> 0 `i `b ]
-[e = _T1CKPS1 -> -> 1 `i `b ]
 "15
-[; ;TMR1.c: 15:             break;
-[e $U 97  ]
+[; ;TMR1.c: 15: void TMR1_Init(tTMR1_Config *config)
+[v _config `*S95 ~T0 @X0 1 r1 ]
 "16
-[; ;TMR1.c: 16:         case TMR1_PRESCALER_8:
-[e :U 102 ]
+[; ;TMR1.c: 16: {
+[f ]
 "17
-[; ;TMR1.c: 17:             T1CKPS0 = 1; T1CKPS1 = 1;
+[; ;TMR1.c: 17:     switch(config->Prescaler)
+[e $U 98  ]
+"18
+[; ;TMR1.c: 18:     {
+{
+"19
+[; ;TMR1.c: 19:         case TMR1_PRESCALER_1:
+[e :U 99 ]
+"20
+[; ;TMR1.c: 20:             T1CKPS0 = 0; T1CKPS1 = 0;
+[e = _T1CKPS0 -> -> 0 `i `b ]
+[e = _T1CKPS1 -> -> 0 `i `b ]
+"21
+[; ;TMR1.c: 21:             break;
+[e $U 97  ]
+"22
+[; ;TMR1.c: 22:         case TMR1_PRESCALER_2:
+[e :U 100 ]
+"23
+[; ;TMR1.c: 23:             T1CKPS0 = 1; T1CKPS1 = 0;
+[e = _T1CKPS0 -> -> 1 `i `b ]
+[e = _T1CKPS1 -> -> 0 `i `b ]
+"24
+[; ;TMR1.c: 24:             break;
+[e $U 97  ]
+"25
+[; ;TMR1.c: 25:         case TMR1_PRESCALER_4:
+[e :U 101 ]
+"26
+[; ;TMR1.c: 26:             T1CKPS0 = 0; T1CKPS1 = 1;
+[e = _T1CKPS0 -> -> 0 `i `b ]
+[e = _T1CKPS1 -> -> 1 `i `b ]
+"27
+[; ;TMR1.c: 27:             break;
+[e $U 97  ]
+"28
+[; ;TMR1.c: 28:         case TMR1_PRESCALER_8:
+[e :U 102 ]
+"29
+[; ;TMR1.c: 29:             T1CKPS0 = 1; T1CKPS1 = 1;
 [e = _T1CKPS0 -> -> 1 `i `b ]
 [e = _T1CKPS1 -> -> 1 `i `b ]
-"18
-[; ;TMR1.c: 18:             break;
+"30
+[; ;TMR1.c: 30:             break;
 [e $U 97  ]
-"19
-[; ;TMR1.c: 19:     }
+"31
+[; ;TMR1.c: 31:     }
 }
 [e $U 97  ]
 [e :U 98 ]
@@ -286,32 +286,32 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E850 3 `ui 102
  97 ]
 [e :U 97 ]
-"21
-[; ;TMR1.c: 21:     switch(config->clkSource)
+"33
+[; ;TMR1.c: 33:     switch(config->clkSource)
 [e $U 104  ]
-"22
-[; ;TMR1.c: 22:     {
+"34
+[; ;TMR1.c: 34:     {
 {
-"23
-[; ;TMR1.c: 23:         case INTERNAL_CLK_SOURCE:
+"35
+[; ;TMR1.c: 35:         case INTERNAL_CLK_SOURCE:
 [e :U 105 ]
-"24
-[; ;TMR1.c: 24:             (T0CS = 0);
+"36
+[; ;TMR1.c: 36:             (T0CS = 0);
 [e = _T0CS -> -> 0 `i `b ]
-"25
-[; ;TMR1.c: 25:             break ;
+"37
+[; ;TMR1.c: 37:             break ;
 [e $U 103  ]
-"26
-[; ;TMR1.c: 26:         case EXTERNAL_CLK_SOURCE:
+"38
+[; ;TMR1.c: 38:         case EXTERNAL_CLK_SOURCE:
 [e :U 106 ]
-"27
-[; ;TMR1.c: 27:             (T0CS = 1);
+"39
+[; ;TMR1.c: 39:             (T0CS = 1);
 [e = _T0CS -> -> 1 `i `b ]
-"28
-[; ;TMR1.c: 28:             break ;
+"40
+[; ;TMR1.c: 40:             break ;
 [e $U 103  ]
-"29
-[; ;TMR1.c: 29:     }
+"41
+[; ;TMR1.c: 41:     }
 }
 [e $U 103  ]
 [e :U 104 ]
@@ -319,64 +319,64 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E856 1 `ui 106
  103 ]
 [e :U 103 ]
-"30
-[; ;TMR1.c: 30: }
+"42
+[; ;TMR1.c: 42: }
 [e :UE 96 ]
 }
-"31
-[; ;TMR1.c: 31: void TMR1_Start()
+"43
+[; ;TMR1.c: 43: void TMR1_Start()
 [v _TMR1_Start `(v ~T0 @X0 1 ef ]
-"32
-[; ;TMR1.c: 32: {
+"44
+[; ;TMR1.c: 44: {
 {
 [e :U _TMR1_Start ]
 [f ]
-"33
-[; ;TMR1.c: 33:     (TMR1IF = 0);
+"45
+[; ;TMR1.c: 45:     (TMR1IF = 0);
 [e = _TMR1IF -> -> 0 `i `b ]
-"34
-[; ;TMR1.c: 34:     (TMR1IE = 1);
+"46
+[; ;TMR1.c: 46:     (TMR1IE = 1);
 [e = _TMR1IE -> -> 1 `i `b ]
-"35
-[; ;TMR1.c: 35:     (PEIE = 1);
+"47
+[; ;TMR1.c: 47:     (PEIE = 1);
 [e = _PEIE -> -> 1 `i `b ]
-"36
-[; ;TMR1.c: 36:     (GIE = 1);
+"48
+[; ;TMR1.c: 48:     (GIE = 1);
 [e = _GIE -> -> 1 `i `b ]
-"37
-[; ;TMR1.c: 37:     TMR1=40536;
+"49
+[; ;TMR1.c: 49:     TMR1=40536;
 [e = _TMR1 -> -> 40536 `l `us ]
-"38
-[; ;TMR1.c: 38:     (TMR1ON = 1);
+"50
+[; ;TMR1.c: 50:     (TMR1ON = 1);
 [e = _TMR1ON -> -> 1 `i `b ]
-"39
-[; ;TMR1.c: 39: }
+"51
+[; ;TMR1.c: 51: }
 [e :UE 107 ]
 }
-"40
-[; ;TMR1.c: 40: void TMR1_Update()
+"52
+[; ;TMR1.c: 52: void TMR1_Update()
 [v _TMR1_Update `(v ~T0 @X0 1 ef ]
-"41
-[; ;TMR1.c: 41: {
+"53
+[; ;TMR1.c: 53: {
 {
 [e :U _TMR1_Update ]
 [f ]
-"43
-[; ;TMR1.c: 43: }
+"55
+[; ;TMR1.c: 55: }
 [e :UE 108 ]
 }
-"44
-[; ;TMR1.c: 44: void TMR1_Stop()
+"56
+[; ;TMR1.c: 56: void TMR1_Stop()
 [v _TMR1_Stop `(v ~T0 @X0 1 ef ]
-"45
-[; ;TMR1.c: 45: {
+"57
+[; ;TMR1.c: 57: {
 {
 [e :U _TMR1_Stop ]
 [f ]
-"46
-[; ;TMR1.c: 46:     (TMR1ON = 0);
+"58
+[; ;TMR1.c: 58:     (TMR1ON = 0);
 [e = _TMR1ON -> -> 0 `i `b ]
-"47
-[; ;TMR1.c: 47: }
+"59
+[; ;TMR1.c: 59: }
 [e :UE 109 ]
 }

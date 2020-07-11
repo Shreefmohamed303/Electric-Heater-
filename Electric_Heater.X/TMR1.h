@@ -1,3 +1,15 @@
+ /********************************************************************************
+ * Module : TMR1 
+ *
+ * File Name : TMR1.c
+ *
+ * Description : Header File for Timer Module that contains all Timer Interfaces 
+ *
+ * Author : Shreef Mohamed
+ *
+ * Created on: July 5, 2020
+ *
+ ********************************************************************************/
 #ifndef TMR1_H_
 #define TMR1_H_
 
