@@ -1813,10 +1813,6 @@ tDD_State Devices_State={OFF,OFF,OFF};
 void DD_Init(void);
 void DD_SetState(tDD device ,tState state);
 tState DD_GetState(tDD device);
-
-void EWH_SSD_ON();
-void EWH_SSD_OFF();
-void EWH_SSD_Update(uint16_t temp);
 # 12 "DD.c" 2
 
 
@@ -1833,7 +1829,6 @@ void DD_Init(void)
     (OFF)?(PORTB |= (1<<7)) : (PORTB &= ~(1<<7));
 
 }
-
 
 void DD_SetState(tDD device ,tState state)
 {
@@ -1856,6 +1851,7 @@ void DD_SetState(tDD device ,tState state)
             break ;
     }
 }
+
 tState DD_GetState(tDD device)
 {
     switch(device)
@@ -1873,26 +1869,4 @@ tState DD_GetState(tDD device)
         default:
             break;
     }
-}
-
-void EWH_SSD_ON()
-{
-    SSD_ON(3);
-    SSD_ON(4);
-}
-
-void EWH_SSD_OFF()
-{
-    SSD_OFF(3);
-    SSD_OFF(4);
-}
-
-void EWH_SSD_Update(uint16_t temp)
-{
-    SSD_OFF(3);
-    SSD_Write(4,temp%10);
-    _delay((unsigned long)((30)*(4000000/4000.0)));
-    SSD_OFF(4);
-    SSD_Write(3,(uint8_t)temp/10);
-    _delay((unsigned long)((30)*(4000000/4000.0)));
 }

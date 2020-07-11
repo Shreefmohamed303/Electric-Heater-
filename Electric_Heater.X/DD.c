@@ -25,7 +25,6 @@ void DD_Init(void)
 
 }
 
-
 void DD_SetState(tDD device ,tState state)
 {
     switch(device)
@@ -47,6 +46,7 @@ void DD_SetState(tDD device ,tState state)
             break ; 
     }
 }
+
 tState DD_GetState(tDD device)
 {
     switch(device)
@@ -66,24 +66,13 @@ tState DD_GetState(tDD device)
     }
 }
 
-void EWH_SSD_ON()
-{
-    SSD_ON(EWH_SSD_1); 
-    SSD_ON(EWH_SSD_2);
-}
-
-void EWH_SSD_OFF()
-{
-    SSD_OFF(EWH_SSD_1); 
-    SSD_OFF(EWH_SSD_2);
-}
-
-void EWH_SSD_Update(uint16_t temp)
-{
-    SSD_OFF(EWH_SSD_1); 
-    SSD_Write(EWH_SSD_2,temp%10); 
-    __delay_ms(30);
-    SSD_OFF(EWH_SSD_2); 
-    SSD_Write(EWH_SSD_1,(uint8_t)temp/10);
-    __delay_ms(30);
-}
+//void EWH_SSD_ON()
+//{
+//    SSD_ON(EWH_SSD_1); 
+//    SSD_ON(EWH_SSD_2);
+//}
+//void EWH_SSD_OFF()
+//{
+//    SSD_OFF(EWH_SSD_1); 
+//    SSD_OFF(EWH_SSD_2);
+//}

@@ -13,63 +13,63 @@
 %PSECTS
 $dist/default/production\Electric_Heater.X.production.o
 cinit CODE 0 15 15 22 2
-text1 CODE 0 73A 73A 83 2
-text2 CODE 0 A75 A75 3B 2
-text3 CODE 0 4CA 4CA DB 2
-text4 CODE 0 8DE 8DE D 2
-text5 CODE 0 90B 90B 11 2
-text6 CODE 0 8C5 8C5 C 2
-text7 CODE 0 D13 D13 5B 2
-text8 CODE 0 9AE 9AE 29 2
-text9 CODE 0 8A6 8A6 A 2
-text10 CODE 0 89C 89C A 2
+text1 CODE 0 73B 73B 83 2
+text2 CODE 0 8C6 8C6 C 2
+text3 CODE 0 D13 D13 5B 2
+text4 CODE 0 9AF 9AF 29 2
+text5 CODE 0 8A7 8A7 A 2
+text6 CODE 0 89D 89D A 2
+text7 CODE 0 A3B A3B 3A 2
+text8 CODE 0 4CA 4CA DC 2
+text9 CODE 0 8DF 8DF D 2
+text10 CODE 0 90C 90C 11 2
 text11 CODE 0 398 398 132 2
 text12 CODE 0 CB8 CB8 5B 2
-text13 CODE 0 7FA 7FA 4 2
-text14 CODE 0 8FB 8FB 10 2
-text15 CODE 0 A02 A02 38 2
+text13 CODE 0 7FB 7FB 4 2
+text14 CODE 0 8FC 8FC 10 2
+text15 CODE 0 A03 A03 38 2
 text16 CODE 0 B30 B30 46 2
 text17 CODE 0 D6E D6E 5C 2
 text18 CODE 0 AB0 AB0 3C 2
 text19 CODE 0 E32 E32 69 2
-text20 CODE 0 94C 94C 1D 2
-text21 CODE 0 8BA 8BA B 2
+text20 CODE 0 94D 94D 1D 2
+text21 CODE 0 8BB 8BB B 2
 text22 CODE 0 E9B E9B 6B 2
 text23 CODE 0 C5E C5E 5A 2
 text24 CODE 0 AEC AEC 44 2
 text25 CODE 0 BC0 BC0 4A 2
-text26 CODE 0 893 893 9 2
+text26 CODE 0 894 894 9 2
 text27 CODE 0 B76 B76 4A 2
 text28 CODE 0 DCA DCA 68 2
-text29 CODE 0 8EB 8EB 10 2
-text30 CODE 0 A3A A3A 3B 2
-text31 CODE 0 969 969 1E 2
-text32 CODE 0 88A 88A 9 2
-text33 CODE 0 881 881 9 2
-text34 CODE 0 878 878 9 2
-text35 CODE 0 8D1 8D1 D 2
-text36 CODE 0 92F 92F 1D 2
+text29 CODE 0 8EC 8EC 10 2
+text30 CODE 0 A75 A75 3B 2
+text31 CODE 0 96A 96A 1E 2
+text32 CODE 0 88B 88B 9 2
+text33 CODE 0 882 882 9 2
+text34 CODE 0 879 879 9 2
+text35 CODE 0 8D2 8D2 D 2
+text36 CODE 0 930 930 1D 2
 text37 CODE 0 F82 F82 7E 2
-text38 CODE 0 5A5 5A5 DB 2
-text39 CODE 0 680 680 BA 2
+text38 CODE 0 5A6 5A6 DB 2
+text39 CODE 0 681 681 BA 2
 text40 CODE 0 F06 F06 7C 2
 text41 CODE 0 37 37 361 2
-text42 CODE 0 987 987 27 2
-text43 CODE 0 7BD 7BD 3D 2
-text44 CODE 0 9D7 9D7 2B 2
+text42 CODE 0 988 988 27 2
+text43 CODE 0 7BE 7BE 3D 2
+text44 CODE 0 9D8 9D8 2B 2
 maintext CODE 0 C0A C0A 54 2
 cstackCOMMON COMMON 1 70 70 E 1
 cstackBANK0 BANK0 1 20 20 2A 1
 cstackBANK1 BANK1 1 A0 A0 1D 1
-inittext CODE 0 91C 91C 13 2
+inittext CODE 0 91D 91D 13 2
 intentry CODE 0 4 4 E 2
 bssBANK0 BANK0 1 4A 4A 9 1
 bssBANK1 BANK1 1 BD BD 18 1
-idataBANK1 CODE 0 8B0 8B0 A 2
+idataBANK1 CODE 0 8B1 8B1 A 2
 dataBANK1 BANK1 1 D5 D5 A 1
-clrtext CODE 0 870 870 8 2
+clrtext CODE 0 871 871 8 2
 config CONFIG 4 2007 2007 1 2
-$C:\Users\LENOVO\AppData\Local\Temp\shs4.o
+$C:\Users\LENOVO\AppData\Local\Temp\sajo.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 12 12 3 2
 config CONFIG 4 2007 2007 1 2
@@ -88,15 +88,15 @@ BANK1 DF-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
 CONST 3-3 2
-CONST 7FE-86F 2
+CONST 7FF-870 2
 CONST 1000-1FFF 2
 ENTRY 3-3 2
-ENTRY 7FE-86F 2
+ENTRY 7FF-870 2
 ENTRY 1000-1FFF 2
 IDLOC 2000-2003 2
 STACK 110-16F 1
 CODE 3-3 2
-CODE 7FE-86F 2
+CODE 7FF-870 2
 CODE 1000-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
@@ -104,10 +104,10 @@ SFR2 100-10F 1
 SFR3 180-18F 1
 EEDATA 2100-21FF 2
 STRCODE 3-3 2
-STRCODE 7FE-86F 2
+STRCODE 7FF-870 2
 STRCODE 1000-1FFF 2
 STRING 3-3 2
-STRING 7FE-86F 2
+STRING 7FF-870 2
 STRING 1000-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -123,57 +123,57 @@ STRING 1000-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Electric_Heater.X.production.o
-15 cinit CODE >1491:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-15 cinit CODE >1494:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-15 cinit CODE >1586:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-16 cinit CODE >1587:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-17 cinit CODE >1588:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-18 cinit CODE >1589:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-19 cinit CODE >1590:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-1A cinit CODE >1591:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-1B cinit CODE >1592:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-1C cinit CODE >1593:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-1D cinit CODE >1594:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-1E cinit CODE >1595:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-23 cinit CODE >1614:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-24 cinit CODE >1615:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-25 cinit CODE >1616:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-26 cinit CODE >1617:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-2B cinit CODE >1620:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-2C cinit CODE >1621:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-2D cinit CODE >1622:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-2E cinit CODE >1623:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-33 cinit CODE >1629:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-33 cinit CODE >1631:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-34 cinit CODE >1632:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-4 intentry CODE >279:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-9D7 text44 CODE >69:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-9D8 text44 CODE >72:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-9DE text44 CODE >75:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-9EB text44 CODE >78:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-9F0 text44 CODE >81:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-9F3 text44 CODE >84:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-9F7 text44 CODE >87:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-9FD text44 CODE >89:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-A01 text44 CODE >90:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-7BD text43 CODE >50:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-7BE text43 CODE >52:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-7BF text43 CODE >55:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-7CC text43 CODE >58:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-7D9 text43 CODE >61:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-7E6 text43 CODE >66:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-7F9 text43 CODE >67:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-987 text42 CODE >4:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8_16.c
-988 text42 CODE >5:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8_16.c
-98A text42 CODE >6:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8_16.c
-991 text42 CODE >51:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8_16.c
-995 text42 CODE >52:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8_16.c
-99B text42 CODE >53:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8_16.c
-99B text42 CODE >54:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8_16.c
-9A2 text42 CODE >55:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8_16.c
-9A4 text42 CODE >56:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8_16.c
-9A9 text42 CODE >59:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8_16.c
-9AD text42 CODE >60:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8_16.c
+15 cinit CODE >1490:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+15 cinit CODE >1493:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+15 cinit CODE >1585:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+16 cinit CODE >1586:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+17 cinit CODE >1587:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+18 cinit CODE >1588:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+19 cinit CODE >1589:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+1A cinit CODE >1590:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+1B cinit CODE >1591:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+1C cinit CODE >1592:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+1D cinit CODE >1593:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+1E cinit CODE >1594:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+23 cinit CODE >1613:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+24 cinit CODE >1614:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+25 cinit CODE >1615:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+26 cinit CODE >1616:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+2B cinit CODE >1619:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+2C cinit CODE >1620:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+2D cinit CODE >1621:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+2E cinit CODE >1622:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+33 cinit CODE >1628:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+33 cinit CODE >1630:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+34 cinit CODE >1631:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+4 intentry CODE >302:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+9D8 text44 CODE >69:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+9D9 text44 CODE >72:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+9DF text44 CODE >75:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+9EC text44 CODE >78:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+9F1 text44 CODE >81:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+9F4 text44 CODE >84:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+9F8 text44 CODE >87:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+9FE text44 CODE >89:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+A02 text44 CODE >90:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+7BE text43 CODE >50:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\DD.c
+7BF text43 CODE >52:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\DD.c
+7C0 text43 CODE >55:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\DD.c
+7CD text43 CODE >58:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\DD.c
+7DA text43 CODE >61:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\DD.c
+7E7 text43 CODE >66:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\DD.c
+7FA text43 CODE >67:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\DD.c
+988 text42 CODE >4:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8_16.c
+989 text42 CODE >5:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8_16.c
+98B text42 CODE >6:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8_16.c
+992 text42 CODE >51:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8_16.c
+996 text42 CODE >52:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8_16.c
+99C text42 CODE >53:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8_16.c
+99C text42 CODE >54:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8_16.c
+9A3 text42 CODE >55:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8_16.c
+9A5 text42 CODE >56:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8_16.c
+9AA text42 CODE >59:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8_16.c
+9AE text42 CODE >60:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8_16.c
 37 text41 CODE >8:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcmul.c
 37 text41 CODE >17:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcmul.c
 3E text41 CODE >18:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcmul.c
@@ -277,143 +277,143 @@ F6C text40 CODE >65:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\
 F71 text40 CODE >67:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
 F76 text40 CODE >68:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
 F81 text40 CODE >70:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
-680 text39 CODE >10:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-681 text39 CODE >15:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-68A text39 CODE >16:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-699 text39 CODE >17:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-69A text39 CODE >19:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-6A2 text39 CODE >20:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-6A2 text39 CODE >21:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-6AA text39 CODE >22:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-6B3 text39 CODE >23:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-6B7 text39 CODE >24:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-6B8 text39 CODE >25:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-6BC text39 CODE >26:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-6C5 text39 CODE >24:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-6CC text39 CODE >29:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-6D0 text39 CODE >30:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-6DE text39 CODE >31:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-6E7 text39 CODE >28:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-6EE text39 CODE >34:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-6F0 text39 CODE >35:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-6F9 text39 CODE >33:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-703 text39 CODE >37:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-707 text39 CODE >38:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-70F text39 CODE >39:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-711 text39 CODE >40:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-727 text39 CODE >41:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-730 text39 CODE >42:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-731 text39 CODE >43:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-739 text39 CODE >44:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-5A5 text38 CODE >279:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-5A5 text38 CODE >282:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-5A9 text38 CODE >284:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-5AD text38 CODE >286:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-5B4 text38 CODE >288:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-5B5 text38 CODE >289:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-5B8 text38 CODE >290:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-5B9 text38 CODE >291:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-5BE text38 CODE >293:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-5C0 text38 CODE >294:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-5C4 text38 CODE >295:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-5C4 text38 CODE >296:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-5C5 text38 CODE >297:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-5C5 text38 CODE >299:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-5CA text38 CODE >301:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-5CE text38 CODE >302:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-5D6 text38 CODE >304:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-5E2 text38 CODE >305:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-61C text38 CODE >308:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-624 text38 CODE >311:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-62C text38 CODE >313:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-62D text38 CODE >314:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-633 text38 CODE >315:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-639 text38 CODE >317:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-63D text38 CODE >321:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-650 text38 CODE >323:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-656 text38 CODE >324:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-657 text38 CODE >325:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-66A text38 CODE >327:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-66D text38 CODE >330:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-670 text38 CODE >332:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-671 text38 CODE >333:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-675 text38 CODE >335:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-F82 text37 CODE >16:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-F85 text37 CODE >19:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-F88 text37 CODE >21:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-F89 text37 CODE >24:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-F8F text37 CODE >25:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-F90 text37 CODE >26:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-F90 text37 CODE >27:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-F93 text37 CODE >28:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-F94 text37 CODE >29:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-F94 text37 CODE >30:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-F97 text37 CODE >31:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-F98 text37 CODE >33:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-F9E text37 CODE >34:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-F9F text37 CODE >36:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-FA5 text37 CODE >37:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-FA8 text37 CODE >38:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-FA9 text37 CODE >39:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-FA9 text37 CODE >40:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-FAC text37 CODE >41:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-FAF text37 CODE >42:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-FB0 text37 CODE >43:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-FB0 text37 CODE >44:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-FB3 text37 CODE >45:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-FB6 text37 CODE >46:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-FB7 text37 CODE >50:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-FDC text37 CODE >53:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-FEE text37 CODE >56:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-FF0 text37 CODE >60:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-FF7 text37 CODE >62:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-FFA text37 CODE >63:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-FFD text37 CODE >64:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-FFE text37 CODE >65:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-FFF text37 CODE >67:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\adc.c
-92F text36 CODE >14:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-92F text36 CODE >17:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-935 text36 CODE >18:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-939 text36 CODE >19:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-93D text36 CODE >22:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-943 text36 CODE >23:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-947 text36 CODE >24:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-94B text36 CODE >26:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-8D1 text35 CODE >53:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-8D1 text35 CODE >58:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-8DD text35 CODE >60:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-878 text34 CODE >73:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-878 text34 CODE >76:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-87D text34 CODE >77:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-880 text34 CODE >78:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-881 text33 CODE >61:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-881 text33 CODE >64:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-886 text33 CODE >65:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-889 text33 CODE >66:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-88A text32 CODE >67:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-88A text32 CODE >70:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-88F text32 CODE >71:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-892 text32 CODE >72:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-969 text31 CODE >95:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-96C text31 CODE >98:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-971 text31 CODE >99:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-977 text31 CODE >100:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-97B text31 CODE >101:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-97C text31 CODE >102:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-981 text31 CODE >103:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-986 text31 CODE >104:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-A3A text30 CODE >4:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EEPROM.c
-A3A text30 CODE >6:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EEPROM.c
-A3F text30 CODE >9:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EEPROM.c
-A40 text30 CODE >10:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EEPROM.c
-A45 text30 CODE >9:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EEPROM.c
-A5F text30 CODE >13:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EEPROM.c
-A67 text30 CODE >14:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EEPROM.c
-A6F text30 CODE >15:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EEPROM.c
-A74 text30 CODE >16:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EEPROM.c
-8EB text29 CODE >254:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-8EB text29 CODE >256:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-8FA text29 CODE >257:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
+681 text39 CODE >10:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+682 text39 CODE >15:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+68B text39 CODE >16:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+69A text39 CODE >17:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+69B text39 CODE >19:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+6A3 text39 CODE >20:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+6A3 text39 CODE >21:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+6AB text39 CODE >22:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+6B4 text39 CODE >23:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+6B8 text39 CODE >24:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+6B9 text39 CODE >25:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+6BD text39 CODE >26:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+6C6 text39 CODE >24:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+6CD text39 CODE >29:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+6D1 text39 CODE >30:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+6DF text39 CODE >31:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+6E8 text39 CODE >28:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+6EF text39 CODE >34:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+6F1 text39 CODE >35:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+6FA text39 CODE >33:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+704 text39 CODE >37:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+708 text39 CODE >38:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+710 text39 CODE >39:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+712 text39 CODE >40:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+728 text39 CODE >41:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+731 text39 CODE >42:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+732 text39 CODE >43:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+73A text39 CODE >44:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+5A6 text38 CODE >302:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+5A6 text38 CODE >305:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+5AA text38 CODE >307:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+5AE text38 CODE >309:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+5B5 text38 CODE >311:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+5B6 text38 CODE >312:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+5B9 text38 CODE >313:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+5BA text38 CODE >314:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+5BF text38 CODE >316:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+5C1 text38 CODE >317:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+5C5 text38 CODE >318:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+5C5 text38 CODE >319:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+5C6 text38 CODE >320:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+5C6 text38 CODE >322:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+5CB text38 CODE >324:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+5CF text38 CODE >325:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+5D7 text38 CODE >327:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+5E3 text38 CODE >328:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+61D text38 CODE >331:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+625 text38 CODE >334:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+62D text38 CODE >336:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+62E text38 CODE >337:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+634 text38 CODE >338:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+63A text38 CODE >340:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+63E text38 CODE >344:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+651 text38 CODE >346:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+657 text38 CODE >347:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+658 text38 CODE >348:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+66B text38 CODE >350:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+66E text38 CODE >353:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+671 text38 CODE >355:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+672 text38 CODE >356:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+676 text38 CODE >358:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+F82 text37 CODE >16:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+F85 text37 CODE >19:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+F88 text37 CODE >21:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+F89 text37 CODE >24:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+F8F text37 CODE >25:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+F90 text37 CODE >26:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+F90 text37 CODE >27:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+F93 text37 CODE >28:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+F94 text37 CODE >29:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+F94 text37 CODE >30:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+F97 text37 CODE >31:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+F98 text37 CODE >33:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+F9E text37 CODE >34:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+F9F text37 CODE >36:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+FA5 text37 CODE >37:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+FA8 text37 CODE >38:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+FA9 text37 CODE >39:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+FA9 text37 CODE >40:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+FAC text37 CODE >41:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+FAF text37 CODE >42:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+FB0 text37 CODE >43:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+FB0 text37 CODE >44:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+FB3 text37 CODE >45:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+FB6 text37 CODE >46:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+FB7 text37 CODE >50:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+FDC text37 CODE >53:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+FEE text37 CODE >56:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+FF0 text37 CODE >60:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+FF7 text37 CODE >62:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+FFA text37 CODE >63:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+FFD text37 CODE >64:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+FFE text37 CODE >65:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+FFF text37 CODE >67:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\adc.c
+930 text36 CODE >14:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\DD.c
+930 text36 CODE >17:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\DD.c
+936 text36 CODE >18:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\DD.c
+93A text36 CODE >19:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\DD.c
+93E text36 CODE >22:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\DD.c
+944 text36 CODE >23:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\DD.c
+948 text36 CODE >24:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\DD.c
+94C text36 CODE >26:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\DD.c
+8D2 text35 CODE >53:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+8D2 text35 CODE >58:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+8DE text35 CODE >60:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+879 text34 CODE >73:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+879 text34 CODE >76:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+87E text34 CODE >77:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+881 text34 CODE >78:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+882 text33 CODE >61:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+882 text33 CODE >64:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+887 text33 CODE >65:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+88A text33 CODE >66:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+88B text32 CODE >67:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+88B text32 CODE >70:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+890 text32 CODE >71:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+893 text32 CODE >72:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+96A text31 CODE >95:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+96D text31 CODE >98:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+972 text31 CODE >99:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+978 text31 CODE >100:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+97C text31 CODE >101:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+97D text31 CODE >102:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+982 text31 CODE >103:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+987 text31 CODE >104:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+A75 text30 CODE >4:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EEPROM.c
+A75 text30 CODE >6:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EEPROM.c
+A7A text30 CODE >9:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EEPROM.c
+A7B text30 CODE >10:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EEPROM.c
+A80 text30 CODE >9:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EEPROM.c
+A9A text30 CODE >13:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EEPROM.c
+AA2 text30 CODE >14:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EEPROM.c
+AAA text30 CODE >15:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EEPROM.c
+AAF text30 CODE >16:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EEPROM.c
+8EC text29 CODE >257:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+8EC text29 CODE >259:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+8FB text29 CODE >260:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
 DCA text28 CODE >5:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
 DCA text28 CODE >13:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
 DD4 text28 CODE >14:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
@@ -430,103 +430,103 @@ E1A text28 CODE >26:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\
 E23 text28 CODE >27:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
 E29 text28 CODE >29:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
 E31 text28 CODE >30:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
-B76 text27 CODE >12:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-B79 text27 CODE >15:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-B7A text27 CODE >16:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-B7B text27 CODE >18:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-B84 text27 CODE >22:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-BA5 text27 CODE >32:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-BA8 text27 CODE >35:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-BAC text27 CODE >38:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-BAD text27 CODE >39:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-BAE text27 CODE >44:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-BB7 text27 CODE >46:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-BB8 text27 CODE >47:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-BB9 text27 CODE >48:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-BBC text27 CODE >49:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-BBF text27 CODE >51:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-893 text26 CODE >16:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SW.c
-893 text26 CODE >19:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SW.c
-896 text26 CODE >20:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SW.c
-897 text26 CODE >21:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SW.c
-898 text26 CODE >24:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SW.c
-899 text26 CODE >25:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SW.c
-89A text26 CODE >26:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SW.c
-89B text26 CODE >27:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SW.c
-BC0 text25 CODE >3:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-BC3 text25 CODE >5:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-BC4 text25 CODE >7:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-BC4 text25 CODE >8:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-BC8 text25 CODE >9:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-BC9 text25 CODE >10:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-BC9 text25 CODE >11:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-BCD text25 CODE >12:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-BCE text25 CODE >13:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-BCE text25 CODE >14:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-BD2 text25 CODE >15:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-BD3 text25 CODE >16:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-BD3 text25 CODE >17:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-BD7 text25 CODE >18:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-BD8 text25 CODE >19:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-BF1 text25 CODE >23:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-BF1 text25 CODE >24:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-BF2 text25 CODE >25:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-BF3 text25 CODE >26:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-BF3 text25 CODE >27:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-BF4 text25 CODE >28:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-BF5 text25 CODE >29:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-C09 text25 CODE >30:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-AEC text24 CODE >215:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-AEC text24 CODE >219:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-AF2 text24 CODE >220:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-AF4 text24 CODE >223:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-AFA text24 CODE >227:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-AFE text24 CODE >228:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-B02 text24 CODE >229:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-B04 text24 CODE >230:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-B05 text24 CODE >233:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-B0B text24 CODE >237:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-B15 text24 CODE >238:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-B19 text24 CODE >239:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-B1A text24 CODE >242:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-B20 text24 CODE >245:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-B25 text24 CODE >248:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-B2A text24 CODE >251:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-B2F text24 CODE >253:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-C5E text23 CODE >29:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-C61 text23 CODE >31:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-C62 text23 CODE >34:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-C71 text23 CODE >35:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-C77 text23 CODE >36:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-C78 text23 CODE >38:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-C87 text23 CODE >39:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-C8D text23 CODE >40:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-C8E text23 CODE >42:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-C9D text23 CODE >43:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-CA3 text23 CODE >44:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-CA4 text23 CODE >48:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-CB7 text23 CODE >49:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-E9B text22 CODE >11:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SSD.c
-E9E text22 CODE >15:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SSD.c
-E9F text22 CODE >18:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SSD.c
-EA3 text22 CODE >19:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SSD.c
-EB3 text22 CODE >22:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SSD.c
-EB7 text22 CODE >23:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SSD.c
-EC7 text22 CODE >26:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SSD.c
-ECB text22 CODE >27:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SSD.c
-EDB text22 CODE >30:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SSD.c
-EDF text22 CODE >31:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SSD.c
-EEF text22 CODE >33:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SSD.c
-F05 text22 CODE >34:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SSD.c
-8BA text21 CODE >65:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SSD.c
-8BD text21 CODE >67:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SSD.c
-8C4 text21 CODE >68:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SSD.c
-94C text20 CODE >35:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SSD.c
-94F text20 CODE >38:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SSD.c
-957 text20 CODE >40:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SSD.c
-95A text20 CODE >42:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SSD.c
-960 text20 CODE >45:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SSD.c
-968 text20 CODE >53:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\SSD.c
+B76 text27 CODE >12:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+B79 text27 CODE >15:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+B7A text27 CODE >16:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+B7B text27 CODE >18:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+B84 text27 CODE >22:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+BA5 text27 CODE >32:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+BA8 text27 CODE >35:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+BAC text27 CODE >38:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+BAD text27 CODE >39:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+BAE text27 CODE >44:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+BB7 text27 CODE >46:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+BB8 text27 CODE >47:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+BB9 text27 CODE >48:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+BBC text27 CODE >49:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+BBF text27 CODE >51:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+894 text26 CODE >16:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SW.c
+894 text26 CODE >19:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SW.c
+897 text26 CODE >20:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SW.c
+898 text26 CODE >21:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SW.c
+899 text26 CODE >24:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SW.c
+89A text26 CODE >25:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SW.c
+89B text26 CODE >26:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SW.c
+89C text26 CODE >27:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SW.c
+BC0 text25 CODE >3:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+BC3 text25 CODE >5:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+BC4 text25 CODE >7:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+BC4 text25 CODE >8:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+BC8 text25 CODE >9:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+BC9 text25 CODE >10:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+BC9 text25 CODE >11:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+BCD text25 CODE >12:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+BCE text25 CODE >13:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+BCE text25 CODE >14:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+BD2 text25 CODE >15:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+BD3 text25 CODE >16:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+BD3 text25 CODE >17:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+BD7 text25 CODE >18:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+BD8 text25 CODE >19:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+BF1 text25 CODE >23:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+BF1 text25 CODE >24:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+BF2 text25 CODE >25:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+BF3 text25 CODE >26:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+BF3 text25 CODE >27:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+BF4 text25 CODE >28:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+BF5 text25 CODE >29:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+C09 text25 CODE >30:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+AEC text24 CODE >218:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+AEC text24 CODE >222:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+AF2 text24 CODE >223:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+AF4 text24 CODE >226:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+AFA text24 CODE >230:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+AFE text24 CODE >231:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+B02 text24 CODE >232:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+B04 text24 CODE >233:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+B05 text24 CODE >236:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+B0B text24 CODE >240:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+B15 text24 CODE >241:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+B19 text24 CODE >242:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+B1A text24 CODE >245:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+B20 text24 CODE >248:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+B25 text24 CODE >251:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+B2A text24 CODE >254:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+B2F text24 CODE >256:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+C5E text23 CODE >28:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\DD.c
+C61 text23 CODE >30:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\DD.c
+C62 text23 CODE >33:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\DD.c
+C71 text23 CODE >34:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\DD.c
+C77 text23 CODE >35:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\DD.c
+C78 text23 CODE >37:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\DD.c
+C87 text23 CODE >38:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\DD.c
+C8D text23 CODE >39:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\DD.c
+C8E text23 CODE >41:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\DD.c
+C9D text23 CODE >42:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\DD.c
+CA3 text23 CODE >43:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\DD.c
+CA4 text23 CODE >47:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\DD.c
+CB7 text23 CODE >48:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\DD.c
+E9B text22 CODE >11:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SSD.c
+E9E text22 CODE >15:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SSD.c
+E9F text22 CODE >18:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SSD.c
+EA3 text22 CODE >19:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SSD.c
+EB3 text22 CODE >22:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SSD.c
+EB7 text22 CODE >23:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SSD.c
+EC7 text22 CODE >26:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SSD.c
+ECB text22 CODE >27:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SSD.c
+EDB text22 CODE >30:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SSD.c
+EDF text22 CODE >31:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SSD.c
+EEF text22 CODE >33:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SSD.c
+F05 text22 CODE >34:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SSD.c
+8BB text21 CODE >65:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SSD.c
+8BE text21 CODE >67:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SSD.c
+8C5 text21 CODE >68:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SSD.c
+94D text20 CODE >35:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SSD.c
+950 text20 CODE >38:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SSD.c
+958 text20 CODE >40:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SSD.c
+95B text20 CODE >42:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SSD.c
+961 text20 CODE >45:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SSD.c
+969 text20 CODE >53:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\SSD.c
 E32 text19 CODE >5:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
 E32 text19 CODE >13:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
 E35 text19 CODE >14:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
@@ -565,14 +565,14 @@ ADA text18 CODE >21:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\
 AE1 text18 CODE >22:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\lwmod.c
 AE7 text18 CODE >24:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\lwmod.c
 AEB text18 CODE >25:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\lwmod.c
-D6E text17 CODE >81:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-D6E text17 CODE >83:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-D74 text17 CODE >84:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-D8F text17 CODE >85:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-D9A text17 CODE >86:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-DA0 text17 CODE >87:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-DBE text17 CODE >88:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-DC9 text17 CODE >89:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
+D6E text17 CODE >280:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+D6E text17 CODE >282:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+D74 text17 CODE >283:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+D8F text17 CODE >284:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+D9A text17 CODE >285:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+DA0 text17 CODE >286:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+DBE text17 CODE >287:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+DC9 text17 CODE >288:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
 B30 text16 CODE >5:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\lwdiv.c
 B30 text16 CODE >13:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\lwdiv.c
 B34 text16 CODE >14:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\lwdiv.c
@@ -589,25 +589,25 @@ B64 text16 CODE >26:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\
 B6B text16 CODE >27:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\lwdiv.c
 B71 text16 CODE >29:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\lwdiv.c
 B75 text16 CODE >30:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\lwdiv.c
-A02 text15 CODE >267:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-A05 text15 CODE >269:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-A07 text15 CODE >270:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-A09 text15 CODE >272:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-A18 text15 CODE >273:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-A22 text15 CODE >274:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-A38 text15 CODE >275:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-A39 text15 CODE >276:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-8FB text14 CODE >31:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-8FB text14 CODE >33:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-8FE text14 CODE >34:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-901 text14 CODE >35:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-902 text14 CODE >36:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-903 text14 CODE >37:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-909 text14 CODE >38:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-90A text14 CODE >39:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-7FA text13 CODE >44:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-7FA text13 CODE >46:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
-7FD text13 CODE >47:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\TMR1.c
+A03 text15 CODE >290:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+A06 text15 CODE >292:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+A08 text15 CODE >293:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+A0A text15 CODE >295:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+A19 text15 CODE >296:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+A23 text15 CODE >297:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+A39 text15 CODE >298:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+A3A text15 CODE >299:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+8FC text14 CODE >31:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+8FC text14 CODE >33:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+8FF text14 CODE >34:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+902 text14 CODE >35:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+903 text14 CODE >36:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+904 text14 CODE >37:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+90A text14 CODE >38:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+90B text14 CODE >39:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+7FB text13 CODE >44:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+7FB text13 CODE >46:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
+7FE text13 CODE >47:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\TMR1.c
 CB8 text12 CODE >5:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
 CB8 text12 CODE >12:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
 CBB text12 CODE >13:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
@@ -629,195 +629,193 @@ D04 text12 CODE >31:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\
 D09 text12 CODE >32:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
 D0E text12 CODE >33:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
 D12 text12 CODE >34:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-398 text11 CODE >143:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-398 text11 CODE >149:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-39B text11 CODE >150:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-39C text11 CODE >151:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-39D text11 CODE >152:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-39E text11 CODE >154:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-3A2 text11 CODE >156:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-3A7 text11 CODE >160:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-3B5 text11 CODE >161:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-3BF text11 CODE >162:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-3C3 text11 CODE >163:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-3D9 text11 CODE >164:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-3DF text11 CODE >166:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-3EE text11 CODE >167:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-3F0 text11 CODE >169:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-3F5 text11 CODE >171:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-409 text11 CODE >173:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-412 text11 CODE >174:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-41C text11 CODE >175:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-41D text11 CODE >176:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-431 text11 CODE >178:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-43B text11 CODE >179:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-444 text11 CODE >182:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-464 text11 CODE >184:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-46F text11 CODE >185:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-48F text11 CODE >187:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-491 text11 CODE >188:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-493 text11 CODE >189:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-494 text11 CODE >192:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-49A text11 CODE >195:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-4A7 text11 CODE >198:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-4AC text11 CODE >200:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-4AD text11 CODE >201:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-4B2 text11 CODE >203:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-4B8 text11 CODE >205:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-4BD text11 CODE >207:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-4BE text11 CODE >208:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-4C3 text11 CODE >209:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-4C9 text11 CODE >211:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-89C text10 CODE >79:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-89C text10 CODE >82:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-8A1 text10 CODE >84:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-8A4 text10 CODE >85:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-8A5 text10 CODE >86:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-8A6 text9 CODE >87:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-8A6 text9 CODE >90:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-8AB text9 CODE >92:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-8AE text9 CODE >93:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-8AF text9 CODE >94:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-9AE text8 CODE >105:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-9B1 text8 CODE >110:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-9B6 text8 CODE >111:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-9B9 text8 CODE >112:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-9BE text8 CODE >113:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-9C1 text8 CODE >115:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-9C8 text8 CODE >116:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-9CE text8 CODE >118:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-9D3 text8 CODE >120:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-9D6 text8 CODE >121:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\i2c.c
-D13 text7 CODE >36:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EEPROM.c
-D13 text7 CODE >40:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EEPROM.c
-D18 text7 CODE >42:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EEPROM.c
-D19 text7 CODE >43:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EEPROM.c
-D1E text7 CODE >42:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EEPROM.c
-D38 text7 CODE >46:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EEPROM.c
-D40 text7 CODE >48:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EEPROM.c
-D45 text7 CODE >49:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EEPROM.c
-D5A text7 CODE >51:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EEPROM.c
-D65 text7 CODE >52:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EEPROM.c
-D6A text7 CODE >54:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EEPROM.c
-D6D text7 CODE >55:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EEPROM.c
-8C5 text6 CODE >262:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-8C5 text6 CODE >264:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-8D0 text6 CODE >265:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-90B text5 CODE >258:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-90E text5 CODE >260:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-91B text5 CODE >261:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-8DE text4 CODE >75:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-8DE text4 CODE >77:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-8E4 text4 CODE >78:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-8EA text4 CODE >79:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\DD.c
-4CA text3 CODE >73:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-4CA text3 CODE >79:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-4CD text3 CODE >80:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-4CE text3 CODE >81:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-4CF text3 CODE >82:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-4D0 text3 CODE >86:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-4DA text3 CODE >88:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-4E1 text3 CODE >89:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-4EA text3 CODE >91:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-4F8 text3 CODE >93:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-4FD text3 CODE >94:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-500 text3 CODE >97:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-516 text3 CODE >99:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-521 text3 CODE >100:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-531 text3 CODE >102:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-535 text3 CODE >103:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-539 text3 CODE >106:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-54F text3 CODE >108:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-55A text3 CODE >109:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-56A text3 CODE >111:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-56D text3 CODE >115:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-579 text3 CODE >118:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-57F text3 CODE >120:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-580 text3 CODE >123:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-585 text3 CODE >125:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-591 text3 CODE >126:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-592 text3 CODE >129:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-598 text3 CODE >134:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-59F text3 CODE >136:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-5A0 text3 CODE >139:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-5A4 text3 CODE >142:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-A75 text2 CODE >5:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-A75 text2 CODE >9:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-A7A text2 CODE >11:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-A83 text2 CODE >13:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-A8C text2 CODE >15:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-A95 text2 CODE >17:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-A9A text2 CODE >19:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-A9D text2 CODE >20:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-A9E text2 CODE >21:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-A9F text2 CODE >22:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-AA0 text2 CODE >24:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-AA6 text2 CODE >25:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-AAA text2 CODE >26:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-AAE text2 CODE >28:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-AAF text2 CODE >29:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-73A text1 CODE >30:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-73A text1 CODE >36:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-73D text1 CODE >37:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-73E text1 CODE >38:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-73F text1 CODE >39:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-740 text1 CODE >42:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-741 text1 CODE >47:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-74B text1 CODE >50:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-757 text1 CODE >52:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-767 text1 CODE >54:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-772 text1 CODE >55:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-782 text1 CODE >57:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-784 text1 CODE >58:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-787 text1 CODE >59:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-78E text1 CODE >62:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-79E text1 CODE >64:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-7A9 text1 CODE >65:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-7B9 text1 CODE >67:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-7BC text1 CODE >72:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\EWH.c
-C0A maintext CODE >5:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
-C0A maintext CODE >7:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
-C0F maintext CODE >9:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
-C15 maintext CODE >10:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
-C19 maintext CODE >11:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
-C1D maintext CODE >13:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
-C23 maintext CODE >14:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
-C27 maintext CODE >15:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
-C2C maintext CODE >21:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
-C31 maintext CODE >22:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
-C32 maintext CODE >24:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
-C37 maintext CODE >25:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
-C38 maintext CODE >27:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
-C3D maintext CODE >28:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
-C3E maintext CODE >30:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
-C43 maintext CODE >32:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric_Heater.X\main.c
-870 clrtext CODE >1601:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-870 clrtext CODE >1602:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-871 clrtext CODE >1603:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-871 clrtext CODE >1604:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-872 clrtext CODE >1605:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-873 clrtext CODE >1606:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-874 clrtext CODE >1607:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-875 clrtext CODE >1608:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-876 clrtext CODE >1609:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-877 clrtext CODE >1610:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-91C inittext CODE >1560:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-91C inittext CODE >1561:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-91D inittext CODE >1562:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-91E inittext CODE >1563:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-91F inittext CODE >1564:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-920 inittext CODE >1571:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-920 inittext CODE >1572:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-925 inittext CODE >1573:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-926 inittext CODE >1574:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-927 inittext CODE >1575:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-928 inittext CODE >1576:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-929 inittext CODE >1577:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-92A inittext CODE >1578:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-92B inittext CODE >1579:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-92C inittext CODE >1580:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-92D inittext CODE >1581:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
-92E inittext CODE >1582:C:\Users\LENOVO\AppData\Local\Temp\shs4.s
+398 text11 CODE >146:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+398 text11 CODE >152:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+39B text11 CODE >153:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+39C text11 CODE >154:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+39D text11 CODE >155:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+39E text11 CODE >157:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+3A2 text11 CODE >159:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+3A7 text11 CODE >163:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+3B5 text11 CODE >164:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+3BF text11 CODE >165:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+3C3 text11 CODE >166:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+3D9 text11 CODE >167:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+3DF text11 CODE >169:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+3EE text11 CODE >170:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+3F0 text11 CODE >172:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+3F5 text11 CODE >174:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+407 text11 CODE >176:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+410 text11 CODE >177:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+41A text11 CODE >178:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+41B text11 CODE >179:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+431 text11 CODE >181:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+43B text11 CODE >182:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+444 text11 CODE >185:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+464 text11 CODE >187:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+46F text11 CODE >188:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+48F text11 CODE >190:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+491 text11 CODE >191:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+493 text11 CODE >192:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+494 text11 CODE >195:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+49A text11 CODE >198:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+4A7 text11 CODE >201:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+4AC text11 CODE >203:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+4AD text11 CODE >204:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+4B2 text11 CODE >206:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+4B8 text11 CODE >208:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+4BD text11 CODE >210:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+4BE text11 CODE >211:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+4C3 text11 CODE >212:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+4C9 text11 CODE >214:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+90C text10 CODE >261:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+90F text10 CODE >263:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+91C text10 CODE >264:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+8DF text9 CODE >275:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+8DF text9 CODE >277:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+8E5 text9 CODE >278:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+8EB text9 CODE >279:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+4CA text8 CODE >73:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+4CA text8 CODE >79:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+4CD text8 CODE >80:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+4CE text8 CODE >81:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+4CF text8 CODE >82:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+4D0 text8 CODE >89:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+4D5 text8 CODE >91:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+4D8 text8 CODE >93:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+4E1 text8 CODE >94:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+4EA text8 CODE >95:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+4F3 text8 CODE >97:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+501 text8 CODE >100:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+517 text8 CODE >102:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+522 text8 CODE >103:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+532 text8 CODE >105:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+536 text8 CODE >106:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+53A text8 CODE >109:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+550 text8 CODE >111:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+55B text8 CODE >112:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+56B text8 CODE >114:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+56E text8 CODE >119:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+575 text8 CODE >121:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+581 text8 CODE >122:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+582 text8 CODE >125:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+587 text8 CODE >127:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+593 text8 CODE >130:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+599 text8 CODE >137:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+5A0 text8 CODE >139:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+5A1 text8 CODE >142:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+5A5 text8 CODE >145:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+A3B text7 CODE >5:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+A3B text7 CODE >9:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+A40 text7 CODE >11:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+A49 text7 CODE >13:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+A52 text7 CODE >15:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+A5B text7 CODE >17:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+A60 text7 CODE >19:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+A63 text7 CODE >20:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+A64 text7 CODE >21:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+A65 text7 CODE >22:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+A66 text7 CODE >24:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+A6C text7 CODE >25:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+A70 text7 CODE >26:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+A74 text7 CODE >29:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+89D text6 CODE >79:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+89D text6 CODE >82:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+8A2 text6 CODE >84:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+8A5 text6 CODE >85:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+8A6 text6 CODE >86:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+8A7 text5 CODE >87:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+8A7 text5 CODE >90:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+8AC text5 CODE >92:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+8AF text5 CODE >93:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+8B0 text5 CODE >94:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+9AF text4 CODE >105:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+9B2 text4 CODE >110:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+9B7 text4 CODE >111:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+9BA text4 CODE >112:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+9BF text4 CODE >113:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+9C2 text4 CODE >115:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+9C9 text4 CODE >116:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+9CF text4 CODE >118:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+9D4 text4 CODE >120:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+9D7 text4 CODE >121:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\i2c.c
+D13 text3 CODE >36:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EEPROM.c
+D13 text3 CODE >40:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EEPROM.c
+D18 text3 CODE >42:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EEPROM.c
+D19 text3 CODE >43:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EEPROM.c
+D1E text3 CODE >42:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EEPROM.c
+D38 text3 CODE >46:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EEPROM.c
+D40 text3 CODE >48:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EEPROM.c
+D45 text3 CODE >49:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EEPROM.c
+D5A text3 CODE >51:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EEPROM.c
+D65 text3 CODE >52:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EEPROM.c
+D6A text3 CODE >54:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EEPROM.c
+D6D text3 CODE >55:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EEPROM.c
+8C6 text2 CODE >265:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+8C6 text2 CODE >267:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+8D1 text2 CODE >268:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+73B text1 CODE >30:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+73B text1 CODE >36:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+73E text1 CODE >37:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+73F text1 CODE >38:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+740 text1 CODE >39:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+741 text1 CODE >42:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+742 text1 CODE >47:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+74C text1 CODE >50:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+758 text1 CODE >52:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+768 text1 CODE >54:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+773 text1 CODE >55:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+783 text1 CODE >57:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+785 text1 CODE >58:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+788 text1 CODE >59:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+78F text1 CODE >62:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+79F text1 CODE >64:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+7AA text1 CODE >65:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+7BA text1 CODE >67:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+7BD text1 CODE >72:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\EWH.c
+C0A maintext CODE >5:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\main.c
+C0A maintext CODE >7:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\main.c
+C0F maintext CODE >9:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\main.c
+C15 maintext CODE >10:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\main.c
+C19 maintext CODE >11:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\main.c
+C1D maintext CODE >13:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\main.c
+C23 maintext CODE >14:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\main.c
+C27 maintext CODE >15:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\main.c
+C2C maintext CODE >21:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\main.c
+C31 maintext CODE >22:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\main.c
+C32 maintext CODE >24:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\main.c
+C37 maintext CODE >25:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\main.c
+C38 maintext CODE >27:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\main.c
+C3D maintext CODE >28:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\main.c
+C3E maintext CODE >30:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\main.c
+C43 maintext CODE >32:D:\courses\Embedded Systems\Swift_Act project\Project Workspace\Electric-Heater-\Electric-Heater-\Electric_Heater.X\main.c
+871 clrtext CODE >1600:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+871 clrtext CODE >1601:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+872 clrtext CODE >1602:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+872 clrtext CODE >1603:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+873 clrtext CODE >1604:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+874 clrtext CODE >1605:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+875 clrtext CODE >1606:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+876 clrtext CODE >1607:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+877 clrtext CODE >1608:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+878 clrtext CODE >1609:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+91D inittext CODE >1559:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+91D inittext CODE >1560:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+91E inittext CODE >1561:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+91F inittext CODE >1562:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+920 inittext CODE >1563:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+921 inittext CODE >1570:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+921 inittext CODE >1571:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+926 inittext CODE >1572:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+927 inittext CODE >1573:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+928 inittext CODE >1574:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+929 inittext CODE >1575:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+92A inittext CODE >1576:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+92B inittext CODE >1577:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+92C inittext CODE >1578:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+92D inittext CODE >1579:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+92E inittext CODE >1580:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
+92F inittext CODE >1581:C:\Users\LENOVO\AppData\Local\Temp\sajo.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -856,17 +854,17 @@ _RCEN 48B 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 _RSEN 489 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 _T0CS 40D 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 _TMR1 E 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\LENOVO\AppData\Local\Temp\shs4.o
+___sp 0 0 STACK 2 stack C:\Users\LENOVO\AppData\Local\Temp\sajo.o
 _main 1814 0 CODE 0 maintext dist/default/production\Electric_Heater.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
-start 24 0 CODE 0 init C:\Users\LENOVO\AppData\Local\Temp\shs4.o
+start 24 0 CODE 0 init C:\Users\LENOVO\AppData\Local\Temp\sajo.o
 ___flmul@aexp 32 0 BANK0 1 cstackBANK0 dist/default/production\Electric_Heater.X.production.o
 ___flmul@bexp 33 0 BANK0 1 cstackBANK0 dist/default/production\Electric_Heater.X.production.o
 ___flmul@prod 34 0 BANK0 1 cstackBANK0 dist/default/production\Electric_Heater.X.production.o
 ___flmul@sign 2D 0 BANK0 1 cstackBANK0 dist/default/production\Electric_Heater.X.production.o
 ___flmul@temp 38 0 BANK0 1 cstackBANK0 dist/default/production\Electric_Heater.X.production.o
 __end_of_TMR1_Init 1814 0 CODE 0 text25 dist/default/production\Electric_Heater.X.production.o
-__end_of_TMR1_Stop FFC 0 CODE 0 text13 dist/default/production\Electric_Heater.X.production.o
+__end_of_TMR1_Stop FFE 0 CODE 0 text13 dist/default/production\Electric_Heater.X.production.o
 __size_of___awdiv 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 __size_of___awmod 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 __size_of___flmul 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
@@ -875,45 +873,45 @@ __size_of_main 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.
 __size_of___lldiv 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 __size_of___lwdiv 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 __size_of___lwmod 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
-_TMR1_Start 11F6 0 CODE 0 text14 dist/default/production\Electric_Heater.X.production.o
+_TMR1_Start 11F8 0 CODE 0 text14 dist/default/production\Electric_Heater.X.production.o
 __size_of_TMR1_Init 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 __size_of_TMR1_Stop 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 __size_of_I2C_Init 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 __LidataBANK1 0 0 ABS 0 idataBANK1 -
 __Hpowerup 0 0 CODE 0 powerup -
 ___awmod@sign A5 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
-__end_of_EWH_EEPROM_Update 1238 0 CODE 0 text5 dist/default/production\Electric_Heater.X.production.o
+__end_of_EWH_EEPROM_Update 123A 0 CODE 0 text10 dist/default/production\Electric_Heater.X.production.o
 __size_of_ADC_Init 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 _TMR1_Init 1780 0 CODE 0 text25 dist/default/production\Electric_Heater.X.production.o
-_TMR1_Stop FF4 0 CODE 0 text13 dist/default/production\Electric_Heater.X.production.o
+_TMR1_Stop FF6 0 CODE 0 text13 dist/default/production\Electric_Heater.X.production.o
 ?_ADC_ReadChannel 70 0 COMMON 1 cstackCOMMON dist/default/production\Electric_Heater.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\LENOVO\AppData\Local\Temp\shs4.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\LENOVO\AppData\Local\Temp\shs4.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\LENOVO\AppData\Local\Temp\shs4.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\LENOVO\AppData\Local\Temp\shs4.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\LENOVO\AppData\Local\Temp\shs4.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\LENOVO\AppData\Local\Temp\shs4.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\LENOVO\AppData\Local\Temp\sajo.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\LENOVO\AppData\Local\Temp\sajo.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\LENOVO\AppData\Local\Temp\sajo.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\LENOVO\AppData\Local\Temp\sajo.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\LENOVO\AppData\Local\Temp\sajo.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\LENOVO\AppData\Local\Temp\sajo.o
 __size_of_EWH_SSD_Update 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
-__end_of_ADC_ReadChannel 1404 0 CODE 0 text44 dist/default/production\Electric_Heater.X.production.o
+__end_of_ADC_ReadChannel 1406 0 CODE 0 text44 dist/default/production\Electric_Heater.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __size_of_EWH_WakeUP_Mode 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 ___awdiv@sign A5 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext -
-__end_of_EEPROM_ReadByte 1ADC 0 CODE 0 text7 dist/default/production\Electric_Heater.X.production.o
+__end_of_EEPROM_ReadByte 1ADC 0 CODE 0 text3 dist/default/production\Electric_Heater.X.production.o
 _TempReading_count C7 0 BANK1 1 bssBANK1 dist/default/production\Electric_Heater.X.production.o
 __size_of_SSD_config 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 _ADCON0 1F 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 _ADCON1 9F 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 _ADRESH 1E 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 _ADRESL 9E 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
-_I2C_Master_Send_RepeatedStart 10F0 0 CODE 0 text34 dist/default/production\Electric_Heater.X.production.o
+_I2C_Master_Send_RepeatedStart 10F2 0 CODE 0 text34 dist/default/production\Electric_Heater.X.production.o
 __size_of_I2C_Master_ReadByte 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
-__end_of__Umul8_16 135C 0 CODE 0 text42 dist/default/production\Electric_Heater.X.production.o
+__end_of__Umul8_16 135E 0 CODE 0 text42 dist/default/production\Electric_Heater.X.production.o
 ___awdiv@dividend A2 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
-__end_of_TMR1_Start 1216 0 CODE 0 text14 dist/default/production\Electric_Heater.X.production.o
+__end_of_TMR1_Start 1218 0 CODE 0 text14 dist/default/production\Electric_Heater.X.production.o
 __size_of__Umul8_16 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
-_DD_GetState F7A 0 CODE 0 text43 dist/default/production\Electric_Heater.X.production.o
+_DD_GetState F7C 0 CODE 0 text43 dist/default/production\Electric_Heater.X.production.o
 ADC_ReadChannel@channel 75 0 COMMON 1 cstackCOMMON dist/default/production\Electric_Heater.X.production.o
 _I2C_Init 16EC 0 CODE 0 text27 dist/default/production\Electric_Heater.X.production.o
 __size_of_I2C_Master_Send_Start 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
@@ -923,11 +921,11 @@ __Lmaintext 0 0 ABS 0 maintext -
 __end_of_I2C_Init 1780 0 CODE 0 text27 dist/default/production\Electric_Heater.X.production.o
 _ADC_Init 1F04 0 CODE 0 text37 dist/default/production\Electric_Heater.X.production.o
 ___awdiv@divisor A0 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
-_DD_Init 125E 0 CODE 0 text36 dist/default/production\Electric_Heater.X.production.o
+_DD_Init 1260 0 CODE 0 text36 dist/default/production\Electric_Heater.X.production.o
 ___lwmod@divisor A0 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
 __end_of___awdiv 1D36 0 CODE 0 text19 dist/default/production\Electric_Heater.X.production.o
 __end_of___awmod 1A26 0 CODE 0 text12 dist/default/production\Electric_Heater.X.production.o
-__Umul8_16 130E 0 CODE 0 text42 dist/default/production\Electric_Heater.X.production.o
+__Umul8_16 1310 0 CODE 0 text42 dist/default/production\Electric_Heater.X.production.o
 __end_of___flmul 730 0 CODE 0 text41 dist/default/production\Electric_Heater.X.production.o
 __end_of___fltol 1F04 0 CODE 0 text40 dist/default/production\Electric_Heater.X.production.o
 __end_of___lldiv 1C64 0 CODE 0 text28 dist/default/production\Electric_Heater.X.production.o
@@ -936,56 +934,56 @@ __end_of___lwmod 15D8 0 CODE 0 text18 dist/default/production\Electric_Heater.X.
 EWH_getAvrgTempReading@averageReading AD 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
 DD_SetState@state A0 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
 __size_of_EWH_Operating_Mode 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
-_ADC_ReadChannel 13AE 0 CODE 0 text44 dist/default/production\Electric_Heater.X.production.o
+_ADC_ReadChannel 13B0 0 CODE 0 text44 dist/default/production\Electric_Heater.X.production.o
 _INTEDG 40E 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 __Umul8_16@multiplicand 70 0 COMMON 1 cstackCOMMON dist/default/production\Electric_Heater.X.production.o
 __end_of_ADC_Init 2000 0 CODE 0 text37 dist/default/production\Electric_Heater.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\LENOVO\AppData\Local\Temp\shs4.o
-___stacklo 0 0 ABS 0 - C:\Users\LENOVO\AppData\Local\Temp\shs4.o
-__end_of_EWH_getAvrgTempReading 1474 0 CODE 0 text15 dist/default/production\Electric_Heater.X.production.o
+___stackhi 0 0 ABS 0 - C:\Users\LENOVO\AppData\Local\Temp\sajo.o
+___stacklo 0 0 ABS 0 - C:\Users\LENOVO\AppData\Local\Temp\sajo.o
+__end_of_EWH_getAvrgTempReading 1476 0 CODE 0 text15 dist/default/production\Electric_Heater.X.production.o
 _DD_SetState 18BC 0 CODE 0 text23 dist/default/production\Electric_Heater.X.production.o
 _Devices_State C1 0 BANK1 1 bssBANK1 dist/default/production\Electric_Heater.X.production.o
-_EEPROM_ReadByte 1A26 0 CODE 0 text7 dist/default/production\Electric_Heater.X.production.o
+_EEPROM_ReadByte 1A26 0 CODE 0 text3 dist/default/production\Electric_Heater.X.production.o
 ___lwdiv@quotient A4 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
 EWH_getAvrgTempReading@i AF 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
 ___flmul@a 24 0 BANK0 1 cstackBANK0 dist/default/production\Electric_Heater.X.production.o
 ___flmul@b 20 0 BANK0 1 cstackBANK0 dist/default/production\Electric_Heater.X.production.o
-_EWH_EEPROM_Update 1216 0 CODE 0 text5 dist/default/production\Electric_Heater.X.production.o
-_I2C_Master_ReadByte 135C 0 CODE 0 text8 dist/default/production\Electric_Heater.X.production.o
+_EWH_EEPROM_Update 1218 0 CODE 0 text10 dist/default/production\Electric_Heater.X.production.o
+_I2C_Master_ReadByte 135E 0 CODE 0 text4 dist/default/production\Electric_Heater.X.production.o
 ___lwmod@dividend A2 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
 ___lldiv@counter AD 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
 SSD_Write@ID A9 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
 start_initialization 2A 0 CODE 0 cinit dist/default/production\Electric_Heater.X.production.o
 __size_of_I2C_Master_WriteByte 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
-_I2C_Master_Send_NACK 114C 0 CODE 0 text9 dist/default/production\Electric_Heater.X.production.o
-_I2C_Master_Send_Stop 1114 0 CODE 0 text32 dist/default/production\Electric_Heater.X.production.o
+_I2C_Master_Send_NACK 114E 0 CODE 0 text5 dist/default/production\Electric_Heater.X.production.o
+_I2C_Master_Send_Stop 1116 0 CODE 0 text32 dist/default/production\Electric_Heater.X.production.o
 _ACKSTAT 48E 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 ___lldiv@dividend A4 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
 I2C_Master_WriteByte@Data A0 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
 __size_of_SSD_OFF 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
-_I2C_Master_Send_ACK 1138 0 CODE 0 text10 dist/default/production\Electric_Heater.X.production.o
+_I2C_Master_Send_ACK 113A 0 CODE 0 text6 dist/default/production\Electric_Heater.X.production.o
 EWH_getAvrgTempReading@buffer AE 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
 SSD_OFF@ID A4 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
-__end_of_SSD_Write 12D2 0 CODE 0 text20 dist/default/production\Electric_Heater.X.production.o
-clear_ram0 10E0 0 CODE 0 clrtext dist/default/production\Electric_Heater.X.production.o
+__end_of_SSD_Write 12D4 0 CODE 0 text20 dist/default/production\Electric_Heater.X.production.o
+clear_ram0 10E2 0 CODE 0 clrtext dist/default/production\Electric_Heater.X.production.o
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\Electric_Heater.X.production.o
 __pcstackBANK1 A0 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
 _SSPADD 93 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 _SSPBUF 13 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 _SSPCON 14 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
-__end_of_I2C_Master_WriteByte 130E 0 CODE 0 text31 dist/default/production\Electric_Heater.X.production.o
+__end_of_I2C_Master_WriteByte 1310 0 CODE 0 text31 dist/default/production\Electric_Heater.X.production.o
 __size_of_SSD_Write 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 _TMR1IE 460 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 _TMR1IF 60 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 _TMR1ON 80 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
-_EEPROM_WriteByte 1474 0 CODE 0 text30 dist/default/production\Electric_Heater.X.production.o
+_EEPROM_WriteByte 14EA 0 CODE 0 text30 dist/default/production\Electric_Heater.X.production.o
 _SSD_code D5 0 BANK1 1 dataBANK1 dist/default/production\Electric_Heater.X.production.o
 __size_of_SW_Init 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
-__end_of_EWH_EEPROM_Init 11F6 0 CODE 0 text29 dist/default/production\Electric_Heater.X.production.o
-__end_of_EWH_EEPROM_Read 11A2 0 CODE 0 text6 dist/default/production\Electric_Heater.X.production.o
-_I2C_Wait_IDLE 11A2 0 CODE 0 text35 dist/default/production\Electric_Heater.X.production.o
-__end_of_EWH_SSD_OFF 11D6 0 CODE 0 text4 dist/default/production\Electric_Heater.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\LENOVO\AppData\Local\Temp\shs4.o
+__end_of_EWH_EEPROM_Init 11F8 0 CODE 0 text29 dist/default/production\Electric_Heater.X.production.o
+__end_of_EWH_EEPROM_Read 11A4 0 CODE 0 text2 dist/default/production\Electric_Heater.X.production.o
+_I2C_Wait_IDLE 11A4 0 CODE 0 text35 dist/default/production\Electric_Heater.X.production.o
+__end_of_EWH_SSD_OFF 11D8 0 CODE 0 text9 dist/default/production\Electric_Heater.X.production.o
+___int_sp 0 0 STACK 2 stack C:\Users\LENOVO\AppData\Local\Temp\sajo.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -993,7 +991,7 @@ __Hbank3 0 0 ABS 0 bank3 -
 __Hcinit 6E 0 CODE 0 cinit -
 __Hstack 0 0 STACK 2 stack -
 ___lwdiv@counter A6 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
-_SSD_Write 1298 0 CODE 0 text20 dist/default/production\Electric_Heater.X.production.o
+_SSD_Write 129A 0 CODE 0 text20 dist/default/production\Electric_Heater.X.production.o
 __size_of___xxtofl 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 __Hmaintext 0 0 ABS 0 maintext -
 ___xxtofl@arg 7A 0 COMMON 1 cstackCOMMON dist/default/production\Electric_Heater.X.production.o
@@ -1001,7 +999,7 @@ ___xxtofl@exp 79 0 COMMON 1 cstackCOMMON dist/default/production\Electric_Heater
 ___xxtofl@val 70 0 COMMON 1 cstackCOMMON dist/default/production\Electric_Heater.X.production.o
 __Hcommon 0 0 ABS 0 common -
 __Hconfig 4010 0 CONFIG 4 config -
-_EWH_SetTemp_Mode 994 0 CODE 0 text3 dist/default/production\Electric_Heater.X.production.o
+_EWH_SetTemp_Mode 994 0 CODE 0 text8 dist/default/production\Electric_Heater.X.production.o
 EWH_getAvrgTempReading@length A7 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
 DD_SetState@device A3 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
 __Lbank0 0 0 ABS 0 bank0 -
@@ -1031,14 +1029,14 @@ __Lsfr1 0 0 ABS 0 sfr1 -
 __Lsfr2 0 0 ABS 0 sfr2 -
 __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
-_EWH_Sleep_Mode 14EA 0 CODE 0 text2 dist/default/production\Electric_Heater.X.production.o
+_EWH_Sleep_Mode 1476 0 CODE 0 text7 dist/default/production\Electric_Heater.X.production.o
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __LcstackBANK1 0 0 ABS 0 cstackBANK1 -
 SSD_config@ID A3 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
 __size_of_EEPROM_ReadByte 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 _GIE 5F 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
-_ISR B4A 0 CODE 0 text38 dist/default/production\Electric_Heater.X.production.o
+_ISR B4C 0 CODE 0 text38 dist/default/production\Electric_Heater.X.production.o
 _PEN 48A 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 _SEN 488 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 __S0 1000 0 ABS 0 - -
@@ -1047,73 +1045,73 @@ __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 SSD_Write@Number A8 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
 EWH_getAvrgTempReading@sumOfReadings AB 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
-_EWH_EEPROM_Init 11D6 0 CODE 0 text29 dist/default/production\Electric_Heater.X.production.o
-_EWH_EEPROM_Read 118A 0 CODE 0 text6 dist/default/production\Electric_Heater.X.production.o
-__end_of_I2C_Master_ReadByte 13AE 0 CODE 0 text8 dist/default/production\Electric_Heater.X.production.o
+_EWH_EEPROM_Init 11D8 0 CODE 0 text29 dist/default/production\Electric_Heater.X.production.o
+_EWH_EEPROM_Read 118C 0 CODE 0 text2 dist/default/production\Electric_Heater.X.production.o
+__end_of_I2C_Master_ReadByte 13B0 0 CODE 0 text4 dist/default/production\Electric_Heater.X.production.o
 ADC_Init@config A2 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
 saved_w 7E 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 __size_of_TMR1_Start 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 _NoPress_Sec_count 51 0 BANK0 1 bssBANK0 dist/default/production\Electric_Heater.X.production.o
 EEPROM_WriteByte@address A1 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
-__end_of_SSD_OFF 118A 0 CODE 0 text21 dist/default/production\Electric_Heater.X.production.o
-___xxtofl D00 0 CODE 0 text39 dist/default/production\Electric_Heater.X.production.o
-__end_of_I2C_Master_Send_ACK 114C 0 CODE 0 text10 dist/default/production\Electric_Heater.X.production.o
-__end_of_ISR D00 0 CODE 0 text38 dist/default/production\Electric_Heater.X.production.o
-__end_of_EEPROM_WriteByte 14EA 0 CODE 0 text30 dist/default/production\Electric_Heater.X.production.o
-__end_of_I2C_Master_Send_RepeatedStart 1102 0 CODE 0 text34 dist/default/production\Electric_Heater.X.production.o
+__end_of_SSD_OFF 118C 0 CODE 0 text21 dist/default/production\Electric_Heater.X.production.o
+___xxtofl D02 0 CODE 0 text39 dist/default/production\Electric_Heater.X.production.o
+__end_of_I2C_Master_Send_ACK 114E 0 CODE 0 text6 dist/default/production\Electric_Heater.X.production.o
+__end_of_ISR D02 0 CODE 0 text38 dist/default/production\Electric_Heater.X.production.o
+__end_of_EEPROM_WriteByte 1560 0 CODE 0 text30 dist/default/production\Electric_Heater.X.production.o
+__end_of_I2C_Master_Send_RepeatedStart 1104 0 CODE 0 text34 dist/default/production\Electric_Heater.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
 ___lldiv@divisor A0 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\LENOVO\AppData\Local\Temp\shs4.o
-__end_of___xxtofl E74 0 CODE 0 text39 dist/default/production\Electric_Heater.X.production.o
-__end_of_SW_Init 1138 0 CODE 0 text26 dist/default/production\Electric_Heater.X.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\LENOVO\AppData\Local\Temp\sajo.o
+__end_of___xxtofl E76 0 CODE 0 text39 dist/default/production\Electric_Heater.X.production.o
+__end_of_SW_Init 113A 0 CODE 0 text26 dist/default/production\Electric_Heater.X.production.o
 __size_of_EEPROM_WriteByte 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 __size_of_EWH_Init 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 __pdataBANK1 D5 0 BANK1 1 dataBANK1 dist/default/production\Electric_Heater.X.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 __LbssBANK1 0 0 ABS 0 bssBANK1 -
-__end_of_EWH_Sleep_Mode 1560 0 CODE 0 text2 dist/default/production\Electric_Heater.X.production.o
+__end_of_EWH_Sleep_Mode 14EA 0 CODE 0 text7 dist/default/production\Electric_Heater.X.production.o
 __size_of_I2C_Wait_IDLE 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 ___awmod@counter A4 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
 _EWH_SSD_Update 1ADC 0 CODE 0 text17 dist/default/production\Electric_Heater.X.production.o
 __size_of_EWH_getAvrgTempReading 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 EWH_Init@adc_config B7 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
-__end_of_EWH_SetTemp_Mode B4A 0 CODE 0 text3 dist/default/production\Electric_Heater.X.production.o
-__ptext10 1138 0 CODE 0 text10 dist/default/production\Electric_Heater.X.production.o
+__end_of_EWH_SetTemp_Mode B4C 0 CODE 0 text8 dist/default/production\Electric_Heater.X.production.o
+__ptext10 1218 0 CODE 0 text10 dist/default/production\Electric_Heater.X.production.o
 __ptext11 730 0 CODE 0 text11 dist/default/production\Electric_Heater.X.production.o
 __ptext12 1970 0 CODE 0 text12 dist/default/production\Electric_Heater.X.production.o
-__ptext13 FF4 0 CODE 0 text13 dist/default/production\Electric_Heater.X.production.o
-__ptext14 11F6 0 CODE 0 text14 dist/default/production\Electric_Heater.X.production.o
-__ptext15 1404 0 CODE 0 text15 dist/default/production\Electric_Heater.X.production.o
+__ptext13 FF6 0 CODE 0 text13 dist/default/production\Electric_Heater.X.production.o
+__ptext14 11F8 0 CODE 0 text14 dist/default/production\Electric_Heater.X.production.o
+__ptext15 1406 0 CODE 0 text15 dist/default/production\Electric_Heater.X.production.o
 __ptext16 1660 0 CODE 0 text16 dist/default/production\Electric_Heater.X.production.o
 __ptext17 1ADC 0 CODE 0 text17 dist/default/production\Electric_Heater.X.production.o
 __ptext18 1560 0 CODE 0 text18 dist/default/production\Electric_Heater.X.production.o
 __ptext19 1C64 0 CODE 0 text19 dist/default/production\Electric_Heater.X.production.o
-__ptext20 1298 0 CODE 0 text20 dist/default/production\Electric_Heater.X.production.o
-__ptext21 1174 0 CODE 0 text21 dist/default/production\Electric_Heater.X.production.o
+__ptext20 129A 0 CODE 0 text20 dist/default/production\Electric_Heater.X.production.o
+__ptext21 1176 0 CODE 0 text21 dist/default/production\Electric_Heater.X.production.o
 __ptext22 1D36 0 CODE 0 text22 dist/default/production\Electric_Heater.X.production.o
 __ptext23 18BC 0 CODE 0 text23 dist/default/production\Electric_Heater.X.production.o
 __ptext24 15D8 0 CODE 0 text24 dist/default/production\Electric_Heater.X.production.o
 __ptext25 1780 0 CODE 0 text25 dist/default/production\Electric_Heater.X.production.o
-__ptext26 1126 0 CODE 0 text26 dist/default/production\Electric_Heater.X.production.o
+__ptext26 1128 0 CODE 0 text26 dist/default/production\Electric_Heater.X.production.o
 __ptext27 16EC 0 CODE 0 text27 dist/default/production\Electric_Heater.X.production.o
 __ptext28 1B94 0 CODE 0 text28 dist/default/production\Electric_Heater.X.production.o
-__ptext29 11D6 0 CODE 0 text29 dist/default/production\Electric_Heater.X.production.o
-__ptext30 1474 0 CODE 0 text30 dist/default/production\Electric_Heater.X.production.o
-__ptext31 12D2 0 CODE 0 text31 dist/default/production\Electric_Heater.X.production.o
-__ptext32 1114 0 CODE 0 text32 dist/default/production\Electric_Heater.X.production.o
-__ptext33 1102 0 CODE 0 text33 dist/default/production\Electric_Heater.X.production.o
-__ptext34 10F0 0 CODE 0 text34 dist/default/production\Electric_Heater.X.production.o
-__ptext35 11A2 0 CODE 0 text35 dist/default/production\Electric_Heater.X.production.o
-__ptext36 125E 0 CODE 0 text36 dist/default/production\Electric_Heater.X.production.o
+__ptext29 11D8 0 CODE 0 text29 dist/default/production\Electric_Heater.X.production.o
+__ptext30 14EA 0 CODE 0 text30 dist/default/production\Electric_Heater.X.production.o
+__ptext31 12D4 0 CODE 0 text31 dist/default/production\Electric_Heater.X.production.o
+__ptext32 1116 0 CODE 0 text32 dist/default/production\Electric_Heater.X.production.o
+__ptext33 1104 0 CODE 0 text33 dist/default/production\Electric_Heater.X.production.o
+__ptext34 10F2 0 CODE 0 text34 dist/default/production\Electric_Heater.X.production.o
+__ptext35 11A4 0 CODE 0 text35 dist/default/production\Electric_Heater.X.production.o
+__ptext36 1260 0 CODE 0 text36 dist/default/production\Electric_Heater.X.production.o
 __ptext37 1F04 0 CODE 0 text37 dist/default/production\Electric_Heater.X.production.o
-__ptext38 B4A 0 CODE 0 text38 dist/default/production\Electric_Heater.X.production.o
-__ptext39 D00 0 CODE 0 text39 dist/default/production\Electric_Heater.X.production.o
+__ptext38 B4C 0 CODE 0 text38 dist/default/production\Electric_Heater.X.production.o
+__ptext39 D02 0 CODE 0 text39 dist/default/production\Electric_Heater.X.production.o
 __ptext40 1E0C 0 CODE 0 text40 dist/default/production\Electric_Heater.X.production.o
 __ptext41 6E 0 CODE 0 text41 dist/default/production\Electric_Heater.X.production.o
-__ptext42 130E 0 CODE 0 text42 dist/default/production\Electric_Heater.X.production.o
-__ptext43 F7A 0 CODE 0 text43 dist/default/production\Electric_Heater.X.production.o
-__ptext44 13AE 0 CODE 0 text44 dist/default/production\Electric_Heater.X.production.o
-__end_of_DD_GetState FF4 0 CODE 0 text43 dist/default/production\Electric_Heater.X.production.o
+__ptext42 1310 0 CODE 0 text42 dist/default/production\Electric_Heater.X.production.o
+__ptext43 F7C 0 CODE 0 text43 dist/default/production\Electric_Heater.X.production.o
+__ptext44 13B0 0 CODE 0 text44 dist/default/production\Electric_Heater.X.production.o
+__end_of_DD_GetState FF6 0 CODE 0 text43 dist/default/production\Electric_Heater.X.production.o
 ___awdiv 1C64 0 CODE 0 text19 dist/default/production\Electric_Heater.X.production.o
 ___awmod 1970 0 CODE 0 text12 dist/default/production\Electric_Heater.X.production.o
 ___flmul 6E 0 CODE 0 text41 dist/default/production\Electric_Heater.X.production.o
@@ -1129,7 +1127,7 @@ __Lconfig 0 0 CONFIG 4 config -
 __Hinittext 0 0 ABS 0 inittext -
 ___lwdiv@divisor A0 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
 __size_of_EWH_SSD_OFF 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
-__end_of_I2C_Wait_IDLE 11BC 0 CODE 0 text35 dist/default/production\Electric_Heater.X.production.o
+__end_of_I2C_Wait_IDLE 11BE 0 CODE 0 text35 dist/default/production\Electric_Heater.X.production.o
 __end_of_DD_SetState 1970 0 CODE 0 text23 dist/default/production\Electric_Heater.X.production.o
 __size_of_EWH_EEPROM_Init 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 __size_of_EWH_EEPROM_Read 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
@@ -1141,7 +1139,7 @@ __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
-init_fetch0 1238 0 CODE 0 inittext dist/default/production\Electric_Heater.X.production.o
+init_fetch0 123A 0 CODE 0 inittext dist/default/production\Electric_Heater.X.production.o
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __HcstackBANK1 0 0 ABS 0 cstackBANK1 -
 __Umul8_16@product 74 0 COMMON 1 cstackCOMMON dist/default/production\Electric_Heater.X.production.o
@@ -1170,20 +1168,20 @@ __HbssBANK1 0 0 ABS 0 bssBANK1 -
 _EWH_Events BD 0 BANK1 1 bssBANK1 dist/default/production\Electric_Heater.X.production.o
 I2C_Master_ReadByte@Read_State A1 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
 ___awmod@dividend A2 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
-__end_of_I2C_Master_Send_Start 1114 0 CODE 0 text33 dist/default/production\Electric_Heater.X.production.o
-__ptext1 E74 0 CODE 0 text1 dist/default/production\Electric_Heater.X.production.o
-__ptext2 14EA 0 CODE 0 text2 dist/default/production\Electric_Heater.X.production.o
-__ptext3 994 0 CODE 0 text3 dist/default/production\Electric_Heater.X.production.o
-__ptext4 11BC 0 CODE 0 text4 dist/default/production\Electric_Heater.X.production.o
-__ptext5 1216 0 CODE 0 text5 dist/default/production\Electric_Heater.X.production.o
-__ptext6 118A 0 CODE 0 text6 dist/default/production\Electric_Heater.X.production.o
-__ptext7 1A26 0 CODE 0 text7 dist/default/production\Electric_Heater.X.production.o
-__ptext8 135C 0 CODE 0 text8 dist/default/production\Electric_Heater.X.production.o
-__ptext9 114C 0 CODE 0 text9 dist/default/production\Electric_Heater.X.production.o
+__end_of_I2C_Master_Send_Start 1116 0 CODE 0 text33 dist/default/production\Electric_Heater.X.production.o
+__ptext1 E76 0 CODE 0 text1 dist/default/production\Electric_Heater.X.production.o
+__ptext2 118C 0 CODE 0 text2 dist/default/production\Electric_Heater.X.production.o
+__ptext3 1A26 0 CODE 0 text3 dist/default/production\Electric_Heater.X.production.o
+__ptext4 135E 0 CODE 0 text4 dist/default/production\Electric_Heater.X.production.o
+__ptext5 114E 0 CODE 0 text5 dist/default/production\Electric_Heater.X.production.o
+__ptext6 113A 0 CODE 0 text6 dist/default/production\Electric_Heater.X.production.o
+__ptext7 1476 0 CODE 0 text7 dist/default/production\Electric_Heater.X.production.o
+__ptext8 994 0 CODE 0 text8 dist/default/production\Electric_Heater.X.production.o
+__ptext9 11BE 0 CODE 0 text9 dist/default/production\Electric_Heater.X.production.o
 _ReadingBuffer CB 0 BANK1 1 bssBANK1 dist/default/production\Electric_Heater.X.production.o
 ?__Umul8_16 70 0 COMMON 1 cstackCOMMON dist/default/production\Electric_Heater.X.production.o
 DD_GetState@device 72 0 COMMON 1 cstackCOMMON dist/default/production\Electric_Heater.X.production.o
-_I2C_Master_WriteByte 12D2 0 CODE 0 text31 dist/default/production\Electric_Heater.X.production.o
+_I2C_Master_WriteByte 12D4 0 CODE 0 text31 dist/default/production\Electric_Heater.X.production.o
 _SSD_Blink_flag C6 0 BANK1 1 bssBANK1 dist/default/production\Electric_Heater.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 ?___xxtofl 70 0 COMMON 1 cstackCOMMON dist/default/production\Electric_Heater.X.production.o
@@ -1196,15 +1194,15 @@ __size_of_I2C_Master_Send_RepeatedStart 0 0 ABS 0 - dist/default/production\Elec
 __end_of_EWH_Operating_Mode 994 0 CODE 0 text11 dist/default/production\Electric_Heater.X.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec -
 _SW_State 4A 0 BANK0 1 bssBANK0 dist/default/production\Electric_Heater.X.production.o
-_I2C_Master_Send_Start 1102 0 CODE 0 text33 dist/default/production\Electric_Heater.X.production.o
+_I2C_Master_Send_Start 1104 0 CODE 0 text33 dist/default/production\Electric_Heater.X.production.o
 ___fltol@f1 3A 0 BANK0 1 cstackBANK0 dist/default/production\Electric_Heater.X.production.o
 __end_of__initialization 66 0 CODE 0 cinit dist/default/production\Electric_Heater.X.production.o
 ___awmod@divisor A0 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
-__pidataBANK1 1160 0 CODE 0 idataBANK1 dist/default/production\Electric_Heater.X.production.o
+__pidataBANK1 1162 0 CODE 0 idataBANK1 dist/default/production\Electric_Heater.X.production.o
 __size_of_I2C_Master_Send_NACK 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 __size_of_I2C_Master_Send_Stop 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
-__end_of_EWH_WakeUP_Mode F7A 0 CODE 0 text1 dist/default/production\Electric_Heater.X.production.o
+__end_of_EWH_WakeUP_Mode F7C 0 CODE 0 text1 dist/default/production\Electric_Heater.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext -
 EWH_Init@TMR1_cfg AF 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
 EWH_EEPROM_Update@newSetTemp A6 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
@@ -1217,17 +1215,17 @@ _T1CKPS1 85 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 __size_of_DD_GetState 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\Electric_Heater.X.production.o
 __size_of_EWH_EEPROM_Update 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
-__end_of_DD_Init 1298 0 CODE 0 text36 dist/default/production\Electric_Heater.X.production.o
-_SSD_OFF 1174 0 CODE 0 text21 dist/default/production\Electric_Heater.X.production.o
+__end_of_DD_Init 129A 0 CODE 0 text36 dist/default/production\Electric_Heater.X.production.o
+_SSD_OFF 1176 0 CODE 0 text21 dist/default/production\Electric_Heater.X.production.o
 _SSPCON2 91 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 _SSPSTAT 94 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 __Hend_init 2A 0 CODE 0 end_init -
-init_ram0 1240 0 CODE 0 inittext dist/default/production\Electric_Heater.X.production.o
+init_ram0 1242 0 CODE 0 inittext dist/default/production\Electric_Heater.X.production.o
 EWH_SSD_Update@temp AA 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
 ADC_ReadChannel@result 73 0 COMMON 1 cstackCOMMON dist/default/production\Electric_Heater.X.production.o
 _EWH_Operating_Mode 730 0 CODE 0 text11 dist/default/production\Electric_Heater.X.production.o
-__end_of_I2C_Master_Send_NACK 1160 0 CODE 0 text9 dist/default/production\Electric_Heater.X.production.o
-__end_of_I2C_Master_Send_Stop 1126 0 CODE 0 text32 dist/default/production\Electric_Heater.X.production.o
+__end_of_I2C_Master_Send_NACK 1162 0 CODE 0 text5 dist/default/production\Electric_Heater.X.production.o
+__end_of_I2C_Master_Send_Stop 1128 0 CODE 0 text32 dist/default/production\Electric_Heater.X.production.o
 __end_of_main 18BC 0 CODE 0 maintext dist/default/production\Electric_Heater.X.production.o
 _ACKDT 48D 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 _ACKEN 48C 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
@@ -1245,7 +1243,7 @@ _TRISD 88 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
 interrupt_function 8 0 CODE 0 intentry dist/default/production\Electric_Heater.X.production.o
-_SW_Init 1126 0 CODE 0 text26 dist/default/production\Electric_Heater.X.production.o
+_SW_Init 1128 0 CODE 0 text26 dist/default/production\Electric_Heater.X.production.o
 _EWH_State 52 0 BANK0 1 bssBANK0 dist/default/production\Electric_Heater.X.production.o
 __pintentry 8 0 CODE 0 intentry dist/default/production\Electric_Heater.X.production.o
 __size_of_ISR 0 0 ABS 0 - dist/default/production\Electric_Heater.X.production.o
@@ -1256,11 +1254,11 @@ ___xxtofl@sign 78 0 COMMON 1 cstackCOMMON dist/default/production\Electric_Heate
 __pbssBANK0 4A 0 BANK0 1 bssBANK0 dist/default/production\Electric_Heater.X.production.o
 __pbssBANK1 BD 0 BANK1 1 bssBANK1 dist/default/production\Electric_Heater.X.production.o
 TMR1_Init@config A2 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
-_EWH_WakeUP_Mode E74 0 CODE 0 text1 dist/default/production\Electric_Heater.X.production.o
+_EWH_WakeUP_Mode E76 0 CODE 0 text1 dist/default/production\Electric_Heater.X.production.o
 SSD_config@SSD_state A0 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
-_EWH_getAvrgTempReading 1404 0 CODE 0 text15 dist/default/production\Electric_Heater.X.production.o
+_EWH_getAvrgTempReading 1406 0 CODE 0 text15 dist/default/production\Electric_Heater.X.production.o
 EWH_Init@i2c_config B1 0 BANK1 1 cstackBANK1 dist/default/production\Electric_Heater.X.production.o
-_EWH_SSD_OFF 11BC 0 CODE 0 text4 dist/default/production\Electric_Heater.X.production.o
+_EWH_SSD_OFF 11BE 0 CODE 0 text9 dist/default/production\Electric_Heater.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -1286,51 +1284,51 @@ _EWH_SSD_OFF 11BC 0 CODE 0 text4 dist/default/production\Electric_Heater.X.produ
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-text2 0 A75 14EA 3B 2
-text4 0 8DE 11BC D 2
-text5 0 90B 1216 11 2
-text6 0 8C5 118A C 2
-text7 0 D13 1A26 5B 2
-text8 0 9AE 135C 29 2
-text9 0 8A6 114C A 2
-text10 0 89C 1138 A 2
+text2 0 8C6 118C C 2
+text3 0 D13 1A26 5B 2
+text4 0 9AF 135E 29 2
+text5 0 8A7 114E A 2
+text6 0 89D 113A A 2
+text7 0 A3B 1476 3A 2
+text9 0 8DF 11BE D 2
+text10 0 90C 1218 11 2
 text12 0 CB8 1970 5B 2
-text14 0 8FB 11F6 10 2
-text15 0 A02 1404 38 2
+text14 0 8FC 11F8 10 2
+text15 0 A03 1406 38 2
 text16 0 B30 1660 46 2
 text17 0 D6E 1ADC 5C 2
 text18 0 AB0 1560 3C 2
 text19 0 E32 1C64 69 2
-text20 0 94C 1298 1D 2
-text21 0 8BA 1174 B 2
+text20 0 94D 129A 1D 2
+text21 0 8BB 1176 B 2
 text22 0 E9B 1D36 6B 2
 text23 0 C5E 18BC 5A 2
 text24 0 AEC 15D8 44 2
 text25 0 BC0 1780 4A 2
-text26 0 893 1126 9 2
+text26 0 894 1128 9 2
 text27 0 B76 16EC 4A 2
 text28 0 DCA 1B94 68 2
-text29 0 8EB 11D6 10 2
-text30 0 A3A 1474 3B 2
-text31 0 969 12D2 1E 2
-text32 0 88A 1114 9 2
-text33 0 881 1102 9 2
-text34 0 878 10F0 9 2
-text35 0 8D1 11A2 D 2
-text36 0 92F 125E 1D 2
+text29 0 8EC 11D8 10 2
+text30 0 A75 14EA 3B 2
+text31 0 96A 12D4 1E 2
+text32 0 88B 1116 9 2
+text33 0 882 1104 9 2
+text34 0 879 10F2 9 2
+text35 0 8D2 11A4 D 2
+text36 0 930 1260 1D 2
 text37 0 F82 1F04 7E 2
 text40 0 F06 1E0C 7C 2
-text42 0 987 130E 27 2
-text44 0 9D7 13AE 2B 2
+text42 0 988 1310 27 2
+text44 0 9D8 13B0 2B 2
 maintext 0 C0A 1814 54 2
 cstackCOMMON 1 70 70 E 1
 cstackBANK0 1 20 20 33 1
 cstackBANK1 1 A0 A0 3F 1
-inittext 0 91C 1238 13 2
-intentry 0 4 8 7FA 2
+inittext 0 91D 123A 13 2
+intentry 0 4 8 7FB 2
 reset_vec 0 0 0 3 2
-idataBANK1 0 8B0 1160 A 2
-clrtext 0 870 10E0 8 2
+idataBANK1 0 8B1 1162 A 2
+clrtext 0 871 10E2 8 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal

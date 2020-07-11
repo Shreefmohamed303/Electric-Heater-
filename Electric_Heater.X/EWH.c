@@ -25,7 +25,7 @@ void EWH_Sleep_Mode()
     GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_5,OFF);
     GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_6,OFF);
     
-    SLEEP();
+    //SLEEP();
 }
 void EWH_WakeUP_Mode()
 {
@@ -82,16 +82,19 @@ void EWH_SetTemp_Mode()
     EWH_Events[EWH_NO_PRESS_5_SEC_EVENT]=0;
     
 
-    // 1. get The set Temp From EEPROM
-    set_Temp = EWH_EEPROM_Read();
+//    // 1. get The set Temp From EEPROM
+//    set_Temp = EWH_EEPROM_Read();
     
+    // 2. Enable Timer 
+    TMR1_Start();
+    // 3. clear "No Press Second Count"
+    NoPress_Sec_count=0;
+    // 4. Turn oFF Heater cooler and Heating Element Led while setting Temperature
     DD_SetState(HEATER,OFF);
     DD_SetState(COOLER,OFF);
-    // 2. SSD show the set Temp 
+    DD_SetState(HEATER_LED,OFF);
+    // 5. SSD show the set Temp 
     EWH_SSD_Update(set_Temp);
-    // 3. Enable Timer 
-    TMR1_Start();
-    NoPress_Sec_count=0;
     while(1)
     {
         if(UP_BUTTON_IS_PRESSED && set_Temp<MAX_SET_TEMP)
@@ -112,14 +115,7 @@ void EWH_SetTemp_Mode()
                 NoPress_Sec_count=0;
             }
         }
-        if(EWH_Events[EWH_NO_PRESS_5_SEC_EVENT] || EWH_Events[EWH_ON_OFF_EVENT])
-        {
-            // Save The Last Set Temp in EEPROM
-            EWH_EEPROM_Update(set_Temp);
-            // Leave Set temp Mode and Go to Operating Mode 
-            break ;
-        }
-        //  SSD show the current set Temp
+        //  SSD show the current set Temp with Blinking Every 1 sec
         if(SSD_Blink_flag)
         {
             EWH_SSD_Update(set_Temp);
@@ -127,6 +123,13 @@ void EWH_SetTemp_Mode()
         else
         {
             EWH_SSD_OFF();
+        }
+        if(EWH_Events[EWH_NO_PRESS_5_SEC_EVENT] || EWH_Events[EWH_ON_OFF_EVENT])
+        {
+            // Save The Last Set Temp in EEPROM
+            EWH_EEPROM_Update(set_Temp);
+            // Leave Set temp Mode and Go to Operating Mode 
+            break ;
         }
 
     }
@@ -168,27 +171,27 @@ void EWH_Operating_Mode()
         }
         if(ReadingBufferFull)
         {
-            if(TempavgReading>(set_Temp+5))
+            if(TempavgReading>=(set_Temp+5))
             {
                 DD_SetState(HEATER,OFF); 
                 DD_SetState(COOLER,ON); 
             }
-            else if(TempavgReading<(set_Temp-5))
+            else if(TempavgReading<=(set_Temp-5))
             {
                 DD_SetState(HEATER,ON); 
                 DD_SetState(COOLER,OFF);       
             }
         }
-         if(UP_BUTTON_IS_PRESSED || DOWN_BUTTON_IS_PRESSED )
-         {
-             __delay_ms(50);
-            if(UP_BUTTON_IS_PRESSED || DOWN_BUTTON_IS_PRESSED )
-            {
-             EWH_Events[EWH_PRESS_DOWN_EVENT]=1;
-             EWH_Events[EWH_PRESS_UP_EVENT]=1;
-             break;
-            }
-         }
+        if(UP_BUTTON_IS_PRESSED || DOWN_BUTTON_IS_PRESSED )
+        {
+            __delay_ms(50);
+           if(UP_BUTTON_IS_PRESSED || DOWN_BUTTON_IS_PRESSED )
+           {
+            EWH_Events[EWH_PRESS_DOWN_EVENT]=1;
+            EWH_Events[EWH_PRESS_UP_EVENT]=1;
+            break;
+           }
+        }
         if(EWH_Events[EWH_ON_OFF_EVENT]==1)
             break;
     
@@ -264,6 +267,26 @@ uint8_t EWH_EEPROM_Read()
     return EEPROM_ReadByte(EWH_TEMP_ADDRESS);
 }
 
+void EWH_SSD_ON()
+{
+    SSD_ON(EWH_SSD_1); 
+    SSD_ON(EWH_SSD_2);
+}
+void EWH_SSD_OFF()
+{
+    SSD_OFF(EWH_SSD_1); 
+    SSD_OFF(EWH_SSD_2);
+}
+void EWH_SSD_Update(uint16_t temp)
+{
+    SSD_OFF(EWH_SSD_1); 
+    SSD_Write(EWH_SSD_2,temp%10); 
+    __delay_ms(30);
+    SSD_OFF(EWH_SSD_2); 
+    SSD_Write(EWH_SSD_1,(uint8_t)temp/10);
+    __delay_ms(30);
+}
+
 uint8_t EWH_getAvrgTempReading(uint8_t *buffer, uint8_t length)
 {
     uint16_t sumOfReadings=0;
@@ -296,40 +319,40 @@ void __interrupt() ISR()
         INTF=0;
     }
     
-   if (TMR1IF)
-   {
-      count++;
-      if(EWH_Mode==EWH_OPERATING_MODE)
-      {
-        uint16_t Reading = ADC_ReadChannel(ADC2);
-        current_Temp=Reading*0.488;       
-      }
+    if (TMR1IF)
+    {
+        count++;
+        if(EWH_Mode==EWH_OPERATING_MODE)
+        {
+          uint16_t Reading = ADC_ReadChannel(ADC2);
+          current_Temp=Reading*0.488;       
+        }
 
-      if(count==10)
-      {
-        // Put Your Second Event Here
-          if(EWH_Mode==EWH_SET_TEMP_MODE)
-          {
-              SSD_Blink_flag = ~SSD_Blink_flag;
-              NoPress_Sec_count++;
-              if(NoPress_Sec_count==5)
-              {
-                  EWH_Events[EWH_NO_PRESS_5_SEC_EVENT]=1;
-              }
-          }
-          
-        if(EWH_Mode==EWH_OPERATING_MODE && DD_GetState(HEATER)==ON)
+        if(count==10)
         {
-            GPIO_TogglePin(HEATER_LED_PORT_DATA,HEATER_LED_PIN);
+            // Put Your Second Event Here
+            if(EWH_Mode==EWH_SET_TEMP_MODE)
+            {
+                SSD_Blink_flag = ~SSD_Blink_flag;
+                NoPress_Sec_count++;
+                if(NoPress_Sec_count==5)
+                {
+                    EWH_Events[EWH_NO_PRESS_5_SEC_EVENT]=1;
+                }
+            }
+
+            if(EWH_Mode==EWH_OPERATING_MODE && DD_GetState(HEATER)==ON)
+            {
+                GPIO_TogglePin(HEATER_LED_PORT_DATA,HEATER_LED_PIN);
+            }
+            else if(EWH_Mode==EWH_OPERATING_MODE && DD_GetState(COOLER)==ON)
+            {
+                GPIO_WritePin(HEATER_LED_PORT_DATA,HEATER_LED_PIN,ON);
+            }
+            // Clear The Global Counter
+            count = 0;
         }
-        else if(EWH_Mode==EWH_OPERATING_MODE && DD_GetState(COOLER)==ON)
-        {
-            GPIO_WritePin(HEATER_LED_PORT_DATA,HEATER_LED_PIN,ON);
-        }
-        // Clear The Global Counter
-        count = 0;
-      }
-      TMR1IF = 0; // Clear The Flag Bit
-      TMR1=TMR1_PRE_LOAD_VALUE;
+    TMR1IF = 0; // Clear The Flag Bit
+    TMR1=TMR1_PRE_LOAD_VALUE;
    }
 }

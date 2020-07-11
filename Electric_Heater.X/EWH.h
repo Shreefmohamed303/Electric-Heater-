@@ -38,6 +38,7 @@ uint8_t ReadingBuffer[TEMP_READING_BUFFER_LENGTH];
 uint8_t TempavgReading;
 /*-------------------------- FUNCTION DECLARATION ----------------------------*/
 void EWH_Init();
+
 void EWH_Sleep_Mode();
 void EWH_WakeUP_Mode();
 void EWH_SetTemp_Mode();
@@ -46,5 +47,10 @@ void EWH_Operating_Mode();
 void EWH_EEPROM_Init();
 void EWH_EEPROM_Update(uint8_t newSetTemp);
 uint8_t EWH_EEPROM_Read();
+
+void EWH_SSD_ON();
+void EWH_SSD_OFF();
+void EWH_SSD_Update(uint16_t temp);
+
 uint8_t EWH_getAvrgTempReading(uint8_t *buffer, uint8_t length);
 #endif

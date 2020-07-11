@@ -19,23 +19,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "216
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 216: extern volatile unsigned char PORTB __attribute__((address(0x006)));
 [v _PORTB `Vuc ~T0 @X0 0 e@6 ]
-"29 DD.c
-[; ;DD.c: 29: void DD_SetState(tDD device ,tState state)
+"28 DD.c
+[; ;DD.c: 28: void DD_SetState(tDD device ,tState state)
 [c E884 0 1 2 .. ]
 [n E884 . HEATER COOLER HEATER_LED  ]
-"32 ./SSD.h
-[; ;./SSD.h: 32: void SSD_ON(SSD_ID ID);
-[v _SSD_ON `(v ~T0 @X0 0 ef1`uc ]
-"31
-[; ;./SSD.h: 31: void SSD_OFF(SSD_ID ID);
-[v _SSD_OFF `(v ~T0 @X0 0 ef1`uc ]
-"29
-[; ;./SSD.h: 29: Std_ReturnType SSD_Write(SSD_ID ID ,SSD_Number Number);
-[v _SSD_Write `(uc ~T0 @X0 0 ef2`uc`uc ]
-[v F861 `(v ~T0 @X0 1 tf1`ul ]
-"92 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
-[v __delay `JF861 ~T0 @X0 0 e ]
-[p i __delay ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -291,70 +278,70 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;DD.c: 26: }
 [e :UE 96 ]
 }
-"29
-[; ;DD.c: 29: void DD_SetState(tDD device ,tState state)
+"28
+[; ;DD.c: 28: void DD_SetState(tDD device ,tState state)
 [v _DD_SetState `(v ~T0 @X0 1 ef2`E884`E13 ]
-"30
-[; ;DD.c: 30: {
+"29
+[; ;DD.c: 29: {
 {
 [e :U _DD_SetState ]
-"29
-[; ;DD.c: 29: void DD_SetState(tDD device ,tState state)
+"28
+[; ;DD.c: 28: void DD_SetState(tDD device ,tState state)
 [v _device `E884 ~T0 @X0 1 r1 ]
 [v _state `E13 ~T0 @X0 1 r2 ]
-"30
-[; ;DD.c: 30: {
+"29
+[; ;DD.c: 29: {
 [f ]
-"31
-[; ;DD.c: 31:     switch(device)
+"30
+[; ;DD.c: 30:     switch(device)
 [e $U 99  ]
-"32
-[; ;DD.c: 32:     {
+"31
+[; ;DD.c: 31:     {
 {
-"33
-[; ;DD.c: 33:         case HEATER:
+"32
+[; ;DD.c: 32:         case HEATER:
 [e :U 100 ]
-"34
-[; ;DD.c: 34:             (state)?(PORTC |= (1<<5)) : (PORTC &= ~(1<<5));
+"33
+[; ;DD.c: 33:             (state)?(PORTC |= (1<<5)) : (PORTC &= ~(1<<5));
 [e ? != -> _state `ui -> -> 0 `i `ui : -> =| _PORTC -> << -> 1 `i -> 5 `i `Vuc `i -> =& _PORTC -> ~ << -> 1 `i -> 5 `i `Vuc `i ]
-"35
-[; ;DD.c: 35:             Devices_State.HEATER_State=state;
+"34
+[; ;DD.c: 34:             Devices_State.HEATER_State=state;
 [e = . _Devices_State 0 _state ]
+"35
+[; ;DD.c: 35:             break;
+[e $U 98  ]
 "36
-[; ;DD.c: 36:             break;
-[e $U 98  ]
-"37
-[; ;DD.c: 37:         case COOLER:
+[; ;DD.c: 36:         case COOLER:
 [e :U 101 ]
-"38
-[; ;DD.c: 38:             (state)?(PORTC |= (1<<2)) : (PORTC &= ~(1<<2));
+"37
+[; ;DD.c: 37:             (state)?(PORTC |= (1<<2)) : (PORTC &= ~(1<<2));
 [e ? != -> _state `ui -> -> 0 `i `ui : -> =| _PORTC -> << -> 1 `i -> 2 `i `Vuc `i -> =& _PORTC -> ~ << -> 1 `i -> 2 `i `Vuc `i ]
-"39
-[; ;DD.c: 39:             Devices_State.COOLER_State=state;
+"38
+[; ;DD.c: 38:             Devices_State.COOLER_State=state;
 [e = . _Devices_State 2 _state ]
+"39
+[; ;DD.c: 39:             break;
+[e $U 98  ]
 "40
-[; ;DD.c: 40:             break;
-[e $U 98  ]
-"41
-[; ;DD.c: 41:         case HEATER_LED:
+[; ;DD.c: 40:         case HEATER_LED:
 [e :U 102 ]
-"42
-[; ;DD.c: 42:             (state)?(PORTB |= (1<<7)) : (PORTB &= ~(1<<7));
+"41
+[; ;DD.c: 41:             (state)?(PORTB |= (1<<7)) : (PORTB &= ~(1<<7));
 [e ? != -> _state `ui -> -> 0 `i `ui : -> =| _PORTB -> << -> 1 `i -> 7 `i `Vuc `i -> =& _PORTB -> ~ << -> 1 `i -> 7 `i `Vuc `i ]
-"43
-[; ;DD.c: 43:             Devices_State.HEATER_LED_State=state;
+"42
+[; ;DD.c: 42:             Devices_State.HEATER_LED_State=state;
 [e = . _Devices_State 1 _state ]
-"44
-[; ;DD.c: 44:             break;
+"43
+[; ;DD.c: 43:             break;
 [e $U 98  ]
-"46
-[; ;DD.c: 46:         default:
+"45
+[; ;DD.c: 45:         default:
 [e :U 103 ]
-"47
-[; ;DD.c: 47:             break ;
+"46
+[; ;DD.c: 46:             break ;
 [e $U 98  ]
-"48
-[; ;DD.c: 48:     }
+"47
+[; ;DD.c: 47:     }
 }
 [e $U 98  ]
 [e :U 99 ]
@@ -363,8 +350,8 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E884 2 `ui 102
  103 ]
 [e :U 98 ]
-"49
-[; ;DD.c: 49: }
+"48
+[; ;DD.c: 48: }
 [e :UE 97 ]
 }
 "50
@@ -435,75 +422,4 @@ Version 4.0 HI-TECH Software Intermediate Code
 "67
 [; ;DD.c: 67: }
 [e :UE 104 ]
-}
-"69
-[; ;DD.c: 69: void EWH_SSD_ON()
-[v _EWH_SSD_ON `(v ~T0 @X0 1 ef ]
-"70
-[; ;DD.c: 70: {
-{
-[e :U _EWH_SSD_ON ]
-[f ]
-"71
-[; ;DD.c: 71:     SSD_ON(3);
-[e ( _SSD_ON (1 -> -> 3 `i `uc ]
-"72
-[; ;DD.c: 72:     SSD_ON(4);
-[e ( _SSD_ON (1 -> -> 4 `i `uc ]
-"73
-[; ;DD.c: 73: }
-[e :UE 111 ]
-}
-"75
-[; ;DD.c: 75: void EWH_SSD_OFF()
-[v _EWH_SSD_OFF `(v ~T0 @X0 1 ef ]
-"76
-[; ;DD.c: 76: {
-{
-[e :U _EWH_SSD_OFF ]
-[f ]
-"77
-[; ;DD.c: 77:     SSD_OFF(3);
-[e ( _SSD_OFF (1 -> -> 3 `i `uc ]
-"78
-[; ;DD.c: 78:     SSD_OFF(4);
-[e ( _SSD_OFF (1 -> -> 4 `i `uc ]
-"79
-[; ;DD.c: 79: }
-[e :UE 112 ]
-}
-"81
-[; ;DD.c: 81: void EWH_SSD_Update(uint16_t temp)
-[v _EWH_SSD_Update `(v ~T0 @X0 1 ef1`us ]
-"82
-[; ;DD.c: 82: {
-{
-[e :U _EWH_SSD_Update ]
-"81
-[; ;DD.c: 81: void EWH_SSD_Update(uint16_t temp)
-[v _temp `us ~T0 @X0 1 r1 ]
-"82
-[; ;DD.c: 82: {
-[f ]
-"83
-[; ;DD.c: 83:     SSD_OFF(3);
-[e ( _SSD_OFF (1 -> -> 3 `i `uc ]
-"84
-[; ;DD.c: 84:     SSD_Write(4,temp%10);
-[e ( _SSD_Write (2 , -> -> 4 `i `uc -> % -> _temp `ui -> -> 10 `i `ui `uc ]
-"85
-[; ;DD.c: 85:     _delay((unsigned long)((30)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"86
-[; ;DD.c: 86:     SSD_OFF(4);
-[e ( _SSD_OFF (1 -> -> 4 `i `uc ]
-"87
-[; ;DD.c: 87:     SSD_Write(3,(uint8_t)temp/10);
-[e ( _SSD_Write (2 , -> -> 3 `i `uc -> / -> -> _temp `uc `i -> 10 `i `uc ]
-"88
-[; ;DD.c: 88:     _delay((unsigned long)((30)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"89
-[; ;DD.c: 89: }
-[e :UE 113 ]
 }

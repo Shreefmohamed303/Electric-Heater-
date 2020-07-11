@@ -1917,10 +1917,6 @@ tDD_State Devices_State={OFF,OFF,OFF};
 void DD_Init(void);
 void DD_SetState(tDD device ,tState state);
 tState DD_GetState(tDD device);
-
-void EWH_SSD_ON();
-void EWH_SSD_OFF();
-void EWH_SSD_Update(uint16_t temp);
 # 11 "./main.h" 2
 
 # 1 "./TMR1.h" 1
@@ -1975,6 +1971,7 @@ uint8_t ReadingBuffer[10];
 uint8_t TempavgReading;
 
 void EWH_Init();
+
 void EWH_Sleep_Mode();
 void EWH_WakeUP_Mode();
 void EWH_SetTemp_Mode();
@@ -1983,6 +1980,11 @@ void EWH_Operating_Mode();
 void EWH_EEPROM_Init();
 void EWH_EEPROM_Update(uint8_t newSetTemp);
 uint8_t EWH_EEPROM_Read();
+
+void EWH_SSD_ON();
+void EWH_SSD_OFF();
+void EWH_SSD_Update(uint16_t temp);
+
 uint8_t EWH_getAvrgTempReading(uint8_t *buffer, uint8_t length);
 # 2 "main.c" 2
 

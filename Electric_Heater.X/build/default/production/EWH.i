@@ -1916,10 +1916,6 @@ tDD_State Devices_State={OFF,OFF,OFF};
 void DD_Init(void);
 void DD_SetState(tDD device ,tState state);
 tState DD_GetState(tDD device);
-
-void EWH_SSD_ON();
-void EWH_SSD_OFF();
-void EWH_SSD_Update(uint16_t temp);
 # 11 "./main.h" 2
 
 # 1 "./TMR1.h" 1
@@ -1974,6 +1970,7 @@ uint8_t ReadingBuffer[10];
 uint8_t TempavgReading;
 
 void EWH_Init();
+
 void EWH_Sleep_Mode();
 void EWH_WakeUP_Mode();
 void EWH_SetTemp_Mode();
@@ -1982,6 +1979,11 @@ void EWH_Operating_Mode();
 void EWH_EEPROM_Init();
 void EWH_EEPROM_Update(uint8_t newSetTemp);
 uint8_t EWH_EEPROM_Read();
+
+void EWH_SSD_ON();
+void EWH_SSD_OFF();
+void EWH_SSD_Update(uint16_t temp);
+
 uint8_t EWH_getAvrgTempReading(uint8_t *buffer, uint8_t length);
 # 1 "EWH.c" 2
 
@@ -2043,7 +2045,7 @@ void EWH_Sleep_Mode()
     (OFF)?(PORTB |= (1<<5)) : (PORTB &= ~(1<<5));
     (OFF)?(PORTB |= (1<<6)) : (PORTB &= ~(1<<6));
 
-    __asm("sleep");
+
 }
 void EWH_WakeUP_Mode()
 {
@@ -2101,15 +2103,18 @@ void EWH_SetTemp_Mode()
 
 
 
-    set_Temp = EWH_EEPROM_Read();
+
+
+
+    TMR1_Start();
+
+    NoPress_Sec_count=0;
 
     DD_SetState(HEATER,OFF);
     DD_SetState(COOLER,OFF);
+    DD_SetState(HEATER_LED,OFF);
 
     EWH_SSD_Update(set_Temp);
-
-    TMR1_Start();
-    NoPress_Sec_count=0;
     while(1)
     {
         if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED) && set_Temp<75)
@@ -2130,13 +2135,6 @@ void EWH_SetTemp_Mode()
                 NoPress_Sec_count=0;
             }
         }
-        if(EWH_Events[3] || EWH_Events[0])
-        {
-
-            EWH_EEPROM_Update(set_Temp);
-
-            break ;
-        }
 
         if(SSD_Blink_flag)
         {
@@ -2145,6 +2143,13 @@ void EWH_SetTemp_Mode()
         else
         {
             EWH_SSD_OFF();
+        }
+        if(EWH_Events[3] || EWH_Events[0])
+        {
+
+            EWH_EEPROM_Update(set_Temp);
+
+            break ;
         }
 
     }
@@ -2186,27 +2191,27 @@ void EWH_Operating_Mode()
         }
         if(ReadingBufferFull)
         {
-            if(TempavgReading>(set_Temp+5))
+            if(TempavgReading>=(set_Temp+5))
             {
                 DD_SetState(HEATER,OFF);
                 DD_SetState(COOLER,ON);
             }
-            else if(TempavgReading<(set_Temp-5))
+            else if(TempavgReading<=(set_Temp-5))
             {
                 DD_SetState(HEATER,ON);
                 DD_SetState(COOLER,OFF);
             }
         }
-         if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED) || (!((PORTB & (1<<1)) >> 1)==SW_PRESSED) )
-         {
-             _delay((unsigned long)((50)*(4000000/4000.0)));
-            if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED) || (!((PORTB & (1<<1)) >> 1)==SW_PRESSED) )
-            {
-             EWH_Events[2]=1;
-             EWH_Events[1]=1;
-             break;
-            }
-         }
+        if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED) || (!((PORTB & (1<<1)) >> 1)==SW_PRESSED) )
+        {
+            _delay((unsigned long)((50)*(4000000/4000.0)));
+           if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED) || (!((PORTB & (1<<1)) >> 1)==SW_PRESSED) )
+           {
+            EWH_Events[2]=1;
+            EWH_Events[1]=1;
+            break;
+           }
+        }
         if(EWH_Events[0]==1)
             break;
 
@@ -2282,6 +2287,26 @@ uint8_t EWH_EEPROM_Read()
     return EEPROM_ReadByte(0x0020);
 }
 
+void EWH_SSD_ON()
+{
+    SSD_ON(3);
+    SSD_ON(4);
+}
+void EWH_SSD_OFF()
+{
+    SSD_OFF(3);
+    SSD_OFF(4);
+}
+void EWH_SSD_Update(uint16_t temp)
+{
+    SSD_OFF(3);
+    SSD_Write(4,temp%10);
+    _delay((unsigned long)((30)*(4000000/4000.0)));
+    SSD_OFF(4);
+    SSD_Write(3,(uint8_t)temp/10);
+    _delay((unsigned long)((30)*(4000000/4000.0)));
+}
+
 uint8_t EWH_getAvrgTempReading(uint8_t *buffer, uint8_t length)
 {
     uint16_t sumOfReadings=0;
@@ -2314,40 +2339,40 @@ void __attribute__((picinterrupt(("")))) ISR()
         INTF=0;
     }
 
-   if (TMR1IF)
-   {
-      count++;
-      if(EWH_Mode==EWH_OPERATING_MODE)
-      {
-        uint16_t Reading = ADC_ReadChannel(ADC2);
-        current_Temp=Reading*0.488;
-      }
-
-      if(count==10)
-      {
-
-          if(EWH_Mode==EWH_SET_TEMP_MODE)
-          {
-              SSD_Blink_flag = ~SSD_Blink_flag;
-              NoPress_Sec_count++;
-              if(NoPress_Sec_count==5)
-              {
-                  EWH_Events[3]=1;
-              }
-          }
-
-        if(EWH_Mode==EWH_OPERATING_MODE && DD_GetState(HEATER)==ON)
+    if (TMR1IF)
+    {
+        count++;
+        if(EWH_Mode==EWH_OPERATING_MODE)
         {
-            (PORTB^=(1<<7));
-        }
-        else if(EWH_Mode==EWH_OPERATING_MODE && DD_GetState(COOLER)==ON)
-        {
-            (ON)?(PORTB |= (1<<7)) : (PORTB &= ~(1<<7));
+          uint16_t Reading = ADC_ReadChannel(ADC2);
+          current_Temp=Reading*0.488;
         }
 
-        count = 0;
-      }
-      TMR1IF = 0;
-      TMR1=40536;
+        if(count==10)
+        {
+
+            if(EWH_Mode==EWH_SET_TEMP_MODE)
+            {
+                SSD_Blink_flag = ~SSD_Blink_flag;
+                NoPress_Sec_count++;
+                if(NoPress_Sec_count==5)
+                {
+                    EWH_Events[3]=1;
+                }
+            }
+
+            if(EWH_Mode==EWH_OPERATING_MODE && DD_GetState(HEATER)==ON)
+            {
+                (PORTB^=(1<<7));
+            }
+            else if(EWH_Mode==EWH_OPERATING_MODE && DD_GetState(COOLER)==ON)
+            {
+                (ON)?(PORTB |= (1<<7)) : (PORTB &= ~(1<<7));
+            }
+
+            count = 0;
+        }
+    TMR1IF = 0;
+    TMR1=40536;
    }
 }

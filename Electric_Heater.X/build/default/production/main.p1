@@ -9,8 +9,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S97 . HEATER_State HEATER_LED_State COOLER_State ]
 "29 ./EWH.h
 [; ;./EWH.h: 29: sEWH_Mode EWH_Mode=EWH_SLEEP_MODE;
-[c E1016 0 1 2 3 .. ]
-[n E1016 . EWH_SLEEP_MODE EWH_WAKE_UP_MODE EWH_SET_TEMP_MODE EWH_OPERATING_MODE  ]
+[c E1012 0 1 2 3 .. ]
+[n E1012 . EWH_SLEEP_MODE EWH_WAKE_UP_MODE EWH_SET_TEMP_MODE EWH_OPERATING_MODE  ]
 "35
 [; ;./EWH.h: 35: tbool SSD_Blink_flag=FALSE;
 [c E865 0 1 .. ]
@@ -33,17 +33,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "216
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 216: extern volatile unsigned char PORTB __attribute__((address(0x006)));
 [v _PORTB `Vuc ~T0 @X0 0 e@6 ]
-"41 ./EWH.h
-[; ;./EWH.h: 41: void EWH_Sleep_Mode();
+"42 ./EWH.h
+[; ;./EWH.h: 42: void EWH_Sleep_Mode();
 [v _EWH_Sleep_Mode `(v ~T0 @X0 0 e? ]
-"42
-[; ;./EWH.h: 42: void EWH_WakeUP_Mode();
-[v _EWH_WakeUP_Mode `(v ~T0 @X0 0 e? ]
-"44
-[; ;./EWH.h: 44: void EWH_Operating_Mode();
-[v _EWH_Operating_Mode `(v ~T0 @X0 0 e? ]
 "43
-[; ;./EWH.h: 43: void EWH_SetTemp_Mode();
+[; ;./EWH.h: 43: void EWH_WakeUP_Mode();
+[v _EWH_WakeUP_Mode `(v ~T0 @X0 0 e? ]
+"45
+[; ;./EWH.h: 45: void EWH_Operating_Mode();
+[v _EWH_Operating_Mode `(v ~T0 @X0 0 e? ]
+"44
+[; ;./EWH.h: 44: void EWH_SetTemp_Mode();
 [v _EWH_SetTemp_Mode `(v ~T0 @X0 0 e? ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
@@ -278,9 +278,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 "29
 [; ;./EWH.h: 29: sEWH_Mode EWH_Mode=EWH_SLEEP_MODE;
-[v _EWH_Mode `E1016 ~T0 @X0 1 e ]
+[v _EWH_Mode `E1012 ~T0 @X0 1 e ]
 [i _EWH_Mode
-. `E1016 0
+. `E1012 0
 ]
 "30
 [; ;./EWH.h: 30: uint8_t set_Temp;
@@ -434,10 +434,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 104  ]
 [e :U 105 ]
-[e [\ -> _EWH_Mode `ui , $ -> . `E1016 0 `ui 106
- , $ -> . `E1016 1 `ui 107
- , $ -> . `E1016 3 `ui 108
- , $ -> . `E1016 2 `ui 109
+[e [\ -> _EWH_Mode `ui , $ -> . `E1012 0 `ui 106
+ , $ -> . `E1012 1 `ui 107
+ , $ -> . `E1012 3 `ui 108
+ , $ -> . `E1012 2 `ui 109
  104 ]
 [e :U 104 ]
 "33
