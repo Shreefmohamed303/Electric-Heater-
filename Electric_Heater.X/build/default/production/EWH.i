@@ -1797,7 +1797,6 @@ typedef uint8_t SSD_Number;
 
 static void SSD_config (SSD_ID ID ,tState Display_state);
 Std_ReturnType SSD_Write(SSD_ID ID ,SSD_Number Number);
-void Heater_Display(uint16_t temp);
 void SSD_OFF(SSD_ID ID);
 void SSD_ON(SSD_ID ID);
 # 7 "./main.h" 2
@@ -1942,7 +1941,6 @@ typedef struct
 
 void TMR1_Init(tTMR1_Config *config);
 void TMR1_Start();
-void TMR1_Update();
 void TMR1_Stop();
 # 12 "./main.h" 2
 # 17 "./EWH.h" 2

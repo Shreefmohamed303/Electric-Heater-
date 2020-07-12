@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.20\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\Electric_Heater.X.production.sym \
   --cmf=dist/default/production\Electric_Heater.X.production.cmf -z \
-  -Q16F877A -oC:\Users\LENOVO\AppData\Local\Temp\sj7o.2 \
+  -Q16F877A -oC:\Users\LENOVO\AppData\Local\Temp\secg.2 \
   --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/Electric_Heater.X.production.map -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK \
@@ -19,7 +19,7 @@ Linker command line:
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
   -pfunctab=ENTRY -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 \
   -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  C:\Users\LENOVO\AppData\Local\Temp\sj7o.o \
+  C:\Users\LENOVO\AppData\Local\Temp\secg.o \
   dist/default/production\Electric_Heater.X.production.o 
 
 Object code version is 3.11
@@ -29,7 +29,7 @@ Machine type is 16F877A
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\LENOVO\AppData\Local\Temp\sj7o.o
+C:\Users\LENOVO\AppData\Local\Temp\secg.o
                 end_init                             12       12        3        8       0
                 reset_vec                             0        0        3        0       0
                 config                             2007     2007        1        0       4
@@ -1149,7 +1149,7 @@ Total ram usage:        3 bytes
 
  *************** function _TMR1_Stop *****************
  Defined at:
-		line 56 in file "TMR1.c"
+		line 53 in file "TMR1.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1281,9 +1281,9 @@ Total ram usage:        7 bytes
  Defined at:
 		line 301 in file "EWH.c"
  Parameters:    Size  Location     Type
-  new_mode        1    wreg     enum E1012
+  new_mode        1    wreg     enum E1009
  Auto vars:     Size  Location     Type
-  new_mode        1    0[BANK1 ] enum E1012
+  new_mode        1    0[BANK1 ] enum E1009
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1402,7 +1402,6 @@ Total ram usage:        5 bytes
 		Nothing
  This function is called by:
 		_EWH_SSD_Update
-		_Heater_Display
  This function uses a non-reentrant model
 
 
@@ -1436,7 +1435,6 @@ Total ram usage:        8 bytes
 		Nothing
  This function is called by:
 		_EWH_SSD_Update
-		_Heater_Display
  This function uses a non-reentrant model
 
 
@@ -1468,13 +1466,12 @@ Total ram usage:        2 bytes
 		_SSD_config
  This function is called by:
 		_EWH_SSD_Update
-		_Heater_Display
  This function uses a non-reentrant model
 
 
  *************** function _SSD_OFF *****************
  Defined at:
-		line 71 in file "SSD.c"
+		line 61 in file "SSD.c"
  Parameters:    Size  Location     Type
   ID              1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -1532,7 +1529,6 @@ Total ram usage:        4 bytes
  This function is called by:
 		_SSD_Write
 		_SSD_OFF
-		_Heater_Display
 		_SSD_ON
  This function uses a non-reentrant model
 
@@ -1573,10 +1569,10 @@ Total ram usage:        1 bytes
  Defined at:
 		line 28 in file "DD.c"
  Parameters:    Size  Location     Type
-  device          1    wreg     enum E884
+  device          1    wreg     enum E882
   state           1    0[BANK1 ] enum E13
  Auto vars:     Size  Location     Type
-  device          1    3[BANK1 ] enum E884
+  device          1    3[BANK1 ] enum E882
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -2101,9 +2097,9 @@ Total ram usage:        8 bytes
  Defined at:
 		line 301 in file "EWH.c"
  Parameters:    Size  Location     Type
-  new_mode        1    wreg     enum E1012
+  new_mode        1    wreg     enum E1009
  Auto vars:     Size  Location     Type
-  new_mode        1    0[COMMON] enum E1012
+  new_mode        1    0[COMMON] enum E1009
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -2320,9 +2316,9 @@ Total ram usage:        6 bytes
  Defined at:
 		line 50 in file "DD.c"
  Parameters:    Size  Location     Type
-  device          1    wreg     enum E884
+  device          1    wreg     enum E882
  Auto vars:     Size  Location     Type
-  device          1    2[COMMON] enum E884
+  device          1    2[COMMON] enum E882
  Return value:  Size  Location     Type
                   1    wreg      enum E13
  Registers used:

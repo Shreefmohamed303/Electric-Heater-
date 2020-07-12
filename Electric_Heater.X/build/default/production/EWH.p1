@@ -9,32 +9,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S97 . HEATER_State HEATER_LED_State COOLER_State ]
 "42 ./EWH.h
 [; ;./EWH.h: 42: sEWH_Mode EWH_Mode=EWH_SLEEP_MODE;
-[c E1012 0 1 2 3 .. ]
-[n E1012 . EWH_SLEEP_MODE EWH_WAKE_UP_MODE EWH_SET_TEMP_MODE EWH_OPERATING_MODE  ]
+[c E1009 0 1 2 3 .. ]
+[n E1009 . EWH_SLEEP_MODE EWH_WAKE_UP_MODE EWH_SET_TEMP_MODE EWH_OPERATING_MODE  ]
 "48
 [; ;./EWH.h: 48: tbool SSD_Blink_flag=FALSE;
 [c E865 0 1 .. ]
 [n E865 . FALSE TRUE  ]
 "47 ./SW.h
 [; ;./SW.h: 47: tSW_StateControl SW_StateControl={SW_REALESED,SW_REALESED,SW_REALESED};
-[c E1056 0 1 .. ]
-[n E1056 . SW_REALESED SW_PRESSED  ]
+[c E1053 0 1 .. ]
+[n E1053 . SW_REALESED SW_PRESSED  ]
 "39
 [; ;./SW.h: 39: {
-[s S99 `E1056 1 `E1056 1 `E1056 1 ]
+[s S99 `E1053 1 `E1053 1 `E1053 1 ]
 [n S99 . ON_OFF_Button_State UP_Button_State DOWN_Button_State ]
 "68 ./EWH.h
 [; ;./EWH.h: 68: void EWH_SSD_OFF();
 [v _EWH_SSD_OFF `(v ~T0 @X0 0 e? ]
 "25 EWH.c
 [; ;EWH.c: 25:     DD_SetState(HEATER,OFF);
-[c E975 0 1 2 .. ]
-[n E975 . HEATER COOLER HEATER_LED  ]
+[c E973 0 1 2 .. ]
+[n E973 . HEATER COOLER HEATER_LED  ]
 "39 ./DD.h
 [; ;./DD.h: 39: void DD_SetState(tDD device ,tState state);
-[v _DD_SetState `(v ~T0 @X0 0 ef2`E975`E861 ]
-"79 ./TMR1.h
-[; ;./TMR1.h: 79: void TMR1_Stop();
+[v _DD_SetState `(v ~T0 @X0 0 ef2`E973`E861 ]
+"78 ./TMR1.h
+[; ;./TMR1.h: 78: void TMR1_Stop();
 [v _TMR1_Stop `(v ~T0 @X0 0 e? ]
 "56 ./EWH.h
 [; ;./EWH.h: 56: void EWH_ClearEvent(uint8_t Event_index);
@@ -54,7 +54,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p i __delay ]
 "54 ./EWH.h
 [; ;./EWH.h: 54: void EWH_SetMode(sEWH_Mode mode);
-[v _EWH_SetMode `(v ~T0 @X0 0 ef1`E1012 ]
+[v _EWH_SetMode `(v ~T0 @X0 0 ef1`E1009 ]
 "77 ./TMR1.h
 [; ;./TMR1.h: 77: void TMR1_Start();
 [v _TMR1_Start `(v ~T0 @X0 0 e? ]
@@ -69,43 +69,43 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _EWH_SetEvent `(v ~T0 @X0 0 ef1`uc ]
 "265 EWH.c
 [; ;EWH.c: 265:     tTMR1_Config TMR1_cfg;
-[c E992 0 1 2 3 .. ]
-[n E992 . TMR1_PRESCALER_1 TMR1_PRESCALER_2 TMR1_PRESCALER_4 TMR1_PRESCALER_8  ]
-[c E998 0 1 .. ]
-[n E998 . INTERNAL_CLK_SOURCE EXTERNAL_CLK_SOURCE  ]
+[c E990 0 1 2 3 .. ]
+[n E990 . TMR1_PRESCALER_1 TMR1_PRESCALER_2 TMR1_PRESCALER_4 TMR1_PRESCALER_8  ]
+[c E996 0 1 .. ]
+[n E996 . INTERNAL_CLK_SOURCE EXTERNAL_CLK_SOURCE  ]
 "71 ./TMR1.h
 [; ;./TMR1.h: 71: {
-[s S98 `E992 1 `E998 1 ]
+[s S98 `E990 1 `E996 1 ]
 [n S98 . Prescaler clkSource ]
 "76
 [; ;./TMR1.h: 76: void TMR1_Init(tTMR1_Config *config);
 [v _TMR1_Init `(v ~T0 @X0 0 ef1`*S98 ]
 "273 EWH.c
 [; ;EWH.c: 273:     tADC_Config adc_config;
-[c E934 0 1 2 3 4 5 6 7 8 .. ]
-[n E934 . ADC0 ADC1 ADC2 ADC3 ADC4 ADC5 ADC6 ADC7 ADC8  ]
-[c E945 0 1 .. ]
-[n E945 . POLLING_MODE INTERRUPT_MODE  ]
-[c E949 0 1 .. ]
-[n E949 . LEFT RIGHT  ]
-[c E953 0 1 2 3 4 5 6 .. ]
-[n E953 . FOSC_2 FOSC_8 FOSC_32 FRC FOSC_4 FOSC_16 FOSC_64  ]
+[c E932 0 1 2 3 4 5 6 7 8 .. ]
+[n E932 . ADC0 ADC1 ADC2 ADC3 ADC4 ADC5 ADC6 ADC7 ADC8  ]
+[c E943 0 1 .. ]
+[n E943 . POLLING_MODE INTERRUPT_MODE  ]
+[c E947 0 1 .. ]
+[n E947 . LEFT RIGHT  ]
+[c E951 0 1 2 3 4 5 6 .. ]
+[n E951 . FOSC_2 FOSC_8 FOSC_32 FRC FOSC_4 FOSC_16 FOSC_64  ]
 "43 ./adc.h
 [; ;./adc.h: 43: {
-[s S96 `E934 1 `E945 1 `E949 1 `E953 1 ]
+[s S96 `E932 1 `E943 1 `E947 1 `E951 1 ]
 [n S96 . channel mode alignment clk ]
 "52
 [; ;./adc.h: 52: void ADC_Init(tADC_Config* config);
 [v _ADC_Init `(v ~T0 @X0 0 ef1`*S96 ]
 "283 EWH.c
 [; ;EWH.c: 283:     tI2C_Config i2c_config;
-[c E884 6 7 8 11 14 15 .. ]
-[n E884 . Slave_7bit_Mode Slave_10bit_Mode Master_Mode Frimware_Master_Mode Slave_7bit_INT_Mode Slave_10bit_INT_Mode  ]
-[c E900 1 0 .. ]
-[n E900 . INTERRUPT POLLING  ]
+[c E882 6 7 8 11 14 15 .. ]
+[n E882 . Slave_7bit_Mode Slave_10bit_Mode Master_Mode Frimware_Master_Mode Slave_7bit_INT_Mode Slave_10bit_INT_Mode  ]
+[c E898 1 0 .. ]
+[n E898 . INTERRUPT POLLING  ]
 "67 ./i2c.h
 [; ;./i2c.h: 67: {
-[s S95 `E884 1 `uo 1 `E900 1 ]
+[s S95 `E882 1 `uo 1 `E898 1 ]
 [n S95 . Mode BaudRate operationMode ]
 "81
 [; ;./i2c.h: 81: void I2C_Init(tI2C_Config *i2c_config);
@@ -125,11 +125,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "25
 [; ;./EEPROM.h: 25: uint8_t EEPROM_ReadByte(uint16_t address );
 [v _EEPROM_ReadByte `(uc ~T0 @X0 0 ef1`us ]
-"44 ./SSD.h
-[; ;./SSD.h: 44: void SSD_ON(SSD_ID ID);
+"43 ./SSD.h
+[; ;./SSD.h: 43: void SSD_ON(SSD_ID ID);
 [v _SSD_ON `(v ~T0 @X0 0 ef1`uc ]
-"43
-[; ;./SSD.h: 43: void SSD_OFF(SSD_ID ID);
+"42
+[; ;./SSD.h: 42: void SSD_OFF(SSD_ID ID);
 [v _SSD_OFF `(v ~T0 @X0 0 ef1`uc ]
 "41
 [; ;./SSD.h: 41: Std_ReturnType SSD_Write(SSD_ID ID ,SSD_Number Number);
@@ -144,10 +144,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _TMR1IF `Vb ~T0 @X0 0 e@96 ]
 "53 ./adc.h
 [; ;./adc.h: 53: uint16_t ADC_ReadChannel(tADC_Channel_Select channel);
-[v _ADC_ReadChannel `(us ~T0 @X0 0 ef1`E934 ]
+[v _ADC_ReadChannel `(us ~T0 @X0 0 ef1`E932 ]
 "40 ./DD.h
 [; ;./DD.h: 40: tState DD_GetState(tDD device);
-[v _DD_GetState `(E861 ~T0 @X0 0 ef1`E975 ]
+[v _DD_GetState `(E861 ~T0 @X0 0 ef1`E973 ]
 "634 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 634: extern volatile unsigned short TMR1 __attribute__((address(0x00E)));
 [v _TMR1 `Vus ~T0 @X0 0 e@14 ]
@@ -384,9 +384,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 "42
 [; ;./EWH.h: 42: sEWH_Mode EWH_Mode=EWH_SLEEP_MODE;
-[v _EWH_Mode `E1012 ~T0 @X0 1 e ]
+[v _EWH_Mode `E1009 ~T0 @X0 1 e ]
 [i _EWH_Mode
-. `E1012 0
+. `E1009 0
 ]
 "43
 [; ;./EWH.h: 43: uint8_t set_Temp;
@@ -441,20 +441,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _SW_StateControl
 :U ..
 :U ..
-. `E1056 0
-. `E1056 0
-. `E1056 0
+. `E1053 0
+. `E1053 0
+. `E1053 0
 ..
 ..
 ]
 "48
 [; ;./SW.h: 48: tSW_State SW_State[3]={SW_REALESED,SW_REALESED,SW_REALESED};
-[v _SW_State `E1056 ~T0 @X0 -> 3 `i e ]
+[v _SW_State `E1053 ~T0 @X0 -> 3 `i e ]
 [i _SW_State
 :U ..
-. `E1056 0
-. `E1056 0
-. `E1056 0
+. `E1053 0
+. `E1053 0
+. `E1053 0
 ..
 ]
 "17 EWH.c
@@ -470,13 +470,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _EWH_SSD_OFF ..  ]
 "25
 [; ;EWH.c: 25:     DD_SetState(HEATER,OFF);
-[e ( _DD_SetState (2 , . `E975 0 . `E861 0 ]
+[e ( _DD_SetState (2 , . `E973 0 . `E861 0 ]
 "27
 [; ;EWH.c: 27:     DD_SetState(COOLER,OFF);
-[e ( _DD_SetState (2 , . `E975 1 . `E861 0 ]
+[e ( _DD_SetState (2 , . `E973 1 . `E861 0 ]
 "29
 [; ;EWH.c: 29:     DD_SetState(HEATER_LED,OFF);
-[e ( _DD_SetState (2 , . `E975 2 . `E861 0 ]
+[e ( _DD_SetState (2 , . `E973 2 . `E861 0 ]
 "31
 [; ;EWH.c: 31:     TMR1_Stop();
 [e ( _TMR1_Stop ..  ]
@@ -509,7 +509,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _EWH_SSD_Update (1 -> _set_Temp `us ]
 "53
 [; ;EWH.c: 53:         if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED))
-[e $ ! == -> ! != >> & -> _PORTB `i << -> 1 `i -> 2 `i -> 2 `i -> 0 `i `i -> . `E1056 1 `i 105  ]
+[e $ ! == -> ! != >> & -> _PORTB `i << -> 1 `i -> 2 `i -> 2 `i -> 0 `i `i -> . `E1053 1 `i 105  ]
 "54
 [; ;EWH.c: 54:         {
 {
@@ -518,7 +518,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "56
 [; ;EWH.c: 56:             if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED))
-[e $ ! == -> ! != >> & -> _PORTB `i << -> 1 `i -> 2 `i -> 2 `i -> 0 `i `i -> . `E1056 1 `i 106  ]
+[e $ ! == -> ! != >> & -> _PORTB `i << -> 1 `i -> 2 `i -> 2 `i -> 0 `i `i -> . `E1053 1 `i 106  ]
 "57
 [; ;EWH.c: 57:             {
 {
@@ -527,7 +527,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _NoPress_Sec_count -> -> 0 `i `uc ]
 "65
 [; ;EWH.c: 65:                 EWH_SetMode(EWH_SET_TEMP_MODE);
-[e ( _EWH_SetMode (1 . `E1012 2 ]
+[e ( _EWH_SetMode (1 . `E1009 2 ]
 "67
 [; ;EWH.c: 67:                 break;
 [e $U 104  ]
@@ -541,7 +541,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 105 ]
 "70
 [; ;EWH.c: 70:         if((!((PORTB & (1<<1)) >> 1)==SW_PRESSED))
-[e $ ! == -> ! != >> & -> _PORTB `i << -> 1 `i -> 1 `i -> 1 `i -> 0 `i `i -> . `E1056 1 `i 107  ]
+[e $ ! == -> ! != >> & -> _PORTB `i << -> 1 `i -> 1 `i -> 1 `i -> 0 `i `i -> . `E1053 1 `i 107  ]
 "71
 [; ;EWH.c: 71:         {
 {
@@ -550,7 +550,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "73
 [; ;EWH.c: 73:             if((!((PORTB & (1<<1)) >> 1)==SW_PRESSED))
-[e $ ! == -> ! != >> & -> _PORTB `i << -> 1 `i -> 1 `i -> 1 `i -> 0 `i `i -> . `E1056 1 `i 108  ]
+[e $ ! == -> ! != >> & -> _PORTB `i << -> 1 `i -> 1 `i -> 1 `i -> 0 `i `i -> . `E1053 1 `i 108  ]
 "74
 [; ;EWH.c: 74:             {
 {
@@ -559,7 +559,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _NoPress_Sec_count -> -> 0 `i `uc ]
 "82
 [; ;EWH.c: 82:                 EWH_SetMode(EWH_SET_TEMP_MODE);
-[e ( _EWH_SetMode (1 . `E1012 2 ]
+[e ( _EWH_SetMode (1 . `E1009 2 ]
 "84
 [; ;EWH.c: 84:                 break;
 [e $U 104  ]
@@ -582,7 +582,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _EWH_ClearEvent (1 -> -> 0 `i `uc ]
 "92
 [; ;EWH.c: 92:             EWH_SetMode(EWH_SLEEP_MODE);
-[e ( _EWH_SetMode (1 . `E1012 0 ]
+[e ( _EWH_SetMode (1 . `E1009 0 ]
 "94
 [; ;EWH.c: 94:             break ;
 [e $U 104  ]
@@ -616,13 +616,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _NoPress_Sec_count -> -> 0 `i `uc ]
 "110
 [; ;EWH.c: 110:     DD_SetState(HEATER,OFF);
-[e ( _DD_SetState (2 , . `E975 0 . `E861 0 ]
+[e ( _DD_SetState (2 , . `E973 0 . `E861 0 ]
 "111
 [; ;EWH.c: 111:     DD_SetState(COOLER,OFF);
-[e ( _DD_SetState (2 , . `E975 1 . `E861 0 ]
+[e ( _DD_SetState (2 , . `E973 1 . `E861 0 ]
 "112
 [; ;EWH.c: 112:     DD_SetState(HEATER_LED,OFF);
-[e ( _DD_SetState (2 , . `E975 2 . `E861 0 ]
+[e ( _DD_SetState (2 , . `E973 2 . `E861 0 ]
 "114
 [; ;EWH.c: 114:     EWH_SSD_Update(set_Temp);
 [e ( _EWH_SSD_Update (1 -> _set_Temp `us ]
@@ -634,7 +634,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "118
 [; ;EWH.c: 118:         if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED) && set_Temp<75)
-[e $ ! && == -> ! != >> & -> _PORTB `i << -> 1 `i -> 2 `i -> 2 `i -> 0 `i `i -> . `E1056 1 `i < -> _set_Temp `i -> 75 `i 114  ]
+[e $ ! && == -> ! != >> & -> _PORTB `i << -> 1 `i -> 2 `i -> 2 `i -> 0 `i `i -> . `E1053 1 `i < -> _set_Temp `i -> 75 `i 114  ]
 "119
 [; ;EWH.c: 119:         {
 {
@@ -643,7 +643,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "121
 [; ;EWH.c: 121:             if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED))
-[e $ ! == -> ! != >> & -> _PORTB `i << -> 1 `i -> 2 `i -> 2 `i -> 0 `i `i -> . `E1056 1 `i 115  ]
+[e $ ! == -> ! != >> & -> _PORTB `i << -> 1 `i -> 2 `i -> 2 `i -> 0 `i `i -> . `E1053 1 `i 115  ]
 "122
 [; ;EWH.c: 122:             {
 {
@@ -664,7 +664,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "127
 [; ;EWH.c: 127:         else if ((!((PORTB & (1<<1)) >> 1)==SW_PRESSED) && set_Temp>35)
 [e :U 114 ]
-[e $ ! && == -> ! != >> & -> _PORTB `i << -> 1 `i -> 1 `i -> 1 `i -> 0 `i `i -> . `E1056 1 `i > -> _set_Temp `i -> 35 `i 117  ]
+[e $ ! && == -> ! != >> & -> _PORTB `i << -> 1 `i -> 1 `i -> 1 `i -> 0 `i `i -> . `E1053 1 `i > -> _set_Temp `i -> 35 `i 117  ]
 "128
 [; ;EWH.c: 128:         {
 {
@@ -673,7 +673,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "130
 [; ;EWH.c: 130:             if((!((PORTB & (1<<1)) >> 1)==SW_PRESSED))
-[e $ ! == -> ! != >> & -> _PORTB `i << -> 1 `i -> 1 `i -> 1 `i -> 0 `i `i -> . `E1056 1 `i 118  ]
+[e $ ! == -> ! != >> & -> _PORTB `i << -> 1 `i -> 1 `i -> 1 `i -> 0 `i `i -> . `E1053 1 `i 118  ]
 "131
 [; ;EWH.c: 131:             {
 {
@@ -732,7 +732,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _EWH_ClearEvent (1 -> -> 0 `i `uc ]
 "154
 [; ;EWH.c: 154:             EWH_SetMode(EWH_SLEEP_MODE);
-[e ( _EWH_SetMode (1 . `E1012 0 ]
+[e ( _EWH_SetMode (1 . `E1009 0 ]
 "156
 [; ;EWH.c: 156:             break ;
 [e $U 113  ]
@@ -742,7 +742,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 121 ]
 "158
 [; ;EWH.c: 158:         if(EWH_Events[3]==1 && (EWH_Mode!=EWH_SLEEP_MODE))
-[e $ ! && == -> *U + &U _EWH_Events * -> -> -> 3 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux `ui -> -> 1 `i `ui != -> _EWH_Mode `ui -> . `E1012 0 `ui 122  ]
+[e $ ! && == -> *U + &U _EWH_Events * -> -> -> 3 `i `ui `ux -> -> # *U &U _EWH_Events `ui `ux `ui -> -> 1 `i `ui != -> _EWH_Mode `ui -> . `E1009 0 `ui 122  ]
 "159
 [; ;EWH.c: 159:         {
 {
@@ -757,7 +757,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _NoPress_Sec_count -> -> 0 `i `uc ]
 "167
 [; ;EWH.c: 167:             EWH_SetMode(EWH_OPERATING_MODE);
-[e ( _EWH_SetMode (1 . `E1012 3 ]
+[e ( _EWH_SetMode (1 . `E1009 3 ]
 "169
 [; ;EWH.c: 169:             break ;
 [e $U 113  ]
@@ -825,10 +825,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "197
 [; ;EWH.c: 197:                 DD_SetState(HEATER,OFF);
-[e ( _DD_SetState (2 , . `E975 0 . `E861 0 ]
+[e ( _DD_SetState (2 , . `E973 0 . `E861 0 ]
 "198
 [; ;EWH.c: 198:                 DD_SetState(COOLER,ON);
-[e ( _DD_SetState (2 , . `E975 1 . `E861 1 ]
+[e ( _DD_SetState (2 , . `E973 1 . `E861 1 ]
 "199
 [; ;EWH.c: 199:             }
 }
@@ -842,10 +842,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "202
 [; ;EWH.c: 202:                 DD_SetState(HEATER,ON);
-[e ( _DD_SetState (2 , . `E975 0 . `E861 1 ]
+[e ( _DD_SetState (2 , . `E973 0 . `E861 1 ]
 "203
 [; ;EWH.c: 203:                 DD_SetState(COOLER,OFF);
-[e ( _DD_SetState (2 , . `E975 1 . `E861 0 ]
+[e ( _DD_SetState (2 , . `E973 1 . `E861 0 ]
 "204
 [; ;EWH.c: 204:             }
 }
@@ -857,7 +857,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 128 ]
 "208
 [; ;EWH.c: 208:         if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED) && (EWH_Mode!=EWH_SLEEP_MODE))
-[e $ ! && == -> ! != >> & -> _PORTB `i << -> 1 `i -> 2 `i -> 2 `i -> 0 `i `i -> . `E1056 1 `i != -> _EWH_Mode `ui -> . `E1012 0 `ui 132  ]
+[e $ ! && == -> ! != >> & -> _PORTB `i << -> 1 `i -> 2 `i -> 2 `i -> 0 `i `i -> . `E1053 1 `i != -> _EWH_Mode `ui -> . `E1009 0 `ui 132  ]
 "209
 [; ;EWH.c: 209:         {
 {
@@ -866,7 +866,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "211
 [; ;EWH.c: 211:             if((!((PORTB & (1<<2)) >> 2)==SW_PRESSED))
-[e $ ! == -> ! != >> & -> _PORTB `i << -> 1 `i -> 2 `i -> 2 `i -> 0 `i `i -> . `E1056 1 `i 133  ]
+[e $ ! == -> ! != >> & -> _PORTB `i << -> 1 `i -> 2 `i -> 2 `i -> 0 `i `i -> . `E1053 1 `i 133  ]
 "212
 [; ;EWH.c: 212:             {
 {
@@ -884,7 +884,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _NoPress_Sec_count -> -> 0 `i `uc ]
 "222
 [; ;EWH.c: 222:                 EWH_SetMode(EWH_SET_TEMP_MODE);
-[e ( _EWH_SetMode (1 . `E1012 2 ]
+[e ( _EWH_SetMode (1 . `E1009 2 ]
 "224
 [; ;EWH.c: 224:                 break;
 [e $U 126  ]
@@ -898,7 +898,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 132 ]
 "227
 [; ;EWH.c: 227:         if((!((PORTB & (1<<1)) >> 1)==SW_PRESSED) && (EWH_Mode!=EWH_SLEEP_MODE))
-[e $ ! && == -> ! != >> & -> _PORTB `i << -> 1 `i -> 1 `i -> 1 `i -> 0 `i `i -> . `E1056 1 `i != -> _EWH_Mode `ui -> . `E1012 0 `ui 134  ]
+[e $ ! && == -> ! != >> & -> _PORTB `i << -> 1 `i -> 1 `i -> 1 `i -> 0 `i `i -> . `E1053 1 `i != -> _EWH_Mode `ui -> . `E1009 0 `ui 134  ]
 "228
 [; ;EWH.c: 228:         {
 {
@@ -907,7 +907,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "230
 [; ;EWH.c: 230:             if((!((PORTB & (1<<1)) >> 1)==SW_PRESSED))
-[e $ ! == -> ! != >> & -> _PORTB `i << -> 1 `i -> 1 `i -> 1 `i -> 0 `i `i -> . `E1056 1 `i 135  ]
+[e $ ! == -> ! != >> & -> _PORTB `i << -> 1 `i -> 1 `i -> 1 `i -> 0 `i `i -> . `E1053 1 `i 135  ]
 "231
 [; ;EWH.c: 231:             {
 {
@@ -925,7 +925,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _NoPress_Sec_count -> -> 0 `i `uc ]
 "241
 [; ;EWH.c: 241:                 EWH_SetMode(EWH_SET_TEMP_MODE);
-[e ( _EWH_SetMode (1 . `E1012 2 ]
+[e ( _EWH_SetMode (1 . `E1009 2 ]
 "243
 [; ;EWH.c: 243:                 break;
 [e $U 126  ]
@@ -948,7 +948,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _EWH_ClearEvent (1 -> -> 0 `i `uc ]
 "251
 [; ;EWH.c: 251:             EWH_SetMode(EWH_SLEEP_MODE);
-[e ( _EWH_SetMode (1 . `E1012 0 ]
+[e ( _EWH_SetMode (1 . `E1009 0 ]
 "253
 [; ;EWH.c: 253:             break ;
 [e $U 126  ]
@@ -982,10 +982,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _TMR1_cfg `S98 ~T0 @X0 1 a ]
 "266
 [; ;EWH.c: 266:     TMR1_cfg.Prescaler=TMR1_PRESCALER_4;
-[e = . _TMR1_cfg 0 . `E992 2 ]
+[e = . _TMR1_cfg 0 . `E990 2 ]
 "267
 [; ;EWH.c: 267:     TMR1_cfg.clkSource=EXTERNAL_CLK_SOURCE;
-[e = . _TMR1_cfg 1 . `E998 1 ]
+[e = . _TMR1_cfg 1 . `E996 1 ]
 "270
 [; ;EWH.c: 270:     TMR1_Init(&TMR1_cfg);
 [e ( _TMR1_Init (1 &U _TMR1_cfg ]
@@ -994,16 +994,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _adc_config `S96 ~T0 @X0 1 a ]
 "274
 [; ;EWH.c: 274:     adc_config.alignment=RIGHT;
-[e = . _adc_config 2 . `E949 1 ]
+[e = . _adc_config 2 . `E947 1 ]
 "275
 [; ;EWH.c: 275:     adc_config.channel=ADC2;
-[e = . _adc_config 0 . `E934 2 ]
+[e = . _adc_config 0 . `E932 2 ]
 "276
 [; ;EWH.c: 276:     adc_config.clk=FOSC_8;
-[e = . _adc_config 3 . `E953 1 ]
+[e = . _adc_config 3 . `E951 1 ]
 "277
 [; ;EWH.c: 277:     adc_config.mode= POLLING_MODE;
-[e = . _adc_config 1 . `E945 0 ]
+[e = . _adc_config 1 . `E943 0 ]
 "280
 [; ;EWH.c: 280:     ADC_Init(&adc_config);
 [e ( _ADC_Init (1 &U _adc_config ]
@@ -1015,10 +1015,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . _i2c_config 1 -> -> -> 100000 `l `o `uo ]
 "285
 [; ;EWH.c: 285:     i2c_config.Mode=Master_Mode;
-[e = . _i2c_config 0 . `E884 2 ]
+[e = . _i2c_config 0 . `E882 2 ]
 "286
 [; ;EWH.c: 286:     i2c_config.operationMode=POLLING;
-[e = . _i2c_config 2 . `E900 1 ]
+[e = . _i2c_config 2 . `E898 1 ]
 "289
 [; ;EWH.c: 289:     I2C_Init(&i2c_config);
 [e ( _I2C_Init (1 &U _i2c_config ]
@@ -1037,14 +1037,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "301
 [; ;EWH.c: 301: void EWH_SetMode(sEWH_Mode new_mode)
-[v _EWH_SetMode `(v ~T0 @X0 1 ef1`E1012 ]
+[v _EWH_SetMode `(v ~T0 @X0 1 ef1`E1009 ]
 "302
 [; ;EWH.c: 302: {
 {
 [e :U _EWH_SetMode ]
 "301
 [; ;EWH.c: 301: void EWH_SetMode(sEWH_Mode new_mode)
-[v _new_mode `E1012 ~T0 @X0 1 r1 ]
+[v _new_mode `E1009 ~T0 @X0 1 r1 ]
 "302
 [; ;EWH.c: 302: {
 [f ]
@@ -1279,8 +1279,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "361
 [; ;EWH.c: 361:     static uint8_t count =0;
-[v F1103 `uc ~T0 @X0 1 s count ]
-[i F1103
+[v F1100 `uc ~T0 @X0 1 s count ]
+[i F1100
 -> -> 0 `i `uc
 ]
 "363
@@ -1303,7 +1303,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _EWH_State . `E861 0 ]
 "372
 [; ;EWH.c: 372:             EWH_SetMode(EWH_SLEEP_MODE);
-[e ( _EWH_SetMode (1 . `E1012 0 ]
+[e ( _EWH_SetMode (1 . `E1009 0 ]
 "373
 [; ;EWH.c: 373:         }
 }
@@ -1320,7 +1320,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _EWH_State . `E861 1 ]
 "377
 [; ;EWH.c: 377:             EWH_SetMode(EWH_WAKE_UP_MODE);
-[e ( _EWH_SetMode (1 . `E1012 1 ]
+[e ( _EWH_SetMode (1 . `E1009 1 ]
 "378
 [; ;EWH.c: 378:         }
 }
@@ -1341,17 +1341,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "384
 [; ;EWH.c: 384:         count++;
-[e ++ F1103 -> -> 1 `i `uc ]
+[e ++ F1100 -> -> 1 `i `uc ]
 "385
 [; ;EWH.c: 385:         if(EWH_Mode==EWH_OPERATING_MODE)
-[e $ ! == -> _EWH_Mode `ui -> . `E1012 3 `ui 158  ]
+[e $ ! == -> _EWH_Mode `ui -> . `E1009 3 `ui 158  ]
 "386
 [; ;EWH.c: 386:         {
 {
 "387
 [; ;EWH.c: 387:             uint16_t Reading = ADC_ReadChannel(ADC2);
 [v _Reading `us ~T0 @X0 1 a ]
-[e = _Reading ( _ADC_ReadChannel (1 . `E934 2 ]
+[e = _Reading ( _ADC_ReadChannel (1 . `E932 2 ]
 "388
 [; ;EWH.c: 388:             current_Temp=Reading*0.488;
 [e = _current_Temp -> * -> -> _Reading `ui `d .0.488 `uc ]
@@ -1370,13 +1370,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 158 ]
 "394
 [; ;EWH.c: 394:         if(count==10)
-[e $ ! == -> F1103 `i -> 10 `i 159  ]
+[e $ ! == -> F1100 `i -> 10 `i 159  ]
 "395
 [; ;EWH.c: 395:         {
 {
 "397
 [; ;EWH.c: 397:             if(EWH_Mode==EWH_SET_TEMP_MODE)
-[e $ ! == -> _EWH_Mode `ui -> . `E1012 2 `ui 160  ]
+[e $ ! == -> _EWH_Mode `ui -> . `E1009 2 `ui 160  ]
 "398
 [; ;EWH.c: 398:             {
 {
@@ -1405,7 +1405,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 160 ]
 "407
 [; ;EWH.c: 407:             if(EWH_Mode==EWH_OPERATING_MODE && DD_GetState(HEATER)==ON)
-[e $ ! && == -> _EWH_Mode `ui -> . `E1012 3 `ui == -> ( _DD_GetState (1 . `E975 0 `ui -> . `E861 1 `ui 162  ]
+[e $ ! && == -> _EWH_Mode `ui -> . `E1009 3 `ui == -> ( _DD_GetState (1 . `E973 0 `ui -> . `E861 1 `ui 162  ]
 "408
 [; ;EWH.c: 408:             {
 {
@@ -1419,7 +1419,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "411
 [; ;EWH.c: 411:             else if(EWH_Mode==EWH_OPERATING_MODE && DD_GetState(COOLER)==ON)
 [e :U 162 ]
-[e $ ! && == -> _EWH_Mode `ui -> . `E1012 3 `ui == -> ( _DD_GetState (1 . `E975 1 `ui -> . `E861 1 `ui 164  ]
+[e $ ! && == -> _EWH_Mode `ui -> . `E1009 3 `ui == -> ( _DD_GetState (1 . `E973 1 `ui -> . `E861 1 `ui 164  ]
 "412
 [; ;EWH.c: 412:             {
 {
@@ -1433,7 +1433,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 163 ]
 "416
 [; ;EWH.c: 416:             count = 0;
-[e = F1103 -> -> 0 `i `uc ]
+[e = F1100 -> -> 0 `i `uc ]
 "417
 [; ;EWH.c: 417:         }
 }

@@ -21,8 +21,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _PORTB `Vuc ~T0 @X0 0 e@6 ]
 "28 DD.c
 [; ;DD.c: 28: void DD_SetState(tDD device ,tState state)
-[c E884 0 1 2 .. ]
-[n E884 . HEATER COOLER HEATER_LED  ]
+[c E882 0 1 2 .. ]
+[n E882 . HEATER COOLER HEATER_LED  ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -280,14 +280,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "28
 [; ;DD.c: 28: void DD_SetState(tDD device ,tState state)
-[v _DD_SetState `(v ~T0 @X0 1 ef2`E884`E13 ]
+[v _DD_SetState `(v ~T0 @X0 1 ef2`E882`E13 ]
 "29
 [; ;DD.c: 29: {
 {
 [e :U _DD_SetState ]
 "28
 [; ;DD.c: 28: void DD_SetState(tDD device ,tState state)
-[v _device `E884 ~T0 @X0 1 r1 ]
+[v _device `E882 ~T0 @X0 1 r1 ]
 [v _state `E13 ~T0 @X0 1 r2 ]
 "29
 [; ;DD.c: 29: {
@@ -345,9 +345,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 98  ]
 [e :U 99 ]
-[e [\ -> _device `ui , $ -> . `E884 0 `ui 100
- , $ -> . `E884 1 `ui 101
- , $ -> . `E884 2 `ui 102
+[e [\ -> _device `ui , $ -> . `E882 0 `ui 100
+ , $ -> . `E882 1 `ui 101
+ , $ -> . `E882 2 `ui 102
  103 ]
 [e :U 98 ]
 "48
@@ -356,14 +356,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "50
 [; ;DD.c: 50: tState DD_GetState(tDD device)
-[v _DD_GetState `(E13 ~T0 @X0 1 ef1`E884 ]
+[v _DD_GetState `(E13 ~T0 @X0 1 ef1`E882 ]
 "51
 [; ;DD.c: 51: {
 {
 [e :U _DD_GetState ]
 "50
 [; ;DD.c: 50: tState DD_GetState(tDD device)
-[v _device `E884 ~T0 @X0 1 r1 ]
+[v _device `E882 ~T0 @X0 1 r1 ]
 "51
 [; ;DD.c: 51: {
 [f ]
@@ -414,9 +414,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 105  ]
 [e :U 106 ]
-[e [\ -> _device `ui , $ -> . `E884 0 `ui 107
- , $ -> . `E884 1 `ui 108
- , $ -> . `E884 2 `ui 109
+[e [\ -> _device `ui , $ -> . `E882 0 `ui 107
+ , $ -> . `E882 1 `ui 108
+ , $ -> . `E882 2 `ui 109
  110 ]
 [e :U 105 ]
 "67

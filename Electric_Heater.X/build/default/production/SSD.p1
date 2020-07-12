@@ -15,10 +15,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "340
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 340: extern volatile unsigned char PORTD __attribute__((address(0x008)));
 [v _PORTD `Vuc ~T0 @X0 0 e@8 ]
-[v F861 `(v ~T0 @X0 1 tf1`ul ]
-"92 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
-[v __delay `JF861 ~T0 @X0 0 e ]
-[p i __delay ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -371,77 +367,42 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 102 ]
 }
 "61
-[; ;SSD.c: 61: void Heater_Display(uint16_t temp)
-[v _Heater_Display `(v ~T0 @X0 1 ef1`us ]
+[; ;SSD.c: 61: void SSD_OFF (SSD_ID ID)
+[v _SSD_OFF `(v ~T0 @X0 1 ef1`uc ]
 "62
 [; ;SSD.c: 62: {
 {
-[e :U _Heater_Display ]
+[e :U _SSD_OFF ]
 "61
-[; ;SSD.c: 61: void Heater_Display(uint16_t temp)
-[v _temp `us ~T0 @X0 1 r1 ]
+[; ;SSD.c: 61: void SSD_OFF (SSD_ID ID)
+[v _ID `uc ~T0 @X0 1 r1 ]
 "62
 [; ;SSD.c: 62: {
 [f ]
 "63
-[; ;SSD.c: 63:     SSD_config(3,OFF);
-[e ( _SSD_config (2 , -> -> 3 `i `uc . `E13 0 ]
+[; ;SSD.c: 63:     SSD_config(ID,OFF);
+[e ( _SSD_config (2 , _ID . `E13 0 ]
 "64
-[; ;SSD.c: 64:     SSD_Write(4,temp%10);
-[e ( _SSD_Write (2 , -> -> 4 `i `uc -> % -> _temp `ui -> -> 10 `i `ui `uc ]
-"65
-[; ;SSD.c: 65:     _delay((unsigned long)((60)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"66
-[; ;SSD.c: 66:     SSD_config(4,OFF);
-[e ( _SSD_config (2 , -> -> 4 `i `uc . `E13 0 ]
-"67
-[; ;SSD.c: 67:     SSD_Write(3,(uint8_t)temp/10);
-[e ( _SSD_Write (2 , -> -> 3 `i `uc -> / -> -> _temp `uc `i -> 10 `i `uc ]
-"68
-[; ;SSD.c: 68:     _delay((unsigned long)((60)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"69
-[; ;SSD.c: 69: }
+[; ;SSD.c: 64: }
 [e :UE 105 ]
 }
-"71
-[; ;SSD.c: 71: void SSD_OFF (SSD_ID ID)
-[v _SSD_OFF `(v ~T0 @X0 1 ef1`uc ]
-"72
-[; ;SSD.c: 72: {
-{
-[e :U _SSD_OFF ]
-"71
-[; ;SSD.c: 71: void SSD_OFF (SSD_ID ID)
-[v _ID `uc ~T0 @X0 1 r1 ]
-"72
-[; ;SSD.c: 72: {
-[f ]
-"73
-[; ;SSD.c: 73:     SSD_config(ID,OFF);
-[e ( _SSD_config (2 , _ID . `E13 0 ]
-"74
-[; ;SSD.c: 74: }
-[e :UE 106 ]
-}
-"76
-[; ;SSD.c: 76: void SSD_ON (SSD_ID ID)
+"66
+[; ;SSD.c: 66: void SSD_ON (SSD_ID ID)
 [v _SSD_ON `(v ~T0 @X0 1 ef1`uc ]
-"77
-[; ;SSD.c: 77: {
+"67
+[; ;SSD.c: 67: {
 {
 [e :U _SSD_ON ]
-"76
-[; ;SSD.c: 76: void SSD_ON (SSD_ID ID)
+"66
+[; ;SSD.c: 66: void SSD_ON (SSD_ID ID)
 [v _ID `uc ~T0 @X0 1 r1 ]
-"77
-[; ;SSD.c: 77: {
+"67
+[; ;SSD.c: 67: {
 [f ]
-"78
-[; ;SSD.c: 78:     SSD_config(ID,ON);
+"68
+[; ;SSD.c: 68:     SSD_config(ID,ON);
 [e ( _SSD_config (2 , _ID . `E13 1 ]
-"79
-[; ;SSD.c: 79: }
-[e :UE 107 ]
+"69
+[; ;SSD.c: 69: }
+[e :UE 106 ]
 }

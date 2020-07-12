@@ -1744,7 +1744,6 @@ typedef struct
 
 void TMR1_Init(tTMR1_Config *config);
 void TMR1_Start();
-void TMR1_Update();
 void TMR1_Stop();
 # 13 "TMR1.c" 2
 
@@ -1786,10 +1785,7 @@ void TMR1_Start()
     TMR1=40536;
     (TMR1ON = 1);
 }
-void TMR1_Update()
-{
 
-}
 void TMR1_Stop()
 {
     (TMR1ON = 0);

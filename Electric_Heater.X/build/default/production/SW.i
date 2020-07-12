@@ -1772,7 +1772,6 @@ typedef uint8_t SSD_Number;
 
 static void SSD_config (SSD_ID ID ,tState Display_state);
 Std_ReturnType SSD_Write(SSD_ID ID ,SSD_Number Number);
-void Heater_Display(uint16_t temp);
 void SSD_OFF(SSD_ID ID);
 void SSD_ON(SSD_ID ID);
 # 17 "./Port.h" 2

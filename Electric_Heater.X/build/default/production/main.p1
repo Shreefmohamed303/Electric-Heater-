@@ -9,19 +9,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S97 . HEATER_State HEATER_LED_State COOLER_State ]
 "42 ./EWH.h
 [; ;./EWH.h: 42: sEWH_Mode EWH_Mode=EWH_SLEEP_MODE;
-[c E1012 0 1 2 3 .. ]
-[n E1012 . EWH_SLEEP_MODE EWH_WAKE_UP_MODE EWH_SET_TEMP_MODE EWH_OPERATING_MODE  ]
+[c E1009 0 1 2 3 .. ]
+[n E1009 . EWH_SLEEP_MODE EWH_WAKE_UP_MODE EWH_SET_TEMP_MODE EWH_OPERATING_MODE  ]
 "48
 [; ;./EWH.h: 48: tbool SSD_Blink_flag=FALSE;
 [c E865 0 1 .. ]
 [n E865 . FALSE TRUE  ]
 "47 ./SW.h
 [; ;./SW.h: 47: tSW_StateControl SW_StateControl={SW_REALESED,SW_REALESED,SW_REALESED};
-[c E1056 0 1 .. ]
-[n E1056 . SW_REALESED SW_PRESSED  ]
+[c E1053 0 1 .. ]
+[n E1053 . SW_REALESED SW_PRESSED  ]
 "39
 [; ;./SW.h: 39: {
-[s S99 `E1056 1 `E1056 1 `E1056 1 ]
+[s S99 `E1053 1 `E1053 1 `E1053 1 ]
 [n S99 . ON_OFF_Button_State UP_Button_State DOWN_Button_State ]
 [p mainexit ]
 "53 ./EWH.h
@@ -278,9 +278,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 "42
 [; ;./EWH.h: 42: sEWH_Mode EWH_Mode=EWH_SLEEP_MODE;
-[v _EWH_Mode `E1012 ~T0 @X0 1 e ]
+[v _EWH_Mode `E1009 ~T0 @X0 1 e ]
 [i _EWH_Mode
-. `E1012 0
+. `E1009 0
 ]
 "43
 [; ;./EWH.h: 43: uint8_t set_Temp;
@@ -335,20 +335,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _SW_StateControl
 :U ..
 :U ..
-. `E1056 0
-. `E1056 0
-. `E1056 0
+. `E1053 0
+. `E1053 0
+. `E1053 0
 ..
 ..
 ]
 "48
 [; ;./SW.h: 48: tSW_State SW_State[3]={SW_REALESED,SW_REALESED,SW_REALESED};
-[v _SW_State `E1056 ~T0 @X0 -> 3 `i e ]
+[v _SW_State `E1053 ~T0 @X0 -> 3 `i e ]
 [i _SW_State
 :U ..
-. `E1056 0
-. `E1056 0
-. `E1056 0
+. `E1053 0
+. `E1053 0
+. `E1053 0
 ..
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
@@ -434,10 +434,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 104  ]
 [e :U 105 ]
-[e [\ -> _EWH_Mode `ui , $ -> . `E1012 0 `ui 106
- , $ -> . `E1012 1 `ui 107
- , $ -> . `E1012 3 `ui 108
- , $ -> . `E1012 2 `ui 109
+[e [\ -> _EWH_Mode `ui , $ -> . `E1009 0 `ui 106
+ , $ -> . `E1009 1 `ui 107
+ , $ -> . `E1009 3 `ui 108
+ , $ -> . `E1009 2 `ui 109
  104 ]
 [e :U 104 ]
 "33

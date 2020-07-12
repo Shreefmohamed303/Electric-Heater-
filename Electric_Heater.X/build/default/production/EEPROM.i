@@ -1861,7 +1861,6 @@ void EEPROM_WriteByte(uint16_t address , uint8_t data)
   I2C_Master_Send_Stop();
 }
 
-
 void EEPROM_WritePage(uint16_t address , uint8_t *data , uint8_t Data_length)
 {
   I2C_Master_Send_Start();
@@ -1879,6 +1878,7 @@ void EEPROM_WritePage(uint16_t address , uint8_t *data , uint8_t Data_length)
   I2C_Master_Send_Stop();
 
 }
+
 uint8_t EEPROM_ReadByte(uint16_t address )
 {
     uint8_t data;
@@ -1899,6 +1899,7 @@ uint8_t EEPROM_ReadByte(uint16_t address )
 
     return data;
 }
+
 void EEPROM_ReadPage(uint16_t address , uint8_t *data , uint8_t Data_length)
 {
     I2C_Master_Send_Start();

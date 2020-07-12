@@ -353,30 +353,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;TMR1.c: 51: }
 [e :UE 107 ]
 }
-"52
-[; ;TMR1.c: 52: void TMR1_Update()
-[v _TMR1_Update `(v ~T0 @X0 1 ef ]
 "53
-[; ;TMR1.c: 53: {
-{
-[e :U _TMR1_Update ]
-[f ]
-"55
-[; ;TMR1.c: 55: }
-[e :UE 108 ]
-}
-"56
-[; ;TMR1.c: 56: void TMR1_Stop()
+[; ;TMR1.c: 53: void TMR1_Stop()
 [v _TMR1_Stop `(v ~T0 @X0 1 ef ]
-"57
-[; ;TMR1.c: 57: {
+"54
+[; ;TMR1.c: 54: {
 {
 [e :U _TMR1_Stop ]
 [f ]
-"58
-[; ;TMR1.c: 58:     (TMR1ON = 0);
+"55
+[; ;TMR1.c: 55:     (TMR1ON = 0);
 [e = _TMR1ON -> -> 0 `i `b ]
-"59
-[; ;TMR1.c: 59: }
-[e :UE 109 ]
+"56
+[; ;TMR1.c: 56: }
+[e :UE 108 ]
 }

@@ -393,7 +393,7 @@ void __interrupt() ISR()
 
         if(count==10)
         {
-            // Put Your Second Event Here
+            // Put Your Seconds Event Here
             if(EWH_Mode==EWH_SET_TEMP_MODE)
             {
                 SSD_Blink_flag = ~SSD_Blink_flag;

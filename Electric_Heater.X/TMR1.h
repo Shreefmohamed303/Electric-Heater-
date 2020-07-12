@@ -75,7 +75,6 @@ typedef struct
 
 void TMR1_Init(tTMR1_Config *config); 
 void TMR1_Start();
-void TMR1_Update(); 
 void TMR1_Stop(); 
 
 #endif

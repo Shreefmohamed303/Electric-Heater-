@@ -58,16 +58,6 @@ Std_ReturnType SSD_Write(SSD_ID ID ,SSD_Number Number)
     }
 }
 
-void Heater_Display(uint16_t temp)
-{
-    SSD_config(SSD_2,OFF);
-    SSD_Write(SSD_3,temp%10); 
-    __delay_ms(60);
-    SSD_config(SSD_3,OFF);
-    SSD_Write(SSD_2,(uint8_t)temp/10); 
-    __delay_ms(60);
-}
-
 void SSD_OFF (SSD_ID ID)
 {
     SSD_config(ID,OFF);

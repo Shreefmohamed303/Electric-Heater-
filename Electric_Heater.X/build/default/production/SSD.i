@@ -1768,7 +1768,6 @@ typedef uint8_t SSD_Number;
 
 static void SSD_config (SSD_ID ID ,tState Display_state);
 Std_ReturnType SSD_Write(SSD_ID ID ,SSD_Number Number);
-void Heater_Display(uint16_t temp);
 void SSD_OFF(SSD_ID ID);
 void SSD_ON(SSD_ID ID);
 # 13 "SSD.c" 2
@@ -1831,16 +1830,6 @@ Std_ReturnType SSD_Write(SSD_ID ID ,SSD_Number Number)
 
         return (Std_ReturnType)(0x01u) ;
     }
-}
-
-void Heater_Display(uint16_t temp)
-{
-    SSD_config(3,OFF);
-    SSD_Write(4,temp%10);
-    _delay((unsigned long)((60)*(4000000/4000.0)));
-    SSD_config(4,OFF);
-    SSD_Write(3,(uint8_t)temp/10);
-    _delay((unsigned long)((60)*(4000000/4000.0)));
 }
 
 void SSD_OFF (SSD_ID ID)

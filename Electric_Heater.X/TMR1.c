@@ -49,10 +49,7 @@ void TMR1_Start()
     TMR1=TMR1_PRE_LOAD_VALUE;
     TMR1_ENABLE;
 }
-void TMR1_Update()
-{
-    
-}
+
 void TMR1_Stop()
 {
     TMR1_DISABLE;
