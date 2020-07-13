@@ -69,4 +69,6 @@ void EWH_SSD_OFF();
 void EWH_SSD_Update(uint16_t temp);
 
 uint8_t EWH_getAvrgTempReading(uint8_t *buffer, uint8_t length);
+void EWH_TempUpdate();
+
 #endif

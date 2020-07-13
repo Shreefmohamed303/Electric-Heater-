@@ -11,14 +11,13 @@
  *
  ********************************************************************************/
 #include "EWH.h"
-#include "SW.h"
 
 /*------------------------- States Function Definition -----------------------*/
 void EWH_Sleep_Mode()
 {
         /*  EWH is all OFF  */
     // Clear Event Flag 
-    //EWH_ClearEvent(EWH_ON_OFF_EVENT);
+    EWH_ClearEvent(EWH_ON_OFF_EVENT);
     // Display OFF 
     EWH_SSD_OFF();
     // Heater Element OFF
@@ -29,15 +28,16 @@ void EWH_Sleep_Mode()
     DD_SetState(HEATER_LED,OFF);
     // Stop timer 
     TMR1_Stop();
-
+    
+    while(1)
+    {
+        if(EWH_Mode!=EWH_SLEEP_MODE)
+            return;
+    }
     //SLEEP();
 }
 void EWH_WakeUP_Mode()
 {
-//    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_4,ON);
-//    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_5,OFF);
-//    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_6,OFF);
-   
     // Clear The ON_OFF Event 
     EWH_ClearEvent(EWH_ON_OFF_EVENT);
     
@@ -98,10 +98,6 @@ void EWH_WakeUP_Mode()
 }
 void EWH_SetTemp_Mode()
 {
-//    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_4,OFF);
-//    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_5,ON);
-//    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_6,OFF);
-        
     // 1. Enable Timer 
     TMR1_Start();
     // 2. clear "No Press Second Count"
@@ -173,11 +169,7 @@ void EWH_SetTemp_Mode()
 
 }
 void EWH_Operating_Mode()
-{
-//    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_4,OFF);
-//    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_5,OFF);
-//    GPIO_WritePin(GPIO_PORTB_DATA,GPIOB_PIN_6,ON);
-        
+{ 
     // Enable Temp Sensing Timer 
     TMR1_Start();
 
@@ -185,11 +177,6 @@ void EWH_Operating_Mode()
     {
         EWH_SSD_Update(current_Temp);
         
-        if(TempReading_count==9)
-        {
-            TempavgReading= EWH_getAvrgTempReading(ReadingBuffer,TEMP_READING_BUFFER_LENGTH);
-            ReadingBufferFull=TRUE;
-        }
         if(ReadingBufferFull)
         {
             if(TempavgReading>=(set_Temp+5))
@@ -338,10 +325,10 @@ void EWH_SSD_Update(uint16_t temp)
 {
     SSD_OFF(EWH_SSD_1); 
     SSD_Write(EWH_SSD_2,temp%10); 
-    __delay_ms(30);
+    __delay_ms(25);
     SSD_OFF(EWH_SSD_2); 
     SSD_Write(EWH_SSD_1,(uint8_t)temp/10);
-    __delay_ms(30);
+    __delay_ms(25);
 }
 
 uint8_t EWH_getAvrgTempReading(uint8_t *buffer, uint8_t length)
@@ -355,10 +342,28 @@ uint8_t EWH_getAvrgTempReading(uint8_t *buffer, uint8_t length)
     return averageReading;
 }
 
+void EWH_TempUpdate()
+{
+    uint16_t Reading = ADC_ReadChannel(ADC2); // Read ADC Channel 
+    current_Temp=Reading*0.488; // Make Calibration to convert form Volt to temp
+    ReadingBuffer[TempReading_count]=current_Temp; // filling the Reading Buffer
+    TempReading_count++; // increment TempReading_count this index of reading buffer
+    if(TempReading_count==TEMP_READING_BUFFER_LENGTH)
+    {
+        // Reading buffer is full then we are ready to get average Temp Reading
+        ReadingBufferFull=TRUE;
+    }
+    if(ReadingBufferFull)
+    {
+        TempavgReading= EWH_getAvrgTempReading(ReadingBuffer,TEMP_READING_BUFFER_LENGTH);
+    }
+    // making Range of Temp_readingCount from 0-->9
+    TempReading_count= TempReading_count%TEMP_READING_BUFFER_LENGTH;
+}
 /*---------------------- INTERRUPT SERVICE ROUTINE ---------------------------*/
 void __interrupt() ISR()
 {
-    static uint8_t count =0; 
+    static uint8_t overflow_count =0; 
     /* External Interrupt from RB0 Pin */
     if(INTF==1)
     {
@@ -381,17 +386,13 @@ void __interrupt() ISR()
     /* Timer Over flow interrupt */
     if (TMR1IF)
     {
-        count++;
-        if(EWH_Mode==EWH_OPERATING_MODE)
+        overflow_count++;
+        if(EWH_Mode==EWH_OPERATING_MODE || EWH_Mode==EWH_SET_TEMP_MODE)
         {
-            uint16_t Reading = ADC_ReadChannel(ADC2);
-            current_Temp=Reading*0.488;
-            ReadingBuffer[TempReading_count]=current_Temp;
-            TempReading_count++;
-            TempReading_count= TempReading_count%TEMP_READING_BUFFER_LENGTH;
+            EWH_TempUpdate();
         }
 
-        if(count==10)
+        if(overflow_count==10)
         {
             // Put Your Seconds Event Here
             if(EWH_Mode==EWH_SET_TEMP_MODE)
@@ -412,8 +413,8 @@ void __interrupt() ISR()
             {
                 GPIO_WritePin(HEATER_LED_PORT_DATA,HEATER_LED_PIN,ON);
             }
-            // Clear The Global Counter
-            count = 0;
+            // Clear The Overflow Counter
+            overflow_count = 0;
         }
     TMR1IF = 0; // Clear The Flag Bit
     TMR1=TMR1_PRE_LOAD_VALUE;

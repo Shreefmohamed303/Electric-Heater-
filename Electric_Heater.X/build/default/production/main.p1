@@ -7,33 +7,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./DD.h: 29: {
 [s S97 `E861 1 `E861 1 `E861 1 ]
 [n S97 . HEATER_State HEATER_LED_State COOLER_State ]
+"47 ./SW.h
+[; ;./SW.h: 47: tSW_StateControl SW_StateControl={SW_REALESED,SW_REALESED,SW_REALESED};
+[c E1013 0 1 .. ]
+[n E1013 . SW_REALESED SW_PRESSED  ]
+"39
+[; ;./SW.h: 39: {
+[s S99 `E1013 1 `E1013 1 `E1013 1 ]
+[n S99 . ON_OFF_Button_State UP_Button_State DOWN_Button_State ]
 "42 ./EWH.h
 [; ;./EWH.h: 42: sEWH_Mode EWH_Mode=EWH_SLEEP_MODE;
-[c E1009 0 1 2 3 .. ]
-[n E1009 . EWH_SLEEP_MODE EWH_WAKE_UP_MODE EWH_SET_TEMP_MODE EWH_OPERATING_MODE  ]
+[c E1032 0 1 2 3 .. ]
+[n E1032 . EWH_SLEEP_MODE EWH_WAKE_UP_MODE EWH_SET_TEMP_MODE EWH_OPERATING_MODE  ]
 "48
 [; ;./EWH.h: 48: tbool SSD_Blink_flag=FALSE;
 [c E865 0 1 .. ]
 [n E865 . FALSE TRUE  ]
-"47 ./SW.h
-[; ;./SW.h: 47: tSW_StateControl SW_StateControl={SW_REALESED,SW_REALESED,SW_REALESED};
-[c E1053 0 1 .. ]
-[n E1053 . SW_REALESED SW_PRESSED  ]
-"39
-[; ;./SW.h: 39: {
-[s S99 `E1053 1 `E1053 1 `E1053 1 ]
-[n S99 . ON_OFF_Button_State UP_Button_State DOWN_Button_State ]
 [p mainexit ]
-"53 ./EWH.h
+"53
 [; ;./EWH.h: 53: void EWH_Init();
 [v _EWH_Init `(v ~T0 @X0 0 e? ]
-"1375 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1375: extern volatile unsigned char TRISB __attribute__((address(0x086)));
-[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
-"216
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 216: extern volatile unsigned char PORTB __attribute__((address(0x006)));
-[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
-"58 ./EWH.h
+"58
 [; ;./EWH.h: 58: void EWH_Sleep_Mode();
 [v _EWH_Sleep_Mode `(v ~T0 @X0 0 e? ]
 "59
@@ -270,6 +264,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
+"47 ./SW.h
+[; ;./SW.h: 47: tSW_StateControl SW_StateControl={SW_REALESED,SW_REALESED,SW_REALESED};
+[v _SW_StateControl `S99 ~T0 @X0 1 e ]
+[i _SW_StateControl
+:U ..
+:U ..
+. `E1013 0
+. `E1013 0
+. `E1013 0
+..
+..
+]
+"48
+[; ;./SW.h: 48: tSW_State SW_State[3]={SW_REALESED,SW_REALESED,SW_REALESED};
+[v _SW_State `E1013 ~T0 @X0 -> 3 `i e ]
+[i _SW_State
+:U ..
+. `E1013 0
+. `E1013 0
+. `E1013 0
+..
+]
 "41 ./EWH.h
 [; ;./EWH.h: 41: tEWH_State EWH_State=OFF;
 [v _EWH_State `E861 ~T0 @X0 1 e ]
@@ -278,9 +294,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 "42
 [; ;./EWH.h: 42: sEWH_Mode EWH_Mode=EWH_SLEEP_MODE;
-[v _EWH_Mode `E1009 ~T0 @X0 1 e ]
+[v _EWH_Mode `E1032 ~T0 @X0 1 e ]
 [i _EWH_Mode
-. `E1009 0
+. `E1032 0
 ]
 "43
 [; ;./EWH.h: 43: uint8_t set_Temp;
@@ -329,127 +345,87 @@ Version 4.0 HI-TECH Software Intermediate Code
 "51
 [; ;./EWH.h: 51: uint8_t TempavgReading;
 [v _TempavgReading `uc ~T0 @X0 1 e ]
-"47 ./SW.h
-[; ;./SW.h: 47: tSW_StateControl SW_StateControl={SW_REALESED,SW_REALESED,SW_REALESED};
-[v _SW_StateControl `S99 ~T0 @X0 1 e ]
-[i _SW_StateControl
-:U ..
-:U ..
-. `E1053 0
-. `E1053 0
-. `E1053 0
-..
-..
-]
-"48
-[; ;./SW.h: 48: tSW_State SW_State[3]={SW_REALESED,SW_REALESED,SW_REALESED};
-[v _SW_State `E1053 ~T0 @X0 -> 3 `i e ]
-[i _SW_State
-:U ..
-. `E1053 0
-. `E1053 0
-. `E1053 0
-..
-]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"5 main.c
-[; ;main.c: 5: void main(void)
+"3 main.c
+[; ;main.c: 3: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"6
-[; ;main.c: 6: {
+"4
+[; ;main.c: 4: {
 {
 [e :U _main ]
 [f ]
-"7
-[; ;main.c: 7:     EWH_Init();
+"5
+[; ;main.c: 5:     EWH_Init();
 [e ( _EWH_Init ..  ]
-"9
-[; ;main.c: 9:     (0u)? (TRISB |= (1<<4)) : (TRISB &= ~(1<<4));
-[e ? != -> 0 `ui -> -> 0 `i `ui : -> =| _TRISB -> << -> 1 `i -> 4 `i `Vuc `i -> =& _TRISB -> ~ << -> 1 `i -> 4 `i `Vuc `i ]
-"10
-[; ;main.c: 10:     (0u)? (TRISB |= (1<<5)) : (TRISB &= ~(1<<5));
-[e ? != -> 0 `ui -> -> 0 `i `ui : -> =| _TRISB -> << -> 1 `i -> 5 `i `Vuc `i -> =& _TRISB -> ~ << -> 1 `i -> 5 `i `Vuc `i ]
-"11
-[; ;main.c: 11:     (0u)? (TRISB |= (1<<6)) : (TRISB &= ~(1<<6));
-[e ? != -> 0 `ui -> -> 0 `i `ui : -> =| _TRISB -> << -> 1 `i -> 6 `i `Vuc `i -> =& _TRISB -> ~ << -> 1 `i -> 6 `i `Vuc `i ]
-"13
-[; ;main.c: 13:     (OFF)?(PORTB |= (1<<4)) : (PORTB &= ~(1<<4));
-[e ? != -> . `E861 0 `i -> 0 `i : -> =| _PORTB -> << -> 1 `i -> 4 `i `Vuc `i -> =& _PORTB -> ~ << -> 1 `i -> 4 `i `Vuc `i ]
-"14
-[; ;main.c: 14:     (OFF)?(PORTB |= (1<<5)) : (PORTB &= ~(1<<5));
-[e ? != -> . `E861 0 `i -> 0 `i : -> =| _PORTB -> << -> 1 `i -> 5 `i `Vuc `i -> =& _PORTB -> ~ << -> 1 `i -> 5 `i `Vuc `i ]
-"15
-[; ;main.c: 15:     (OFF)?(PORTB |= (1<<6)) : (PORTB &= ~(1<<6));
-[e ? != -> . `E861 0 `i -> 0 `i : -> =| _PORTB -> << -> 1 `i -> 6 `i `Vuc `i -> =& _PORTB -> ~ << -> 1 `i -> 6 `i `Vuc `i ]
-"16
-[; ;main.c: 16:     while(1)
+"7
+[; ;main.c: 7:     while(1)
 [e :U 102 ]
-"17
-[; ;main.c: 17:     {
+"8
+[; ;main.c: 8:     {
 {
-"18
-[; ;main.c: 18:         switch(EWH_Mode)
+"9
+[; ;main.c: 9:         switch(EWH_Mode)
 [e $U 105  ]
-"19
-[; ;main.c: 19:         {
+"10
+[; ;main.c: 10:         {
 {
-"20
-[; ;main.c: 20:             case EWH_SLEEP_MODE:
+"11
+[; ;main.c: 11:             case EWH_SLEEP_MODE:
 [e :U 106 ]
-"21
-[; ;main.c: 21:                 EWH_Sleep_Mode();
+"12
+[; ;main.c: 12:                 EWH_Sleep_Mode();
 [e ( _EWH_Sleep_Mode ..  ]
+"13
+[; ;main.c: 13:                 break;
+[e $U 104  ]
+"14
+[; ;main.c: 14:             case EWH_WAKE_UP_MODE:
+[e :U 107 ]
+"15
+[; ;main.c: 15:                 EWH_WakeUP_Mode();
+[e ( _EWH_WakeUP_Mode ..  ]
+"16
+[; ;main.c: 16:                 break;
+[e $U 104  ]
+"17
+[; ;main.c: 17:             case EWH_OPERATING_MODE:
+[e :U 108 ]
+"18
+[; ;main.c: 18:                 EWH_Operating_Mode();
+[e ( _EWH_Operating_Mode ..  ]
+"19
+[; ;main.c: 19:                 break;
+[e $U 104  ]
+"20
+[; ;main.c: 20:             case EWH_SET_TEMP_MODE:
+[e :U 109 ]
+"21
+[; ;main.c: 21:                 EWH_SetTemp_Mode();
+[e ( _EWH_SetTemp_Mode ..  ]
 "22
 [; ;main.c: 22:                 break;
 [e $U 104  ]
 "23
-[; ;main.c: 23:             case EWH_WAKE_UP_MODE:
-[e :U 107 ]
-"24
-[; ;main.c: 24:                 EWH_WakeUP_Mode();
-[e ( _EWH_WakeUP_Mode ..  ]
-"25
-[; ;main.c: 25:                 break;
-[e $U 104  ]
-"26
-[; ;main.c: 26:             case EWH_OPERATING_MODE:
-[e :U 108 ]
-"27
-[; ;main.c: 27:                 EWH_Operating_Mode();
-[e ( _EWH_Operating_Mode ..  ]
-"28
-[; ;main.c: 28:                 break;
-[e $U 104  ]
-"29
-[; ;main.c: 29:             case EWH_SET_TEMP_MODE:
-[e :U 109 ]
-"30
-[; ;main.c: 30:                 EWH_SetTemp_Mode();
-[e ( _EWH_SetTemp_Mode ..  ]
-"31
-[; ;main.c: 31:                 break;
-[e $U 104  ]
-"32
-[; ;main.c: 32:         }
+[; ;main.c: 23:         }
 }
 [e $U 104  ]
 [e :U 105 ]
-[e [\ -> _EWH_Mode `ui , $ -> . `E1009 0 `ui 106
- , $ -> . `E1009 1 `ui 107
- , $ -> . `E1009 3 `ui 108
- , $ -> . `E1009 2 `ui 109
+[e [\ -> _EWH_Mode `ui , $ -> . `E1032 0 `ui 106
+ , $ -> . `E1032 1 `ui 107
+ , $ -> . `E1032 3 `ui 108
+ , $ -> . `E1032 2 `ui 109
  104 ]
 [e :U 104 ]
-"33
-[; ;main.c: 33:     }
+"24
+[; ;main.c: 24:     }
 }
 [e :U 101 ]
 [e $U 102  ]
 [e :U 103 ]
-"34
-[; ;main.c: 34:     return;
+"25
+[; ;main.c: 25:     return;
 [e $UE 100  ]
-"35
-[; ;main.c: 35: }
+"26
+[; ;main.c: 26: }
 [e :UE 100 ]
 }

@@ -1943,6 +1943,40 @@ void TMR1_Init(tTMR1_Config *config);
 void TMR1_Start();
 void TMR1_Stop();
 # 12 "./main.h" 2
+
+
+# 1 "./SW.h" 1
+# 25 "./SW.h"
+typedef enum
+{
+    ON_OFF_BUTTON,
+    UP_BUTTON,
+    DOWN_BUTTON,
+}tSW;
+
+typedef enum
+{
+    SW_REALESED=0,
+    SW_PRESSED=1
+}tSW_State;
+
+typedef struct
+{
+    tSW_State ON_OFF_Button_State;
+    tSW_State UP_Button_State;
+    tSW_State DOWN_Button_State;
+}tSW_StateControl;
+
+
+
+tSW_StateControl SW_StateControl={SW_REALESED,SW_REALESED,SW_REALESED};
+tSW_State SW_State[3]={SW_REALESED,SW_REALESED,SW_REALESED};
+
+void SW_Init(void);
+void SW_Update(void);
+void SW_SetState(tSW SW_Name ,tSW_State state);
+tSW_State SW_GetState(tSW SW_Name);
+# 14 "./main.h" 2
 # 17 "./EWH.h" 2
 # 32 "./EWH.h"
 typedef tState tEWH_State;
@@ -1985,40 +2019,8 @@ void EWH_SSD_OFF();
 void EWH_SSD_Update(uint16_t temp);
 
 uint8_t EWH_getAvrgTempReading(uint8_t *buffer, uint8_t length);
+void EWH_TempUpdate();
 # 13 "EWH.c" 2
-
-# 1 "./SW.h" 1
-# 25 "./SW.h"
-typedef enum
-{
-    ON_OFF_BUTTON,
-    UP_BUTTON,
-    DOWN_BUTTON,
-}tSW;
-
-typedef enum
-{
-    SW_REALESED=0,
-    SW_PRESSED=1
-}tSW_State;
-
-typedef struct
-{
-    tSW_State ON_OFF_Button_State;
-    tSW_State UP_Button_State;
-    tSW_State DOWN_Button_State;
-}tSW_StateControl;
-
-
-
-tSW_StateControl SW_StateControl={SW_REALESED,SW_REALESED,SW_REALESED};
-tSW_State SW_State[3]={SW_REALESED,SW_REALESED,SW_REALESED};
-
-void SW_Init(void);
-void SW_Update(void);
-void SW_SetState(tSW SW_Name ,tSW_State state);
-tSW_State SW_GetState(tSW SW_Name);
-# 14 "EWH.c" 2
 
 
 
@@ -2026,7 +2028,7 @@ void EWH_Sleep_Mode()
 {
 
 
-
+    EWH_ClearEvent(0);
 
     EWH_SSD_OFF();
 
@@ -2038,14 +2040,15 @@ void EWH_Sleep_Mode()
 
     TMR1_Stop();
 
+    while(1)
+    {
+        if(EWH_Mode!=EWH_SLEEP_MODE)
+            return;
+    }
 
 }
 void EWH_WakeUP_Mode()
 {
-
-
-
-
 
     EWH_ClearEvent(0);
 
@@ -2106,10 +2109,6 @@ void EWH_WakeUP_Mode()
 }
 void EWH_SetTemp_Mode()
 {
-
-
-
-
 
     TMR1_Start();
 
@@ -2183,21 +2182,12 @@ void EWH_SetTemp_Mode()
 void EWH_Operating_Mode()
 {
 
-
-
-
-
     TMR1_Start();
 
     while(1)
     {
         EWH_SSD_Update(current_Temp);
 
-        if(TempReading_count==9)
-        {
-            TempavgReading= EWH_getAvrgTempReading(ReadingBuffer,10);
-            ReadingBufferFull=TRUE;
-        }
         if(ReadingBufferFull)
         {
             if(TempavgReading>=(set_Temp+5))
@@ -2346,10 +2336,10 @@ void EWH_SSD_Update(uint16_t temp)
 {
     SSD_OFF(3);
     SSD_Write(4,temp%10);
-    _delay((unsigned long)((30)*(4000000/4000.0)));
+    _delay((unsigned long)((25)*(4000000/4000.0)));
     SSD_OFF(4);
     SSD_Write(3,(uint8_t)temp/10);
-    _delay((unsigned long)((30)*(4000000/4000.0)));
+    _delay((unsigned long)((25)*(4000000/4000.0)));
 }
 
 uint8_t EWH_getAvrgTempReading(uint8_t *buffer, uint8_t length)
@@ -2363,10 +2353,28 @@ uint8_t EWH_getAvrgTempReading(uint8_t *buffer, uint8_t length)
     return averageReading;
 }
 
+void EWH_TempUpdate()
+{
+    uint16_t Reading = ADC_ReadChannel(ADC2);
+    current_Temp=Reading*0.488;
+    ReadingBuffer[TempReading_count]=current_Temp;
+    TempReading_count++;
+    if(TempReading_count==10)
+    {
+
+        ReadingBufferFull=TRUE;
+    }
+    if(ReadingBufferFull)
+    {
+        TempavgReading= EWH_getAvrgTempReading(ReadingBuffer,10);
+    }
+
+    TempReading_count= TempReading_count%10;
+}
 
 void __attribute__((picinterrupt(("")))) ISR()
 {
-    static uint8_t count =0;
+    static uint8_t overflow_count =0;
 
     if(INTF==1)
     {
@@ -2389,17 +2397,13 @@ void __attribute__((picinterrupt(("")))) ISR()
 
     if (TMR1IF)
     {
-        count++;
-        if(EWH_Mode==EWH_OPERATING_MODE)
+        overflow_count++;
+        if(EWH_Mode==EWH_OPERATING_MODE || EWH_Mode==EWH_SET_TEMP_MODE)
         {
-            uint16_t Reading = ADC_ReadChannel(ADC2);
-            current_Temp=Reading*0.488;
-            ReadingBuffer[TempReading_count]=current_Temp;
-            TempReading_count++;
-            TempReading_count= TempReading_count%10;
+            EWH_TempUpdate();
         }
 
-        if(count==10)
+        if(overflow_count==10)
         {
 
             if(EWH_Mode==EWH_SET_TEMP_MODE)
@@ -2421,7 +2425,7 @@ void __attribute__((picinterrupt(("")))) ISR()
                 (ON)?(PORTB |= (1<<7)) : (PORTB &= ~(1<<7));
             }
 
-            count = 0;
+            overflow_count = 0;
         }
     TMR1IF = 0;
     TMR1=40536;

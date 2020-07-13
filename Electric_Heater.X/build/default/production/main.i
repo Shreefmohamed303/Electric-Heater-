@@ -7,7 +7,6 @@
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-
 # 1 "./EWH.h" 1
 # 17 "./EWH.h"
 # 1 "./main.h" 1
@@ -1943,6 +1942,40 @@ void TMR1_Init(tTMR1_Config *config);
 void TMR1_Start();
 void TMR1_Stop();
 # 12 "./main.h" 2
+
+
+# 1 "./SW.h" 1
+# 25 "./SW.h"
+typedef enum
+{
+    ON_OFF_BUTTON,
+    UP_BUTTON,
+    DOWN_BUTTON,
+}tSW;
+
+typedef enum
+{
+    SW_REALESED=0,
+    SW_PRESSED=1
+}tSW_State;
+
+typedef struct
+{
+    tSW_State ON_OFF_Button_State;
+    tSW_State UP_Button_State;
+    tSW_State DOWN_Button_State;
+}tSW_StateControl;
+
+
+
+tSW_StateControl SW_StateControl={SW_REALESED,SW_REALESED,SW_REALESED};
+tSW_State SW_State[3]={SW_REALESED,SW_REALESED,SW_REALESED};
+
+void SW_Init(void);
+void SW_Update(void);
+void SW_SetState(tSW SW_Name ,tSW_State state);
+tSW_State SW_GetState(tSW SW_Name);
+# 14 "./main.h" 2
 # 17 "./EWH.h" 2
 # 32 "./EWH.h"
 typedef tState tEWH_State;
@@ -1985,53 +2018,14 @@ void EWH_SSD_OFF();
 void EWH_SSD_Update(uint16_t temp);
 
 uint8_t EWH_getAvrgTempReading(uint8_t *buffer, uint8_t length);
-# 2 "main.c" 2
-
-# 1 "./SW.h" 1
-# 25 "./SW.h"
-typedef enum
-{
-    ON_OFF_BUTTON,
-    UP_BUTTON,
-    DOWN_BUTTON,
-}tSW;
-
-typedef enum
-{
-    SW_REALESED=0,
-    SW_PRESSED=1
-}tSW_State;
-
-typedef struct
-{
-    tSW_State ON_OFF_Button_State;
-    tSW_State UP_Button_State;
-    tSW_State DOWN_Button_State;
-}tSW_StateControl;
-
-
-
-tSW_StateControl SW_StateControl={SW_REALESED,SW_REALESED,SW_REALESED};
-tSW_State SW_State[3]={SW_REALESED,SW_REALESED,SW_REALESED};
-
-void SW_Init(void);
-void SW_Update(void);
-void SW_SetState(tSW SW_Name ,tSW_State state);
-tSW_State SW_GetState(tSW SW_Name);
-# 3 "main.c" 2
+void EWH_TempUpdate();
+# 1 "main.c" 2
 
 
 void main(void)
 {
     EWH_Init();
 
-    (0u)? (TRISB |= (1<<4)) : (TRISB &= ~(1<<4));
-    (0u)? (TRISB |= (1<<5)) : (TRISB &= ~(1<<5));
-    (0u)? (TRISB |= (1<<6)) : (TRISB &= ~(1<<6));
-
-    (OFF)?(PORTB |= (1<<4)) : (PORTB &= ~(1<<4));
-    (OFF)?(PORTB |= (1<<5)) : (PORTB &= ~(1<<5));
-    (OFF)?(PORTB |= (1<<6)) : (PORTB &= ~(1<<6));
     while(1)
     {
         switch(EWH_Mode)
