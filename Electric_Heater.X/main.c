@@ -3,7 +3,7 @@
 void main(void) 
 {
     EWH_Init();
-    
+
     while(1)
     {
         switch(EWH_Mode)

@@ -54,7 +54,6 @@ uint8_t EEPROM_ReadByte(uint16_t address )
     while(I2C_Master_WriteByte(EEPROM_ADDRESS_WRITE | ((address & 0x0700)>>7)) )
         I2C_Master_Send_RepeatedStart(); 
     
-    //I2C_Master_WriteByte(address>>8); 
     I2C_Master_WriteByte((uint8_t)address);
     
     I2C_Master_Send_RepeatedStart(); 

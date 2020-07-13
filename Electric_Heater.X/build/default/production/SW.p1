@@ -223,6 +223,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 111 `i `uc
 ..
 ]
+"11 ./config.h
+[p x FOSC = XT ]
+"12
+[p x WDTE = OFF ]
+"13
+[p x PWRTE = ON ]
+"14
+[p x BOREN = ON ]
+"15
+[p x LVP = OFF ]
+"17
+[p x CPD = OFF ]
+"18
+[p x WRT = OFF ]
+"20
+[p x CP = OFF ]
 "47 ./SW.h
 [; ;./SW.h: 47: tSW_StateControl SW_StateControl={SW_REALESED,SW_REALESED,SW_REALESED};
 [v _SW_StateControl `S95 ~T0 @X0 1 e ]

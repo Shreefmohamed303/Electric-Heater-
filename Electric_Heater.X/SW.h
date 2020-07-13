@@ -16,7 +16,7 @@
 
 #include "GPIO.h"
 #include "Port.h"
-
+#include "config.h"
 /*-------------------------- Important Defines -------------------------------*/
 #define NUM_OF_SWs              3
 #define UP_BUTTON_IS_PRESSED    (!GPIO_ReadPin(UP_BUTTON_PORT_DATA,UP_BUTTON_PIN)==SW_PRESSED)

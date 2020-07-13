@@ -4,4 +4,5 @@ SW.h  \
 GPIO.h  \
 Std_Types.h  \
 Port.h  \
-SSD.h 
+SSD.h  \
+config.h 

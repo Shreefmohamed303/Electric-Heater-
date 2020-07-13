@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.20\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\Electric_Heater.X.production.sym \
   --cmf=dist/default/production\Electric_Heater.X.production.cmf -z \
-  -Q16F877A -oC:\Users\LENOVO\AppData\Local\Temp\sd1o.2 \
+  -Q16F877A -oC:\Users\LENOVO\AppData\Local\Temp\s34c.2 \
   --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/Electric_Heater.X.production.map -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK \
@@ -19,7 +19,7 @@ Linker command line:
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
   -pfunctab=ENTRY -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 \
   -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  C:\Users\LENOVO\AppData\Local\Temp\sd1o.o \
+  C:\Users\LENOVO\AppData\Local\Temp\s34c.o \
   dist/default/production\Electric_Heater.X.production.o 
 
 Object code version is 3.11
@@ -29,7 +29,7 @@ Machine type is 16F877A
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\LENOVO\AppData\Local\Temp\sd1o.o
+C:\Users\LENOVO\AppData\Local\Temp\s34c.o
                 end_init                             12       12        3        8       0
                 reset_vec                             0        0        3        0       0
                 config                             2007     2007        1        0       4

@@ -1777,6 +1777,19 @@ void SSD_ON(SSD_ID ID);
 # 17 "./Port.h" 2
 # 18 "./SW.h" 2
 
+# 1 "./config.h" 1
+# 11 "./config.h"
+#pragma config FOSC = XT
+#pragma config WDTE = OFF
+#pragma config PWRTE = ON
+#pragma config BOREN = ON
+#pragma config LVP = OFF
+
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+
+#pragma config CP = OFF
+# 19 "./SW.h" 2
 
 
 
